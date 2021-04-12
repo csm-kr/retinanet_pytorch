@@ -35,7 +35,7 @@ COCO
 
 - whole training epoch is 50 and learning rate decay is at 30, 45
 
-### trining
+### training options
 
 - batch : 16
 - scheduler : step LR
