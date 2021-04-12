@@ -31,15 +31,9 @@ COCO
 
 ### scheduler
 
-- we use step LR scheduler and learning rate warm-up(burning) scheme 
+- we use step LR scheduler scheme.
 
 - whole training epoch is 50 and learning rate decay is at 30, 45
-
-### warm-up(burn-in)
-
-- batch 16 
-
-- lr : 0 to 1e-3 (i/1000)
 
 ### trining
 
