@@ -16,17 +16,17 @@ re-implementation of Retinanet detection : https://arxiv.org/abs/1708.02002
 - [X] Coder
 
 ### Experiment
-- [ ] VOC 실험하기
-- [x] COCO 실험하기
+- [ ] VOC 
+- [x] COCO 
 
 COCO
 
-|methods     | Traning Dataset   |    Testing Dataset     | Resolution | AP        |AP50   |AP75    |Time | Fps  |
-|------------|-------------------| ---------------------- | ---------- | --------- |-------|--------| ----| ---- |
-|papers      | COCOtrain2017     |  COCO test-dev         | 600 x 600  |  34.0     |52.5   |36.5    |98   |10.20 |
-|papers      | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  34.3     |53.2   |36.9    |98   |10.20 |
-|our repo    | COCOtrain2017     |  COCO test-dev         | 600 x 600  |-          |-      |-       |-    |-     |
-|our repo    | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |**34.7**   |53.5   |37.1    |67   |14.85 |
+|methods     | Traning Dataset   |    Testing Dataset     | Resolution | AP        |AP50     |AP75    |Time | Fps  |
+|------------|-------------------| ---------------------- | ---------- | --------- |---------|--------| ----| ---- |
+|papers      | COCOtrain2017     |  COCO test-dev         | 600 x 600  |  34.0     |52.5     |36.5    |98   |10.20 |
+|papers      | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  34.3     |53.2     |36.9    |98   |10.20 |
+|our repo    | COCOtrain2017     |  COCO test-dev         | 600 x 600  |**34.7**   |**53.6** |**37.3**|67   |14.85 |
+|our repo    | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |**34.7**   |**53.5** |**37.1**|67   |14.85 |
 
 
 best epoch : 58.
@@ -51,56 +51,50 @@ best epoch : 58.
 
 - dataset
 
-train : trainval35k == train2017
+    train : trainval35k == train2017
 
-test : minval2014 == val2017
+    test : minval2014 == val2017
 
 - data augmentation
 
-1. papers use only horizontal image flipping for data augmentation
+    1. papers use only horizontal image flipping for data augmentation, But this repo uses data augmentation 
+    (random crop, expand, flip, photometric distortion, resize)
+    refers to https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Object-Detection/blob/master/utils.py
 
-2. this repo uses 
+- results
 
-or
-test-dev 
-
+    minival eval
+```
+Evaluate annotation type *bbox*
+DONE (t=89.60s).
+Accumulating evaluation results...
+DONE (t=13.50s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.347
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.535
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.371
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.181
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.393
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.502
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.306
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.485
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.532
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.330
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.605
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.710
 ```
 
-batch : 16 
-[8, 12]/14 - 32.14 mAP/600
-[8, 18]/20 - 
-[8, 12]/14 - 34.07 mAP / 800
+### Reference
 
+ssd tutorial : data augmentation and detection structure
 
-cf)
-총 90K 돈다.
-   paper   |    epoch   |   iter   |  accum        |
-0 ~ 60K    | (7329 * 8) |  58,632  |  58,632 (59k) | ~ 8 epoch [0, 7]    8
-1e-2
-60K ~ 80K  | (7329 * 3) |  21,987  |  80,619 (81K) | ~ 11 epoch [8, 11] 12
-1e-3
-80K ~ 90K  | (7329 * 2) |  14,685  |  95,304 (95K) | ~ 13 epoch         14
-1e-4
+https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Object-Detection
 
-iteration : 90K
-batch * iteraion = 16 * 90,000 = 1,440,000 / 117266
+retina net pytorch
 
-117266 / 16 -> 7329 iteration (7K)
-1 epoch 에 약 7K
-10 epoch 은 약 70K 
-20 epoch 은 약 140K
+https://github.com/NVIDIA/retinanet-examples
 
+https://github.com/yhenon/pytorch-retinanet
 
-```
-
-### experiments
-
-```
-1. 
-```
-```
-2. 
-```
 ### Start Guide
 
 
