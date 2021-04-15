@@ -118,10 +118,10 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--epoch', type=int, default=0)
+    parser.add_argument('--epoch', type=int, default=58)
     parser.add_argument('--save_path', type=str, default='./saves')
     parser.add_argument('--save_file_name', type=str, default='retina_res_50_coco')
-    parser.add_argument('--conf_thres', type=float, default=0.35)
+    parser.add_argument('--conf_thres', type=float, default=0.05)
 
     # FIXME choose your image path
     # parser.add_argument('--img_path', type=str, default='D:\data\\voc\VOCtest_06-Nov-2007\VOCdevkit\VOC2007\JPEGImages')
@@ -130,9 +130,10 @@ if __name__ == '__main__':
     parser.add_argument('--img_path', type=str, default='/home/cvmlserver5/Sungmin/data/coco/images/val2017')
 
     parser.add_argument('--resize', type=int, default=600)
-    parser.add_argument('--visualization', type=bool, default=True)
-    parser.add_argument('--data_type', type=str, default='coco', help='choose voc or coco')
+    parser.set_defaults(visualization=False)
+    parser.add_argument('--vis', dest='visualization', action='store_true')
 
+    parser.add_argument('--data_type', type=str, default='coco', help='choose voc or coco')
     parser.add_argument('--num_classes', type=int, default=80)
     demo_opts = parser.parse_args()
     print(demo_opts)

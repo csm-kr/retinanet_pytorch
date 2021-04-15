@@ -106,7 +106,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--epoch', type=int, default=14)
+    parser.add_argument('--epoch', type=int, default=58)
     parser.add_argument('--save_path', type=str, default='./saves')
     parser.add_argument('--save_file_name', type=str, default='retina_res_50_coco')
     parser.add_argument('--conf_thres', type=float, default=0.05)
