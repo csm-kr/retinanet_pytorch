@@ -1,6 +1,5 @@
 import os
 import wget
-import math
 import glob
 import torch
 import tarfile
@@ -72,7 +71,7 @@ class VOC_Dataset(data.Dataset):
                    'sheep', 'sofa', 'train', 'tvmonitor')
 
     """
-    ssd_dataset 읽어드리는 로더
+    voc dataset
     """
     def __init__(self, root='D:\data\\voc', split='train', download=True, resize=300):
         super(VOC_Dataset, self).__init__()

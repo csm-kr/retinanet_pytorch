@@ -48,10 +48,10 @@ def download_coco(root_dir='D:\data\\coco', remove_compressed_file=True):
     print("Download...")
 
     # image download
-    # wget.download(url=coco_2017_train_url, out=img_dir, bar=bar_custom)
-    # print('')
-    # wget.download(url=coco_2017_val_url, out=img_dir, bar=bar_custom)
-    # print('')
+    wget.download(url=coco_2017_train_url, out=img_dir, bar=bar_custom)
+    print('')
+    wget.download(url=coco_2017_val_url, out=img_dir, bar=bar_custom)
+    print('')
     wget.download(url=coco_2017_test_url, out=img_dir, bar=bar_custom)
     print('')
 
@@ -62,10 +62,10 @@ def download_coco(root_dir='D:\data\\coco', remove_compressed_file=True):
     print("Extract...")
 
     # image extract
-    # with zipfile.ZipFile(os.path.join(img_dir, 'train2017.zip')) as unzip:
-    #     unzip.extractall(os.path.join(img_dir))
-    # with zipfile.ZipFile(os.path.join(img_dir, 'val2017.zip')) as unzip:
-    #     unzip.extractall(os.path.join(img_dir))
+    with zipfile.ZipFile(os.path.join(img_dir, 'train2017.zip')) as unzip:
+        unzip.extractall(os.path.join(img_dir))
+    with zipfile.ZipFile(os.path.join(img_dir, 'val2017.zip')) as unzip:
+        unzip.extractall(os.path.join(img_dir))
     with zipfile.ZipFile(os.path.join(img_dir, 'test2017.zip')) as unzip:
         unzip.extractall(os.path.join(img_dir))
 
