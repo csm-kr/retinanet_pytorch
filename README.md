@@ -28,7 +28,7 @@ COCO
 |our repo       | COCOtrain2017          |  COCO test-dev         | 600 x 600  |-          |-      |-       |-        |-     |
 |our repo       | COCOtrain2017          |  COCOval2017(minival)  | 600 x 600  |***34.7*** |53.5   |37.1    |67       |14.85 |
 
-best epoch : 58
+best epoch : 58.
 
 ### scheduler
 
