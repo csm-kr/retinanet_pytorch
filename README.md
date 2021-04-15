@@ -33,7 +33,7 @@ COCO
 
 - we use step LR scheduler scheme.
 
-- whole training epoch is 50 and learning rate decay is at 30, 45
+- whole training epoch is 60 and learning rate decay is at 30, 45
 
 ### training options
 
@@ -41,7 +41,7 @@ COCO
 - scheduler : step LR
 - loss : focal loss and smooth l1 loss
 - dataset : coco
-- epoch : 50
+- epoch : 60
 - gpu : nvidia geforce rtx 3090
 - lr : 1e-2
 
