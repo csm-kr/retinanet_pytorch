@@ -21,12 +21,12 @@ re-implementation of Retinanet detection : https://arxiv.org/abs/1708.02002
 
 COCO
 
-|methods        | Traning Dataset        |    Testing Dataset     | Resolution | AP        |AP50   |AP75    |Time(ms) | Fps  |
-|---------------|------------------------| ---------------------- | ---------- | --------- |-------|--------|:------ :| ---- |
-|papers         | COCOtrain2017          |  COCO test-dev         | 600 x 600  |  34.0     |52.5   |36.5    |98       |10.20 |
-|papers         | COCOtrain2017          |  COCOval2017(minival)  | 600 x 600  |  34.3     |53.2   |36.9    |98       |10.20 |
-|our repo       | COCOtrain2017          |  COCO test-dev         | 600 x 600  |-          |-      |-       |-        |-     |
-|our repo       | COCOtrain2017          |  COCOval2017(minival)  | 600 x 600  |**34.7** |53.5   |37.1    |67       |14.85 |
+|methods     | Traning Dataset   |    Testing Dataset     | Resolution | AP        |AP50   |AP75    |Time | Fps  |
+|------------|-------------------| ---------------------- | ---------- | --------- |-------|--------| ----| ---- |
+|papers      | COCOtrain2017     |  COCO test-dev         | 600 x 600  |  34.0     |52.5   |36.5    |98   |10.20 |
+|papers      | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  34.3     |53.2   |36.9    |98   |10.20 |
+|our repo    | COCOtrain2017     |  COCO test-dev         | 600 x 600  |-          |-      |-       |-    |-     |
+|our repo    | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |**34.7**   |53.5   |37.1    |67   |14.85 |
 
 
 best epoch : 58.
