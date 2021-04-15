@@ -15,8 +15,8 @@ logs/
 pred/
 gt/
 results/
-figure/
-coco_test_dev/
+# figure/
+# coco_test_dev/
 .cache_dir/
 
 # pycharm IDE
