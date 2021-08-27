@@ -22,7 +22,7 @@ def train(epoch, vis, train_loader, model, criterion, optimizer, scheduler, opts
         labels = [l.to(device) for l in labels]
 
         pred = model(images)
-        loss, (loc, cls) = criterion(pred, boxes, labels)
+        loss, (cls_loss, loc_loss) = criterion(pred, boxes, labels)
 
         # sgd
         optimizer.zero_grad()
@@ -35,25 +35,25 @@ def train(epoch, vis, train_loader, model, criterion, optimizer, scheduler, opts
             lr = param_group['lr']
 
         # for each steps
-        if idx % 100 == 0 or idx == len(train_loader) - 1:
+        if idx % opts.vis_step == 0 or idx == len(train_loader) - 1:
             print('Epoch: [{0}]\t'
                   'Step: [{1}/{2}]\t'
                   'Loss: {loss:.4f}\t'
-                  'Cls_loss: {cls:.4f}\t'
-                  'Loc_loss: {loc:.4f}\t'
+                  'Cls_loss: {cls_loss:.4f}\t'
+                  'Loc_loss: {loc_loss:.4f}\t'
                   'Learning rate: {lr:.7f} s \t'
                   'Time : {time:.4f}\t'
                   .format(epoch, idx, len(train_loader),
                           loss=loss,
-                          cls=cls,
-                          loc=loc,
+                          cls_loss=cls_loss,
+                          loc_loss=loc_loss,
                           lr=lr,
                           time=toc - tic))
 
             if vis is not None:
                 # loss plot
                 vis.line(X=torch.ones((1, 3)).cpu() * idx + epoch * train_loader.__len__(),  # step
-                         Y=torch.Tensor([loss, cls, loc]).unsqueeze(0).cpu(),
+                         Y=torch.Tensor([loss, cls_loss, loc_loss]).unsqueeze(0).cpu(),
                          win='train_loss',
                          update='append',
                          opts=dict(xlabel='step',

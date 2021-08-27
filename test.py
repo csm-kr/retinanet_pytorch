@@ -42,7 +42,7 @@ def test(epoch, vis, test_loader, model, criterion, coder, opts):
 
             # ---------- loss ----------
             pred = model(images)
-            loss, (loc, cls) = criterion(pred, boxes, labels)
+            loss, (cls_loss, loc_loss) = criterion(pred, boxes, labels)
 
             sum_loss += loss.item()
 
@@ -99,7 +99,7 @@ if __name__ == "__main__":
 
     from dataset.voc_dataset import VOC_Dataset
     from dataset.coco_dataset import COCO_Dataset
-    from loss import Focal_Loss
+    from loss import RetinaLoss
     from model import Resnet50, RetinaNet
     from coder import RETINA_Coder
     import argparse
@@ -150,7 +150,7 @@ if __name__ == "__main__":
     coder = RETINA_Coder(opts=test_opts)
 
     # 7. loss
-    criterion = Focal_Loss(coder)
+    criterion = RetinaLoss(coder)
 
     test(epoch=test_opts.epoch,
          vis=vis,

@@ -2,12 +2,12 @@ import torch
 import sys
 from dataset.voc_dataset import VOC_Dataset
 from dataset.coco_dataset import COCO_Dataset
-from loss import Focal_Loss
+from loss import RetinaLoss
 import visdom
 from train import train
 from test import test
 from torch.optim.lr_scheduler import MultiStepLR
-from model import Resnet50, FPN, RetinaNet
+from model import RetinaNet
 import os
 from config import device, device_ids, parse
 from coder import RETINA_Coder
@@ -59,7 +59,7 @@ def main():
     coder = RETINA_Coder(opts=opts)  # there is center_anchor in coder.
 
     # 7. loss
-    criterion = Focal_Loss(coder=coder)
+    criterion = RetinaLoss(coder=coder)
 
     # 8. optimizer
     optimizer = torch.optim.SGD(params=model.parameters(),
@@ -68,7 +68,7 @@ def main():
                                 weight_decay=opts.weight_decay)
 
     # 9. scheduler
-    scheduler = MultiStepLR(optimizer=optimizer, milestones=[30, 45], gamma=0.1)
+    scheduler = MultiStepLR(optimizer=optimizer, milestones=[8, 10], gamma=0.1)
 
     # 10. resume
     if opts.start_epoch != 0:

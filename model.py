@@ -54,7 +54,6 @@ class FPN(nn.Module):
 
         # init is default -> he_uniform
         # https://github.com/pytorch/pytorch/blob/master/torch/nn/modules/conv.py line 114 ~ 119
-
         self.initialize()
 
     def initialize(self):
@@ -80,11 +79,16 @@ class FPN(nn.Module):
 
         p5 = self.lateral5(c5)
         p4 = self.lateral4(c4)
-        p4 = F.interpolate(p5, size=p4.size()[2:], mode='bilinear') + p4  # interpolate p5 to p4's w h
-        # p4 = F.interpolate(p5, size=p4.size()[2:]) + p4  # interpolate p5 to p4's w h
+
+        # bilinear
+        # p4 = F.interpolate(p5, size=p4.size()[2:], mode='bilinear') + p4  # interpolate p5 to p4's w h
+        # nearest
+        p4 = F.interpolate(p5, size=p4.size()[2:]) + p4  # interpolate p5 to p4's w h
+
         p3 = self.lateral3(c3)
-        p3 = F.interpolate(p4, size=p3.size()[2:], mode='bilinear') + p3  # interpolate p4 to p3's w h
-        # p3 = F.interpolate(p4, size=p3.size()[2:]) + p3  # interpolate p4 to p3's w h
+        # p3 = F.interpolate(p4, size=p3.size()[2:], mode='bilinear') + p3  # interpolate p4 to p3's w h
+        # nearest
+        p3 = F.interpolate(p4, size=p3.size()[2:]) + p3  # interpolate p4 to p3's w h
 
         p6 = self.pyramid6(c5)
         p7 = self.pyramid7(F.relu(p6))
@@ -142,10 +146,9 @@ class RetinaNet(nn.Module):
 
     def forward(self, inputs):
         features = self.fpn(inputs)  # [p3, p4, p5, p6, p7 ]
-        reg = torch.cat([self.reg_module(feature) for feature in features], dim=1)
         cls = torch.cat([self.cls_module(feature) for feature in features], dim=1)
-        pred = (reg, cls)
-        return pred
+        reg = torch.cat([self.reg_module(feature) for feature in features], dim=1)
+        return cls, reg
 
 
 class ClsModule(nn.Module):
