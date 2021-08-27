@@ -1,13 +1,11 @@
 import torch
 import torch.nn as nn
-from utils import cxcy_to_xy, xy_to_cxcy, find_jaccard_overlap
 from config import device
 from model import RetinaNet
-import torch.nn.functional as F
 
 
 class SmoothL1Loss(nn.Module):
-    def __init__(self, beta=0.11):
+    def __init__(self, beta=1/9):
         super().__init__()
         self.beta = beta
 
@@ -18,91 +16,55 @@ class SmoothL1Loss(nn.Module):
         return torch.where(x >= self.beta, l1, l2)
 
 
-class Focal_Loss(nn.Module):
+class FocalLoss(nn.Module):
+    def __init__(self, alpha=0.25, gamma=2):
+        super().__init__()
+        self.alpha = alpha
+        self.gamma = gamma
+        self.bce = nn.BCELoss(reduction='none')
+
+    def forward(self, pred_cls, gt_cls):
+        alpha_factor = torch.ones_like(gt_cls).to(device) * self.alpha              # alpha
+        a_t = torch.where((gt_cls == 1), alpha_factor, 1. - alpha_factor)           # a_t
+        p_t = torch.where(gt_cls == 1, pred_cls, 1 - pred_cls)                      # p_t
+        bce = self.bce(pred_cls, gt_cls)                                            # [B, num_anchors, 1]
+        cls_loss = a_t * (1 - p_t) ** self.gamma * bce                              # [B, num_anchors, 1]
+        return cls_loss
+
+
+class RetinaLoss(nn.Module):
     def __init__(self, coder):
         super().__init__()
-
         self.coder = coder
-        self.priors_cxcy = self.coder.center_anchor
-        self.priors_xy = cxcy_to_xy(self.priors_cxcy)
-        self.num_classes = self.coder.num_classes
-        self.bce = nn.BCELoss(reduction='none')
-        self.smooth_l1 = SmoothL1Loss()
-        # self.smooth_l1 = nn.SmoothL1Loss(reduction=None)
+        self.focal_loss = FocalLoss()
+        self.smooth_l1_loss = SmoothL1Loss()
 
-    def forward(self, pred, b_boxes, b_labels):
-        """
-        Forward propagation.
-        :param pred (loc, cls) prediction tuple (N, 67995, 4) / (N, 67995, num_classes) or [120087] anchors
-        :param labels: true object labels, a list of N tensors
-        """
-        pred_loc = pred[0]
-        pred_cls = pred[1]
+    def forward(self, pred, gt_boxes, gt_labels):
+        pred_cls = pred[0]
+        pred_loc = pred[1]
 
-        batch_size = pred_loc.size(0)
-        n_priors = self.priors_xy.size(0)
-
+        n_priors = self.coder.center_anchor.size(0)
         assert n_priors == pred_loc.size(1) == pred_cls.size(1)  # 67995 --> 120087
 
-        true_locs = torch.zeros((batch_size, n_priors, 4), dtype=torch.float).to(device)                        # (N, 67995, 4)
-        true_classes = -1 * torch.ones((batch_size, n_priors, self.num_classes), dtype=torch.float).to(device)  # (N, 67995, num_classes)
-        depth = -1 * torch.ones((batch_size, n_priors), dtype=torch.bool).to(device)                            # (N, 67995)
+        # build targets
+        gt_cls, gt_locs, depth = self.coder.build_target(gt_boxes, gt_labels, IT=0.5)
 
-        for i in range(batch_size):
-            boxes = b_boxes[i]  # xy coord
-            labels = b_labels[i]
+        # make mask & num_of_pos
+        num_of_pos = (depth > 0).sum().float()  # only foreground
+        cls_mask = (depth >= 0).unsqueeze(-1).expand_as(gt_cls)  # both fore and back ground
+        loc_mask = (depth > 0).unsqueeze(-1).expand_as(gt_locs)                      # boolean
 
-            ###################################################
-            #           match strategies  -> make target      #
-            ###################################################
-            iou = find_jaccard_overlap(self.priors_xy, boxes)  # [67995, num_objects]
-            IoU_max, IoU_argmax = iou.max(dim=1)               # [67995]
+        # cls loss
+        cls_loss = self.focal_loss(pred_cls, gt_cls)
 
-            negative_indices = IoU_max < 0.4
+        # loc loss
+        loc_loss = self.smooth_l1_loss(pred_loc, gt_locs)
 
-            # =======================  make true classes ========================
-            true_classes[i][negative_indices, :] = 0           # make negative
-
-            depth[i][negative_indices] = 0
-
-            positive_indices = IoU_max >= 0.5                  # iou 가 0.5 보다 큰 아이들 - [67995]
-            argmax_labels = labels[IoU_argmax]                 # assigned_labels
-
-            # class one-hot encoding
-            # 0 으로 만들고 이후에 1 을 넣어주기
-            true_classes[i][positive_indices, :] = 0
-            true_classes[i][positive_indices, argmax_labels[positive_indices].long()] = 1.  # objects
-
-            depth[i][positive_indices] = 1
-
-            # ===========================  make true locs ===========================
-            true_locs_ = xy_to_cxcy(boxes[IoU_argmax])                               # [67995, 4] 0~1 사이이다. boxes 가
-            true_locs_ = self.coder.encode(true_locs_)
-            true_locs[i] = true_locs_
-
-        # ------------------------------------------ cls loss ------------------------------------------
-        alpha = 0.25
-        gamma = 2
-
-        alpha_factor = torch.ones_like(true_classes).to(device) * alpha                    # alpha
-        a_t = torch.where((true_classes == 1), alpha_factor, 1. - alpha_factor)            # a_t
-        p_t = torch.where(true_classes == 1, pred_cls, 1 - pred_cls)                       # p_t
-        bce = self.bce(pred_cls, true_classes)
-        cls_loss = a_t * (1 - p_t) ** gamma * bce                                          # focal loss
-
-        cls_mask = (depth >= 0).unsqueeze(-1).expand_as(cls_loss)                          # both fore and back ground
-        num_of_pos = (depth > 0).sum().float().clamp(min=1)                                # only foreground (min=1)
-        cls_loss = (cls_loss * cls_mask).sum() / num_of_pos                                # batch 의 bce loss
-                                                                                           # / batch 의 object 총갯수
-
-        # ------------------------------------------ loc loss ------------------------------------------
-        loc_mask = (depth > 0).unsqueeze(-1).expand_as(true_locs)                          # only foreground
-        loc_loss = self.smooth_l1(pred_loc, true_locs)  # (), scalar
+        # masking
+        cls_loss = (cls_loss * cls_mask).sum() / num_of_pos
         loc_loss = (loc_mask * loc_loss).sum() / num_of_pos
-        # loc_loss *= 2                                                                      # balance values
-
-        total_loss = (cls_loss + loc_loss)
-        return total_loss, (loc_loss, cls_loss)
+        total_loss = cls_loss + loc_loss
+        return total_loss, (cls_loss, loc_loss)
 
 
 if __name__ == '__main__':
@@ -118,7 +80,7 @@ if __name__ == '__main__':
 
     test_image = torch.randn([2, 3, 600, 600]).to(device)
     model = RetinaNet().to(device)
-    reg, cls = model(test_image)
+    cls, reg = model(test_image)
     print("cls' size() :", cls.size())
     print("reg's size() :", reg.size())
 
@@ -129,5 +91,5 @@ if __name__ == '__main__':
              torch.Tensor([12, 14]).to(device)]
 
     coder = RETINA_Coder(loss_opts)
-    loss = Focal_Loss(coder=coder)
-    print(loss((reg, cls), gt, label))
+    loss = RetinaLoss(coder=coder)
+    print(loss((cls, reg), gt, label))
