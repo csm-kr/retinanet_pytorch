@@ -7,7 +7,7 @@ from pycocotools.coco import COCO
 from torch.utils.data import DataLoader, Dataset
 import numpy as np
 import torch
-from dataset.trasform import transform
+from dataset.trasform import transform_retina
 from config import device
 import matplotlib
 import matplotlib.pyplot as plt
@@ -38,9 +38,12 @@ def download_coco(root_dir='D:\data\\coco', remove_compressed_file=True):
 
     """Download the VOC data if it doesn't exit in processed_folder already."""
 
+    # if (os.path.exists(os.path.join(img_dir, 'train2017')) and
+    #         os.path.exists(os.path.join(img_dir, 'val2017')) and
+    #         os.path.exists(os.path.join(img_dir, 'test2017'))):
+    #
     if (os.path.exists(os.path.join(img_dir, 'train2017')) and
-            os.path.exists(os.path.join(img_dir, 'val2017')) and
-            os.path.exists(os.path.join(img_dir, 'test2017'))):
+            os.path.exists(os.path.join(img_dir, 'val2017'))):
 
         print("Already exist!")
         return
@@ -52,8 +55,8 @@ def download_coco(root_dir='D:\data\\coco', remove_compressed_file=True):
     print('')
     wget.download(url=coco_2017_val_url, out=img_dir, bar=bar_custom)
     print('')
-    wget.download(url=coco_2017_test_url, out=img_dir, bar=bar_custom)
-    print('')
+    # wget.download(url=coco_2017_test_url, out=img_dir, bar=bar_custom)
+    # print('')
 
     # annotation download
     wget.download(coco_2017_trainval_anno_url, out=root_dir, bar=bar_custom)
@@ -66,8 +69,8 @@ def download_coco(root_dir='D:\data\\coco', remove_compressed_file=True):
         unzip.extractall(os.path.join(img_dir))
     with zipfile.ZipFile(os.path.join(img_dir, 'val2017.zip')) as unzip:
         unzip.extractall(os.path.join(img_dir))
-    with zipfile.ZipFile(os.path.join(img_dir, 'test2017.zip')) as unzip:
-        unzip.extractall(os.path.join(img_dir))
+    # with zipfile.ZipFile(os.path.join(img_dir, 'test2017.zip')) as unzip:
+    #     unzip.extractall(os.path.join(img_dir))
 
     # annotation extract
     with zipfile.ZipFile(os.path.join(root_dir, 'annotations_trainval2017.zip')) as unzip:
@@ -153,13 +156,14 @@ class COCO_Dataset(Dataset):
         labels = torch.LongTensor(det_anno[:, 4])
 
         # --------------------------- for transform ---------------------------
-        transform_list = ['photo', 'expand', 'crop', 'flip', 'resize']
+        transform_list = ['flip', 'resize']
 
         zero_to_one_coord = False
         if 'resize' in transform_list:
             zero_to_one_coord = True
 
-        image, boxes, labels = transform(image, boxes, labels, self.split, transform_list, self.resize, zero_to_one_coord)
+        # image, boxes, labels = transform(image, boxes, labels, self.split, transform_list, self.resize, zero_to_one_coord)
+        image, boxes, labels = transform_retina(image, boxes, labels, self.split, transform_list, self.resize, zero_to_one_coord)
 
         if visualize:
 

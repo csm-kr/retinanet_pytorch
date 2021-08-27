@@ -1,19 +1,20 @@
 import torch
 import argparse
 
-device_ids = [0]
+device_ids = [0, 1]
 device = torch.device('cuda:{}'.format(min(device_ids)) if torch.cuda.is_available() else 'cpu')
 
 
 def parse(args):
     # 1. arg parser
     parser = argparse.ArgumentParser()
-    parser.add_argument('--epoch', type=int, default=60)                  # 14 / 20
+    parser.add_argument('--epoch', type=int, default=13)                  # 14 / 20
     parser.add_argument('--port', type=str, default='2015')
     parser.add_argument('--lr', type=float, default=1e-2)                 # 1e-2
     parser.add_argument('--momentum', type=float, default=0.9)
     parser.add_argument('--weight_decay', type=float, default=1e-4)       # 0.0001
     parser.add_argument('--batch_size', type=int, default=16)
+    parser.add_argument('--vis_step', type=int, default=1000)
 
     parser.add_argument('--save_path', type=str, default='./saves')
     parser.add_argument('--save_file_name', type=str, default='retina_res_50_coco')                         # FIXME
@@ -24,9 +25,7 @@ def parse(args):
     # FIXME choose your dataset root
     # parser.add_argument('--data_root', type=str, default='D:\data\\voc')
     # parser.add_argument('--data_root', type=str, default='D:\data\coco')
-    # parser.add_argument('--data_root', type=str, default='/home/cvmlserver5/Sungmin/data/voc')
     parser.add_argument('--data_root', type=str, default='/home/cvmlserver5/Sungmin/data/coco')
-
     parser.add_argument('--img_path', type=str, default='/home/cvmlserver5/Sungmin/data/coco/images/val2017')
 
     parser.add_argument('--data_type', type=str, default='coco', help='choose voc or coco')              # FIXME

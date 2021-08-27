@@ -263,3 +263,29 @@ def transform(image, boxes, labels, split, transform_list, new_size, zero_to_one
     new_image = FT.normalize(new_image, mean=mean, std=std)
 
     return new_image, new_boxes, new_labels
+
+
+def transform_retina(image, boxes, labels, split, transform_list, new_size, zero_to_one_coord=True):
+
+    assert split in {'train', 'test'}
+    mean = [0.485, 0.456, 0.406]
+    std = [0.229, 0.224, 0.225]
+    new_image = image
+    new_boxes = boxes
+    new_labels = labels
+
+    if split == 'train':
+        if 'flip' in transform_list:
+            if random.random() < 0.5:
+                new_image, new_boxes = flip(new_image, new_boxes)
+
+    if 'resize' in transform_list:
+        new_image, new_boxes = resize(new_image, new_boxes, (new_size, new_size), zero_to_one_coord)
+
+    # Convert PIL image to Torch tensor
+    new_image = FT.to_tensor(new_image)
+
+    # Normalize by mean and standard deviation of ImageNet data that our base VGG was trained on
+    new_image = FT.normalize(new_image, mean=mean, std=std)
+
+    return new_image, new_boxes, new_labels
