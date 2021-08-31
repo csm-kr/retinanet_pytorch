@@ -2,7 +2,7 @@ import os
 import time
 import torch
 from utils import detect
-from evaluator import Evaluator
+from evaluation.evaluator import Evaluator
 import json
 
 

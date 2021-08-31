@@ -67,8 +67,12 @@ def main():
                                 momentum=opts.momentum,
                                 weight_decay=opts.weight_decay)
 
+    # optimizer = torch.optim.Adam(params=model.parameters(),
+    #                              lr=opts.lr,
+    #                              weight_decay=opts.weight_decay)
+
     # 9. scheduler
-    scheduler = MultiStepLR(optimizer=optimizer, milestones=[8, 10], gamma=0.1)
+    scheduler = MultiStepLR(optimizer=optimizer, milestones=[14, 18], gamma=0.1)
 
     # 10. resume
     if opts.start_epoch != 0:

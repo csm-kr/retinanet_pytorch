@@ -126,7 +126,7 @@ def nms(boxes, scores, iou_threshold=0.5, top_k=200):
     return keep, sorted_scores, sorted_boxes
 
 
-def detect(pred, coder, opts, max_overlap=0.5, top_k=1000, is_demo=False):
+def detect(pred, coder, opts, max_overlap=0.5, top_k=300, is_demo=False):
     """
     post processing of out of models
     batch 1 에 대한 prediction ([N, 8732, 4] ,[N, 8732, n])을  pred boxes pred labels 와 pred scores 로 변환하는 함수

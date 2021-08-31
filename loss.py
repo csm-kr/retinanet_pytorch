@@ -56,9 +56,12 @@ class RetinaLoss(nn.Module):
 
         # cls loss
         cls_loss = self.focal_loss(pred_cls, gt_cls)
+        # scale = 0.5
+        # cls_loss *= scale
 
         # loc loss
         loc_loss = self.smooth_l1_loss(pred_loc, gt_locs)
+        # loc_loss *= scale
 
         # masking
         cls_loss = (cls_loss * cls_mask).sum() / num_of_pos

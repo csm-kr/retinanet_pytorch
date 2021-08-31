@@ -13,7 +13,7 @@ re-implementation of Retinanet detection : https://arxiv.org/abs/1708.02002
 - [x] Dataset
 - [x] Model
 - [x] Loss
-- [X] Coder
+- [x] Coder
 
 ### Experiment
 - [ ] VOC 

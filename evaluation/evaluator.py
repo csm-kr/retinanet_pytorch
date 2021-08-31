@@ -1,7 +1,7 @@
 import os
 import json
 import tempfile
-from voc_eval import voc_eval
+from evaluation.voc_eval import voc_eval
 from pycocotools.cocoeval import COCOeval
 
 

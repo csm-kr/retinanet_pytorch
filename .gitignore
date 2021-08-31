@@ -1,6 +1,9 @@
 # data
 data/
 
+# analysis
+analysis/
+
 # vscode setting
 .vscode
 

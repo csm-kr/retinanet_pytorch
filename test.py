@@ -2,7 +2,7 @@ import os
 import time
 import torch
 from utils import detect
-from evaluator import Evaluator
+from evaluation.evaluator import Evaluator
 from config import device, device_ids
 
 
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     from dataset.voc_dataset import VOC_Dataset
     from dataset.coco_dataset import COCO_Dataset
     from loss import RetinaLoss
-    from model import Resnet50, RetinaNet
+    from model import RetinaNet
     from coder import RETINA_Coder
     import argparse
 

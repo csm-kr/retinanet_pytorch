@@ -8,7 +8,7 @@ device = torch.device('cuda:{}'.format(min(device_ids)) if torch.cuda.is_availab
 def parse(args):
     # 1. arg parser
     parser = argparse.ArgumentParser()
-    parser.add_argument('--epoch', type=int, default=13)                  # 14 / 20
+    parser.add_argument('--epoch', type=int, default=20)                  # 14 / 20
     parser.add_argument('--port', type=str, default='2015')
     parser.add_argument('--lr', type=float, default=1e-2)                 # 1e-2
     parser.add_argument('--momentum', type=float, default=0.9)
