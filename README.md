@@ -63,7 +63,7 @@ learning rate decay at 9 (65k), 12 (87k) epochs
 - loss : focal loss and smooth l1 loss
 - dataset : coco
 - epoch : 13
-- gpu : nvidia geforce rtx 3090 * 2EA
+- gpu : nvidia geforce rtx 3090 * 1EA
 - lr : 1e-2
 
 ### training
