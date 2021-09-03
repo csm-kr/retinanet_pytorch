@@ -14,7 +14,7 @@ re-implementation of Retinanet detection : https://arxiv.org/abs/1708.02002
 - [x] Model
 - [x] Loss (Focal loss and smooth l1 loss)
 - [x] Coder
-- [ ] Distributed training
+- [x] Distributed training (distributed data parallel)
 
 ### Experiment
 - [x] COCO 
@@ -46,7 +46,7 @@ and at 60k, 80k learning rate is divided by 10 to 1e-3, 1e-4
 
 In this repo, for convinience of calculation to epochs, 
 whole training epoch 13 (about 94.9k iterations)
-learning rate decay at 9 (65k), 12 (87k) epochs
+learning rate decay at after 8 (65k), 11 (87k) epoch each
 
  paper     | this repo  | Learning Rate  
 0k ~ 60K   | 0K ~ 65k   | 1e-2
@@ -63,7 +63,7 @@ learning rate decay at 9 (65k), 12 (87k) epochs
 - loss : focal loss and smooth l1 loss
 - dataset : coco
 - epoch : 13
-- gpu : nvidia geforce rtx 3090 * 1EA
+- gpu : nvidia geforce rtx 3090 * 2EA
 - lr : 1e-2
 
 ### training
@@ -84,7 +84,6 @@ learning rate decay at 9 (65k), 12 (87k) epochs
 
     minival eval
     
-    
 ```
 Evaluate annotation type *bbox*
 DONE (t=89.60s).
@@ -104,6 +103,27 @@ DONE (t=13.50s).
  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.710
 ```
 
+- Distributed Data Parallel for fully using the gpu memory and decreasing training time
+```
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 465.19.01    Driver Version: 465.19.01    CUDA Version: 11.3     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  N/A |
+| 72%   69C    P2   328W / 350W |  14395MiB / 24268MiB |     98%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:21:00.0 Off |                  N/A |
+| 65%   65C    P2   325W / 350W |  13394MiB / 24268MiB |     99%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+```
+--------------
+training time : 285x s/epoch -> 240x s/epoch (improvement about 15 %)
+
 ### Reference
 
 ssd tutorial : data augmentation and detection structure
@@ -116,6 +136,9 @@ https://github.com/NVIDIA/retinanet-examples
 
 https://github.com/yhenon/pytorch-retinanet
 
+https://github.com/liangheming/retinanetv1
+
 ### Start Guide
 
+1. 
 
