@@ -10,9 +10,7 @@ import math
 class Resnet50(nn.Module):
     def __init__(self, pretrained=True):
         super().__init__()
-
-        self.resnet50 = resnet50(pretrained=pretrained)
-        self.resnet50_list = nn.ModuleList(list(self.resnet50.children())[:-2])  # to layer 1
+        self.resnet50_list = nn.ModuleList(list(resnet50(pretrained=pretrained).children())[:-2])  # to layer 1
         self.res50 = nn.Sequential(*self.resnet50_list)
 
     def forward(self, x):
@@ -80,15 +78,12 @@ class FPN(nn.Module):
         p5 = self.lateral5(c5)
         p4 = self.lateral4(c4)
 
-        # bilinear
-        # p4 = F.interpolate(p5, size=p4.size()[2:], mode='bilinear') + p4  # interpolate p5 to p4's w h
-        # nearest
-        p4 = F.interpolate(p5, size=p4.size()[2:]) + p4  # interpolate p5 to p4's w h
+        # p4 = F.interpolate(p5, size=p4.size()[2:], mode='bilinear') + p4                      # bilinear
+        p4 = F.interpolate(p5, size=p4.size()[2:]) + p4  # interpolate p5 to p4's w h           # nearest
 
         p3 = self.lateral3(c3)
-        # p3 = F.interpolate(p4, size=p3.size()[2:], mode='bilinear') + p3  # interpolate p4 to p3's w h
-        # nearest
-        p3 = F.interpolate(p4, size=p3.size()[2:]) + p3  # interpolate p4 to p3's w h
+        # p3 = F.interpolate(p4, size=p3.size()[2:], mode='bilinear') + p3                      # bilinear
+        p3 = F.interpolate(p4, size=p3.size()[2:]) + p3  # interpolate p4 to p3's w h           # nearest
 
         p6 = self.pyramid6(c5)
         p7 = self.pyramid7(F.relu(p6))

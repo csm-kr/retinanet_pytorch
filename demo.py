@@ -118,16 +118,16 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--epoch', type=int, default=58)
+    parser.add_argument('--epoch', type=int, default=12)
     parser.add_argument('--save_path', type=str, default='./saves')
     parser.add_argument('--save_file_name', type=str, default='retina_res_50_coco')
-    parser.add_argument('--conf_thres', type=float, default=0.05)
+    parser.add_argument('--conf_thres', type=float, default=0.35)
 
     # FIXME choose your image path
     # parser.add_argument('--img_path', type=str, default='D:\data\\voc\VOCtest_06-Nov-2007\VOCdevkit\VOC2007\JPEGImages')
-    # parser.add_argument('--img_path', type=str, default='D:\data\coco\images\\val2017')
+    parser.add_argument('--img_path', type=str, default='D:\data\coco\images\\val2017')
     # parser.add_argument('--img_path', type=str, default='/home/cvmlserver5/Sungmin/data/voc/VOCtest_06-Nov-2007/VOCdevkit/VOC2007/JPEGImages')
-    parser.add_argument('--img_path', type=str, default='/home/cvmlserver5/Sungmin/data/coco/images/val2017')
+    # parser.add_argument('--img_path', type=str, default='/home/cvmlserver5/Sungmin/data/coco/images/val2017')
 
     parser.add_argument('--resize', type=int, default=600)
     parser.set_defaults(visualization=False)
@@ -144,9 +144,8 @@ if __name__ == '__main__':
     elif demo_opts.data_type == 'coco':
         demo_opts.n_classes = 80
 
-    model = RetinaNet(num_classes=demo_opts.num_classes)
-
-    model = torch.nn.DataParallel(module=model, device_ids=device_ids)
+    model = RetinaNet(num_classes=demo_opts.num_classes).to(device)
+    model = torch.nn.DataParallel(module=model, device_ids=[0])
 
     # use custom training pth file
     checkpoint = torch.load(os.path.join(demo_opts.save_path, demo_opts.save_file_name) + '.{}.pth.tar'.

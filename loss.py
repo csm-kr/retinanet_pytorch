@@ -24,11 +24,12 @@ class FocalLoss(nn.Module):
         self.bce = nn.BCELoss(reduction='none')
 
     def forward(self, pred_cls, gt_cls):
-        alpha_factor = torch.ones_like(gt_cls).to(device) * self.alpha              # alpha
+        alpha_factor = torch.ones_like(gt_cls) * self.alpha                         # alpha
         a_t = torch.where((gt_cls == 1), alpha_factor, 1. - alpha_factor)           # a_t
         p_t = torch.where(gt_cls == 1, pred_cls, 1 - pred_cls)                      # p_t
         bce = self.bce(pred_cls, gt_cls)                                            # [B, num_anchors, 1]
         cls_loss = a_t * (1 - p_t) ** self.gamma * bce                              # [B, num_anchors, 1]
+
         return cls_loss
 
 
@@ -56,12 +57,9 @@ class RetinaLoss(nn.Module):
 
         # cls loss
         cls_loss = self.focal_loss(pred_cls, gt_cls)
-        # scale = 0.5
-        # cls_loss *= scale
 
         # loc loss
         loc_loss = self.smooth_l1_loss(pred_loc, gt_locs)
-        # loc_loss *= scale
 
         # masking
         cls_loss = (cls_loss * cls_mask).sum() / num_of_pos
