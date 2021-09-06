@@ -22,15 +22,23 @@ re-implementation of Retinanet detection : https://arxiv.org/abs/1708.02002
 
 COCO
 
+- quantitative results
+
 |methods     | Traning Dataset   |    Testing Dataset     | Resolution | AP        |AP50     |AP75    |Time | Fps  |
 |------------|-------------------| ---------------------- | ---------- | --------- |---------|--------| ----| ---- |
 |papers      | COCOtrain2017     |  COCO test-dev         | 600 x 600  |  34.0     |52.5     |36.5    |98   |10.20 |
 |papers      | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  34.3     |53.2     |36.9    |98   |10.20 |
-|ours        | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  32.5     |50.8     |34.6    |-    |-     |
+|ours        | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  31.9     |50.0     |34.0    |67   |14.85 |
 
 <!-- |ours*       | COCOtrain2017     |  COCO test-dev         | 600 x 600  |**34.7**   |**53.6** |**37.3**|67   |14.85 | -->
 <!-- |ours*       | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |**34.7**   |**53.5** |**37.1**|67   |14.85 | -->
-<!-- dkljdkfj -->
+
+- qualitative results
+
+![](./figure/qualitative_results/1.JPG)
+![](./figure/qualitative_results/2.JPG)
+![](./figure/qualitative_results/3.JPG)
+![](./figure/qualitative_results/4.JPG)
 
 ### scheduler
 
@@ -77,7 +85,10 @@ learning rate decay at after 8 (65k), 11 (87k) epoch each
 - data augmentation
 
     only use horizontal flipping same as papers.
-    
+
+- trained weight can get at [here](https://livecauac-my.sharepoint.com/:u:/g/personal/csm8167_cau_ac_kr/EUDJTzLdWyxNjoGfYapaGCUBwsrjK6R5yr77Uk4YnHubBw?e=nQRtMH)
+
+
 <!-- 2. this repo uses data augmentation (random crop, expand, flip, photometric distortion, resize) refers to https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Object-Detection/blob/master/utils.py -->
 
 - results
@@ -85,22 +96,29 @@ learning rate decay at after 8 (65k), 11 (87k) epoch each
     minival eval
     
 ```
+Loading and preparing results...
+DONE (t=5.93s)
+creating index...
+index created!
+Running per image evaluation...
 Evaluate annotation type *bbox*
-DONE (t=89.60s).
+DONE (t=67.32s).
 Accumulating evaluation results...
-DONE (t=13.50s).
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.347
- Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.535
- Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.371
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.181
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.393
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.502
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.306
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.485
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.532
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.330
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.605
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.710
+DONE (t=13.30s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.319
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.500
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.340
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.153
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.357
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.462
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.285
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.458
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.497
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.273
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.564
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.682
+0.3185735964212328
+Eval Time : 342.2677
 ```
 
 - Distributed Data Parallel for fully using the gpu memory and decreasing training time
@@ -121,7 +139,28 @@ DONE (t=13.50s).
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 ```
+ 2800~2900 s/epoch 
+ 
 --------------
+
+```
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 465.19.01    Driver Version: 465.19.01    CUDA Version: 11.3     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  N/A |
+| 70%   69C    P2   298W / 350W |  11154MiB / 24268MiB |     98%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  Off  | 00000000:21:00.0 Off |                  N/A |
+| 62%   63C    P2   291W / 350W |   8764MiB / 24268MiB |     83%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+```
+ 240x s/epoch
 training time : 285x s/epoch -> 240x s/epoch (improvement about 15 %)
 
 ### Reference
@@ -138,7 +177,6 @@ https://github.com/yhenon/pytorch-retinanet
 
 https://github.com/liangheming/retinanetv1
 
-### Start Guide
-
-1. 
+<!-- ### Start Guide --> 
+<!--1. --> 
 
