@@ -61,6 +61,12 @@ def xy_to_cxcy(xy):
     return torch.cat([cxcy, wh], dim=1)
 
 
+def xy_to_cxcy2(xy):
+    wh = xy[..., 2:] - xy[..., :2]
+    cxcy = xy[..., :2] + 0.5 * wh
+    return torch.cat([cxcy, wh], dim=1)
+
+
 def find_jaccard_overlap(set_1, set_2, eps=1e-5):
     """
     Find the Jaccard Overlap (IoU) of every box combination between two sets of boxes that are in boundary coordinates.

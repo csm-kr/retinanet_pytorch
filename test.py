@@ -9,90 +9,93 @@ from config import device, device_ids
 def test(epoch, vis, test_loader, model, criterion, coder, opts):
 
     # ---------- load ----------
-    print('Validation of epoch [{}]'.format(epoch))
+    if opts.rank == 0:
+        print('Validation of epoch [{}]'.format(epoch))
     model.eval()
-    check_point = torch.load(os.path.join(opts.save_path, opts.save_file_name) + '.{}.pth.tar'.format(epoch),
-                             map_location=device)
-    state_dict = check_point['model_state_dict']
-    model.load_state_dict(state_dict)
+    if opts.rank == 0:
 
-    tic = time.time()
-    sum_loss = 0
+        check_point = torch.load(os.path.join(opts.save_path, opts.save_file_name) + '.{}.pth.tar'.format(epoch),
+                                 map_location=torch.device('cuda:{}'.format(opts.rank)))
+        state_dict = check_point['model_state_dict']
+        model.load_state_dict(state_dict)
 
-    is_coco = hasattr(test_loader.dataset, 'coco')  # if True the set is COCO else VOC
-    if is_coco:
-        print('COCO dataset evaluation...')
-    else:
-        print('VOC dataset evaluation...')
+        tic = time.time()
+        sum_loss = 0
 
-    evaluator = Evaluator(data_type=opts.data_type)
+        is_coco = hasattr(test_loader.dataset, 'coco')  # if True the set is COCO else VOC
+        if is_coco:
+            print('COCO dataset evaluation...')
+        else:
+            print('VOC dataset evaluation...')
 
-    with torch.no_grad():
+        evaluator = Evaluator(data_type=opts.data_type)
 
-        for idx, datas in enumerate(test_loader):
+        with torch.no_grad():
 
-            images = datas[0]
-            boxes = datas[1]
-            labels = datas[2]
+            for idx, datas in enumerate(test_loader):
 
-            # ---------- cuda ----------
-            images = images.to(device)
-            boxes = [b.to(device) for b in boxes]
-            labels = [l.to(device) for l in labels]
+                images = datas[0]
+                boxes = datas[1]
+                labels = datas[2]
 
-            # ---------- loss ----------
-            pred = model(images)
-            loss, (cls_loss, loc_loss) = criterion(pred, boxes, labels)
+                # ---------- cuda ----------
+                images = images.to(opts.rank)
+                boxes = [b.to(opts.rank) for b in boxes]
+                labels = [l.to(opts.rank) for l in labels]
 
-            sum_loss += loss.item()
+                # ---------- loss ----------
+                pred = model(images)
+                loss, (cls_loss, loc_loss) = criterion(pred, boxes, labels)
 
-            # ---------- eval ----------
-            pred_boxes, pred_labels, pred_scores = detect(pred=pred,
-                                                          coder=coder,
-                                                          opts=opts)
+                sum_loss += loss.item()
 
-            if opts.data_type == 'voc':
-                img_name = datas[3][0]
-                img_info = datas[4][0]
-                info = (pred_boxes, pred_labels, pred_scores, img_name, img_info)
+                # ---------- eval ----------
+                pred_boxes, pred_labels, pred_scores = detect(pred=pred,
+                                                              coder=coder,
+                                                              opts=opts)
 
-            elif opts.data_type == 'coco':
-                img_id = test_loader.dataset.img_id[idx]
-                img_info = test_loader.dataset.coco.loadImgs(ids=img_id)[0]
-                coco_ids = test_loader.dataset.coco_ids
-                info = (pred_boxes, pred_labels, pred_scores, img_id, img_info, coco_ids)
+                if opts.data_type == 'voc':
+                    img_name = datas[3][0]
+                    img_info = datas[4][0]
+                    info = (pred_boxes, pred_labels, pred_scores, img_name, img_info)
 
-            evaluator.get_info(info)
+                elif opts.data_type == 'coco':
+                    img_id = test_loader.dataset.img_id[idx]
+                    img_info = test_loader.dataset.coco.loadImgs(ids=img_id)[0]
+                    coco_ids = test_loader.dataset.coco_ids
+                    info = (pred_boxes, pred_labels, pred_scores, img_id, img_info, coco_ids)
 
-            toc = time.time()
+                evaluator.get_info(info)
 
-            # ---------- print ----------
-            if idx % 1000 == 0 or idx == len(test_loader) - 1:
-                print('Epoch: [{0}]\t'
-                      'Step: [{1}/{2}]\t'
-                      'Loss: {loss:.4f}\t'
-                      'Time : {time:.4f}\t'
-                      .format(epoch,
-                              idx, len(test_loader),
-                              loss=loss,
-                              time=toc - tic))
+                toc = time.time()
 
-        mAP = evaluator.evaluate(test_loader.dataset)
-        mean_loss = sum_loss / len(test_loader)
+                # ---------- print ----------
+                if idx % opts.vis_step == 0 or idx == len(test_loader) - 1:
+                    print('Epoch: [{0}]\t'
+                          'Step: [{1}/{2}]\t'
+                          'Loss: {loss:.4f}\t'
+                          'Time : {time:.4f}\t'
+                          .format(epoch,
+                                  idx, len(test_loader),
+                                  loss=loss,
+                                  time=toc - tic))
 
-        print(mAP)
-        print("Eval Time : {:.4f}".format(time.time() - tic))
+            mAP = evaluator.evaluate(test_loader.dataset)
+            mean_loss = sum_loss / len(test_loader)
 
-        if vis is not None:
-            # loss plot
-            vis.line(X=torch.ones((1, 2)).cpu() * epoch,  # step
-                     Y=torch.Tensor([mean_loss, mAP]).unsqueeze(0).cpu(),
-                     win='test_loss',
-                     update='append',
-                     opts=dict(xlabel='step',
-                               ylabel='test',
-                               title='test loss',
-                               legend=['test Loss', 'mAP']))
+            print(mAP)
+            print("Eval Time : {:.4f}".format(time.time() - tic))
+
+            if vis is not None:
+                # loss plot
+                vis.line(X=torch.ones((1, 2)).cpu() * epoch,  # step
+                         Y=torch.Tensor([mean_loss, mAP]).unsqueeze(0).cpu(),
+                         win='test_loss',
+                         update='append',
+                         opts=dict(xlabel='step',
+                                   ylabel='test',
+                                   title='test loss',
+                                   legend=['test Loss', 'mAP']))
 
 
 if __name__ == "__main__":
@@ -106,15 +109,17 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--epoch', type=int, default=58)
+    parser.add_argument('--epoch', type=int, default=12)
     parser.add_argument('--save_path', type=str, default='./saves')
     parser.add_argument('--save_file_name', type=str, default='retina_res_50_coco')
     parser.add_argument('--conf_thres', type=float, default=0.05)
+    parser.add_argument('--rank', type=int, default=0)
 
     # parser.add_argument('--data_root', type=str, default='D:\data\\voc')
     # parser.add_argument('--data_root', type=str, default='D:\data\coco')
     # parser.add_argument('--data_root', type=str, default='/home/cvmlserver5/Sungmin/data/voc')
     parser.add_argument('--data_root', type=str, default='/home/cvmlserver5/Sungmin/data/coco')
+    parser.add_argument('--vis_step', type=int, default=100)
 
     parser.add_argument('--data_type', type=str, default='coco', help='choose voc or coco')
     parser.add_argument('--resize', type=int, default=600, help='image_size')
