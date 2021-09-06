@@ -1,0 +1,1996 @@
+ssh://cvmlserver5@165.194.104.145:22/home/cvmlserver5/anaconda3/envs/sungmin_pytorch/bin/python3.7 -u /home/cvmlserver5/Sungmin/project/Retinanet_pytorch/main.py
+Namespace(batch_size=16, conf_thres=0.05, data_root='/home/cvmlserver5/Sungmin/data/coco', data_type='coco', epoch=13, img_path='/home/cvmlserver5/Sungmin/data/coco/images/val2017', lr=0.01, momentum=0.9, num_classes=80, num_workers=8, port='2015', rank=0, resize=600, save_file_name='retina_res_50_coco', save_path='./saves', start_epoch=0, vis_step=100, visualization=False, weight_decay=0.0001)
+Setting up a new session...
+Already exist!
+loading annotations into memory...
+Done (t=10.69s)
+creating index...
+index created!
+Already exist!
+loading annotations into memory...
+Done (t=0.31s)
+creating index...
+index created!
+num_params :  37968692
+make retina anchors
+
+No check point to resume.. train from scratch.
+
+Training of epoch [0]
+Epoch: [0]	Step: [0/7330]	Loss: 1.6576	Cls_loss: 1.1756	Loc_loss: 0.4820	Learning rate: 0.0100000 s 	Time : 8.1183	
+Epoch: [0]	Step: [100/7330]	Loss: 1.6446	Cls_loss: 1.1502	Loc_loss: 0.4945	Learning rate: 0.0100000 s 	Time : 46.5373	
+Epoch: [0]	Step: [200/7330]	Loss: 1.5793	Cls_loss: 1.1435	Loc_loss: 0.4358	Learning rate: 0.0100000 s 	Time : 85.0593	
+Epoch: [0]	Step: [300/7330]	Loss: 1.3270	Cls_loss: 0.9259	Loc_loss: 0.4012	Learning rate: 0.0100000 s 	Time : 123.6005	
+Epoch: [0]	Step: [400/7330]	Loss: 1.1688	Cls_loss: 0.8093	Loc_loss: 0.3595	Learning rate: 0.0100000 s 	Time : 162.2143	
+Epoch: [0]	Step: [500/7330]	Loss: 1.2554	Cls_loss: 0.9165	Loc_loss: 0.3389	Learning rate: 0.0100000 s 	Time : 200.8204	
+Epoch: [0]	Step: [600/7330]	Loss: 1.0590	Cls_loss: 0.7743	Loc_loss: 0.2847	Learning rate: 0.0100000 s 	Time : 239.4432	
+Epoch: [0]	Step: [700/7330]	Loss: 1.0146	Cls_loss: 0.7108	Loc_loss: 0.3038	Learning rate: 0.0100000 s 	Time : 278.0916	
+Epoch: [0]	Step: [800/7330]	Loss: 0.9781	Cls_loss: 0.6834	Loc_loss: 0.2947	Learning rate: 0.0100000 s 	Time : 316.7489	
+Epoch: [0]	Step: [900/7330]	Loss: 1.0458	Cls_loss: 0.7663	Loc_loss: 0.2795	Learning rate: 0.0100000 s 	Time : 355.3840	
+Epoch: [0]	Step: [1000/7330]	Loss: 0.9114	Cls_loss: 0.6436	Loc_loss: 0.2677	Learning rate: 0.0100000 s 	Time : 395.3786	
+Epoch: [0]	Step: [1100/7330]	Loss: 0.9660	Cls_loss: 0.7181	Loc_loss: 0.2479	Learning rate: 0.0100000 s 	Time : 434.0451	
+Epoch: [0]	Step: [1200/7330]	Loss: 1.0462	Cls_loss: 0.7911	Loc_loss: 0.2551	Learning rate: 0.0100000 s 	Time : 472.7178	
+Epoch: [0]	Step: [1300/7330]	Loss: 1.0999	Cls_loss: 0.8173	Loc_loss: 0.2827	Learning rate: 0.0100000 s 	Time : 511.3701	
+Epoch: [0]	Step: [1400/7330]	Loss: 0.8646	Cls_loss: 0.6439	Loc_loss: 0.2207	Learning rate: 0.0100000 s 	Time : 550.0279	
+Epoch: [0]	Step: [1500/7330]	Loss: 1.0283	Cls_loss: 0.7449	Loc_loss: 0.2834	Learning rate: 0.0100000 s 	Time : 588.7061	
+Epoch: [0]	Step: [1600/7330]	Loss: 0.8620	Cls_loss: 0.6735	Loc_loss: 0.1884	Learning rate: 0.0100000 s 	Time : 627.4005	
+Epoch: [0]	Step: [1700/7330]	Loss: 0.8275	Cls_loss: 0.5763	Loc_loss: 0.2513	Learning rate: 0.0100000 s 	Time : 666.0651	
+Epoch: [0]	Step: [1800/7330]	Loss: 0.9736	Cls_loss: 0.7078	Loc_loss: 0.2658	Learning rate: 0.0100000 s 	Time : 704.7248	
+Epoch: [0]	Step: [1900/7330]	Loss: 0.9390	Cls_loss: 0.6637	Loc_loss: 0.2753	Learning rate: 0.0100000 s 	Time : 743.3798	
+Epoch: [0]	Step: [2000/7330]	Loss: 0.8571	Cls_loss: 0.6271	Loc_loss: 0.2300	Learning rate: 0.0100000 s 	Time : 782.0553	
+Epoch: [0]	Step: [2100/7330]	Loss: 0.9427	Cls_loss: 0.6957	Loc_loss: 0.2470	Learning rate: 0.0100000 s 	Time : 820.7419	
+Epoch: [0]	Step: [2200/7330]	Loss: 0.8290	Cls_loss: 0.5915	Loc_loss: 0.2375	Learning rate: 0.0100000 s 	Time : 859.4014	
+Epoch: [0]	Step: [2300/7330]	Loss: 0.8435	Cls_loss: 0.6197	Loc_loss: 0.2238	Learning rate: 0.0100000 s 	Time : 898.0802	
+Epoch: [0]	Step: [2400/7330]	Loss: 0.8352	Cls_loss: 0.5512	Loc_loss: 0.2840	Learning rate: 0.0100000 s 	Time : 938.0904	
+Epoch: [0]	Step: [2500/7330]	Loss: 0.8059	Cls_loss: 0.5672	Loc_loss: 0.2387	Learning rate: 0.0100000 s 	Time : 976.7616	
+Epoch: [0]	Step: [2600/7330]	Loss: 0.8441	Cls_loss: 0.6172	Loc_loss: 0.2269	Learning rate: 0.0100000 s 	Time : 1015.4175	
+Epoch: [0]	Step: [2700/7330]	Loss: 0.7841	Cls_loss: 0.5632	Loc_loss: 0.2209	Learning rate: 0.0100000 s 	Time : 1054.1012	
+Epoch: [0]	Step: [2800/7330]	Loss: 0.7594	Cls_loss: 0.5215	Loc_loss: 0.2379	Learning rate: 0.0100000 s 	Time : 1092.7846	
+Epoch: [0]	Step: [2900/7330]	Loss: 0.7722	Cls_loss: 0.5851	Loc_loss: 0.1872	Learning rate: 0.0100000 s 	Time : 1131.4531	
+Epoch: [0]	Step: [3000/7330]	Loss: 0.8772	Cls_loss: 0.6244	Loc_loss: 0.2528	Learning rate: 0.0100000 s 	Time : 1170.1182	
+Epoch: [0]	Step: [3100/7330]	Loss: 0.7105	Cls_loss: 0.4808	Loc_loss: 0.2297	Learning rate: 0.0100000 s 	Time : 1208.7954	
+Epoch: [0]	Step: [3200/7330]	Loss: 0.7822	Cls_loss: 0.5516	Loc_loss: 0.2306	Learning rate: 0.0100000 s 	Time : 1247.4606	
+Epoch: [0]	Step: [3300/7330]	Loss: 0.7555	Cls_loss: 0.5045	Loc_loss: 0.2510	Learning rate: 0.0100000 s 	Time : 1286.1306	
+Epoch: [0]	Step: [3400/7330]	Loss: 0.8291	Cls_loss: 0.5865	Loc_loss: 0.2426	Learning rate: 0.0100000 s 	Time : 1324.7999	
+Epoch: [0]	Step: [3500/7330]	Loss: 0.7719	Cls_loss: 0.5089	Loc_loss: 0.2630	Learning rate: 0.0100000 s 	Time : 1363.4859	
+Epoch: [0]	Step: [3600/7330]	Loss: 0.7915	Cls_loss: 0.5823	Loc_loss: 0.2092	Learning rate: 0.0100000 s 	Time : 1402.1626	
+Epoch: [0]	Step: [3700/7330]	Loss: 0.7205	Cls_loss: 0.4789	Loc_loss: 0.2415	Learning rate: 0.0100000 s 	Time : 1440.8438	
+Epoch: [0]	Step: [3800/7330]	Loss: 0.6329	Cls_loss: 0.4354	Loc_loss: 0.1975	Learning rate: 0.0100000 s 	Time : 1479.5132	
+Epoch: [0]	Step: [3900/7330]	Loss: 0.7146	Cls_loss: 0.5129	Loc_loss: 0.2017	Learning rate: 0.0100000 s 	Time : 1519.5232	
+Epoch: [0]	Step: [4000/7330]	Loss: 0.7766	Cls_loss: 0.5190	Loc_loss: 0.2576	Learning rate: 0.0100000 s 	Time : 1558.2095	
+Epoch: [0]	Step: [4100/7330]	Loss: 0.8310	Cls_loss: 0.5867	Loc_loss: 0.2443	Learning rate: 0.0100000 s 	Time : 1596.8795	
+Epoch: [0]	Step: [4200/7330]	Loss: 0.6269	Cls_loss: 0.4445	Loc_loss: 0.1824	Learning rate: 0.0100000 s 	Time : 1635.5422	
+Epoch: [0]	Step: [4300/7330]	Loss: 0.8480	Cls_loss: 0.5718	Loc_loss: 0.2762	Learning rate: 0.0100000 s 	Time : 1674.2280	
+Epoch: [0]	Step: [4400/7330]	Loss: 0.7274	Cls_loss: 0.4983	Loc_loss: 0.2291	Learning rate: 0.0100000 s 	Time : 1712.8998	
+Epoch: [0]	Step: [4500/7330]	Loss: 0.6437	Cls_loss: 0.4366	Loc_loss: 0.2071	Learning rate: 0.0100000 s 	Time : 1751.5707	
+Epoch: [0]	Step: [4600/7330]	Loss: 0.7235	Cls_loss: 0.4465	Loc_loss: 0.2769	Learning rate: 0.0100000 s 	Time : 1790.2520	
+Epoch: [0]	Step: [4700/7330]	Loss: 0.7347	Cls_loss: 0.5002	Loc_loss: 0.2344	Learning rate: 0.0100000 s 	Time : 1828.9132	
+Epoch: [0]	Step: [4800/7330]	Loss: 0.6999	Cls_loss: 0.4649	Loc_loss: 0.2350	Learning rate: 0.0100000 s 	Time : 1867.5686	
+Epoch: [0]	Step: [4900/7330]	Loss: 0.7371	Cls_loss: 0.4881	Loc_loss: 0.2490	Learning rate: 0.0100000 s 	Time : 1906.2476	
+Epoch: [0]	Step: [5000/7330]	Loss: 0.7096	Cls_loss: 0.4873	Loc_loss: 0.2223	Learning rate: 0.0100000 s 	Time : 1944.9344	
+Epoch: [0]	Step: [5100/7330]	Loss: 0.7513	Cls_loss: 0.5028	Loc_loss: 0.2485	Learning rate: 0.0100000 s 	Time : 1983.5918	
+Epoch: [0]	Step: [5200/7330]	Loss: 0.6963	Cls_loss: 0.5047	Loc_loss: 0.1916	Learning rate: 0.0100000 s 	Time : 2022.2671	
+Epoch: [0]	Step: [5300/7330]	Loss: 0.6878	Cls_loss: 0.4848	Loc_loss: 0.2030	Learning rate: 0.0100000 s 	Time : 2062.2591	
+Epoch: [0]	Step: [5400/7330]	Loss: 0.6266	Cls_loss: 0.3976	Loc_loss: 0.2290	Learning rate: 0.0100000 s 	Time : 2100.9255	
+Epoch: [0]	Step: [5500/7330]	Loss: 0.7437	Cls_loss: 0.5083	Loc_loss: 0.2353	Learning rate: 0.0100000 s 	Time : 2139.5961	
+Epoch: [0]	Step: [5600/7330]	Loss: 0.6622	Cls_loss: 0.4539	Loc_loss: 0.2084	Learning rate: 0.0100000 s 	Time : 2178.3089	
+Epoch: [0]	Step: [5700/7330]	Loss: 0.6974	Cls_loss: 0.4881	Loc_loss: 0.2093	Learning rate: 0.0100000 s 	Time : 2216.9787	
+Epoch: [0]	Step: [5800/7330]	Loss: 0.7056	Cls_loss: 0.4780	Loc_loss: 0.2276	Learning rate: 0.0100000 s 	Time : 2255.6484	
+Epoch: [0]	Step: [5900/7330]	Loss: 0.6313	Cls_loss: 0.4209	Loc_loss: 0.2104	Learning rate: 0.0100000 s 	Time : 2294.3064	
+Epoch: [0]	Step: [6000/7330]	Loss: 0.7083	Cls_loss: 0.4706	Loc_loss: 0.2377	Learning rate: 0.0100000 s 	Time : 2332.9635	
+Epoch: [0]	Step: [6100/7330]	Loss: 0.6914	Cls_loss: 0.4811	Loc_loss: 0.2103	Learning rate: 0.0100000 s 	Time : 2371.6298	
+Epoch: [0]	Step: [6200/7330]	Loss: 0.7478	Cls_loss: 0.5252	Loc_loss: 0.2226	Learning rate: 0.0100000 s 	Time : 2410.3032	
+Epoch: [0]	Step: [6300/7330]	Loss: 0.6586	Cls_loss: 0.4506	Loc_loss: 0.2080	Learning rate: 0.0100000 s 	Time : 2448.9798	
+Epoch: [0]	Step: [6400/7330]	Loss: 0.6843	Cls_loss: 0.4938	Loc_loss: 0.1905	Learning rate: 0.0100000 s 	Time : 2487.6608	
+Epoch: [0]	Step: [6500/7330]	Loss: 0.6372	Cls_loss: 0.4272	Loc_loss: 0.2100	Learning rate: 0.0100000 s 	Time : 2526.3234	
+Epoch: [0]	Step: [6600/7330]	Loss: 0.5962	Cls_loss: 0.4349	Loc_loss: 0.1613	Learning rate: 0.0100000 s 	Time : 2564.9998	
+Epoch: [0]	Step: [6700/7330]	Loss: 0.5690	Cls_loss: 0.3795	Loc_loss: 0.1895	Learning rate: 0.0100000 s 	Time : 2604.8375	
+Epoch: [0]	Step: [6800/7330]	Loss: 0.7200	Cls_loss: 0.5224	Loc_loss: 0.1976	Learning rate: 0.0100000 s 	Time : 2643.4945	
+Epoch: [0]	Step: [6900/7330]	Loss: 0.6089	Cls_loss: 0.4092	Loc_loss: 0.1998	Learning rate: 0.0100000 s 	Time : 2682.1846	
+Epoch: [0]	Step: [7000/7330]	Loss: 0.6570	Cls_loss: 0.4397	Loc_loss: 0.2172	Learning rate: 0.0100000 s 	Time : 2720.8411	
+Epoch: [0]	Step: [7100/7330]	Loss: 0.5977	Cls_loss: 0.3865	Loc_loss: 0.2112	Learning rate: 0.0100000 s 	Time : 2759.4886	
+Epoch: [0]	Step: [7200/7330]	Loss: 0.6647	Cls_loss: 0.4461	Loc_loss: 0.2186	Learning rate: 0.0100000 s 	Time : 2798.1464	
+Epoch: [0]	Step: [7300/7330]	Loss: 0.6383	Cls_loss: 0.4282	Loc_loss: 0.2101	Learning rate: 0.0100000 s 	Time : 2836.7844	
+Epoch: [0]	Step: [7329/7330]	Loss: 0.5765	Cls_loss: 0.3560	Loc_loss: 0.2205	Learning rate: 0.0100000 s 	Time : 2853.2897	
+Validation of epoch [0]
+COCO dataset evaluation...
+Epoch: [0]	Step: [0/4952]	Loss: 0.5894	Time : 0.3319	
+Epoch: [0]	Step: [100/4952]	Loss: 0.8030	Time : 7.1173	
+Epoch: [0]	Step: [200/4952]	Loss: 0.3298	Time : 13.8634	
+Epoch: [0]	Step: [300/4952]	Loss: 0.7932	Time : 20.6323	
+Epoch: [0]	Step: [400/4952]	Loss: 1.1262	Time : 27.3128	
+Epoch: [0]	Step: [500/4952]	Loss: 0.4525	Time : 33.5114	
+Epoch: [0]	Step: [600/4952]	Loss: 0.5086	Time : 40.0932	
+Epoch: [0]	Step: [700/4952]	Loss: 0.7824	Time : 47.8566	
+Epoch: [0]	Step: [800/4952]	Loss: 0.2363	Time : 53.8157	
+Epoch: [0]	Step: [900/4952]	Loss: 0.5530	Time : 60.1701	
+Epoch: [0]	Step: [1000/4952]	Loss: 0.5613	Time : 66.5907	
+Epoch: [0]	Step: [1100/4952]	Loss: 1.0910	Time : 72.0906	
+Epoch: [0]	Step: [1200/4952]	Loss: 0.7275	Time : 78.5524	
+Epoch: [0]	Step: [1300/4952]	Loss: 0.2458	Time : 84.9194	
+Epoch: [0]	Step: [1400/4952]	Loss: 0.4964	Time : 91.0111	
+Epoch: [0]	Step: [1500/4952]	Loss: 0.6272	Time : 97.4457	
+Epoch: [0]	Step: [1600/4952]	Loss: 0.7663	Time : 103.6647	
+Epoch: [0]	Step: [1700/4952]	Loss: 0.8324	Time : 110.0259	
+Epoch: [0]	Step: [1800/4952]	Loss: 0.5950	Time : 116.5546	
+Epoch: [0]	Step: [1900/4952]	Loss: 0.3381	Time : 122.7298	
+Epoch: [0]	Step: [2000/4952]	Loss: 0.5630	Time : 129.2701	
+Epoch: [0]	Step: [2100/4952]	Loss: 0.5850	Time : 135.6851	
+Epoch: [0]	Step: [2200/4952]	Loss: 0.2655	Time : 142.2149	
+Epoch: [0]	Step: [2300/4952]	Loss: 0.7320	Time : 150.1808	
+Epoch: [0]	Step: [2400/4952]	Loss: 0.4120	Time : 155.6334	
+Epoch: [0]	Step: [2500/4952]	Loss: 0.4356	Time : 161.8485	
+Epoch: [0]	Step: [2600/4952]	Loss: 0.7735	Time : 168.1845	
+Epoch: [0]	Step: [2700/4952]	Loss: 0.4867	Time : 174.1639	
+Epoch: [0]	Step: [2800/4952]	Loss: 0.3323	Time : 180.1086	
+Epoch: [0]	Step: [2900/4952]	Loss: 0.6375	Time : 185.9075	
+Epoch: [0]	Step: [3000/4952]	Loss: 0.9036	Time : 192.2123	
+Epoch: [0]	Step: [3100/4952]	Loss: 0.3955	Time : 198.8815	
+Epoch: [0]	Step: [3200/4952]	Loss: 0.1609	Time : 205.3296	
+Epoch: [0]	Step: [3300/4952]	Loss: 0.8715	Time : 211.4998	
+Epoch: [0]	Step: [3400/4952]	Loss: 0.4091	Time : 217.7380	
+Epoch: [0]	Step: [3500/4952]	Loss: 0.9140	Time : 224.1699	
+Epoch: [0]	Step: [3600/4952]	Loss: 0.4045	Time : 231.1003	
+Epoch: [0]	Step: [3700/4952]	Loss: 0.2465	Time : 237.7515	
+Epoch: [0]	Step: [3800/4952]	Loss: 0.3943	Time : 244.3741	
+Epoch: [0]	Step: [3900/4952]	Loss: 0.8950	Time : 250.6661	
+Epoch: [0]	Step: [4000/4952]	Loss: 0.6524	Time : 258.4541	
+Epoch: [0]	Step: [4100/4952]	Loss: 0.5716	Time : 265.0488	
+Epoch: [0]	Step: [4200/4952]	Loss: 0.6147	Time : 271.7029	
+Epoch: [0]	Step: [4300/4952]	Loss: 0.4760	Time : 278.1825	
+Epoch: [0]	Step: [4400/4952]	Loss: 0.1499	Time : 284.2075	
+Epoch: [0]	Step: [4500/4952]	Loss: 0.8744	Time : 290.6741	
+Epoch: [0]	Step: [4600/4952]	Loss: 0.5702	Time : 297.4569	
+Epoch: [0]	Step: [4700/4952]	Loss: 0.8568	Time : 304.2464	
+Epoch: [0]	Step: [4800/4952]	Loss: 0.6314	Time : 310.7328	
+Epoch: [0]	Step: [4900/4952]	Loss: 0.7587	Time : 317.4388	
+Epoch: [0]	Step: [4951/4952]	Loss: 0.9429	Time : 320.7736	
+Loading and preparing results...
+DONE (t=10.58s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=80.75s).
+Accumulating evaluation results...
+DONE (t=18.22s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.133
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.247
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.129
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.061
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.158
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.202
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.189
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.327
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.360
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.142
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.418
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.541
+0.1326120304216371
+Eval Time : 447.7206
+Training of epoch [1]
+Epoch: [1]	Step: [0/7330]	Loss: 0.6544	Cls_loss: 0.4544	Loc_loss: 0.2001	Learning rate: 0.0100000 s 	Time : 1.6388	
+Epoch: [1]	Step: [100/7330]	Loss: 0.5739	Cls_loss: 0.3684	Loc_loss: 0.2055	Learning rate: 0.0100000 s 	Time : 40.0462	
+Epoch: [1]	Step: [200/7330]	Loss: 0.5678	Cls_loss: 0.4070	Loc_loss: 0.1608	Learning rate: 0.0100000 s 	Time : 78.6378	
+Epoch: [1]	Step: [300/7330]	Loss: 0.6158	Cls_loss: 0.4270	Loc_loss: 0.1889	Learning rate: 0.0100000 s 	Time : 117.2597	
+Epoch: [1]	Step: [400/7330]	Loss: 0.5946	Cls_loss: 0.3955	Loc_loss: 0.1991	Learning rate: 0.0100000 s 	Time : 155.9469	
+Epoch: [1]	Step: [500/7330]	Loss: 0.5358	Cls_loss: 0.3536	Loc_loss: 0.1822	Learning rate: 0.0100000 s 	Time : 194.6290	
+Epoch: [1]	Step: [600/7330]	Loss: 0.6137	Cls_loss: 0.4275	Loc_loss: 0.1862	Learning rate: 0.0100000 s 	Time : 233.3046	
+Epoch: [1]	Step: [700/7330]	Loss: 0.6938	Cls_loss: 0.4839	Loc_loss: 0.2100	Learning rate: 0.0100000 s 	Time : 272.0047	
+Epoch: [1]	Step: [800/7330]	Loss: 0.6460	Cls_loss: 0.4423	Loc_loss: 0.2037	Learning rate: 0.0100000 s 	Time : 310.6971	
+Epoch: [1]	Step: [900/7330]	Loss: 0.5661	Cls_loss: 0.3828	Loc_loss: 0.1832	Learning rate: 0.0100000 s 	Time : 349.4233	
+Epoch: [1]	Step: [1000/7330]	Loss: 0.5692	Cls_loss: 0.3694	Loc_loss: 0.1998	Learning rate: 0.0100000 s 	Time : 388.1306	
+Epoch: [1]	Step: [1100/7330]	Loss: 0.5977	Cls_loss: 0.3961	Loc_loss: 0.2016	Learning rate: 0.0100000 s 	Time : 426.7805	
+Epoch: [1]	Step: [1200/7330]	Loss: 0.5771	Cls_loss: 0.3801	Loc_loss: 0.1970	Learning rate: 0.0100000 s 	Time : 465.4647	
+Epoch: [1]	Step: [1300/7330]	Loss: 0.5786	Cls_loss: 0.3969	Loc_loss: 0.1818	Learning rate: 0.0100000 s 	Time : 504.1469	
+Epoch: [1]	Step: [1400/7330]	Loss: 0.5544	Cls_loss: 0.3671	Loc_loss: 0.1874	Learning rate: 0.0100000 s 	Time : 542.8419	
+Epoch: [1]	Step: [1500/7330]	Loss: 0.6290	Cls_loss: 0.4318	Loc_loss: 0.1972	Learning rate: 0.0100000 s 	Time : 581.5036	
+Epoch: [1]	Step: [1600/7330]	Loss: 0.5566	Cls_loss: 0.3615	Loc_loss: 0.1952	Learning rate: 0.0100000 s 	Time : 620.1854	
+Epoch: [1]	Step: [1700/7330]	Loss: 0.5734	Cls_loss: 0.3954	Loc_loss: 0.1780	Learning rate: 0.0100000 s 	Time : 658.8522	
+Epoch: [1]	Step: [1800/7330]	Loss: 0.5522	Cls_loss: 0.3817	Loc_loss: 0.1704	Learning rate: 0.0100000 s 	Time : 697.5416	
+Epoch: [1]	Step: [1900/7330]	Loss: 0.6223	Cls_loss: 0.4127	Loc_loss: 0.2096	Learning rate: 0.0100000 s 	Time : 736.1864	
+Epoch: [1]	Step: [2000/7330]	Loss: 0.5234	Cls_loss: 0.3316	Loc_loss: 0.1918	Learning rate: 0.0100000 s 	Time : 776.2289	
+Epoch: [1]	Step: [2100/7330]	Loss: 0.4927	Cls_loss: 0.3416	Loc_loss: 0.1511	Learning rate: 0.0100000 s 	Time : 814.9071	
+Epoch: [1]	Step: [2200/7330]	Loss: 0.6183	Cls_loss: 0.4195	Loc_loss: 0.1988	Learning rate: 0.0100000 s 	Time : 853.5578	
+Epoch: [1]	Step: [2300/7330]	Loss: 0.5474	Cls_loss: 0.3929	Loc_loss: 0.1545	Learning rate: 0.0100000 s 	Time : 892.2362	
+Epoch: [1]	Step: [2400/7330]	Loss: 0.5456	Cls_loss: 0.3635	Loc_loss: 0.1821	Learning rate: 0.0100000 s 	Time : 930.8904	
+Epoch: [1]	Step: [2500/7330]	Loss: 0.5703	Cls_loss: 0.3889	Loc_loss: 0.1814	Learning rate: 0.0100000 s 	Time : 969.5425	
+Epoch: [1]	Step: [2600/7330]	Loss: 0.5726	Cls_loss: 0.4106	Loc_loss: 0.1620	Learning rate: 0.0100000 s 	Time : 1008.2214	
+Epoch: [1]	Step: [2700/7330]	Loss: 0.6888	Cls_loss: 0.4513	Loc_loss: 0.2375	Learning rate: 0.0100000 s 	Time : 1046.8974	
+Epoch: [1]	Step: [2800/7330]	Loss: 0.5543	Cls_loss: 0.3618	Loc_loss: 0.1925	Learning rate: 0.0100000 s 	Time : 1085.5408	
+Epoch: [1]	Step: [2900/7330]	Loss: 0.5125	Cls_loss: 0.3514	Loc_loss: 0.1612	Learning rate: 0.0100000 s 	Time : 1124.2213	
+Epoch: [1]	Step: [3000/7330]	Loss: 0.5984	Cls_loss: 0.3994	Loc_loss: 0.1989	Learning rate: 0.0100000 s 	Time : 1162.9142	
+Epoch: [1]	Step: [3100/7330]	Loss: 0.4981	Cls_loss: 0.3299	Loc_loss: 0.1682	Learning rate: 0.0100000 s 	Time : 1201.6198	
+Epoch: [1]	Step: [3200/7330]	Loss: 0.5991	Cls_loss: 0.4075	Loc_loss: 0.1916	Learning rate: 0.0100000 s 	Time : 1240.3046	
+Epoch: [1]	Step: [3300/7330]	Loss: 0.5931	Cls_loss: 0.4195	Loc_loss: 0.1736	Learning rate: 0.0100000 s 	Time : 1278.9388	
+Epoch: [1]	Step: [3400/7330]	Loss: 0.5426	Cls_loss: 0.3531	Loc_loss: 0.1896	Learning rate: 0.0100000 s 	Time : 1317.6037	
+Epoch: [1]	Step: [3500/7330]	Loss: 0.5711	Cls_loss: 0.3960	Loc_loss: 0.1751	Learning rate: 0.0100000 s 	Time : 1357.6060	
+Epoch: [1]	Step: [3600/7330]	Loss: 0.5669	Cls_loss: 0.3850	Loc_loss: 0.1818	Learning rate: 0.0100000 s 	Time : 1396.3019	
+Epoch: [1]	Step: [3700/7330]	Loss: 0.5481	Cls_loss: 0.3706	Loc_loss: 0.1775	Learning rate: 0.0100000 s 	Time : 1434.9620	
+Epoch: [1]	Step: [3800/7330]	Loss: 0.5801	Cls_loss: 0.3651	Loc_loss: 0.2150	Learning rate: 0.0100000 s 	Time : 1473.6063	
+Epoch: [1]	Step: [3900/7330]	Loss: 0.6147	Cls_loss: 0.4371	Loc_loss: 0.1776	Learning rate: 0.0100000 s 	Time : 1512.2688	
+Epoch: [1]	Step: [4000/7330]	Loss: 0.5372	Cls_loss: 0.4121	Loc_loss: 0.1251	Learning rate: 0.0100000 s 	Time : 1550.9118	
+Epoch: [1]	Step: [4100/7330]	Loss: 0.4934	Cls_loss: 0.3556	Loc_loss: 0.1379	Learning rate: 0.0100000 s 	Time : 1589.5877	
+Epoch: [1]	Step: [4200/7330]	Loss: 0.5216	Cls_loss: 0.3491	Loc_loss: 0.1724	Learning rate: 0.0100000 s 	Time : 1628.2530	
+Epoch: [1]	Step: [4300/7330]	Loss: 0.6311	Cls_loss: 0.4599	Loc_loss: 0.1712	Learning rate: 0.0100000 s 	Time : 1666.9057	
+Epoch: [1]	Step: [4400/7330]	Loss: 0.5268	Cls_loss: 0.3539	Loc_loss: 0.1729	Learning rate: 0.0100000 s 	Time : 1705.5606	
+Epoch: [1]	Step: [4500/7330]	Loss: 0.6067	Cls_loss: 0.4042	Loc_loss: 0.2025	Learning rate: 0.0100000 s 	Time : 1744.2531	
+Epoch: [1]	Step: [4600/7330]	Loss: 0.5200	Cls_loss: 0.3496	Loc_loss: 0.1704	Learning rate: 0.0100000 s 	Time : 1782.9578	
+Epoch: [1]	Step: [4700/7330]	Loss: 0.7281	Cls_loss: 0.5195	Loc_loss: 0.2086	Learning rate: 0.0100000 s 	Time : 1821.6421	
+Epoch: [1]	Step: [4800/7330]	Loss: 0.6100	Cls_loss: 0.4244	Loc_loss: 0.1857	Learning rate: 0.0100000 s 	Time : 1860.3016	
+Epoch: [1]	Step: [4900/7330]	Loss: 0.6492	Cls_loss: 0.4134	Loc_loss: 0.2359	Learning rate: 0.0100000 s 	Time : 1898.9565	
+Epoch: [1]	Step: [5000/7330]	Loss: 0.5572	Cls_loss: 0.3879	Loc_loss: 0.1693	Learning rate: 0.0100000 s 	Time : 1938.9732	
+Epoch: [1]	Step: [5100/7330]	Loss: 0.6810	Cls_loss: 0.4901	Loc_loss: 0.1909	Learning rate: 0.0100000 s 	Time : 1977.6315	
+Epoch: [1]	Step: [5200/7330]	Loss: 0.5544	Cls_loss: 0.3801	Loc_loss: 0.1743	Learning rate: 0.0100000 s 	Time : 2016.2893	
+Epoch: [1]	Step: [5300/7330]	Loss: 0.4840	Cls_loss: 0.3104	Loc_loss: 0.1736	Learning rate: 0.0100000 s 	Time : 2054.9236	
+Epoch: [1]	Step: [5400/7330]	Loss: 0.5175	Cls_loss: 0.3409	Loc_loss: 0.1766	Learning rate: 0.0100000 s 	Time : 2093.5775	
+Epoch: [1]	Step: [5500/7330]	Loss: 0.5780	Cls_loss: 0.4190	Loc_loss: 0.1589	Learning rate: 0.0100000 s 	Time : 2132.2327	
+Epoch: [1]	Step: [5600/7330]	Loss: 0.5886	Cls_loss: 0.3910	Loc_loss: 0.1976	Learning rate: 0.0100000 s 	Time : 2170.8745	
+Epoch: [1]	Step: [5700/7330]	Loss: 0.5150	Cls_loss: 0.3604	Loc_loss: 0.1546	Learning rate: 0.0100000 s 	Time : 2209.5382	
+Epoch: [1]	Step: [5800/7330]	Loss: 0.5548	Cls_loss: 0.3732	Loc_loss: 0.1816	Learning rate: 0.0100000 s 	Time : 2248.1960	
+Epoch: [1]	Step: [5900/7330]	Loss: 0.4376	Cls_loss: 0.2990	Loc_loss: 0.1386	Learning rate: 0.0100000 s 	Time : 2286.8691	
+Epoch: [1]	Step: [6000/7330]	Loss: 0.5588	Cls_loss: 0.3570	Loc_loss: 0.2018	Learning rate: 0.0100000 s 	Time : 2325.5518	
+Epoch: [1]	Step: [6100/7330]	Loss: 0.5477	Cls_loss: 0.3825	Loc_loss: 0.1652	Learning rate: 0.0100000 s 	Time : 2364.2401	
+Epoch: [1]	Step: [6200/7330]	Loss: 0.5091	Cls_loss: 0.3388	Loc_loss: 0.1703	Learning rate: 0.0100000 s 	Time : 2402.9123	
+Epoch: [1]	Step: [6300/7330]	Loss: 0.4984	Cls_loss: 0.3268	Loc_loss: 0.1717	Learning rate: 0.0100000 s 	Time : 2441.5564	
+Epoch: [1]	Step: [6400/7330]	Loss: 0.5525	Cls_loss: 0.3957	Loc_loss: 0.1568	Learning rate: 0.0100000 s 	Time : 2481.5724	
+Epoch: [1]	Step: [6500/7330]	Loss: 0.5632	Cls_loss: 0.3864	Loc_loss: 0.1768	Learning rate: 0.0100000 s 	Time : 2520.2267	
+Epoch: [1]	Step: [6600/7330]	Loss: 0.6487	Cls_loss: 0.4500	Loc_loss: 0.1987	Learning rate: 0.0100000 s 	Time : 2558.8714	
+Epoch: [1]	Step: [6700/7330]	Loss: 0.4928	Cls_loss: 0.3347	Loc_loss: 0.1581	Learning rate: 0.0100000 s 	Time : 2597.5267	
+Epoch: [1]	Step: [6800/7330]	Loss: 0.5363	Cls_loss: 0.3638	Loc_loss: 0.1726	Learning rate: 0.0100000 s 	Time : 2636.1972	
+Epoch: [1]	Step: [6900/7330]	Loss: 0.5414	Cls_loss: 0.3385	Loc_loss: 0.2029	Learning rate: 0.0100000 s 	Time : 2674.8605	
+Epoch: [1]	Step: [7000/7330]	Loss: 0.5211	Cls_loss: 0.3575	Loc_loss: 0.1636	Learning rate: 0.0100000 s 	Time : 2713.5476	
+Epoch: [1]	Step: [7100/7330]	Loss: 0.5765	Cls_loss: 0.3959	Loc_loss: 0.1805	Learning rate: 0.0100000 s 	Time : 2752.1917	
+Epoch: [1]	Step: [7200/7330]	Loss: 0.6441	Cls_loss: 0.4263	Loc_loss: 0.2178	Learning rate: 0.0100000 s 	Time : 2790.8704	
+Epoch: [1]	Step: [7300/7330]	Loss: 0.6357	Cls_loss: 0.4447	Loc_loss: 0.1909	Learning rate: 0.0100000 s 	Time : 2829.5499	
+Epoch: [1]	Step: [7329/7330]	Loss: 0.4209	Cls_loss: 0.2639	Loc_loss: 0.1569	Learning rate: 0.0100000 s 	Time : 2840.5160	
+Validation of epoch [1]
+COCO dataset evaluation...
+Epoch: [1]	Step: [0/4952]	Loss: 0.4940	Time : 0.3393	
+Epoch: [1]	Step: [100/4952]	Loss: 0.6162	Time : 6.7477	
+Epoch: [1]	Step: [200/4952]	Loss: 0.2606	Time : 13.1020	
+Epoch: [1]	Step: [300/4952]	Loss: 0.7287	Time : 21.0140	
+Epoch: [1]	Step: [400/4952]	Loss: 0.9640	Time : 27.3756	
+Epoch: [1]	Step: [500/4952]	Loss: 0.3803	Time : 33.0788	
+Epoch: [1]	Step: [600/4952]	Loss: 0.3117	Time : 39.1798	
+Epoch: [1]	Step: [700/4952]	Loss: 0.6148	Time : 45.3213	
+Epoch: [1]	Step: [800/4952]	Loss: 0.2623	Time : 50.8216	
+Epoch: [1]	Step: [900/4952]	Loss: 0.5273	Time : 56.7344	
+Epoch: [1]	Step: [1000/4952]	Loss: 0.5511	Time : 62.7258	
+Epoch: [1]	Step: [1100/4952]	Loss: 1.1340	Time : 67.9219	
+Epoch: [1]	Step: [1200/4952]	Loss: 0.4107	Time : 73.9568	
+Epoch: [1]	Step: [1300/4952]	Loss: 0.1736	Time : 79.8662	
+Epoch: [1]	Step: [1400/4952]	Loss: 0.4191	Time : 85.7110	
+Epoch: [1]	Step: [1500/4952]	Loss: 0.3396	Time : 91.7421	
+Epoch: [1]	Step: [1600/4952]	Loss: 0.7300	Time : 97.3904	
+Epoch: [1]	Step: [1700/4952]	Loss: 0.7280	Time : 103.2197	
+Epoch: [1]	Step: [1800/4952]	Loss: 0.4923	Time : 109.3323	
+Epoch: [1]	Step: [1900/4952]	Loss: 0.2129	Time : 116.5736	
+Epoch: [1]	Step: [2000/4952]	Loss: 0.3989	Time : 122.7533	
+Epoch: [1]	Step: [2100/4952]	Loss: 0.5092	Time : 128.6843	
+Epoch: [1]	Step: [2200/4952]	Loss: 0.1818	Time : 134.7465	
+Epoch: [1]	Step: [2300/4952]	Loss: 0.6201	Time : 140.7799	
+Epoch: [1]	Step: [2400/4952]	Loss: 0.5184	Time : 145.8954	
+Epoch: [1]	Step: [2500/4952]	Loss: 0.2151	Time : 151.9135	
+Epoch: [1]	Step: [2600/4952]	Loss: 0.6854	Time : 158.1340	
+Epoch: [1]	Step: [2700/4952]	Loss: 0.2993	Time : 163.7272	
+Epoch: [1]	Step: [2800/4952]	Loss: 0.2329	Time : 169.2631	
+Epoch: [1]	Step: [2900/4952]	Loss: 0.5576	Time : 174.8000	
+Epoch: [1]	Step: [3000/4952]	Loss: 0.7358	Time : 180.9717	
+Epoch: [1]	Step: [3100/4952]	Loss: 0.3912	Time : 187.4130	
+Epoch: [1]	Step: [3200/4952]	Loss: 0.0857	Time : 193.5087	
+Epoch: [1]	Step: [3300/4952]	Loss: 0.8018	Time : 199.1657	
+Epoch: [1]	Step: [3400/4952]	Loss: 0.3691	Time : 204.9998	
+Epoch: [1]	Step: [3500/4952]	Loss: 0.7945	Time : 211.2524	
+Epoch: [1]	Step: [3600/4952]	Loss: 0.3753	Time : 217.7545	
+Epoch: [1]	Step: [3700/4952]	Loss: 0.2057	Time : 223.9991	
+Epoch: [1]	Step: [3800/4952]	Loss: 0.3401	Time : 231.8893	
+Epoch: [1]	Step: [3900/4952]	Loss: 0.6629	Time : 237.7650	
+Epoch: [1]	Step: [4000/4952]	Loss: 0.6238	Time : 243.2997	
+Epoch: [1]	Step: [4100/4952]	Loss: 0.5001	Time : 249.5376	
+Epoch: [1]	Step: [4200/4952]	Loss: 0.6187	Time : 255.8766	
+Epoch: [1]	Step: [4300/4952]	Loss: 0.4449	Time : 261.9762	
+Epoch: [1]	Step: [4400/4952]	Loss: 0.0810	Time : 267.6880	
+Epoch: [1]	Step: [4500/4952]	Loss: 1.1209	Time : 273.7910	
+Epoch: [1]	Step: [4600/4952]	Loss: 0.4513	Time : 280.2606	
+Epoch: [1]	Step: [4700/4952]	Loss: 0.6824	Time : 286.7157	
+Epoch: [1]	Step: [4800/4952]	Loss: 0.5140	Time : 292.7025	
+Epoch: [1]	Step: [4900/4952]	Loss: 0.5917	Time : 299.1116	
+Epoch: [1]	Step: [4951/4952]	Loss: 0.9424	Time : 302.3369	
+Loading and preparing results...
+DONE (t=10.05s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=81.58s).
+Accumulating evaluation results...
+DONE (t=16.19s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.198
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.338
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.207
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.081
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.221
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.292
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.220
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.370
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.404
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.192
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.457
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.573
+0.19796810553178137
+Eval Time : 426.2344
+Training of epoch [2]
+Epoch: [2]	Step: [0/7330]	Loss: 0.5731	Cls_loss: 0.3905	Loc_loss: 0.1826	Learning rate: 0.0100000 s 	Time : 1.6281	
+Epoch: [2]	Step: [100/7330]	Loss: 0.5378	Cls_loss: 0.3644	Loc_loss: 0.1733	Learning rate: 0.0100000 s 	Time : 39.9837	
+Epoch: [2]	Step: [200/7330]	Loss: 0.5201	Cls_loss: 0.3394	Loc_loss: 0.1807	Learning rate: 0.0100000 s 	Time : 78.5143	
+Epoch: [2]	Step: [300/7330]	Loss: 0.5123	Cls_loss: 0.3323	Loc_loss: 0.1800	Learning rate: 0.0100000 s 	Time : 117.1705	
+Epoch: [2]	Step: [400/7330]	Loss: 0.5727	Cls_loss: 0.3760	Loc_loss: 0.1966	Learning rate: 0.0100000 s 	Time : 155.8052	
+Epoch: [2]	Step: [500/7330]	Loss: 0.5869	Cls_loss: 0.4140	Loc_loss: 0.1729	Learning rate: 0.0100000 s 	Time : 194.4289	
+Epoch: [2]	Step: [600/7330]	Loss: 0.4375	Cls_loss: 0.2971	Loc_loss: 0.1404	Learning rate: 0.0100000 s 	Time : 233.0963	
+Epoch: [2]	Step: [700/7330]	Loss: 0.5655	Cls_loss: 0.3832	Loc_loss: 0.1823	Learning rate: 0.0100000 s 	Time : 271.7313	
+Epoch: [2]	Step: [800/7330]	Loss: 0.4867	Cls_loss: 0.3151	Loc_loss: 0.1716	Learning rate: 0.0100000 s 	Time : 310.4031	
+Epoch: [2]	Step: [900/7330]	Loss: 0.5332	Cls_loss: 0.3443	Loc_loss: 0.1889	Learning rate: 0.0100000 s 	Time : 349.0860	
+Epoch: [2]	Step: [1000/7330]	Loss: 0.5491	Cls_loss: 0.3641	Loc_loss: 0.1850	Learning rate: 0.0100000 s 	Time : 387.7496	
+Epoch: [2]	Step: [1100/7330]	Loss: 0.5002	Cls_loss: 0.3467	Loc_loss: 0.1536	Learning rate: 0.0100000 s 	Time : 426.4010	
+Epoch: [2]	Step: [1200/7330]	Loss: 0.5052	Cls_loss: 0.3587	Loc_loss: 0.1465	Learning rate: 0.0100000 s 	Time : 465.0550	
+Epoch: [2]	Step: [1300/7330]	Loss: 0.5467	Cls_loss: 0.3896	Loc_loss: 0.1571	Learning rate: 0.0100000 s 	Time : 503.7225	
+Epoch: [2]	Step: [1400/7330]	Loss: 0.4904	Cls_loss: 0.3391	Loc_loss: 0.1513	Learning rate: 0.0100000 s 	Time : 542.3819	
+Epoch: [2]	Step: [1500/7330]	Loss: 0.5417	Cls_loss: 0.3911	Loc_loss: 0.1506	Learning rate: 0.0100000 s 	Time : 581.0282	
+Epoch: [2]	Step: [1600/7330]	Loss: 0.4665	Cls_loss: 0.3247	Loc_loss: 0.1418	Learning rate: 0.0100000 s 	Time : 619.6681	
+Epoch: [2]	Step: [1700/7330]	Loss: 0.5435	Cls_loss: 0.3830	Loc_loss: 0.1605	Learning rate: 0.0100000 s 	Time : 658.3245	
+Epoch: [2]	Step: [1800/7330]	Loss: 0.6176	Cls_loss: 0.4072	Loc_loss: 0.2104	Learning rate: 0.0100000 s 	Time : 697.0138	
+Epoch: [2]	Step: [1900/7330]	Loss: 0.4710	Cls_loss: 0.3094	Loc_loss: 0.1615	Learning rate: 0.0100000 s 	Time : 735.6792	
+Epoch: [2]	Step: [2000/7330]	Loss: 0.5564	Cls_loss: 0.3647	Loc_loss: 0.1917	Learning rate: 0.0100000 s 	Time : 774.3611	
+Epoch: [2]	Step: [2100/7330]	Loss: 0.5610	Cls_loss: 0.3643	Loc_loss: 0.1967	Learning rate: 0.0100000 s 	Time : 814.3941	
+Epoch: [2]	Step: [2200/7330]	Loss: 0.5176	Cls_loss: 0.3300	Loc_loss: 0.1875	Learning rate: 0.0100000 s 	Time : 853.0623	
+Epoch: [2]	Step: [2300/7330]	Loss: 0.5410	Cls_loss: 0.3696	Loc_loss: 0.1714	Learning rate: 0.0100000 s 	Time : 891.7182	
+Epoch: [2]	Step: [2400/7330]	Loss: 0.5014	Cls_loss: 0.3485	Loc_loss: 0.1529	Learning rate: 0.0100000 s 	Time : 930.3792	
+Epoch: [2]	Step: [2500/7330]	Loss: 0.5233	Cls_loss: 0.3394	Loc_loss: 0.1840	Learning rate: 0.0100000 s 	Time : 969.0544	
+Epoch: [2]	Step: [2600/7330]	Loss: 0.5681	Cls_loss: 0.3901	Loc_loss: 0.1781	Learning rate: 0.0100000 s 	Time : 1007.7583	
+Epoch: [2]	Step: [2700/7330]	Loss: 0.6039	Cls_loss: 0.4153	Loc_loss: 0.1886	Learning rate: 0.0100000 s 	Time : 1046.4132	
+Epoch: [2]	Step: [2800/7330]	Loss: 0.4418	Cls_loss: 0.3057	Loc_loss: 0.1362	Learning rate: 0.0100000 s 	Time : 1085.0728	
+Epoch: [2]	Step: [2900/7330]	Loss: 0.6145	Cls_loss: 0.4186	Loc_loss: 0.1959	Learning rate: 0.0100000 s 	Time : 1123.7369	
+Epoch: [2]	Step: [3000/7330]	Loss: 0.4668	Cls_loss: 0.2957	Loc_loss: 0.1711	Learning rate: 0.0100000 s 	Time : 1162.4075	
+Epoch: [2]	Step: [3100/7330]	Loss: 0.4990	Cls_loss: 0.3191	Loc_loss: 0.1799	Learning rate: 0.0100000 s 	Time : 1201.1045	
+Epoch: [2]	Step: [3200/7330]	Loss: 0.6082	Cls_loss: 0.4080	Loc_loss: 0.2002	Learning rate: 0.0100000 s 	Time : 1239.8014	
+Epoch: [2]	Step: [3300/7330]	Loss: 0.5959	Cls_loss: 0.4247	Loc_loss: 0.1713	Learning rate: 0.0100000 s 	Time : 1278.4587	
+Epoch: [2]	Step: [3400/7330]	Loss: 0.6127	Cls_loss: 0.4200	Loc_loss: 0.1927	Learning rate: 0.0100000 s 	Time : 1317.0854	
+Epoch: [2]	Step: [3500/7330]	Loss: 0.4757	Cls_loss: 0.3311	Loc_loss: 0.1446	Learning rate: 0.0100000 s 	Time : 1355.7422	
+Epoch: [2]	Step: [3600/7330]	Loss: 0.6712	Cls_loss: 0.4765	Loc_loss: 0.1947	Learning rate: 0.0100000 s 	Time : 1395.7511	
+Epoch: [2]	Step: [3700/7330]	Loss: 0.5751	Cls_loss: 0.4186	Loc_loss: 0.1566	Learning rate: 0.0100000 s 	Time : 1434.4496	
+Epoch: [2]	Step: [3800/7330]	Loss: 0.6268	Cls_loss: 0.4157	Loc_loss: 0.2111	Learning rate: 0.0100000 s 	Time : 1473.1031	
+Epoch: [2]	Step: [3900/7330]	Loss: 0.5243	Cls_loss: 0.3394	Loc_loss: 0.1849	Learning rate: 0.0100000 s 	Time : 1511.7417	
+Epoch: [2]	Step: [4000/7330]	Loss: 0.5031	Cls_loss: 0.3209	Loc_loss: 0.1822	Learning rate: 0.0100000 s 	Time : 1550.4290	
+Epoch: [2]	Step: [4100/7330]	Loss: 0.5525	Cls_loss: 0.3649	Loc_loss: 0.1875	Learning rate: 0.0100000 s 	Time : 1589.0680	
+Epoch: [2]	Step: [4200/7330]	Loss: 0.4766	Cls_loss: 0.3207	Loc_loss: 0.1559	Learning rate: 0.0100000 s 	Time : 1627.7343	
+Epoch: [2]	Step: [4300/7330]	Loss: 0.5391	Cls_loss: 0.3693	Loc_loss: 0.1698	Learning rate: 0.0100000 s 	Time : 1666.3794	
+Epoch: [2]	Step: [4400/7330]	Loss: 0.5386	Cls_loss: 0.3600	Loc_loss: 0.1786	Learning rate: 0.0100000 s 	Time : 1705.0273	
+Epoch: [2]	Step: [4500/7330]	Loss: 0.5404	Cls_loss: 0.3846	Loc_loss: 0.1558	Learning rate: 0.0100000 s 	Time : 1743.6913	
+Epoch: [2]	Step: [4600/7330]	Loss: 0.6064	Cls_loss: 0.4085	Loc_loss: 0.1979	Learning rate: 0.0100000 s 	Time : 1782.3788	
+Epoch: [2]	Step: [4700/7330]	Loss: 0.4374	Cls_loss: 0.2959	Loc_loss: 0.1415	Learning rate: 0.0100000 s 	Time : 1821.0340	
+Epoch: [2]	Step: [4800/7330]	Loss: 0.5323	Cls_loss: 0.3694	Loc_loss: 0.1629	Learning rate: 0.0100000 s 	Time : 1859.7403	
+Epoch: [2]	Step: [4900/7330]	Loss: 0.4295	Cls_loss: 0.2971	Loc_loss: 0.1324	Learning rate: 0.0100000 s 	Time : 1898.4090	
+Epoch: [2]	Step: [5000/7330]	Loss: 0.5418	Cls_loss: 0.3661	Loc_loss: 0.1757	Learning rate: 0.0100000 s 	Time : 1937.0637	
+Epoch: [2]	Step: [5100/7330]	Loss: 0.5868	Cls_loss: 0.4154	Loc_loss: 0.1713	Learning rate: 0.0100000 s 	Time : 1977.0788	
+Epoch: [2]	Step: [5200/7330]	Loss: 0.6601	Cls_loss: 0.4669	Loc_loss: 0.1932	Learning rate: 0.0100000 s 	Time : 2015.7500	
+Epoch: [2]	Step: [5300/7330]	Loss: 0.4999	Cls_loss: 0.3221	Loc_loss: 0.1777	Learning rate: 0.0100000 s 	Time : 2054.4178	
+Epoch: [2]	Step: [5400/7330]	Loss: 0.4717	Cls_loss: 0.3233	Loc_loss: 0.1484	Learning rate: 0.0100000 s 	Time : 2093.0813	
+Epoch: [2]	Step: [5500/7330]	Loss: 0.5971	Cls_loss: 0.3874	Loc_loss: 0.2097	Learning rate: 0.0100000 s 	Time : 2131.7697	
+Epoch: [2]	Step: [5600/7330]	Loss: 0.5320	Cls_loss: 0.3537	Loc_loss: 0.1783	Learning rate: 0.0100000 s 	Time : 2170.4388	
+Epoch: [2]	Step: [5700/7330]	Loss: 0.4506	Cls_loss: 0.3105	Loc_loss: 0.1401	Learning rate: 0.0100000 s 	Time : 2209.1259	
+Epoch: [2]	Step: [5800/7330]	Loss: 0.5761	Cls_loss: 0.3799	Loc_loss: 0.1962	Learning rate: 0.0100000 s 	Time : 2247.7905	
+Epoch: [2]	Step: [5900/7330]	Loss: 0.5191	Cls_loss: 0.3655	Loc_loss: 0.1536	Learning rate: 0.0100000 s 	Time : 2286.4547	
+Epoch: [2]	Step: [6000/7330]	Loss: 0.5220	Cls_loss: 0.3361	Loc_loss: 0.1859	Learning rate: 0.0100000 s 	Time : 2325.1262	
+Epoch: [2]	Step: [6100/7330]	Loss: 0.5411	Cls_loss: 0.3487	Loc_loss: 0.1925	Learning rate: 0.0100000 s 	Time : 2363.7920	
+Epoch: [2]	Step: [6200/7330]	Loss: 0.4414	Cls_loss: 0.2953	Loc_loss: 0.1461	Learning rate: 0.0100000 s 	Time : 2402.4905	
+Epoch: [2]	Step: [6300/7330]	Loss: 0.4788	Cls_loss: 0.3240	Loc_loss: 0.1547	Learning rate: 0.0100000 s 	Time : 2441.1676	
+Epoch: [2]	Step: [6400/7330]	Loss: 0.5810	Cls_loss: 0.3715	Loc_loss: 0.2095	Learning rate: 0.0100000 s 	Time : 2479.8246	
+Epoch: [2]	Step: [6500/7330]	Loss: 0.6056	Cls_loss: 0.4215	Loc_loss: 0.1842	Learning rate: 0.0100000 s 	Time : 2519.8240	
+Epoch: [2]	Step: [6600/7330]	Loss: 0.4669	Cls_loss: 0.3116	Loc_loss: 0.1553	Learning rate: 0.0100000 s 	Time : 2558.4919	
+Epoch: [2]	Step: [6700/7330]	Loss: 0.5075	Cls_loss: 0.3282	Loc_loss: 0.1793	Learning rate: 0.0100000 s 	Time : 2597.1572	
+Epoch: [2]	Step: [6800/7330]	Loss: 0.4495	Cls_loss: 0.3079	Loc_loss: 0.1416	Learning rate: 0.0100000 s 	Time : 2635.8272	
+Epoch: [2]	Step: [6900/7330]	Loss: 0.5501	Cls_loss: 0.3644	Loc_loss: 0.1857	Learning rate: 0.0100000 s 	Time : 2674.4971	
+Epoch: [2]	Step: [7000/7330]	Loss: 0.5350	Cls_loss: 0.3594	Loc_loss: 0.1756	Learning rate: 0.0100000 s 	Time : 2713.1366	
+Epoch: [2]	Step: [7100/7330]	Loss: 0.4767	Cls_loss: 0.3138	Loc_loss: 0.1628	Learning rate: 0.0100000 s 	Time : 2751.7920	
+Epoch: [2]	Step: [7200/7330]	Loss: 0.5603	Cls_loss: 0.3652	Loc_loss: 0.1951	Learning rate: 0.0100000 s 	Time : 2790.5257	
+Epoch: [2]	Step: [7300/7330]	Loss: 0.4539	Cls_loss: 0.3058	Loc_loss: 0.1482	Learning rate: 0.0100000 s 	Time : 2829.2128	
+Epoch: [2]	Step: [7329/7330]	Loss: 0.4487	Cls_loss: 0.3618	Loc_loss: 0.0869	Learning rate: 0.0100000 s 	Time : 2840.1674	
+Validation of epoch [2]
+COCO dataset evaluation...
+Epoch: [2]	Step: [0/4952]	Loss: 0.4107	Time : 0.3351	
+Epoch: [2]	Step: [100/4952]	Loss: 0.6206	Time : 6.5343	
+Epoch: [2]	Step: [200/4952]	Loss: 0.2582	Time : 12.6147	
+Epoch: [2]	Step: [300/4952]	Loss: 0.9298	Time : 18.7530	
+Epoch: [2]	Step: [400/4952]	Loss: 0.9135	Time : 24.9335	
+Epoch: [2]	Step: [500/4952]	Loss: 0.3860	Time : 30.5964	
+Epoch: [2]	Step: [600/4952]	Loss: 0.2211	Time : 36.5272	
+Epoch: [2]	Step: [700/4952]	Loss: 0.7219	Time : 43.7277	
+Epoch: [2]	Step: [800/4952]	Loss: 0.1732	Time : 48.8993	
+Epoch: [2]	Step: [900/4952]	Loss: 0.4936	Time : 54.5991	
+Epoch: [2]	Step: [1000/4952]	Loss: 0.3769	Time : 60.4218	
+Epoch: [2]	Step: [1100/4952]	Loss: 1.1942	Time : 65.4632	
+Epoch: [2]	Step: [1200/4952]	Loss: 0.4148	Time : 71.2375	
+Epoch: [2]	Step: [1300/4952]	Loss: 0.1146	Time : 76.9763	
+Epoch: [2]	Step: [1400/4952]	Loss: 0.3947	Time : 82.6852	
+Epoch: [2]	Step: [1500/4952]	Loss: 0.3765	Time : 88.4921	
+Epoch: [2]	Step: [1600/4952]	Loss: 0.6261	Time : 93.8983	
+Epoch: [2]	Step: [1700/4952]	Loss: 0.6945	Time : 99.5763	
+Epoch: [2]	Step: [1800/4952]	Loss: 0.3885	Time : 105.3644	
+Epoch: [2]	Step: [1900/4952]	Loss: 0.1208	Time : 110.9678	
+Epoch: [2]	Step: [2000/4952]	Loss: 0.5338	Time : 116.9480	
+Epoch: [2]	Step: [2100/4952]	Loss: 0.4810	Time : 122.7387	
+Epoch: [2]	Step: [2200/4952]	Loss: 0.1690	Time : 128.6791	
+Epoch: [2]	Step: [2300/4952]	Loss: 0.5252	Time : 134.5358	
+Epoch: [2]	Step: [2400/4952]	Loss: 0.3990	Time : 140.9950	
+Epoch: [2]	Step: [2500/4952]	Loss: 0.1220	Time : 146.7826	
+Epoch: [2]	Step: [2600/4952]	Loss: 0.6587	Time : 152.6542	
+Epoch: [2]	Step: [2700/4952]	Loss: 0.4228	Time : 158.1675	
+Epoch: [2]	Step: [2800/4952]	Loss: 0.2605	Time : 163.4732	
+Epoch: [2]	Step: [2900/4952]	Loss: 0.5250	Time : 168.6304	
+Epoch: [2]	Step: [3000/4952]	Loss: 0.7095	Time : 174.4400	
+Epoch: [2]	Step: [3100/4952]	Loss: 0.3471	Time : 180.5322	
+Epoch: [2]	Step: [3200/4952]	Loss: 0.0735	Time : 186.4302	
+Epoch: [2]	Step: [3300/4952]	Loss: 0.6728	Time : 191.9680	
+Epoch: [2]	Step: [3400/4952]	Loss: 0.2408	Time : 197.5960	
+Epoch: [2]	Step: [3500/4952]	Loss: 0.7432	Time : 203.5915	
+Epoch: [2]	Step: [3600/4952]	Loss: 0.4725	Time : 209.9427	
+Epoch: [2]	Step: [3700/4952]	Loss: 0.2214	Time : 215.9981	
+Epoch: [2]	Step: [3800/4952]	Loss: 0.3270	Time : 221.9184	
+Epoch: [2]	Step: [3900/4952]	Loss: 0.4441	Time : 227.5729	
+Epoch: [2]	Step: [4000/4952]	Loss: 0.6115	Time : 233.0024	
+Epoch: [2]	Step: [4100/4952]	Loss: 0.4991	Time : 238.9552	
+Epoch: [2]	Step: [4200/4952]	Loss: 0.5019	Time : 245.0848	
+Epoch: [2]	Step: [4300/4952]	Loss: 0.4329	Time : 252.7218	
+Epoch: [2]	Step: [4400/4952]	Loss: 0.0455	Time : 258.2145	
+Epoch: [2]	Step: [4500/4952]	Loss: 0.9032	Time : 264.0705	
+Epoch: [2]	Step: [4600/4952]	Loss: 0.4187	Time : 270.3514	
+Epoch: [2]	Step: [4700/4952]	Loss: 0.7081	Time : 276.5979	
+Epoch: [2]	Step: [4800/4952]	Loss: 0.4789	Time : 282.5171	
+Epoch: [2]	Step: [4900/4952]	Loss: 0.5645	Time : 288.7317	
+Epoch: [2]	Step: [4951/4952]	Loss: 0.9847	Time : 291.8192	
+Loading and preparing results...
+DONE (t=7.70s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=84.36s).
+Accumulating evaluation results...
+DONE (t=15.18s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.220
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.371
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.229
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.097
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.245
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.322
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.230
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.384
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.422
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.204
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.479
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.589
+0.22045387675097977
+Eval Time : 414.9691
+Training of epoch [3]
+Epoch: [3]	Step: [0/7330]	Loss: 0.4823	Cls_loss: 0.3254	Loc_loss: 0.1569	Learning rate: 0.0100000 s 	Time : 1.6223	
+Epoch: [3]	Step: [100/7330]	Loss: 0.4518	Cls_loss: 0.3117	Loc_loss: 0.1401	Learning rate: 0.0100000 s 	Time : 39.9945	
+Epoch: [3]	Step: [200/7330]	Loss: 0.4498	Cls_loss: 0.2885	Loc_loss: 0.1613	Learning rate: 0.0100000 s 	Time : 78.5864	
+Epoch: [3]	Step: [300/7330]	Loss: 0.4488	Cls_loss: 0.3210	Loc_loss: 0.1277	Learning rate: 0.0100000 s 	Time : 117.1960	
+Epoch: [3]	Step: [400/7330]	Loss: 0.4626	Cls_loss: 0.3034	Loc_loss: 0.1592	Learning rate: 0.0100000 s 	Time : 155.8475	
+Epoch: [3]	Step: [500/7330]	Loss: 0.4870	Cls_loss: 0.3223	Loc_loss: 0.1647	Learning rate: 0.0100000 s 	Time : 194.5316	
+Epoch: [3]	Step: [600/7330]	Loss: 0.5243	Cls_loss: 0.3425	Loc_loss: 0.1818	Learning rate: 0.0100000 s 	Time : 233.2023	
+Epoch: [3]	Step: [700/7330]	Loss: 0.4392	Cls_loss: 0.2825	Loc_loss: 0.1567	Learning rate: 0.0100000 s 	Time : 271.8885	
+Epoch: [3]	Step: [800/7330]	Loss: 0.3916	Cls_loss: 0.2798	Loc_loss: 0.1118	Learning rate: 0.0100000 s 	Time : 310.5457	
+Epoch: [3]	Step: [900/7330]	Loss: 0.5028	Cls_loss: 0.3358	Loc_loss: 0.1670	Learning rate: 0.0100000 s 	Time : 349.2124	
+Epoch: [3]	Step: [1000/7330]	Loss: 0.4419	Cls_loss: 0.3064	Loc_loss: 0.1354	Learning rate: 0.0100000 s 	Time : 387.8910	
+Epoch: [3]	Step: [1100/7330]	Loss: 0.3989	Cls_loss: 0.2461	Loc_loss: 0.1528	Learning rate: 0.0100000 s 	Time : 426.5770	
+Epoch: [3]	Step: [1200/7330]	Loss: 0.5270	Cls_loss: 0.3651	Loc_loss: 0.1619	Learning rate: 0.0100000 s 	Time : 465.2360	
+Epoch: [3]	Step: [1300/7330]	Loss: 0.5167	Cls_loss: 0.3570	Loc_loss: 0.1596	Learning rate: 0.0100000 s 	Time : 503.9030	
+Epoch: [3]	Step: [1400/7330]	Loss: 0.4256	Cls_loss: 0.2707	Loc_loss: 0.1549	Learning rate: 0.0100000 s 	Time : 542.5599	
+Epoch: [3]	Step: [1500/7330]	Loss: 0.5355	Cls_loss: 0.3535	Loc_loss: 0.1820	Learning rate: 0.0100000 s 	Time : 581.2588	
+Epoch: [3]	Step: [1600/7330]	Loss: 0.4914	Cls_loss: 0.3313	Loc_loss: 0.1601	Learning rate: 0.0100000 s 	Time : 619.9411	
+Epoch: [3]	Step: [1700/7330]	Loss: 0.4773	Cls_loss: 0.3166	Loc_loss: 0.1607	Learning rate: 0.0100000 s 	Time : 658.6269	
+Epoch: [3]	Step: [1800/7330]	Loss: 0.5376	Cls_loss: 0.3357	Loc_loss: 0.2019	Learning rate: 0.0100000 s 	Time : 697.3293	
+Epoch: [3]	Step: [1900/7330]	Loss: 0.4637	Cls_loss: 0.3131	Loc_loss: 0.1506	Learning rate: 0.0100000 s 	Time : 736.0054	
+Epoch: [3]	Step: [2000/7330]	Loss: 0.5189	Cls_loss: 0.3554	Loc_loss: 0.1635	Learning rate: 0.0100000 s 	Time : 774.6657	
+Epoch: [3]	Step: [2100/7330]	Loss: 0.4166	Cls_loss: 0.2866	Loc_loss: 0.1300	Learning rate: 0.0100000 s 	Time : 813.3332	
+Epoch: [3]	Step: [2200/7330]	Loss: 0.3916	Cls_loss: 0.2855	Loc_loss: 0.1061	Learning rate: 0.0100000 s 	Time : 852.0174	
+Epoch: [3]	Step: [2300/7330]	Loss: 0.5691	Cls_loss: 0.3762	Loc_loss: 0.1929	Learning rate: 0.0100000 s 	Time : 890.7102	
+Epoch: [3]	Step: [2400/7330]	Loss: 0.5477	Cls_loss: 0.3683	Loc_loss: 0.1794	Learning rate: 0.0100000 s 	Time : 929.3893	
+Epoch: [3]	Step: [2500/7330]	Loss: 0.4491	Cls_loss: 0.3304	Loc_loss: 0.1187	Learning rate: 0.0100000 s 	Time : 968.0384	
+Epoch: [3]	Step: [2600/7330]	Loss: 0.5327	Cls_loss: 0.3630	Loc_loss: 0.1697	Learning rate: 0.0100000 s 	Time : 1006.7313	
+Epoch: [3]	Step: [2700/7330]	Loss: 0.4578	Cls_loss: 0.3119	Loc_loss: 0.1459	Learning rate: 0.0100000 s 	Time : 1045.4245	
+Epoch: [3]	Step: [2800/7330]	Loss: 0.4768	Cls_loss: 0.3072	Loc_loss: 0.1697	Learning rate: 0.0100000 s 	Time : 1084.1207	
+Epoch: [3]	Step: [2900/7330]	Loss: 0.5175	Cls_loss: 0.3211	Loc_loss: 0.1964	Learning rate: 0.0100000 s 	Time : 1122.8443	
+Epoch: [3]	Step: [3000/7330]	Loss: 0.4845	Cls_loss: 0.3033	Loc_loss: 0.1812	Learning rate: 0.0100000 s 	Time : 1161.5727	
+Epoch: [3]	Step: [3100/7330]	Loss: 0.4740	Cls_loss: 0.3157	Loc_loss: 0.1583	Learning rate: 0.0100000 s 	Time : 1200.2680	
+Epoch: [3]	Step: [3200/7330]	Loss: 0.5084	Cls_loss: 0.3421	Loc_loss: 0.1663	Learning rate: 0.0100000 s 	Time : 1238.9521	
+Epoch: [3]	Step: [3300/7330]	Loss: 0.4859	Cls_loss: 0.3454	Loc_loss: 0.1405	Learning rate: 0.0100000 s 	Time : 1277.6516	
+Epoch: [3]	Step: [3400/7330]	Loss: 0.4437	Cls_loss: 0.2909	Loc_loss: 0.1528	Learning rate: 0.0100000 s 	Time : 1316.3340	
+Epoch: [3]	Step: [3500/7330]	Loss: 0.4248	Cls_loss: 0.2783	Loc_loss: 0.1465	Learning rate: 0.0100000 s 	Time : 1355.0528	
+Epoch: [3]	Step: [3600/7330]	Loss: 0.5601	Cls_loss: 0.3829	Loc_loss: 0.1773	Learning rate: 0.0100000 s 	Time : 1393.7505	
+Epoch: [3]	Step: [3700/7330]	Loss: 0.4774	Cls_loss: 0.3220	Loc_loss: 0.1554	Learning rate: 0.0100000 s 	Time : 1432.4274	
+Epoch: [3]	Step: [3800/7330]	Loss: 0.4482	Cls_loss: 0.2970	Loc_loss: 0.1513	Learning rate: 0.0100000 s 	Time : 1471.1283	
+Epoch: [3]	Step: [3900/7330]	Loss: 0.5114	Cls_loss: 0.3487	Loc_loss: 0.1627	Learning rate: 0.0100000 s 	Time : 1509.8227	
+Epoch: [3]	Step: [4000/7330]	Loss: 0.4702	Cls_loss: 0.3144	Loc_loss: 0.1558	Learning rate: 0.0100000 s 	Time : 1548.5443	
+Epoch: [3]	Step: [4100/7330]	Loss: 0.5169	Cls_loss: 0.3569	Loc_loss: 0.1600	Learning rate: 0.0100000 s 	Time : 1587.2521	
+Epoch: [3]	Step: [4200/7330]	Loss: 0.4449	Cls_loss: 0.2824	Loc_loss: 0.1625	Learning rate: 0.0100000 s 	Time : 1625.9371	
+Epoch: [3]	Step: [4300/7330]	Loss: 0.4450	Cls_loss: 0.2950	Loc_loss: 0.1500	Learning rate: 0.0100000 s 	Time : 1666.0000	
+Epoch: [3]	Step: [4400/7330]	Loss: 0.5543	Cls_loss: 0.3738	Loc_loss: 0.1804	Learning rate: 0.0100000 s 	Time : 1704.6939	
+Epoch: [3]	Step: [4500/7330]	Loss: 0.5518	Cls_loss: 0.3673	Loc_loss: 0.1845	Learning rate: 0.0100000 s 	Time : 1743.3798	
+Epoch: [3]	Step: [4600/7330]	Loss: 0.4039	Cls_loss: 0.2557	Loc_loss: 0.1483	Learning rate: 0.0100000 s 	Time : 1782.0837	
+Epoch: [3]	Step: [4700/7330]	Loss: 0.4161	Cls_loss: 0.2870	Loc_loss: 0.1291	Learning rate: 0.0100000 s 	Time : 1820.8001	
+Epoch: [3]	Step: [4800/7330]	Loss: 0.4716	Cls_loss: 0.2792	Loc_loss: 0.1924	Learning rate: 0.0100000 s 	Time : 1859.4973	
+Epoch: [3]	Step: [4900/7330]	Loss: 0.5273	Cls_loss: 0.3664	Loc_loss: 0.1609	Learning rate: 0.0100000 s 	Time : 1898.1950	
+Epoch: [3]	Step: [5000/7330]	Loss: 0.4779	Cls_loss: 0.3303	Loc_loss: 0.1475	Learning rate: 0.0100000 s 	Time : 1936.8709	
+Epoch: [3]	Step: [5100/7330]	Loss: 0.4737	Cls_loss: 0.3041	Loc_loss: 0.1696	Learning rate: 0.0100000 s 	Time : 1975.5334	
+Epoch: [3]	Step: [5200/7330]	Loss: 0.5119	Cls_loss: 0.3309	Loc_loss: 0.1810	Learning rate: 0.0100000 s 	Time : 2014.2067	
+Epoch: [3]	Step: [5300/7330]	Loss: 0.5063	Cls_loss: 0.3353	Loc_loss: 0.1710	Learning rate: 0.0100000 s 	Time : 2052.8816	
+Epoch: [3]	Step: [5400/7330]	Loss: 0.4193	Cls_loss: 0.2806	Loc_loss: 0.1387	Learning rate: 0.0100000 s 	Time : 2091.5734	
+Epoch: [3]	Step: [5500/7330]	Loss: 0.5443	Cls_loss: 0.3849	Loc_loss: 0.1594	Learning rate: 0.0100000 s 	Time : 2130.2305	
+Epoch: [3]	Step: [5600/7330]	Loss: 0.5471	Cls_loss: 0.3717	Loc_loss: 0.1754	Learning rate: 0.0100000 s 	Time : 2168.9316	
+Epoch: [3]	Step: [5700/7330]	Loss: 0.5162	Cls_loss: 0.3482	Loc_loss: 0.1680	Learning rate: 0.0100000 s 	Time : 2207.6080	
+Epoch: [3]	Step: [5800/7330]	Loss: 0.4526	Cls_loss: 0.2972	Loc_loss: 0.1554	Learning rate: 0.0100000 s 	Time : 2247.6123	
+Epoch: [3]	Step: [5900/7330]	Loss: 0.4864	Cls_loss: 0.3608	Loc_loss: 0.1256	Learning rate: 0.0100000 s 	Time : 2286.2941	
+Epoch: [3]	Step: [6000/7330]	Loss: 0.5731	Cls_loss: 0.4208	Loc_loss: 0.1522	Learning rate: 0.0100000 s 	Time : 2324.9726	
+Epoch: [3]	Step: [6100/7330]	Loss: 0.5419	Cls_loss: 0.3477	Loc_loss: 0.1942	Learning rate: 0.0100000 s 	Time : 2363.6726	
+Epoch: [3]	Step: [6200/7330]	Loss: 0.5322	Cls_loss: 0.3499	Loc_loss: 0.1823	Learning rate: 0.0100000 s 	Time : 2402.3507	
+Epoch: [3]	Step: [6300/7330]	Loss: 0.5149	Cls_loss: 0.3352	Loc_loss: 0.1797	Learning rate: 0.0100000 s 	Time : 2441.0506	
+Epoch: [3]	Step: [6400/7330]	Loss: 0.5244	Cls_loss: 0.3423	Loc_loss: 0.1821	Learning rate: 0.0100000 s 	Time : 2479.7422	
+Epoch: [3]	Step: [6500/7330]	Loss: 0.5066	Cls_loss: 0.3349	Loc_loss: 0.1717	Learning rate: 0.0100000 s 	Time : 2518.4354	
+Epoch: [3]	Step: [6600/7330]	Loss: 0.5478	Cls_loss: 0.3595	Loc_loss: 0.1884	Learning rate: 0.0100000 s 	Time : 2557.1172	
+Epoch: [3]	Step: [6700/7330]	Loss: 0.4510	Cls_loss: 0.2997	Loc_loss: 0.1513	Learning rate: 0.0100000 s 	Time : 2595.8219	
+Epoch: [3]	Step: [6800/7330]	Loss: 0.3937	Cls_loss: 0.2796	Loc_loss: 0.1141	Learning rate: 0.0100000 s 	Time : 2634.5174	
+Epoch: [3]	Step: [6900/7330]	Loss: 0.4832	Cls_loss: 0.2920	Loc_loss: 0.1911	Learning rate: 0.0100000 s 	Time : 2673.2236	
+Epoch: [3]	Step: [7000/7330]	Loss: 0.4192	Cls_loss: 0.2872	Loc_loss: 0.1320	Learning rate: 0.0100000 s 	Time : 2711.9223	
+Epoch: [3]	Step: [7100/7330]	Loss: 0.4160	Cls_loss: 0.2958	Loc_loss: 0.1202	Learning rate: 0.0100000 s 	Time : 2750.5839	
+Epoch: [3]	Step: [7200/7330]	Loss: 0.3969	Cls_loss: 0.2562	Loc_loss: 0.1407	Learning rate: 0.0100000 s 	Time : 2789.2518	
+Epoch: [3]	Step: [7300/7330]	Loss: 0.4360	Cls_loss: 0.2791	Loc_loss: 0.1569	Learning rate: 0.0100000 s 	Time : 2829.2460	
+Epoch: [3]	Step: [7329/7330]	Loss: 0.7411	Cls_loss: 0.5629	Loc_loss: 0.1782	Learning rate: 0.0100000 s 	Time : 2840.2016	
+Validation of epoch [3]
+COCO dataset evaluation...
+Epoch: [3]	Step: [0/4952]	Loss: 0.3998	Time : 0.3341	
+Epoch: [3]	Step: [100/4952]	Loss: 0.6262	Time : 6.3589	
+Epoch: [3]	Step: [200/4952]	Loss: 0.3682	Time : 12.1900	
+Epoch: [3]	Step: [300/4952]	Loss: 0.5990	Time : 18.1227	
+Epoch: [3]	Step: [400/4952]	Loss: 0.8914	Time : 24.0356	
+Epoch: [3]	Step: [500/4952]	Loss: 0.2973	Time : 29.2810	
+Epoch: [3]	Step: [600/4952]	Loss: 0.2917	Time : 34.9725	
+Epoch: [3]	Step: [700/4952]	Loss: 0.7766	Time : 40.4782	
+Epoch: [3]	Step: [800/4952]	Loss: 0.1526	Time : 45.3068	
+Epoch: [3]	Step: [900/4952]	Loss: 0.4092	Time : 50.6432	
+Epoch: [3]	Step: [1000/4952]	Loss: 0.4885	Time : 55.9331	
+Epoch: [3]	Step: [1100/4952]	Loss: 0.8225	Time : 60.7281	
+Epoch: [3]	Step: [1200/4952]	Loss: 0.2990	Time : 66.3341	
+Epoch: [3]	Step: [1300/4952]	Loss: 0.0940	Time : 71.8264	
+Epoch: [3]	Step: [1400/4952]	Loss: 0.3174	Time : 77.3462	
+Epoch: [3]	Step: [1500/4952]	Loss: 0.4302	Time : 82.7169	
+Epoch: [3]	Step: [1600/4952]	Loss: 0.5799	Time : 87.6151	
+Epoch: [3]	Step: [1700/4952]	Loss: 0.7228	Time : 94.3201	
+Epoch: [3]	Step: [1800/4952]	Loss: 0.3021	Time : 99.7091	
+Epoch: [3]	Step: [1900/4952]	Loss: 0.1802	Time : 104.9704	
+Epoch: [3]	Step: [2000/4952]	Loss: 0.3139	Time : 110.8565	
+Epoch: [3]	Step: [2100/4952]	Loss: 0.4482	Time : 116.5106	
+Epoch: [3]	Step: [2200/4952]	Loss: 0.1168	Time : 122.3024	
+Epoch: [3]	Step: [2300/4952]	Loss: 0.6312	Time : 128.0212	
+Epoch: [3]	Step: [2400/4952]	Loss: 0.4453	Time : 132.8683	
+Epoch: [3]	Step: [2500/4952]	Loss: 0.1056	Time : 138.4643	
+Epoch: [3]	Step: [2600/4952]	Loss: 0.6440	Time : 144.1770	
+Epoch: [3]	Step: [2700/4952]	Loss: 0.2766	Time : 149.4020	
+Epoch: [3]	Step: [2800/4952]	Loss: 0.2147	Time : 154.4467	
+Epoch: [3]	Step: [2900/4952]	Loss: 0.6122	Time : 159.3672	
+Epoch: [3]	Step: [3000/4952]	Loss: 0.8312	Time : 165.1466	
+Epoch: [3]	Step: [3100/4952]	Loss: 0.4411	Time : 171.2422	
+Epoch: [3]	Step: [3200/4952]	Loss: 0.0800	Time : 177.0045	
+Epoch: [3]	Step: [3300/4952]	Loss: 0.5597	Time : 182.3264	
+Epoch: [3]	Step: [3400/4952]	Loss: 0.3063	Time : 187.8084	
+Epoch: [3]	Step: [3500/4952]	Loss: 0.6605	Time : 193.7333	
+Epoch: [3]	Step: [3600/4952]	Loss: 0.3242	Time : 201.5153	
+Epoch: [3]	Step: [3700/4952]	Loss: 0.1457	Time : 207.3580	
+Epoch: [3]	Step: [3800/4952]	Loss: 0.3421	Time : 213.1106	
+Epoch: [3]	Step: [3900/4952]	Loss: 0.5823	Time : 218.6509	
+Epoch: [3]	Step: [4000/4952]	Loss: 0.5876	Time : 223.9067	
+Epoch: [3]	Step: [4100/4952]	Loss: 0.5219	Time : 229.7472	
+Epoch: [3]	Step: [4200/4952]	Loss: 0.5400	Time : 235.5905	
+Epoch: [3]	Step: [4300/4952]	Loss: 0.3907	Time : 241.0089	
+Epoch: [3]	Step: [4400/4952]	Loss: 0.0435	Time : 246.2085	
+Epoch: [3]	Step: [4500/4952]	Loss: 0.6741	Time : 251.8734	
+Epoch: [3]	Step: [4600/4952]	Loss: 0.4295	Time : 257.9765	
+Epoch: [3]	Step: [4700/4952]	Loss: 0.6485	Time : 263.9776	
+Epoch: [3]	Step: [4800/4952]	Loss: 0.4947	Time : 269.2211	
+Epoch: [3]	Step: [4900/4952]	Loss: 0.5551	Time : 275.2921	
+Epoch: [3]	Step: [4951/4952]	Loss: 1.1316	Time : 278.2660	
+Loading and preparing results...
+DONE (t=9.57s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=78.56s).
+Accumulating evaluation results...
+DONE (t=13.96s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.235
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.388
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.248
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.102
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.262
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.347
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.241
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.396
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.432
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.216
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.488
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.606
+0.23476042282118229
+Eval Time : 395.1074
+Training of epoch [4]
+Epoch: [4]	Step: [0/7330]	Loss: 0.4017	Cls_loss: 0.2854	Loc_loss: 0.1163	Learning rate: 0.0100000 s 	Time : 1.6656	
+Epoch: [4]	Step: [100/7330]	Loss: 0.4996	Cls_loss: 0.3243	Loc_loss: 0.1753	Learning rate: 0.0100000 s 	Time : 40.0691	
+Epoch: [4]	Step: [200/7330]	Loss: 0.4193	Cls_loss: 0.2938	Loc_loss: 0.1255	Learning rate: 0.0100000 s 	Time : 78.6764	
+Epoch: [4]	Step: [300/7330]	Loss: 0.4449	Cls_loss: 0.3000	Loc_loss: 0.1448	Learning rate: 0.0100000 s 	Time : 117.3433	
+Epoch: [4]	Step: [400/7330]	Loss: 0.4938	Cls_loss: 0.3267	Loc_loss: 0.1671	Learning rate: 0.0100000 s 	Time : 156.0203	
+Epoch: [4]	Step: [500/7330]	Loss: 0.4539	Cls_loss: 0.2899	Loc_loss: 0.1640	Learning rate: 0.0100000 s 	Time : 194.7278	
+Epoch: [4]	Step: [600/7330]	Loss: 0.3954	Cls_loss: 0.2604	Loc_loss: 0.1350	Learning rate: 0.0100000 s 	Time : 233.4248	
+Epoch: [4]	Step: [700/7330]	Loss: 0.4727	Cls_loss: 0.2984	Loc_loss: 0.1744	Learning rate: 0.0100000 s 	Time : 272.1407	
+Epoch: [4]	Step: [800/7330]	Loss: 0.4291	Cls_loss: 0.3041	Loc_loss: 0.1251	Learning rate: 0.0100000 s 	Time : 310.8483	
+Epoch: [4]	Step: [900/7330]	Loss: 0.4491	Cls_loss: 0.2914	Loc_loss: 0.1577	Learning rate: 0.0100000 s 	Time : 349.5448	
+Epoch: [4]	Step: [1000/7330]	Loss: 0.3963	Cls_loss: 0.2702	Loc_loss: 0.1261	Learning rate: 0.0100000 s 	Time : 388.2567	
+Epoch: [4]	Step: [1100/7330]	Loss: 0.4677	Cls_loss: 0.3289	Loc_loss: 0.1388	Learning rate: 0.0100000 s 	Time : 426.9624	
+Epoch: [4]	Step: [1200/7330]	Loss: 0.3915	Cls_loss: 0.2714	Loc_loss: 0.1201	Learning rate: 0.0100000 s 	Time : 465.6932	
+Epoch: [4]	Step: [1300/7330]	Loss: 0.4801	Cls_loss: 0.3321	Loc_loss: 0.1479	Learning rate: 0.0100000 s 	Time : 504.4050	
+Epoch: [4]	Step: [1400/7330]	Loss: 0.5239	Cls_loss: 0.3352	Loc_loss: 0.1887	Learning rate: 0.0100000 s 	Time : 543.1097	
+Epoch: [4]	Step: [1500/7330]	Loss: 0.4618	Cls_loss: 0.3303	Loc_loss: 0.1314	Learning rate: 0.0100000 s 	Time : 581.8186	
+Epoch: [4]	Step: [1600/7330]	Loss: 0.4922	Cls_loss: 0.3328	Loc_loss: 0.1594	Learning rate: 0.0100000 s 	Time : 620.5163	
+Epoch: [4]	Step: [1700/7330]	Loss: 0.4402	Cls_loss: 0.3066	Loc_loss: 0.1336	Learning rate: 0.0100000 s 	Time : 659.2242	
+Epoch: [4]	Step: [1800/7330]	Loss: 0.4740	Cls_loss: 0.2991	Loc_loss: 0.1749	Learning rate: 0.0100000 s 	Time : 697.9578	
+Epoch: [4]	Step: [1900/7330]	Loss: 0.4927	Cls_loss: 0.3238	Loc_loss: 0.1689	Learning rate: 0.0100000 s 	Time : 736.6666	
+Epoch: [4]	Step: [2000/7330]	Loss: 0.3522	Cls_loss: 0.2558	Loc_loss: 0.0964	Learning rate: 0.0100000 s 	Time : 775.3832	
+Epoch: [4]	Step: [2100/7330]	Loss: 0.4428	Cls_loss: 0.3213	Loc_loss: 0.1215	Learning rate: 0.0100000 s 	Time : 814.1296	
+Epoch: [4]	Step: [2200/7330]	Loss: 0.5382	Cls_loss: 0.3878	Loc_loss: 0.1503	Learning rate: 0.0100000 s 	Time : 852.8072	
+Epoch: [4]	Step: [2300/7330]	Loss: 0.5110	Cls_loss: 0.3064	Loc_loss: 0.2046	Learning rate: 0.0100000 s 	Time : 891.5769	
+Epoch: [4]	Step: [2400/7330]	Loss: 0.3336	Cls_loss: 0.2209	Loc_loss: 0.1128	Learning rate: 0.0100000 s 	Time : 930.2806	
+Epoch: [4]	Step: [2500/7330]	Loss: 0.4479	Cls_loss: 0.3018	Loc_loss: 0.1461	Learning rate: 0.0100000 s 	Time : 969.0114	
+Epoch: [4]	Step: [2600/7330]	Loss: 0.4641	Cls_loss: 0.3149	Loc_loss: 0.1492	Learning rate: 0.0100000 s 	Time : 1007.7170	
+Epoch: [4]	Step: [2700/7330]	Loss: 0.4794	Cls_loss: 0.3055	Loc_loss: 0.1739	Learning rate: 0.0100000 s 	Time : 1046.3989	
+Epoch: [4]	Step: [2800/7330]	Loss: 0.4687	Cls_loss: 0.3271	Loc_loss: 0.1416	Learning rate: 0.0100000 s 	Time : 1086.4677	
+Epoch: [4]	Step: [2900/7330]	Loss: 0.3844	Cls_loss: 0.2688	Loc_loss: 0.1156	Learning rate: 0.0100000 s 	Time : 1125.1897	
+Epoch: [4]	Step: [3000/7330]	Loss: 0.4598	Cls_loss: 0.3045	Loc_loss: 0.1553	Learning rate: 0.0100000 s 	Time : 1163.9171	
+Epoch: [4]	Step: [3100/7330]	Loss: 0.4730	Cls_loss: 0.3195	Loc_loss: 0.1535	Learning rate: 0.0100000 s 	Time : 1202.6495	
+Epoch: [4]	Step: [3200/7330]	Loss: 0.4198	Cls_loss: 0.2735	Loc_loss: 0.1463	Learning rate: 0.0100000 s 	Time : 1241.3537	
+Epoch: [4]	Step: [3300/7330]	Loss: 0.4589	Cls_loss: 0.3050	Loc_loss: 0.1539	Learning rate: 0.0100000 s 	Time : 1280.1017	
+Epoch: [4]	Step: [3400/7330]	Loss: 0.5411	Cls_loss: 0.3864	Loc_loss: 0.1547	Learning rate: 0.0100000 s 	Time : 1318.8097	
+Epoch: [4]	Step: [3500/7330]	Loss: 0.4581	Cls_loss: 0.2818	Loc_loss: 0.1763	Learning rate: 0.0100000 s 	Time : 1357.5446	
+Epoch: [4]	Step: [3600/7330]	Loss: 0.4272	Cls_loss: 0.3072	Loc_loss: 0.1200	Learning rate: 0.0100000 s 	Time : 1396.2466	
+Epoch: [4]	Step: [3700/7330]	Loss: 0.4775	Cls_loss: 0.3061	Loc_loss: 0.1714	Learning rate: 0.0100000 s 	Time : 1434.9553	
+Epoch: [4]	Step: [3800/7330]	Loss: 0.4116	Cls_loss: 0.2903	Loc_loss: 0.1213	Learning rate: 0.0100000 s 	Time : 1473.6775	
+Epoch: [4]	Step: [3900/7330]	Loss: 0.4371	Cls_loss: 0.2875	Loc_loss: 0.1496	Learning rate: 0.0100000 s 	Time : 1512.3870	
+Epoch: [4]	Step: [4000/7330]	Loss: 0.4354	Cls_loss: 0.2901	Loc_loss: 0.1454	Learning rate: 0.0100000 s 	Time : 1551.1159	
+Epoch: [4]	Step: [4100/7330]	Loss: 0.4304	Cls_loss: 0.2771	Loc_loss: 0.1533	Learning rate: 0.0100000 s 	Time : 1589.8184	
+Epoch: [4]	Step: [4200/7330]	Loss: 0.4720	Cls_loss: 0.3184	Loc_loss: 0.1536	Learning rate: 0.0100000 s 	Time : 1629.8403	
+Epoch: [4]	Step: [4300/7330]	Loss: 0.4491	Cls_loss: 0.2878	Loc_loss: 0.1612	Learning rate: 0.0100000 s 	Time : 1668.5617	
+Epoch: [4]	Step: [4400/7330]	Loss: 0.5469	Cls_loss: 0.3750	Loc_loss: 0.1718	Learning rate: 0.0100000 s 	Time : 1707.3115	
+Epoch: [4]	Step: [4500/7330]	Loss: 0.4207	Cls_loss: 0.2850	Loc_loss: 0.1357	Learning rate: 0.0100000 s 	Time : 1746.0053	
+Epoch: [4]	Step: [4600/7330]	Loss: 0.3962	Cls_loss: 0.2732	Loc_loss: 0.1230	Learning rate: 0.0100000 s 	Time : 1784.6914	
+Epoch: [4]	Step: [4700/7330]	Loss: 0.4378	Cls_loss: 0.3175	Loc_loss: 0.1203	Learning rate: 0.0100000 s 	Time : 1823.3959	
+Epoch: [4]	Step: [4800/7330]	Loss: 0.5552	Cls_loss: 0.3624	Loc_loss: 0.1928	Learning rate: 0.0100000 s 	Time : 1862.1380	
+Epoch: [4]	Step: [4900/7330]	Loss: 0.4028	Cls_loss: 0.2783	Loc_loss: 0.1245	Learning rate: 0.0100000 s 	Time : 1900.8639	
+Epoch: [4]	Step: [5000/7330]	Loss: 0.4126	Cls_loss: 0.2760	Loc_loss: 0.1366	Learning rate: 0.0100000 s 	Time : 1939.5657	
+Epoch: [4]	Step: [5100/7330]	Loss: 0.4336	Cls_loss: 0.3032	Loc_loss: 0.1304	Learning rate: 0.0100000 s 	Time : 1978.2712	
+Epoch: [4]	Step: [5200/7330]	Loss: 0.4674	Cls_loss: 0.3181	Loc_loss: 0.1493	Learning rate: 0.0100000 s 	Time : 2017.0356	
+Epoch: [4]	Step: [5300/7330]	Loss: 0.5192	Cls_loss: 0.3394	Loc_loss: 0.1798	Learning rate: 0.0100000 s 	Time : 2055.7474	
+Epoch: [4]	Step: [5400/7330]	Loss: 0.5110	Cls_loss: 0.3162	Loc_loss: 0.1949	Learning rate: 0.0100000 s 	Time : 2094.4612	
+Epoch: [4]	Step: [5500/7330]	Loss: 0.4646	Cls_loss: 0.3005	Loc_loss: 0.1641	Learning rate: 0.0100000 s 	Time : 2133.1922	
+Epoch: [4]	Step: [5600/7330]	Loss: 0.4852	Cls_loss: 0.3230	Loc_loss: 0.1622	Learning rate: 0.0100000 s 	Time : 2173.2391	
+Epoch: [4]	Step: [5700/7330]	Loss: 0.4296	Cls_loss: 0.2878	Loc_loss: 0.1417	Learning rate: 0.0100000 s 	Time : 2211.9812	
+Epoch: [4]	Step: [5800/7330]	Loss: 0.4299	Cls_loss: 0.2878	Loc_loss: 0.1420	Learning rate: 0.0100000 s 	Time : 2250.7247	
+Epoch: [4]	Step: [5900/7330]	Loss: 0.4645	Cls_loss: 0.2952	Loc_loss: 0.1692	Learning rate: 0.0100000 s 	Time : 2289.4429	
+Epoch: [4]	Step: [6000/7330]	Loss: 0.4499	Cls_loss: 0.2799	Loc_loss: 0.1700	Learning rate: 0.0100000 s 	Time : 2328.1422	
+Epoch: [4]	Step: [6100/7330]	Loss: 0.4981	Cls_loss: 0.3150	Loc_loss: 0.1832	Learning rate: 0.0100000 s 	Time : 2366.8675	
+Epoch: [4]	Step: [6200/7330]	Loss: 0.5425	Cls_loss: 0.3761	Loc_loss: 0.1663	Learning rate: 0.0100000 s 	Time : 2405.6033	
+Epoch: [4]	Step: [6300/7330]	Loss: 0.4988	Cls_loss: 0.3181	Loc_loss: 0.1807	Learning rate: 0.0100000 s 	Time : 2444.2975	
+Epoch: [4]	Step: [6400/7330]	Loss: 0.4450	Cls_loss: 0.3270	Loc_loss: 0.1180	Learning rate: 0.0100000 s 	Time : 2483.0166	
+Epoch: [4]	Step: [6500/7330]	Loss: 0.5293	Cls_loss: 0.3552	Loc_loss: 0.1741	Learning rate: 0.0100000 s 	Time : 2521.7182	
+Epoch: [4]	Step: [6600/7330]	Loss: 0.4089	Cls_loss: 0.2895	Loc_loss: 0.1193	Learning rate: 0.0100000 s 	Time : 2560.4987	
+Epoch: [4]	Step: [6700/7330]	Loss: 0.4348	Cls_loss: 0.2851	Loc_loss: 0.1497	Learning rate: 0.0100000 s 	Time : 2599.1938	
+Epoch: [4]	Step: [6800/7330]	Loss: 0.4474	Cls_loss: 0.2889	Loc_loss: 0.1584	Learning rate: 0.0100000 s 	Time : 2637.9170	
+Epoch: [4]	Step: [6900/7330]	Loss: 0.4721	Cls_loss: 0.3169	Loc_loss: 0.1552	Learning rate: 0.0100000 s 	Time : 2676.6234	
+Epoch: [4]	Step: [7000/7330]	Loss: 0.4647	Cls_loss: 0.3141	Loc_loss: 0.1505	Learning rate: 0.0100000 s 	Time : 2716.6606	
+Epoch: [4]	Step: [7100/7330]	Loss: 0.4615	Cls_loss: 0.3020	Loc_loss: 0.1596	Learning rate: 0.0100000 s 	Time : 2755.3398	
+Epoch: [4]	Step: [7200/7330]	Loss: 0.4064	Cls_loss: 0.2696	Loc_loss: 0.1368	Learning rate: 0.0100000 s 	Time : 2794.0745	
+Epoch: [4]	Step: [7300/7330]	Loss: 0.3405	Cls_loss: 0.2300	Loc_loss: 0.1104	Learning rate: 0.0100000 s 	Time : 2832.8215	
+Epoch: [4]	Step: [7329/7330]	Loss: 0.3987	Cls_loss: 0.3046	Loc_loss: 0.0941	Learning rate: 0.0100000 s 	Time : 2843.7766	
+Validation of epoch [4]
+COCO dataset evaluation...
+Epoch: [4]	Step: [0/4952]	Loss: 0.4155	Time : 0.3302	
+Epoch: [4]	Step: [100/4952]	Loss: 0.4735	Time : 6.3934	
+Epoch: [4]	Step: [200/4952]	Loss: 0.2195	Time : 12.3772	
+Epoch: [4]	Step: [300/4952]	Loss: 0.4729	Time : 18.4154	
+Epoch: [4]	Step: [400/4952]	Loss: 0.8318	Time : 24.3549	
+Epoch: [4]	Step: [500/4952]	Loss: 0.2905	Time : 29.5959	
+Epoch: [4]	Step: [600/4952]	Loss: 0.3042	Time : 35.2444	
+Epoch: [4]	Step: [700/4952]	Loss: 0.4860	Time : 40.7591	
+Epoch: [4]	Step: [800/4952]	Loss: 0.0897	Time : 45.7086	
+Epoch: [4]	Step: [900/4952]	Loss: 0.3820	Time : 51.0310	
+Epoch: [4]	Step: [1000/4952]	Loss: 0.4354	Time : 56.2377	
+Epoch: [4]	Step: [1100/4952]	Loss: 1.1556	Time : 60.8798	
+Epoch: [4]	Step: [1200/4952]	Loss: 0.3503	Time : 66.4954	
+Epoch: [4]	Step: [1300/4952]	Loss: 0.1300	Time : 71.9657	
+Epoch: [4]	Step: [1400/4952]	Loss: 0.3217	Time : 78.8275	
+Epoch: [4]	Step: [1500/4952]	Loss: 0.3705	Time : 84.1297	
+Epoch: [4]	Step: [1600/4952]	Loss: 0.6819	Time : 88.8755	
+Epoch: [4]	Step: [1700/4952]	Loss: 0.6975	Time : 94.0058	
+Epoch: [4]	Step: [1800/4952]	Loss: 0.3090	Time : 99.3421	
+Epoch: [4]	Step: [1900/4952]	Loss: 0.1254	Time : 104.5035	
+Epoch: [4]	Step: [2000/4952]	Loss: 0.3505	Time : 110.2543	
+Epoch: [4]	Step: [2100/4952]	Loss: 0.5547	Time : 115.8124	
+Epoch: [4]	Step: [2200/4952]	Loss: 0.0700	Time : 121.4661	
+Epoch: [4]	Step: [2300/4952]	Loss: 0.4730	Time : 127.0381	
+Epoch: [4]	Step: [2400/4952]	Loss: 0.3440	Time : 131.6082	
+Epoch: [4]	Step: [2500/4952]	Loss: 0.0786	Time : 137.0196	
+Epoch: [4]	Step: [2600/4952]	Loss: 0.6414	Time : 142.5921	
+Epoch: [4]	Step: [2700/4952]	Loss: 0.3416	Time : 147.6511	
+Epoch: [4]	Step: [2800/4952]	Loss: 0.2648	Time : 152.6003	
+Epoch: [4]	Step: [2900/4952]	Loss: 0.5215	Time : 157.4824	
+Epoch: [4]	Step: [3000/4952]	Loss: 0.6187	Time : 163.3196	
+Epoch: [4]	Step: [3100/4952]	Loss: 0.3598	Time : 169.3963	
+Epoch: [4]	Step: [3200/4952]	Loss: 0.0491	Time : 175.0755	
+Epoch: [4]	Step: [3300/4952]	Loss: 0.7708	Time : 180.2493	
+Epoch: [4]	Step: [3400/4952]	Loss: 0.2969	Time : 185.5831	
+Epoch: [4]	Step: [3500/4952]	Loss: 0.6028	Time : 191.4981	
+Epoch: [4]	Step: [3600/4952]	Loss: 0.3845	Time : 199.3624	
+Epoch: [4]	Step: [3700/4952]	Loss: 0.1147	Time : 205.2651	
+Epoch: [4]	Step: [3800/4952]	Loss: 0.2494	Time : 211.0535	
+Epoch: [4]	Step: [3900/4952]	Loss: 0.4823	Time : 216.5998	
+Epoch: [4]	Step: [4000/4952]	Loss: 0.5435	Time : 221.8118	
+Epoch: [4]	Step: [4100/4952]	Loss: 0.4611	Time : 227.6994	
+Epoch: [4]	Step: [4200/4952]	Loss: 0.5423	Time : 233.6183	
+Epoch: [4]	Step: [4300/4952]	Loss: 0.3314	Time : 239.1109	
+Epoch: [4]	Step: [4400/4952]	Loss: 0.0420	Time : 244.2419	
+Epoch: [4]	Step: [4500/4952]	Loss: 0.8725	Time : 249.9300	
+Epoch: [4]	Step: [4600/4952]	Loss: 0.4724	Time : 256.0932	
+Epoch: [4]	Step: [4700/4952]	Loss: 0.6599	Time : 262.1829	
+Epoch: [4]	Step: [4800/4952]	Loss: 0.4897	Time : 267.4877	
+Epoch: [4]	Step: [4900/4952]	Loss: 0.5117	Time : 273.6247	
+Epoch: [4]	Step: [4951/4952]	Loss: 1.1351	Time : 276.6706	
+Loading and preparing results...
+DONE (t=9.11s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=76.04s).
+Accumulating evaluation results...
+DONE (t=13.91s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.243
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.404
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.257
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.115
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.278
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.358
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.246
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.403
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.439
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.209
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.501
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.619
+0.2426873761632683
+Eval Time : 389.2915
+Training of epoch [5]
+Epoch: [5]	Step: [0/7330]	Loss: 0.5114	Cls_loss: 0.3396	Loc_loss: 0.1718	Learning rate: 0.0100000 s 	Time : 1.6164	
+Epoch: [5]	Step: [100/7330]	Loss: 0.4797	Cls_loss: 0.3387	Loc_loss: 0.1410	Learning rate: 0.0100000 s 	Time : 39.9918	
+Epoch: [5]	Step: [200/7330]	Loss: 0.4700	Cls_loss: 0.3175	Loc_loss: 0.1525	Learning rate: 0.0100000 s 	Time : 78.6024	
+Epoch: [5]	Step: [300/7330]	Loss: 0.4095	Cls_loss: 0.2839	Loc_loss: 0.1256	Learning rate: 0.0100000 s 	Time : 117.2333	
+Epoch: [5]	Step: [400/7330]	Loss: 0.3992	Cls_loss: 0.2493	Loc_loss: 0.1499	Learning rate: 0.0100000 s 	Time : 155.8784	
+Epoch: [5]	Step: [500/7330]	Loss: 0.4504	Cls_loss: 0.2861	Loc_loss: 0.1643	Learning rate: 0.0100000 s 	Time : 194.5705	
+Epoch: [5]	Step: [600/7330]	Loss: 0.4811	Cls_loss: 0.3041	Loc_loss: 0.1770	Learning rate: 0.0100000 s 	Time : 233.2441	
+Epoch: [5]	Step: [700/7330]	Loss: 0.4772	Cls_loss: 0.3323	Loc_loss: 0.1449	Learning rate: 0.0100000 s 	Time : 271.9475	
+Epoch: [5]	Step: [800/7330]	Loss: 0.4308	Cls_loss: 0.3000	Loc_loss: 0.1308	Learning rate: 0.0100000 s 	Time : 310.6580	
+Epoch: [5]	Step: [900/7330]	Loss: 0.3905	Cls_loss: 0.2490	Loc_loss: 0.1415	Learning rate: 0.0100000 s 	Time : 349.3358	
+Epoch: [5]	Step: [1000/7330]	Loss: 0.4771	Cls_loss: 0.3109	Loc_loss: 0.1662	Learning rate: 0.0100000 s 	Time : 388.0331	
+Epoch: [5]	Step: [1100/7330]	Loss: 0.4336	Cls_loss: 0.2861	Loc_loss: 0.1475	Learning rate: 0.0100000 s 	Time : 426.7326	
+Epoch: [5]	Step: [1200/7330]	Loss: 0.3656	Cls_loss: 0.2533	Loc_loss: 0.1123	Learning rate: 0.0100000 s 	Time : 465.4251	
+Epoch: [5]	Step: [1300/7330]	Loss: 0.4793	Cls_loss: 0.3118	Loc_loss: 0.1675	Learning rate: 0.0100000 s 	Time : 504.0829	
+Epoch: [5]	Step: [1400/7330]	Loss: 0.3428	Cls_loss: 0.2316	Loc_loss: 0.1112	Learning rate: 0.0100000 s 	Time : 542.7544	
+Epoch: [5]	Step: [1500/7330]	Loss: 0.3698	Cls_loss: 0.2455	Loc_loss: 0.1243	Learning rate: 0.0100000 s 	Time : 581.4361	
+Epoch: [5]	Step: [1600/7330]	Loss: 0.5956	Cls_loss: 0.4074	Loc_loss: 0.1882	Learning rate: 0.0100000 s 	Time : 620.1171	
+Epoch: [5]	Step: [1700/7330]	Loss: 0.5270	Cls_loss: 0.3484	Loc_loss: 0.1785	Learning rate: 0.0100000 s 	Time : 658.7890	
+Epoch: [5]	Step: [1800/7330]	Loss: 0.3769	Cls_loss: 0.2577	Loc_loss: 0.1192	Learning rate: 0.0100000 s 	Time : 697.4713	
+Epoch: [5]	Step: [1900/7330]	Loss: 0.4717	Cls_loss: 0.3199	Loc_loss: 0.1518	Learning rate: 0.0100000 s 	Time : 736.1398	
+Epoch: [5]	Step: [2000/7330]	Loss: 0.5006	Cls_loss: 0.3495	Loc_loss: 0.1511	Learning rate: 0.0100000 s 	Time : 774.8319	
+Epoch: [5]	Step: [2100/7330]	Loss: 0.4521	Cls_loss: 0.2958	Loc_loss: 0.1563	Learning rate: 0.0100000 s 	Time : 813.5229	
+Epoch: [5]	Step: [2200/7330]	Loss: 0.4615	Cls_loss: 0.2937	Loc_loss: 0.1678	Learning rate: 0.0100000 s 	Time : 852.2345	
+Epoch: [5]	Step: [2300/7330]	Loss: 0.3598	Cls_loss: 0.2568	Loc_loss: 0.1030	Learning rate: 0.0100000 s 	Time : 890.9349	
+Epoch: [5]	Step: [2400/7330]	Loss: 0.4537	Cls_loss: 0.3074	Loc_loss: 0.1463	Learning rate: 0.0100000 s 	Time : 929.6563	
+Epoch: [5]	Step: [2500/7330]	Loss: 0.4166	Cls_loss: 0.2744	Loc_loss: 0.1422	Learning rate: 0.0100000 s 	Time : 968.3585	
+Epoch: [5]	Step: [2600/7330]	Loss: 0.4501	Cls_loss: 0.3039	Loc_loss: 0.1463	Learning rate: 0.0100000 s 	Time : 1008.3976	
+Epoch: [5]	Step: [2700/7330]	Loss: 0.5294	Cls_loss: 0.3458	Loc_loss: 0.1836	Learning rate: 0.0100000 s 	Time : 1047.0865	
+Epoch: [5]	Step: [2800/7330]	Loss: 0.3774	Cls_loss: 0.2540	Loc_loss: 0.1235	Learning rate: 0.0100000 s 	Time : 1085.7870	
+Epoch: [5]	Step: [2900/7330]	Loss: 0.4716	Cls_loss: 0.3212	Loc_loss: 0.1505	Learning rate: 0.0100000 s 	Time : 1124.4915	
+Epoch: [5]	Step: [3000/7330]	Loss: 0.3956	Cls_loss: 0.2539	Loc_loss: 0.1416	Learning rate: 0.0100000 s 	Time : 1163.2224	
+Epoch: [5]	Step: [3100/7330]	Loss: 0.3866	Cls_loss: 0.2642	Loc_loss: 0.1225	Learning rate: 0.0100000 s 	Time : 1201.9031	
+Epoch: [5]	Step: [3200/7330]	Loss: 0.3885	Cls_loss: 0.2467	Loc_loss: 0.1419	Learning rate: 0.0100000 s 	Time : 1240.5792	
+Epoch: [5]	Step: [3300/7330]	Loss: 0.4657	Cls_loss: 0.3304	Loc_loss: 0.1354	Learning rate: 0.0100000 s 	Time : 1279.2891	
+Epoch: [5]	Step: [3400/7330]	Loss: 0.5989	Cls_loss: 0.4204	Loc_loss: 0.1784	Learning rate: 0.0100000 s 	Time : 1317.9849	
+Epoch: [5]	Step: [3500/7330]	Loss: 0.4829	Cls_loss: 0.3114	Loc_loss: 0.1716	Learning rate: 0.0100000 s 	Time : 1356.6943	
+Epoch: [5]	Step: [3600/7330]	Loss: 0.3763	Cls_loss: 0.2492	Loc_loss: 0.1271	Learning rate: 0.0100000 s 	Time : 1395.3750	
+Epoch: [5]	Step: [3700/7330]	Loss: 0.4631	Cls_loss: 0.3044	Loc_loss: 0.1588	Learning rate: 0.0100000 s 	Time : 1434.0647	
+Epoch: [5]	Step: [3800/7330]	Loss: 0.3795	Cls_loss: 0.2371	Loc_loss: 0.1425	Learning rate: 0.0100000 s 	Time : 1472.7506	
+Epoch: [5]	Step: [3900/7330]	Loss: 0.4950	Cls_loss: 0.3366	Loc_loss: 0.1584	Learning rate: 0.0100000 s 	Time : 1511.4473	
+Epoch: [5]	Step: [4000/7330]	Loss: 0.5173	Cls_loss: 0.3740	Loc_loss: 0.1433	Learning rate: 0.0100000 s 	Time : 1550.1389	
+Epoch: [5]	Step: [4100/7330]	Loss: 0.3633	Cls_loss: 0.2341	Loc_loss: 0.1292	Learning rate: 0.0100000 s 	Time : 1590.1741	
+Epoch: [5]	Step: [4200/7330]	Loss: 0.3728	Cls_loss: 0.2742	Loc_loss: 0.0986	Learning rate: 0.0100000 s 	Time : 1628.8588	
+Epoch: [5]	Step: [4300/7330]	Loss: 0.4629	Cls_loss: 0.3104	Loc_loss: 0.1525	Learning rate: 0.0100000 s 	Time : 1667.5512	
+Epoch: [5]	Step: [4400/7330]	Loss: 0.3640	Cls_loss: 0.2334	Loc_loss: 0.1306	Learning rate: 0.0100000 s 	Time : 1706.2601	
+Epoch: [5]	Step: [4500/7330]	Loss: 0.5367	Cls_loss: 0.3439	Loc_loss: 0.1928	Learning rate: 0.0100000 s 	Time : 1744.9759	
+Epoch: [5]	Step: [4600/7330]	Loss: 0.4477	Cls_loss: 0.3005	Loc_loss: 0.1472	Learning rate: 0.0100000 s 	Time : 1783.6847	
+Epoch: [5]	Step: [4700/7330]	Loss: 0.3681	Cls_loss: 0.2277	Loc_loss: 0.1404	Learning rate: 0.0100000 s 	Time : 1822.3941	
+Epoch: [5]	Step: [4800/7330]	Loss: 0.4342	Cls_loss: 0.2911	Loc_loss: 0.1431	Learning rate: 0.0100000 s 	Time : 1861.0890	
+Epoch: [5]	Step: [4900/7330]	Loss: 0.4637	Cls_loss: 0.2888	Loc_loss: 0.1749	Learning rate: 0.0100000 s 	Time : 1899.7749	
+Epoch: [5]	Step: [5000/7330]	Loss: 0.4446	Cls_loss: 0.3236	Loc_loss: 0.1209	Learning rate: 0.0100000 s 	Time : 1938.4872	
+Epoch: [5]	Step: [5100/7330]	Loss: 0.5334	Cls_loss: 0.3325	Loc_loss: 0.2010	Learning rate: 0.0100000 s 	Time : 1977.1962	
+Epoch: [5]	Step: [5200/7330]	Loss: 0.4754	Cls_loss: 0.3258	Loc_loss: 0.1495	Learning rate: 0.0100000 s 	Time : 2015.8777	
+Epoch: [5]	Step: [5300/7330]	Loss: 0.4503	Cls_loss: 0.3023	Loc_loss: 0.1480	Learning rate: 0.0100000 s 	Time : 2054.5582	
+Epoch: [5]	Step: [5400/7330]	Loss: 0.4299	Cls_loss: 0.2801	Loc_loss: 0.1498	Learning rate: 0.0100000 s 	Time : 2093.2387	
+Epoch: [5]	Step: [5500/7330]	Loss: 0.4876	Cls_loss: 0.3291	Loc_loss: 0.1585	Learning rate: 0.0100000 s 	Time : 2133.2706	
+Epoch: [5]	Step: [5600/7330]	Loss: 0.5309	Cls_loss: 0.3959	Loc_loss: 0.1349	Learning rate: 0.0100000 s 	Time : 2171.9480	
+Epoch: [5]	Step: [5700/7330]	Loss: 0.3953	Cls_loss: 0.2486	Loc_loss: 0.1467	Learning rate: 0.0100000 s 	Time : 2210.6267	
+Epoch: [5]	Step: [5800/7330]	Loss: 0.3878	Cls_loss: 0.2623	Loc_loss: 0.1255	Learning rate: 0.0100000 s 	Time : 2249.3208	
+Epoch: [5]	Step: [5900/7330]	Loss: 0.4855	Cls_loss: 0.3189	Loc_loss: 0.1666	Learning rate: 0.0100000 s 	Time : 2288.0207	
+Epoch: [5]	Step: [6000/7330]	Loss: 0.3264	Cls_loss: 0.2164	Loc_loss: 0.1100	Learning rate: 0.0100000 s 	Time : 2326.7519	
+Epoch: [5]	Step: [6100/7330]	Loss: 0.4506	Cls_loss: 0.2958	Loc_loss: 0.1548	Learning rate: 0.0100000 s 	Time : 2365.4574	
+Epoch: [5]	Step: [6200/7330]	Loss: 0.4205	Cls_loss: 0.2900	Loc_loss: 0.1305	Learning rate: 0.0100000 s 	Time : 2404.1313	
+Epoch: [5]	Step: [6300/7330]	Loss: 0.4199	Cls_loss: 0.2883	Loc_loss: 0.1316	Learning rate: 0.0100000 s 	Time : 2442.8152	
+Epoch: [5]	Step: [6400/7330]	Loss: 0.4076	Cls_loss: 0.2781	Loc_loss: 0.1294	Learning rate: 0.0100000 s 	Time : 2481.5086	
+Epoch: [5]	Step: [6500/7330]	Loss: 0.3712	Cls_loss: 0.2380	Loc_loss: 0.1333	Learning rate: 0.0100000 s 	Time : 2520.2031	
+Epoch: [5]	Step: [6600/7330]	Loss: 0.4892	Cls_loss: 0.3408	Loc_loss: 0.1484	Learning rate: 0.0100000 s 	Time : 2558.9173	
+Epoch: [5]	Step: [6700/7330]	Loss: 0.4756	Cls_loss: 0.3440	Loc_loss: 0.1316	Learning rate: 0.0100000 s 	Time : 2597.5847	
+Epoch: [5]	Step: [6800/7330]	Loss: 0.4385	Cls_loss: 0.3139	Loc_loss: 0.1247	Learning rate: 0.0100000 s 	Time : 2636.2582	
+Epoch: [5]	Step: [6900/7330]	Loss: 0.4527	Cls_loss: 0.3019	Loc_loss: 0.1509	Learning rate: 0.0100000 s 	Time : 2676.2993	
+Epoch: [5]	Step: [7000/7330]	Loss: 0.4181	Cls_loss: 0.2696	Loc_loss: 0.1485	Learning rate: 0.0100000 s 	Time : 2715.0014	
+Epoch: [5]	Step: [7100/7330]	Loss: 0.5077	Cls_loss: 0.3480	Loc_loss: 0.1597	Learning rate: 0.0100000 s 	Time : 2753.6809	
+Epoch: [5]	Step: [7200/7330]	Loss: 0.4088	Cls_loss: 0.2707	Loc_loss: 0.1381	Learning rate: 0.0100000 s 	Time : 2792.3794	
+Epoch: [5]	Step: [7300/7330]	Loss: 0.4295	Cls_loss: 0.2830	Loc_loss: 0.1465	Learning rate: 0.0100000 s 	Time : 2831.0345	
+Epoch: [5]	Step: [7329/7330]	Loss: 0.3605	Cls_loss: 0.2742	Loc_loss: 0.0863	Learning rate: 0.0100000 s 	Time : 2842.0089	
+Validation of epoch [5]
+COCO dataset evaluation...
+Epoch: [5]	Step: [0/4952]	Loss: 0.3941	Time : 0.3222	
+Epoch: [5]	Step: [100/4952]	Loss: 0.5055	Time : 6.9317	
+Epoch: [5]	Step: [200/4952]	Loss: 0.4096	Time : 13.2941	
+Epoch: [5]	Step: [300/4952]	Loss: 0.6768	Time : 19.8887	
+Epoch: [5]	Step: [400/4952]	Loss: 0.9384	Time : 26.3121	
+Epoch: [5]	Step: [500/4952]	Loss: 0.2095	Time : 32.1289	
+Epoch: [5]	Step: [600/4952]	Loss: 0.2733	Time : 38.3327	
+Epoch: [5]	Step: [700/4952]	Loss: 0.5784	Time : 44.4922	
+Epoch: [5]	Step: [800/4952]	Loss: 0.1304	Time : 50.1155	
+Epoch: [5]	Step: [900/4952]	Loss: 0.3981	Time : 57.4841	
+Epoch: [5]	Step: [1000/4952]	Loss: 0.3817	Time : 63.5018	
+Epoch: [5]	Step: [1100/4952]	Loss: 1.3285	Time : 68.7652	
+Epoch: [5]	Step: [1200/4952]	Loss: 0.4139	Time : 74.8906	
+Epoch: [5]	Step: [1300/4952]	Loss: 0.0971	Time : 80.9561	
+Epoch: [5]	Step: [1400/4952]	Loss: 0.2877	Time : 86.8733	
+Epoch: [5]	Step: [1500/4952]	Loss: 0.3788	Time : 92.8358	
+Epoch: [5]	Step: [1600/4952]	Loss: 0.7024	Time : 98.5883	
+Epoch: [5]	Step: [1700/4952]	Loss: 0.6435	Time : 104.4021	
+Epoch: [5]	Step: [1800/4952]	Loss: 0.4114	Time : 110.4966	
+Epoch: [5]	Step: [1900/4952]	Loss: 0.0897	Time : 116.2620	
+Epoch: [5]	Step: [2000/4952]	Loss: 0.2918	Time : 122.4886	
+Epoch: [5]	Step: [2100/4952]	Loss: 0.4444	Time : 128.5657	
+Epoch: [5]	Step: [2200/4952]	Loss: 0.1406	Time : 134.7819	
+Epoch: [5]	Step: [2300/4952]	Loss: 0.4947	Time : 140.8599	
+Epoch: [5]	Step: [2400/4952]	Loss: 0.3102	Time : 145.8874	
+Epoch: [5]	Step: [2500/4952]	Loss: 0.1240	Time : 151.8111	
+Epoch: [5]	Step: [2600/4952]	Loss: 0.6461	Time : 157.9142	
+Epoch: [5]	Step: [2700/4952]	Loss: 0.2709	Time : 165.0820	
+Epoch: [5]	Step: [2800/4952]	Loss: 0.2162	Time : 170.5255	
+Epoch: [5]	Step: [2900/4952]	Loss: 0.4745	Time : 175.8671	
+Epoch: [5]	Step: [3000/4952]	Loss: 0.6609	Time : 181.9481	
+Epoch: [5]	Step: [3100/4952]	Loss: 0.3680	Time : 188.3197	
+Epoch: [5]	Step: [3200/4952]	Loss: 0.1801	Time : 194.3670	
+Epoch: [5]	Step: [3300/4952]	Loss: 0.5757	Time : 200.0420	
+Epoch: [5]	Step: [3400/4952]	Loss: 0.2134	Time : 205.8077	
+Epoch: [5]	Step: [3500/4952]	Loss: 0.4829	Time : 212.0169	
+Epoch: [5]	Step: [3600/4952]	Loss: 0.3450	Time : 218.5821	
+Epoch: [5]	Step: [3700/4952]	Loss: 0.1153	Time : 224.8349	
+Epoch: [5]	Step: [3800/4952]	Loss: 0.3861	Time : 231.0069	
+Epoch: [5]	Step: [3900/4952]	Loss: 0.4640	Time : 236.8238	
+Epoch: [5]	Step: [4000/4952]	Loss: 0.6092	Time : 242.2988	
+Epoch: [5]	Step: [4100/4952]	Loss: 0.4467	Time : 248.4810	
+Epoch: [5]	Step: [4200/4952]	Loss: 0.4383	Time : 254.7979	
+Epoch: [5]	Step: [4300/4952]	Loss: 0.3318	Time : 260.7914	
+Epoch: [5]	Step: [4400/4952]	Loss: 0.0552	Time : 266.5049	
+Epoch: [5]	Step: [4500/4952]	Loss: 0.7926	Time : 272.5416	
+Epoch: [5]	Step: [4600/4952]	Loss: 0.4268	Time : 280.8700	
+Epoch: [5]	Step: [4700/4952]	Loss: 0.6556	Time : 287.2695	
+Epoch: [5]	Step: [4800/4952]	Loss: 0.5013	Time : 293.0492	
+Epoch: [5]	Step: [4900/4952]	Loss: 0.5170	Time : 299.4681	
+Epoch: [5]	Step: [4951/4952]	Loss: 1.0821	Time : 302.7022	
+Loading and preparing results...
+DONE (t=7.81s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=87.32s).
+Accumulating evaluation results...
+DONE (t=16.20s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.259
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.421
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.274
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.121
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.284
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.372
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.257
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.419
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.457
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.242
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.516
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.635
+0.25892599399941313
+Eval Time : 430.0383
+Training of epoch [6]
+Epoch: [6]	Step: [0/7330]	Loss: 0.4150	Cls_loss: 0.2907	Loc_loss: 0.1244	Learning rate: 0.0100000 s 	Time : 1.6556	
+Epoch: [6]	Step: [100/7330]	Loss: 0.4622	Cls_loss: 0.2842	Loc_loss: 0.1780	Learning rate: 0.0100000 s 	Time : 40.0762	
+Epoch: [6]	Step: [200/7330]	Loss: 0.4625	Cls_loss: 0.3133	Loc_loss: 0.1492	Learning rate: 0.0100000 s 	Time : 78.6310	
+Epoch: [6]	Step: [300/7330]	Loss: 0.4376	Cls_loss: 0.2874	Loc_loss: 0.1502	Learning rate: 0.0100000 s 	Time : 117.2957	
+Epoch: [6]	Step: [400/7330]	Loss: 0.4900	Cls_loss: 0.3456	Loc_loss: 0.1444	Learning rate: 0.0100000 s 	Time : 155.9330	
+Epoch: [6]	Step: [500/7330]	Loss: 0.4602	Cls_loss: 0.3147	Loc_loss: 0.1455	Learning rate: 0.0100000 s 	Time : 194.6176	
+Epoch: [6]	Step: [600/7330]	Loss: 0.4629	Cls_loss: 0.3300	Loc_loss: 0.1329	Learning rate: 0.0100000 s 	Time : 233.3206	
+Epoch: [6]	Step: [700/7330]	Loss: 0.4150	Cls_loss: 0.2995	Loc_loss: 0.1155	Learning rate: 0.0100000 s 	Time : 271.9959	
+Epoch: [6]	Step: [800/7330]	Loss: 0.3652	Cls_loss: 0.2339	Loc_loss: 0.1313	Learning rate: 0.0100000 s 	Time : 310.6610	
+Epoch: [6]	Step: [900/7330]	Loss: 0.4993	Cls_loss: 0.3446	Loc_loss: 0.1547	Learning rate: 0.0100000 s 	Time : 349.3270	
+Epoch: [6]	Step: [1000/7330]	Loss: 0.4381	Cls_loss: 0.2677	Loc_loss: 0.1704	Learning rate: 0.0100000 s 	Time : 388.0383	
+Epoch: [6]	Step: [1100/7330]	Loss: 0.4145	Cls_loss: 0.2724	Loc_loss: 0.1421	Learning rate: 0.0100000 s 	Time : 426.7414	
+Epoch: [6]	Step: [1200/7330]	Loss: 0.4360	Cls_loss: 0.3042	Loc_loss: 0.1318	Learning rate: 0.0100000 s 	Time : 465.4286	
+Epoch: [6]	Step: [1300/7330]	Loss: 0.4357	Cls_loss: 0.2942	Loc_loss: 0.1415	Learning rate: 0.0100000 s 	Time : 504.1250	
+Epoch: [6]	Step: [1400/7330]	Loss: 0.4500	Cls_loss: 0.3041	Loc_loss: 0.1460	Learning rate: 0.0100000 s 	Time : 542.8375	
+Epoch: [6]	Step: [1500/7330]	Loss: 0.3978	Cls_loss: 0.2497	Loc_loss: 0.1481	Learning rate: 0.0100000 s 	Time : 581.5192	
+Epoch: [6]	Step: [1600/7330]	Loss: 0.5137	Cls_loss: 0.3414	Loc_loss: 0.1723	Learning rate: 0.0100000 s 	Time : 620.1931	
+Epoch: [6]	Step: [1700/7330]	Loss: 0.4126	Cls_loss: 0.2738	Loc_loss: 0.1388	Learning rate: 0.0100000 s 	Time : 658.9118	
+Epoch: [6]	Step: [1800/7330]	Loss: 0.4758	Cls_loss: 0.3234	Loc_loss: 0.1524	Learning rate: 0.0100000 s 	Time : 697.5926	
+Epoch: [6]	Step: [1900/7330]	Loss: 0.4040	Cls_loss: 0.2651	Loc_loss: 0.1389	Learning rate: 0.0100000 s 	Time : 736.2743	
+Epoch: [6]	Step: [2000/7330]	Loss: 0.4946	Cls_loss: 0.3281	Loc_loss: 0.1665	Learning rate: 0.0100000 s 	Time : 774.9761	
+Epoch: [6]	Step: [2100/7330]	Loss: 0.4422	Cls_loss: 0.2949	Loc_loss: 0.1473	Learning rate: 0.0100000 s 	Time : 813.6629	
+Epoch: [6]	Step: [2200/7330]	Loss: 0.4301	Cls_loss: 0.3014	Loc_loss: 0.1287	Learning rate: 0.0100000 s 	Time : 852.3069	
+Epoch: [6]	Step: [2300/7330]	Loss: 0.4252	Cls_loss: 0.2824	Loc_loss: 0.1428	Learning rate: 0.0100000 s 	Time : 891.0268	
+Epoch: [6]	Step: [2400/7330]	Loss: 0.4687	Cls_loss: 0.3154	Loc_loss: 0.1533	Learning rate: 0.0100000 s 	Time : 929.7126	
+Epoch: [6]	Step: [2500/7330]	Loss: 0.4054	Cls_loss: 0.2862	Loc_loss: 0.1192	Learning rate: 0.0100000 s 	Time : 968.4105	
+Epoch: [6]	Step: [2600/7330]	Loss: 0.4817	Cls_loss: 0.3145	Loc_loss: 0.1673	Learning rate: 0.0100000 s 	Time : 1007.1492	
+Epoch: [6]	Step: [2700/7330]	Loss: 0.4444	Cls_loss: 0.3096	Loc_loss: 0.1348	Learning rate: 0.0100000 s 	Time : 1045.8842	
+Epoch: [6]	Step: [2800/7330]	Loss: 0.4537	Cls_loss: 0.3200	Loc_loss: 0.1337	Learning rate: 0.0100000 s 	Time : 1084.5586	
+Epoch: [6]	Step: [2900/7330]	Loss: 0.4254	Cls_loss: 0.3024	Loc_loss: 0.1230	Learning rate: 0.0100000 s 	Time : 1123.2567	
+Epoch: [6]	Step: [3000/7330]	Loss: 0.4704	Cls_loss: 0.3146	Loc_loss: 0.1558	Learning rate: 0.0100000 s 	Time : 1161.9497	
+Epoch: [6]	Step: [3100/7330]	Loss: 0.5082	Cls_loss: 0.3468	Loc_loss: 0.1615	Learning rate: 0.0100000 s 	Time : 1200.6329	
+Epoch: [6]	Step: [3200/7330]	Loss: 0.3869	Cls_loss: 0.2537	Loc_loss: 0.1332	Learning rate: 0.0100000 s 	Time : 1239.3112	
+Epoch: [6]	Step: [3300/7330]	Loss: 0.4244	Cls_loss: 0.2913	Loc_loss: 0.1332	Learning rate: 0.0100000 s 	Time : 1277.9938	
+Epoch: [6]	Step: [3400/7330]	Loss: 0.4375	Cls_loss: 0.2895	Loc_loss: 0.1480	Learning rate: 0.0100000 s 	Time : 1316.6886	
+Epoch: [6]	Step: [3500/7330]	Loss: 0.4799	Cls_loss: 0.3231	Loc_loss: 0.1568	Learning rate: 0.0100000 s 	Time : 1355.3719	
+Epoch: [6]	Step: [3600/7330]	Loss: 0.4492	Cls_loss: 0.2839	Loc_loss: 0.1653	Learning rate: 0.0100000 s 	Time : 1394.1048	
+Epoch: [6]	Step: [3700/7330]	Loss: 0.4040	Cls_loss: 0.2751	Loc_loss: 0.1289	Learning rate: 0.0100000 s 	Time : 1432.8153	
+Epoch: [6]	Step: [3800/7330]	Loss: 0.4437	Cls_loss: 0.2974	Loc_loss: 0.1462	Learning rate: 0.0100000 s 	Time : 1471.5047	
+Epoch: [6]	Step: [3900/7330]	Loss: 0.4107	Cls_loss: 0.2650	Loc_loss: 0.1457	Learning rate: 0.0100000 s 	Time : 1510.2144	
+Epoch: [6]	Step: [4000/7330]	Loss: 0.5490	Cls_loss: 0.3809	Loc_loss: 0.1681	Learning rate: 0.0100000 s 	Time : 1548.9221	
+Epoch: [6]	Step: [4100/7330]	Loss: 0.5075	Cls_loss: 0.3555	Loc_loss: 0.1520	Learning rate: 0.0100000 s 	Time : 1587.6353	
+Epoch: [6]	Step: [4200/7330]	Loss: 0.4338	Cls_loss: 0.2796	Loc_loss: 0.1541	Learning rate: 0.0100000 s 	Time : 1626.3145	
+Epoch: [6]	Step: [4300/7330]	Loss: 0.5185	Cls_loss: 0.3453	Loc_loss: 0.1731	Learning rate: 0.0100000 s 	Time : 1665.0006	
+Epoch: [6]	Step: [4400/7330]	Loss: 0.4646	Cls_loss: 0.3053	Loc_loss: 0.1593	Learning rate: 0.0100000 s 	Time : 1705.0122	
+Epoch: [6]	Step: [4500/7330]	Loss: 0.4572	Cls_loss: 0.3088	Loc_loss: 0.1484	Learning rate: 0.0100000 s 	Time : 1743.6646	
+Epoch: [6]	Step: [4600/7330]	Loss: 0.4108	Cls_loss: 0.2739	Loc_loss: 0.1369	Learning rate: 0.0100000 s 	Time : 1782.3399	
+Epoch: [6]	Step: [4700/7330]	Loss: 0.4229	Cls_loss: 0.2806	Loc_loss: 0.1423	Learning rate: 0.0100000 s 	Time : 1821.0331	
+Epoch: [6]	Step: [4800/7330]	Loss: 0.4690	Cls_loss: 0.2977	Loc_loss: 0.1713	Learning rate: 0.0100000 s 	Time : 1859.7200	
+Epoch: [6]	Step: [4900/7330]	Loss: 0.4363	Cls_loss: 0.3105	Loc_loss: 0.1258	Learning rate: 0.0100000 s 	Time : 1898.3940	
+Epoch: [6]	Step: [5000/7330]	Loss: 0.5257	Cls_loss: 0.3554	Loc_loss: 0.1704	Learning rate: 0.0100000 s 	Time : 1937.0835	
+Epoch: [6]	Step: [5100/7330]	Loss: 0.4561	Cls_loss: 0.3129	Loc_loss: 0.1432	Learning rate: 0.0100000 s 	Time : 1975.8061	
+Epoch: [6]	Step: [5200/7330]	Loss: 0.3439	Cls_loss: 0.2303	Loc_loss: 0.1136	Learning rate: 0.0100000 s 	Time : 2014.5122	
+Epoch: [6]	Step: [5300/7330]	Loss: 0.4334	Cls_loss: 0.3046	Loc_loss: 0.1288	Learning rate: 0.0100000 s 	Time : 2053.1977	
+Epoch: [6]	Step: [5400/7330]	Loss: 0.4445	Cls_loss: 0.2891	Loc_loss: 0.1554	Learning rate: 0.0100000 s 	Time : 2091.8873	
+Epoch: [6]	Step: [5500/7330]	Loss: 0.4810	Cls_loss: 0.3390	Loc_loss: 0.1420	Learning rate: 0.0100000 s 	Time : 2130.6141	
+Epoch: [6]	Step: [5600/7330]	Loss: 0.5035	Cls_loss: 0.3251	Loc_loss: 0.1784	Learning rate: 0.0100000 s 	Time : 2169.3150	
+Epoch: [6]	Step: [5700/7330]	Loss: 0.4267	Cls_loss: 0.2733	Loc_loss: 0.1535	Learning rate: 0.0100000 s 	Time : 2208.0258	
+Epoch: [6]	Step: [5800/7330]	Loss: 0.5819	Cls_loss: 0.3960	Loc_loss: 0.1859	Learning rate: 0.0100000 s 	Time : 2246.7412	
+Epoch: [6]	Step: [5900/7330]	Loss: 0.4147	Cls_loss: 0.2734	Loc_loss: 0.1413	Learning rate: 0.0100000 s 	Time : 2286.7829	
+Epoch: [6]	Step: [6000/7330]	Loss: 0.4247	Cls_loss: 0.2807	Loc_loss: 0.1440	Learning rate: 0.0100000 s 	Time : 2325.4941	
+Epoch: [6]	Step: [6100/7330]	Loss: 0.4500	Cls_loss: 0.3096	Loc_loss: 0.1404	Learning rate: 0.0100000 s 	Time : 2364.2046	
+Epoch: [6]	Step: [6200/7330]	Loss: 0.4455	Cls_loss: 0.3015	Loc_loss: 0.1440	Learning rate: 0.0100000 s 	Time : 2402.9153	
+Epoch: [6]	Step: [6300/7330]	Loss: 0.5207	Cls_loss: 0.3505	Loc_loss: 0.1702	Learning rate: 0.0100000 s 	Time : 2441.6166	
+Epoch: [6]	Step: [6400/7330]	Loss: 0.4608	Cls_loss: 0.3206	Loc_loss: 0.1402	Learning rate: 0.0100000 s 	Time : 2480.3154	
+Epoch: [6]	Step: [6500/7330]	Loss: 0.4383	Cls_loss: 0.2990	Loc_loss: 0.1393	Learning rate: 0.0100000 s 	Time : 2518.9801	
+Epoch: [6]	Step: [6600/7330]	Loss: 0.4278	Cls_loss: 0.2831	Loc_loss: 0.1447	Learning rate: 0.0100000 s 	Time : 2557.7065	
+Epoch: [6]	Step: [6700/7330]	Loss: 0.4349	Cls_loss: 0.2971	Loc_loss: 0.1378	Learning rate: 0.0100000 s 	Time : 2596.4327	
+Epoch: [6]	Step: [6800/7330]	Loss: 0.5012	Cls_loss: 0.3116	Loc_loss: 0.1897	Learning rate: 0.0100000 s 	Time : 2635.1252	
+Epoch: [6]	Step: [6900/7330]	Loss: 0.3748	Cls_loss: 0.2562	Loc_loss: 0.1186	Learning rate: 0.0100000 s 	Time : 2673.8168	
+Epoch: [6]	Step: [7000/7330]	Loss: 0.4110	Cls_loss: 0.2888	Loc_loss: 0.1223	Learning rate: 0.0100000 s 	Time : 2712.4898	
+Epoch: [6]	Step: [7100/7330]	Loss: 0.4358	Cls_loss: 0.3000	Loc_loss: 0.1358	Learning rate: 0.0100000 s 	Time : 2751.2068	
+Epoch: [6]	Step: [7200/7330]	Loss: 0.4793	Cls_loss: 0.3225	Loc_loss: 0.1568	Learning rate: 0.0100000 s 	Time : 2789.9300	
+Epoch: [6]	Step: [7300/7330]	Loss: 0.4326	Cls_loss: 0.3104	Loc_loss: 0.1223	Learning rate: 0.0100000 s 	Time : 2828.6571	
+Epoch: [6]	Step: [7329/7330]	Loss: 0.2442	Cls_loss: 0.1945	Loc_loss: 0.0498	Learning rate: 0.0100000 s 	Time : 2839.6176	
+Validation of epoch [6]
+COCO dataset evaluation...
+Epoch: [6]	Step: [0/4952]	Loss: 0.2958	Time : 0.3172	
+Epoch: [6]	Step: [100/4952]	Loss: 0.4629	Time : 6.5067	
+Epoch: [6]	Step: [200/4952]	Loss: 0.3411	Time : 13.9761	
+Epoch: [6]	Step: [300/4952]	Loss: 0.5544	Time : 20.0834	
+Epoch: [6]	Step: [400/4952]	Loss: 1.2654	Time : 26.1804	
+Epoch: [6]	Step: [500/4952]	Loss: 0.1880	Time : 31.6623	
+Epoch: [6]	Step: [600/4952]	Loss: 0.3175	Time : 37.5095	
+Epoch: [6]	Step: [700/4952]	Loss: 0.3990	Time : 43.1360	
+Epoch: [6]	Step: [800/4952]	Loss: 0.1052	Time : 48.0436	
+Epoch: [6]	Step: [900/4952]	Loss: 0.3928	Time : 53.4828	
+Epoch: [6]	Step: [1000/4952]	Loss: 0.3237	Time : 58.8917	
+Epoch: [6]	Step: [1100/4952]	Loss: 1.2001	Time : 63.7534	
+Epoch: [6]	Step: [1200/4952]	Loss: 0.4673	Time : 69.3770	
+Epoch: [6]	Step: [1300/4952]	Loss: 0.0658	Time : 75.0065	
+Epoch: [6]	Step: [1400/4952]	Loss: 0.2879	Time : 80.4128	
+Epoch: [6]	Step: [1500/4952]	Loss: 0.2957	Time : 85.8612	
+Epoch: [6]	Step: [1600/4952]	Loss: 0.6264	Time : 90.8938	
+Epoch: [6]	Step: [1700/4952]	Loss: 0.6964	Time : 96.2809	
+Epoch: [6]	Step: [1800/4952]	Loss: 0.3480	Time : 103.2051	
+Epoch: [6]	Step: [1900/4952]	Loss: 0.0642	Time : 108.5909	
+Epoch: [6]	Step: [2000/4952]	Loss: 0.2893	Time : 114.2759	
+Epoch: [6]	Step: [2100/4952]	Loss: 0.4416	Time : 119.6906	
+Epoch: [6]	Step: [2200/4952]	Loss: 0.1069	Time : 125.3040	
+Epoch: [6]	Step: [2300/4952]	Loss: 0.6045	Time : 130.8141	
+Epoch: [6]	Step: [2400/4952]	Loss: 0.4613	Time : 135.5524	
+Epoch: [6]	Step: [2500/4952]	Loss: 0.0491	Time : 140.9591	
+Epoch: [6]	Step: [2600/4952]	Loss: 0.6123	Time : 146.5099	
+Epoch: [6]	Step: [2700/4952]	Loss: 0.3176	Time : 151.7553	
+Epoch: [6]	Step: [2800/4952]	Loss: 0.2234	Time : 156.8309	
+Epoch: [6]	Step: [2900/4952]	Loss: 0.5063	Time : 161.8718	
+Epoch: [6]	Step: [3000/4952]	Loss: 0.7701	Time : 167.7557	
+Epoch: [6]	Step: [3100/4952]	Loss: 0.3608	Time : 173.7711	
+Epoch: [6]	Step: [3200/4952]	Loss: 0.0591	Time : 179.4298	
+Epoch: [6]	Step: [3300/4952]	Loss: 0.5188	Time : 184.6300	
+Epoch: [6]	Step: [3400/4952]	Loss: 0.1750	Time : 190.0048	
+Epoch: [6]	Step: [3500/4952]	Loss: 0.5523	Time : 195.8618	
+Epoch: [6]	Step: [3600/4952]	Loss: 0.3791	Time : 202.0868	
+Epoch: [6]	Step: [3700/4952]	Loss: 0.0983	Time : 208.0176	
+Epoch: [6]	Step: [3800/4952]	Loss: 0.2989	Time : 215.5150	
+Epoch: [6]	Step: [3900/4952]	Loss: 0.4342	Time : 221.0114	
+Epoch: [6]	Step: [4000/4952]	Loss: 0.5269	Time : 226.2486	
+Epoch: [6]	Step: [4100/4952]	Loss: 0.4286	Time : 232.1015	
+Epoch: [6]	Step: [4200/4952]	Loss: 0.4828	Time : 238.0294	
+Epoch: [6]	Step: [4300/4952]	Loss: 0.4219	Time : 243.6596	
+Epoch: [6]	Step: [4400/4952]	Loss: 0.0467	Time : 248.8868	
+Epoch: [6]	Step: [4500/4952]	Loss: 0.6886	Time : 254.6521	
+Epoch: [6]	Step: [4600/4952]	Loss: 0.4399	Time : 260.7896	
+Epoch: [6]	Step: [4700/4952]	Loss: 0.6466	Time : 266.8640	
+Epoch: [6]	Step: [4800/4952]	Loss: 0.5067	Time : 272.4713	
+Epoch: [6]	Step: [4900/4952]	Loss: 0.5093	Time : 278.5630	
+Epoch: [6]	Step: [4951/4952]	Loss: 1.1430	Time : 281.5938	
+Loading and preparing results...
+DONE (t=9.63s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=80.70s).
+Accumulating evaluation results...
+DONE (t=13.95s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.261
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.429
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.274
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.123
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.296
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.377
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.257
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.416
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.453
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.237
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.509
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.631
+0.2606618952225769
+Eval Time : 400.5630
+Training of epoch [7]
+Epoch: [7]	Step: [0/7330]	Loss: 0.4419	Cls_loss: 0.2870	Loc_loss: 0.1549	Learning rate: 0.0100000 s 	Time : 1.5920	
+Epoch: [7]	Step: [100/7330]	Loss: 0.3736	Cls_loss: 0.2235	Loc_loss: 0.1502	Learning rate: 0.0100000 s 	Time : 40.0413	
+Epoch: [7]	Step: [200/7330]	Loss: 0.4232	Cls_loss: 0.2834	Loc_loss: 0.1398	Learning rate: 0.0100000 s 	Time : 78.6017	
+Epoch: [7]	Step: [300/7330]	Loss: 0.4133	Cls_loss: 0.2697	Loc_loss: 0.1436	Learning rate: 0.0100000 s 	Time : 117.2057	
+Epoch: [7]	Step: [400/7330]	Loss: 0.4990	Cls_loss: 0.3664	Loc_loss: 0.1327	Learning rate: 0.0100000 s 	Time : 155.8474	
+Epoch: [7]	Step: [500/7330]	Loss: 0.4745	Cls_loss: 0.3099	Loc_loss: 0.1646	Learning rate: 0.0100000 s 	Time : 194.5194	
+Epoch: [7]	Step: [600/7330]	Loss: 0.4009	Cls_loss: 0.2658	Loc_loss: 0.1351	Learning rate: 0.0100000 s 	Time : 233.2109	
+Epoch: [7]	Step: [700/7330]	Loss: 0.4629	Cls_loss: 0.2926	Loc_loss: 0.1703	Learning rate: 0.0100000 s 	Time : 271.8742	
+Epoch: [7]	Step: [800/7330]	Loss: 0.4180	Cls_loss: 0.2623	Loc_loss: 0.1557	Learning rate: 0.0100000 s 	Time : 310.5707	
+Epoch: [7]	Step: [900/7330]	Loss: 0.3904	Cls_loss: 0.2712	Loc_loss: 0.1192	Learning rate: 0.0100000 s 	Time : 349.2868	
+Epoch: [7]	Step: [1000/7330]	Loss: 0.4392	Cls_loss: 0.2878	Loc_loss: 0.1514	Learning rate: 0.0100000 s 	Time : 388.0065	
+Epoch: [7]	Step: [1100/7330]	Loss: 0.4532	Cls_loss: 0.2821	Loc_loss: 0.1711	Learning rate: 0.0100000 s 	Time : 426.7147	
+Epoch: [7]	Step: [1200/7330]	Loss: 0.4662	Cls_loss: 0.3022	Loc_loss: 0.1639	Learning rate: 0.0100000 s 	Time : 465.3753	
+Epoch: [7]	Step: [1300/7330]	Loss: 0.4324	Cls_loss: 0.3051	Loc_loss: 0.1274	Learning rate: 0.0100000 s 	Time : 504.1098	
+Epoch: [7]	Step: [1400/7330]	Loss: 0.4412	Cls_loss: 0.2767	Loc_loss: 0.1645	Learning rate: 0.0100000 s 	Time : 542.7898	
+Epoch: [7]	Step: [1500/7330]	Loss: 0.4705	Cls_loss: 0.3031	Loc_loss: 0.1673	Learning rate: 0.0100000 s 	Time : 581.4614	
+Epoch: [7]	Step: [1600/7330]	Loss: 0.4105	Cls_loss: 0.2779	Loc_loss: 0.1326	Learning rate: 0.0100000 s 	Time : 620.1544	
+Epoch: [7]	Step: [1700/7330]	Loss: 0.4126	Cls_loss: 0.2623	Loc_loss: 0.1503	Learning rate: 0.0100000 s 	Time : 658.8279	
+Epoch: [7]	Step: [1800/7330]	Loss: 0.3630	Cls_loss: 0.2507	Loc_loss: 0.1124	Learning rate: 0.0100000 s 	Time : 697.5045	
+Epoch: [7]	Step: [1900/7330]	Loss: 0.5514	Cls_loss: 0.3776	Loc_loss: 0.1738	Learning rate: 0.0100000 s 	Time : 736.1973	
+Epoch: [7]	Step: [2000/7330]	Loss: 0.4462	Cls_loss: 0.3042	Loc_loss: 0.1420	Learning rate: 0.0100000 s 	Time : 774.9038	
+Epoch: [7]	Step: [2100/7330]	Loss: 0.3524	Cls_loss: 0.2292	Loc_loss: 0.1232	Learning rate: 0.0100000 s 	Time : 813.5826	
+Epoch: [7]	Step: [2200/7330]	Loss: 0.3958	Cls_loss: 0.2584	Loc_loss: 0.1374	Learning rate: 0.0100000 s 	Time : 852.2666	
+Epoch: [7]	Step: [2300/7330]	Loss: 0.4305	Cls_loss: 0.2719	Loc_loss: 0.1586	Learning rate: 0.0100000 s 	Time : 890.9959	
+Epoch: [7]	Step: [2400/7330]	Loss: 0.3617	Cls_loss: 0.2568	Loc_loss: 0.1049	Learning rate: 0.0100000 s 	Time : 929.7175	
+Epoch: [7]	Step: [2500/7330]	Loss: 0.4595	Cls_loss: 0.3412	Loc_loss: 0.1183	Learning rate: 0.0100000 s 	Time : 968.4502	
+Epoch: [7]	Step: [2600/7330]	Loss: 0.3730	Cls_loss: 0.2361	Loc_loss: 0.1369	Learning rate: 0.0100000 s 	Time : 1007.1482	
+Epoch: [7]	Step: [2700/7330]	Loss: 0.3714	Cls_loss: 0.2645	Loc_loss: 0.1069	Learning rate: 0.0100000 s 	Time : 1045.8746	
+Epoch: [7]	Step: [2800/7330]	Loss: 0.4751	Cls_loss: 0.3113	Loc_loss: 0.1638	Learning rate: 0.0100000 s 	Time : 1084.6173	
+Epoch: [7]	Step: [2900/7330]	Loss: 0.4417	Cls_loss: 0.2772	Loc_loss: 0.1644	Learning rate: 0.0100000 s 	Time : 1123.3532	
+Epoch: [7]	Step: [3000/7330]	Loss: 0.3998	Cls_loss: 0.2647	Loc_loss: 0.1351	Learning rate: 0.0100000 s 	Time : 1162.0591	
+Epoch: [7]	Step: [3100/7330]	Loss: 0.4341	Cls_loss: 0.2896	Loc_loss: 0.1445	Learning rate: 0.0100000 s 	Time : 1200.7625	
+Epoch: [7]	Step: [3200/7330]	Loss: 0.4531	Cls_loss: 0.3128	Loc_loss: 0.1403	Learning rate: 0.0100000 s 	Time : 1240.8189	
+Epoch: [7]	Step: [3300/7330]	Loss: 0.4724	Cls_loss: 0.3245	Loc_loss: 0.1479	Learning rate: 0.0100000 s 	Time : 1279.5333	
+Epoch: [7]	Step: [3400/7330]	Loss: 0.3665	Cls_loss: 0.2320	Loc_loss: 0.1345	Learning rate: 0.0100000 s 	Time : 1318.2614	
+Epoch: [7]	Step: [3500/7330]	Loss: 0.3998	Cls_loss: 0.2627	Loc_loss: 0.1371	Learning rate: 0.0100000 s 	Time : 1356.9913	
+Epoch: [7]	Step: [3600/7330]	Loss: 0.3581	Cls_loss: 0.2297	Loc_loss: 0.1284	Learning rate: 0.0100000 s 	Time : 1395.7258	
+Epoch: [7]	Step: [3700/7330]	Loss: 0.3772	Cls_loss: 0.2618	Loc_loss: 0.1154	Learning rate: 0.0100000 s 	Time : 1434.4210	
+Epoch: [7]	Step: [3800/7330]	Loss: 0.4565	Cls_loss: 0.3093	Loc_loss: 0.1472	Learning rate: 0.0100000 s 	Time : 1473.0814	
+Epoch: [7]	Step: [3900/7330]	Loss: 0.4656	Cls_loss: 0.3178	Loc_loss: 0.1478	Learning rate: 0.0100000 s 	Time : 1511.8463	
+Epoch: [7]	Step: [4000/7330]	Loss: 0.3922	Cls_loss: 0.2677	Loc_loss: 0.1245	Learning rate: 0.0100000 s 	Time : 1550.5517	
+Epoch: [7]	Step: [4100/7330]	Loss: 0.4091	Cls_loss: 0.2718	Loc_loss: 0.1373	Learning rate: 0.0100000 s 	Time : 1589.2573	
+Epoch: [7]	Step: [4200/7330]	Loss: 0.5306	Cls_loss: 0.3681	Loc_loss: 0.1625	Learning rate: 0.0100000 s 	Time : 1627.9618	
+Epoch: [7]	Step: [4300/7330]	Loss: 0.4814	Cls_loss: 0.3385	Loc_loss: 0.1429	Learning rate: 0.0100000 s 	Time : 1666.6431	
+Epoch: [7]	Step: [4400/7330]	Loss: 0.3999	Cls_loss: 0.2609	Loc_loss: 0.1390	Learning rate: 0.0100000 s 	Time : 1705.3864	
+Epoch: [7]	Step: [4500/7330]	Loss: 0.4470	Cls_loss: 0.3012	Loc_loss: 0.1459	Learning rate: 0.0100000 s 	Time : 1744.0955	
+Epoch: [7]	Step: [4600/7330]	Loss: 0.5537	Cls_loss: 0.3888	Loc_loss: 0.1650	Learning rate: 0.0100000 s 	Time : 1782.7737	
+Epoch: [7]	Step: [4700/7330]	Loss: 0.4359	Cls_loss: 0.2829	Loc_loss: 0.1530	Learning rate: 0.0100000 s 	Time : 1822.7795	
+Epoch: [7]	Step: [4800/7330]	Loss: 0.4438	Cls_loss: 0.3093	Loc_loss: 0.1345	Learning rate: 0.0100000 s 	Time : 1861.4627	
+Epoch: [7]	Step: [4900/7330]	Loss: 0.3405	Cls_loss: 0.2285	Loc_loss: 0.1119	Learning rate: 0.0100000 s 	Time : 1900.1261	
+Epoch: [7]	Step: [5000/7330]	Loss: 0.4910	Cls_loss: 0.3311	Loc_loss: 0.1598	Learning rate: 0.0100000 s 	Time : 1938.8452	
+Epoch: [7]	Step: [5100/7330]	Loss: 0.3796	Cls_loss: 0.2362	Loc_loss: 0.1434	Learning rate: 0.0100000 s 	Time : 1977.5897	
+Epoch: [7]	Step: [5200/7330]	Loss: 0.4494	Cls_loss: 0.3068	Loc_loss: 0.1426	Learning rate: 0.0100000 s 	Time : 2016.2941	
+Epoch: [7]	Step: [5300/7330]	Loss: 0.4629	Cls_loss: 0.2939	Loc_loss: 0.1690	Learning rate: 0.0100000 s 	Time : 2055.0355	
+Epoch: [7]	Step: [5400/7330]	Loss: 0.4484	Cls_loss: 0.3074	Loc_loss: 0.1410	Learning rate: 0.0100000 s 	Time : 2093.7254	
+Epoch: [7]	Step: [5500/7330]	Loss: 0.4099	Cls_loss: 0.2531	Loc_loss: 0.1568	Learning rate: 0.0100000 s 	Time : 2132.4219	
+Epoch: [7]	Step: [5600/7330]	Loss: 0.5283	Cls_loss: 0.3535	Loc_loss: 0.1749	Learning rate: 0.0100000 s 	Time : 2171.1380	
+Epoch: [7]	Step: [5700/7330]	Loss: 0.4983	Cls_loss: 0.3272	Loc_loss: 0.1711	Learning rate: 0.0100000 s 	Time : 2209.8212	
+Epoch: [7]	Step: [5800/7330]	Loss: 0.4708	Cls_loss: 0.3114	Loc_loss: 0.1594	Learning rate: 0.0100000 s 	Time : 2248.5300	
+Epoch: [7]	Step: [5900/7330]	Loss: 0.4492	Cls_loss: 0.2866	Loc_loss: 0.1626	Learning rate: 0.0100000 s 	Time : 2287.2463	
+Epoch: [7]	Step: [6000/7330]	Loss: 0.3825	Cls_loss: 0.2565	Loc_loss: 0.1261	Learning rate: 0.0100000 s 	Time : 2325.9309	
+Epoch: [7]	Step: [6100/7330]	Loss: 0.4346	Cls_loss: 0.2945	Loc_loss: 0.1402	Learning rate: 0.0100000 s 	Time : 2365.9848	
+Epoch: [7]	Step: [6200/7330]	Loss: 0.3807	Cls_loss: 0.2421	Loc_loss: 0.1386	Learning rate: 0.0100000 s 	Time : 2404.6806	
+Epoch: [7]	Step: [6300/7330]	Loss: 0.3161	Cls_loss: 0.2177	Loc_loss: 0.0984	Learning rate: 0.0100000 s 	Time : 2443.4268	
+Epoch: [7]	Step: [6400/7330]	Loss: 0.4564	Cls_loss: 0.3050	Loc_loss: 0.1514	Learning rate: 0.0100000 s 	Time : 2482.1220	
+Epoch: [7]	Step: [6500/7330]	Loss: 0.4906	Cls_loss: 0.3275	Loc_loss: 0.1631	Learning rate: 0.0100000 s 	Time : 2520.8518	
+Epoch: [7]	Step: [6600/7330]	Loss: 0.5010	Cls_loss: 0.3313	Loc_loss: 0.1697	Learning rate: 0.0100000 s 	Time : 2559.5538	
+Epoch: [7]	Step: [6700/7330]	Loss: 0.4449	Cls_loss: 0.3169	Loc_loss: 0.1280	Learning rate: 0.0100000 s 	Time : 2598.2798	
+Epoch: [7]	Step: [6800/7330]	Loss: 0.4418	Cls_loss: 0.3057	Loc_loss: 0.1361	Learning rate: 0.0100000 s 	Time : 2636.9980	
+Epoch: [7]	Step: [6900/7330]	Loss: 0.5160	Cls_loss: 0.3771	Loc_loss: 0.1389	Learning rate: 0.0100000 s 	Time : 2675.6890	
+Epoch: [7]	Step: [7000/7330]	Loss: 0.4761	Cls_loss: 0.3125	Loc_loss: 0.1636	Learning rate: 0.0100000 s 	Time : 2714.3843	
+Epoch: [7]	Step: [7100/7330]	Loss: 0.4479	Cls_loss: 0.3115	Loc_loss: 0.1364	Learning rate: 0.0100000 s 	Time : 2753.1161	
+Epoch: [7]	Step: [7200/7330]	Loss: 0.4640	Cls_loss: 0.3075	Loc_loss: 0.1566	Learning rate: 0.0100000 s 	Time : 2791.8059	
+Epoch: [7]	Step: [7300/7330]	Loss: 0.4037	Cls_loss: 0.2609	Loc_loss: 0.1428	Learning rate: 0.0100000 s 	Time : 2830.5168	
+Epoch: [7]	Step: [7329/7330]	Loss: 0.4591	Cls_loss: 0.2953	Loc_loss: 0.1639	Learning rate: 0.0100000 s 	Time : 2841.4965	
+Validation of epoch [7]
+COCO dataset evaluation...
+Epoch: [7]	Step: [0/4952]	Loss: 0.3528	Time : 0.3228	
+Epoch: [7]	Step: [100/4952]	Loss: 0.4603	Time : 6.3856	
+Epoch: [7]	Step: [200/4952]	Loss: 0.2030	Time : 13.7577	
+Epoch: [7]	Step: [300/4952]	Loss: 0.4219	Time : 19.8271	
+Epoch: [7]	Step: [400/4952]	Loss: 0.8403	Time : 25.8687	
+Epoch: [7]	Step: [500/4952]	Loss: 0.2654	Time : 31.1673	
+Epoch: [7]	Step: [600/4952]	Loss: 0.3272	Time : 36.9016	
+Epoch: [7]	Step: [700/4952]	Loss: 0.5111	Time : 42.4185	
+Epoch: [7]	Step: [800/4952]	Loss: 0.1097	Time : 47.5118	
+Epoch: [7]	Step: [900/4952]	Loss: 0.4797	Time : 52.9922	
+Epoch: [7]	Step: [1000/4952]	Loss: 0.3708	Time : 58.4771	
+Epoch: [7]	Step: [1100/4952]	Loss: 0.7427	Time : 63.1981	
+Epoch: [7]	Step: [1200/4952]	Loss: 0.8943	Time : 68.8482	
+Epoch: [7]	Step: [1300/4952]	Loss: 0.0703	Time : 74.4237	
+Epoch: [7]	Step: [1400/4952]	Loss: 0.2645	Time : 79.7296	
+Epoch: [7]	Step: [1500/4952]	Loss: 0.3070	Time : 85.2003	
+Epoch: [7]	Step: [1600/4952]	Loss: 0.6410	Time : 90.2254	
+Epoch: [7]	Step: [1700/4952]	Loss: 0.6667	Time : 95.5594	
+Epoch: [7]	Step: [1800/4952]	Loss: 0.2709	Time : 101.0847	
+Epoch: [7]	Step: [1900/4952]	Loss: 0.0677	Time : 106.3957	
+Epoch: [7]	Step: [2000/4952]	Loss: 0.3103	Time : 113.6327	
+Epoch: [7]	Step: [2100/4952]	Loss: 0.5202	Time : 119.3463	
+Epoch: [7]	Step: [2200/4952]	Loss: 0.1399	Time : 125.1412	
+Epoch: [7]	Step: [2300/4952]	Loss: 0.4748	Time : 130.8098	
+Epoch: [7]	Step: [2400/4952]	Loss: 0.2648	Time : 135.4264	
+Epoch: [7]	Step: [2500/4952]	Loss: 0.0494	Time : 140.8269	
+Epoch: [7]	Step: [2600/4952]	Loss: 0.6386	Time : 146.4177	
+Epoch: [7]	Step: [2700/4952]	Loss: 0.3104	Time : 151.6593	
+Epoch: [7]	Step: [2800/4952]	Loss: 0.1970	Time : 156.7213	
+Epoch: [7]	Step: [2900/4952]	Loss: 0.4735	Time : 161.6814	
+Epoch: [7]	Step: [3000/4952]	Loss: 0.6286	Time : 167.6491	
+Epoch: [7]	Step: [3100/4952]	Loss: 0.4099	Time : 173.7278	
+Epoch: [7]	Step: [3200/4952]	Loss: 0.0547	Time : 179.5038	
+Epoch: [7]	Step: [3300/4952]	Loss: 0.6455	Time : 184.8236	
+Epoch: [7]	Step: [3400/4952]	Loss: 0.2359	Time : 190.2791	
+Epoch: [7]	Step: [3500/4952]	Loss: 0.9362	Time : 196.2944	
+Epoch: [7]	Step: [3600/4952]	Loss: 0.3645	Time : 202.6885	
+Epoch: [7]	Step: [3700/4952]	Loss: 0.1669	Time : 208.7026	
+Epoch: [7]	Step: [3800/4952]	Loss: 0.2379	Time : 214.5933	
+Epoch: [7]	Step: [3900/4952]	Loss: 0.4493	Time : 220.1977	
+Epoch: [7]	Step: [4000/4952]	Loss: 0.4881	Time : 227.1351	
+Epoch: [7]	Step: [4100/4952]	Loss: 0.5125	Time : 233.1467	
+Epoch: [7]	Step: [4200/4952]	Loss: 0.4144	Time : 239.1643	
+Epoch: [7]	Step: [4300/4952]	Loss: 0.3753	Time : 244.9160	
+Epoch: [7]	Step: [4400/4952]	Loss: 0.0368	Time : 250.3073	
+Epoch: [7]	Step: [4500/4952]	Loss: 0.6726	Time : 256.1332	
+Epoch: [7]	Step: [4600/4952]	Loss: 0.4257	Time : 262.3838	
+Epoch: [7]	Step: [4700/4952]	Loss: 0.6525	Time : 268.4370	
+Epoch: [7]	Step: [4800/4952]	Loss: 0.4218	Time : 274.1861	
+Epoch: [7]	Step: [4900/4952]	Loss: 0.5530	Time : 280.3315	
+Epoch: [7]	Step: [4951/4952]	Loss: 1.0342	Time : 283.3793	
+Loading and preparing results...
+DONE (t=7.15s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=82.17s).
+Accumulating evaluation results...
+DONE (t=14.13s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.260
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.431
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.278
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.121
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.294
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.374
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.254
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.415
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.452
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.223
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.518
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.636
+0.2598826838850945
+Eval Time : 401.2617
+Training of epoch [8]
+Epoch: [8]	Step: [0/7330]	Loss: 0.4438	Cls_loss: 0.2864	Loc_loss: 0.1575	Learning rate: 0.0010000 s 	Time : 1.5503	
+Epoch: [8]	Step: [100/7330]	Loss: 0.3346	Cls_loss: 0.2317	Loc_loss: 0.1029	Learning rate: 0.0010000 s 	Time : 39.9648	
+Epoch: [8]	Step: [200/7330]	Loss: 0.3629	Cls_loss: 0.2492	Loc_loss: 0.1137	Learning rate: 0.0010000 s 	Time : 78.5768	
+Epoch: [8]	Step: [300/7330]	Loss: 0.4214	Cls_loss: 0.2784	Loc_loss: 0.1430	Learning rate: 0.0010000 s 	Time : 117.2165	
+Epoch: [8]	Step: [400/7330]	Loss: 0.4104	Cls_loss: 0.2803	Loc_loss: 0.1301	Learning rate: 0.0010000 s 	Time : 155.9119	
+Epoch: [8]	Step: [500/7330]	Loss: 0.3577	Cls_loss: 0.2353	Loc_loss: 0.1224	Learning rate: 0.0010000 s 	Time : 194.6074	
+Epoch: [8]	Step: [600/7330]	Loss: 0.3849	Cls_loss: 0.2471	Loc_loss: 0.1378	Learning rate: 0.0010000 s 	Time : 233.3678	
+Epoch: [8]	Step: [700/7330]	Loss: 0.3443	Cls_loss: 0.2137	Loc_loss: 0.1306	Learning rate: 0.0010000 s 	Time : 272.0973	
+Epoch: [8]	Step: [800/7330]	Loss: 0.3364	Cls_loss: 0.2062	Loc_loss: 0.1302	Learning rate: 0.0010000 s 	Time : 310.8083	
+Epoch: [8]	Step: [900/7330]	Loss: 0.3900	Cls_loss: 0.2476	Loc_loss: 0.1424	Learning rate: 0.0010000 s 	Time : 349.5121	
+Epoch: [8]	Step: [1000/7330]	Loss: 0.3963	Cls_loss: 0.2599	Loc_loss: 0.1364	Learning rate: 0.0010000 s 	Time : 388.2114	
+Epoch: [8]	Step: [1100/7330]	Loss: 0.4446	Cls_loss: 0.2839	Loc_loss: 0.1607	Learning rate: 0.0010000 s 	Time : 426.9147	
+Epoch: [8]	Step: [1200/7330]	Loss: 0.2875	Cls_loss: 0.1897	Loc_loss: 0.0978	Learning rate: 0.0010000 s 	Time : 465.6481	
+Epoch: [8]	Step: [1300/7330]	Loss: 0.3924	Cls_loss: 0.2624	Loc_loss: 0.1300	Learning rate: 0.0010000 s 	Time : 504.3784	
+Epoch: [8]	Step: [1400/7330]	Loss: 0.3684	Cls_loss: 0.2341	Loc_loss: 0.1343	Learning rate: 0.0010000 s 	Time : 543.1041	
+Epoch: [8]	Step: [1500/7330]	Loss: 0.2978	Cls_loss: 0.1999	Loc_loss: 0.0979	Learning rate: 0.0010000 s 	Time : 581.8135	
+Epoch: [8]	Step: [1600/7330]	Loss: 0.3687	Cls_loss: 0.2427	Loc_loss: 0.1260	Learning rate: 0.0010000 s 	Time : 620.5249	
+Epoch: [8]	Step: [1700/7330]	Loss: 0.3209	Cls_loss: 0.2041	Loc_loss: 0.1169	Learning rate: 0.0010000 s 	Time : 659.2625	
+Epoch: [8]	Step: [1800/7330]	Loss: 0.3396	Cls_loss: 0.2157	Loc_loss: 0.1239	Learning rate: 0.0010000 s 	Time : 697.9882	
+Epoch: [8]	Step: [1900/7330]	Loss: 0.3800	Cls_loss: 0.2510	Loc_loss: 0.1290	Learning rate: 0.0010000 s 	Time : 736.7422	
+Epoch: [8]	Step: [2000/7330]	Loss: 0.3518	Cls_loss: 0.2266	Loc_loss: 0.1251	Learning rate: 0.0010000 s 	Time : 775.4600	
+Epoch: [8]	Step: [2100/7330]	Loss: 0.2628	Cls_loss: 0.1660	Loc_loss: 0.0968	Learning rate: 0.0010000 s 	Time : 814.1612	
+Epoch: [8]	Step: [2200/7330]	Loss: 0.3733	Cls_loss: 0.2470	Loc_loss: 0.1263	Learning rate: 0.0010000 s 	Time : 852.9053	
+Epoch: [8]	Step: [2300/7330]	Loss: 0.3107	Cls_loss: 0.2002	Loc_loss: 0.1105	Learning rate: 0.0010000 s 	Time : 891.6345	
+Epoch: [8]	Step: [2400/7330]	Loss: 0.3445	Cls_loss: 0.2409	Loc_loss: 0.1036	Learning rate: 0.0010000 s 	Time : 930.3752	
+Epoch: [8]	Step: [2500/7330]	Loss: 0.3500	Cls_loss: 0.2311	Loc_loss: 0.1190	Learning rate: 0.0010000 s 	Time : 969.0820	
+Epoch: [8]	Step: [2600/7330]	Loss: 0.3741	Cls_loss: 0.2412	Loc_loss: 0.1329	Learning rate: 0.0010000 s 	Time : 1007.7709	
+Epoch: [8]	Step: [2700/7330]	Loss: 0.3891	Cls_loss: 0.2479	Loc_loss: 0.1412	Learning rate: 0.0010000 s 	Time : 1046.4848	
+Epoch: [8]	Step: [2800/7330]	Loss: 0.4179	Cls_loss: 0.2711	Loc_loss: 0.1468	Learning rate: 0.0010000 s 	Time : 1085.1903	
+Epoch: [8]	Step: [2900/7330]	Loss: 0.3986	Cls_loss: 0.2722	Loc_loss: 0.1264	Learning rate: 0.0010000 s 	Time : 1123.9427	
+Epoch: [8]	Step: [3000/7330]	Loss: 0.3767	Cls_loss: 0.2448	Loc_loss: 0.1319	Learning rate: 0.0010000 s 	Time : 1162.6548	
+Epoch: [8]	Step: [3100/7330]	Loss: 0.3943	Cls_loss: 0.2604	Loc_loss: 0.1339	Learning rate: 0.0010000 s 	Time : 1201.3867	
+Epoch: [8]	Step: [3200/7330]	Loss: 0.3553	Cls_loss: 0.2221	Loc_loss: 0.1332	Learning rate: 0.0010000 s 	Time : 1240.0845	
+Epoch: [8]	Step: [3300/7330]	Loss: 0.3544	Cls_loss: 0.2405	Loc_loss: 0.1139	Learning rate: 0.0010000 s 	Time : 1280.1737	
+Epoch: [8]	Step: [3400/7330]	Loss: 0.3928	Cls_loss: 0.2494	Loc_loss: 0.1434	Learning rate: 0.0010000 s 	Time : 1318.8845	
+Epoch: [8]	Step: [3500/7330]	Loss: 0.3262	Cls_loss: 0.2341	Loc_loss: 0.0921	Learning rate: 0.0010000 s 	Time : 1357.6113	
+Epoch: [8]	Step: [3600/7330]	Loss: 0.3359	Cls_loss: 0.2173	Loc_loss: 0.1186	Learning rate: 0.0010000 s 	Time : 1396.3190	
+Epoch: [8]	Step: [3700/7330]	Loss: 0.3536	Cls_loss: 0.2134	Loc_loss: 0.1401	Learning rate: 0.0010000 s 	Time : 1435.0203	
+Epoch: [8]	Step: [3800/7330]	Loss: 0.3408	Cls_loss: 0.2215	Loc_loss: 0.1193	Learning rate: 0.0010000 s 	Time : 1473.7159	
+Epoch: [8]	Step: [3900/7330]	Loss: 0.3911	Cls_loss: 0.2837	Loc_loss: 0.1074	Learning rate: 0.0010000 s 	Time : 1512.3909	
+Epoch: [8]	Step: [4000/7330]	Loss: 0.2911	Cls_loss: 0.1729	Loc_loss: 0.1182	Learning rate: 0.0010000 s 	Time : 1551.1063	
+Epoch: [8]	Step: [4100/7330]	Loss: 0.3495	Cls_loss: 0.2172	Loc_loss: 0.1323	Learning rate: 0.0010000 s 	Time : 1589.8128	
+Epoch: [8]	Step: [4200/7330]	Loss: 0.4195	Cls_loss: 0.2828	Loc_loss: 0.1367	Learning rate: 0.0010000 s 	Time : 1628.5692	
+Epoch: [8]	Step: [4300/7330]	Loss: 0.3390	Cls_loss: 0.2203	Loc_loss: 0.1188	Learning rate: 0.0010000 s 	Time : 1667.2731	
+Epoch: [8]	Step: [4400/7330]	Loss: 0.3541	Cls_loss: 0.2250	Loc_loss: 0.1291	Learning rate: 0.0010000 s 	Time : 1705.9845	
+Epoch: [8]	Step: [4500/7330]	Loss: 0.3596	Cls_loss: 0.2347	Loc_loss: 0.1249	Learning rate: 0.0010000 s 	Time : 1744.7296	
+Epoch: [8]	Step: [4600/7330]	Loss: 0.3350	Cls_loss: 0.2170	Loc_loss: 0.1180	Learning rate: 0.0010000 s 	Time : 1783.4631	
+Epoch: [8]	Step: [4700/7330]	Loss: 0.3620	Cls_loss: 0.2378	Loc_loss: 0.1242	Learning rate: 0.0010000 s 	Time : 1822.1967	
+Epoch: [8]	Step: [4800/7330]	Loss: 0.3615	Cls_loss: 0.2352	Loc_loss: 0.1262	Learning rate: 0.0010000 s 	Time : 1862.3221	
+Epoch: [8]	Step: [4900/7330]	Loss: 0.2761	Cls_loss: 0.1808	Loc_loss: 0.0954	Learning rate: 0.0010000 s 	Time : 1901.0588	
+Epoch: [8]	Step: [5000/7330]	Loss: 0.3270	Cls_loss: 0.2191	Loc_loss: 0.1079	Learning rate: 0.0010000 s 	Time : 1939.7822	
+Epoch: [8]	Step: [5100/7330]	Loss: 0.3929	Cls_loss: 0.2443	Loc_loss: 0.1486	Learning rate: 0.0010000 s 	Time : 1978.5178	
+Epoch: [8]	Step: [5200/7330]	Loss: 0.4335	Cls_loss: 0.2987	Loc_loss: 0.1348	Learning rate: 0.0010000 s 	Time : 2017.2610	
+Epoch: [8]	Step: [5300/7330]	Loss: 0.3351	Cls_loss: 0.2277	Loc_loss: 0.1074	Learning rate: 0.0010000 s 	Time : 2055.9798	
+Epoch: [8]	Step: [5400/7330]	Loss: 0.3934	Cls_loss: 0.2403	Loc_loss: 0.1531	Learning rate: 0.0010000 s 	Time : 2094.7355	
+Epoch: [8]	Step: [5500/7330]	Loss: 0.3497	Cls_loss: 0.2092	Loc_loss: 0.1405	Learning rate: 0.0010000 s 	Time : 2133.4893	
+Epoch: [8]	Step: [5600/7330]	Loss: 0.3355	Cls_loss: 0.2213	Loc_loss: 0.1141	Learning rate: 0.0010000 s 	Time : 2172.2135	
+Epoch: [8]	Step: [5700/7330]	Loss: 0.3268	Cls_loss: 0.2055	Loc_loss: 0.1213	Learning rate: 0.0010000 s 	Time : 2210.9628	
+Epoch: [8]	Step: [5800/7330]	Loss: 0.2847	Cls_loss: 0.1902	Loc_loss: 0.0945	Learning rate: 0.0010000 s 	Time : 2249.7428	
+Epoch: [8]	Step: [5900/7330]	Loss: 0.4235	Cls_loss: 0.2806	Loc_loss: 0.1429	Learning rate: 0.0010000 s 	Time : 2288.4484	
+Epoch: [8]	Step: [6000/7330]	Loss: 0.3583	Cls_loss: 0.2312	Loc_loss: 0.1271	Learning rate: 0.0010000 s 	Time : 2327.1828	
+Epoch: [8]	Step: [6100/7330]	Loss: 0.3515	Cls_loss: 0.2150	Loc_loss: 0.1365	Learning rate: 0.0010000 s 	Time : 2365.9211	
+Epoch: [8]	Step: [6200/7330]	Loss: 0.2940	Cls_loss: 0.1883	Loc_loss: 0.1057	Learning rate: 0.0010000 s 	Time : 2405.9686	
+Epoch: [8]	Step: [6300/7330]	Loss: 0.3392	Cls_loss: 0.2168	Loc_loss: 0.1224	Learning rate: 0.0010000 s 	Time : 2444.6690	
+Epoch: [8]	Step: [6400/7330]	Loss: 0.2290	Cls_loss: 0.1472	Loc_loss: 0.0819	Learning rate: 0.0010000 s 	Time : 2483.3920	
+Epoch: [8]	Step: [6500/7330]	Loss: 0.3641	Cls_loss: 0.2260	Loc_loss: 0.1380	Learning rate: 0.0010000 s 	Time : 2522.0988	
+Epoch: [8]	Step: [6600/7330]	Loss: 0.3057	Cls_loss: 0.2217	Loc_loss: 0.0840	Learning rate: 0.0010000 s 	Time : 2560.8367	
+Epoch: [8]	Step: [6700/7330]	Loss: 0.2816	Cls_loss: 0.1819	Loc_loss: 0.0997	Learning rate: 0.0010000 s 	Time : 2599.5179	
+Epoch: [8]	Step: [6800/7330]	Loss: 0.2954	Cls_loss: 0.1802	Loc_loss: 0.1152	Learning rate: 0.0010000 s 	Time : 2638.2315	
+Epoch: [8]	Step: [6900/7330]	Loss: 0.3277	Cls_loss: 0.2115	Loc_loss: 0.1162	Learning rate: 0.0010000 s 	Time : 2676.9568	
+Epoch: [8]	Step: [7000/7330]	Loss: 0.3617	Cls_loss: 0.2271	Loc_loss: 0.1346	Learning rate: 0.0010000 s 	Time : 2715.6673	
+Epoch: [8]	Step: [7100/7330]	Loss: 0.4070	Cls_loss: 0.2574	Loc_loss: 0.1496	Learning rate: 0.0010000 s 	Time : 2754.3972	
+Epoch: [8]	Step: [7200/7330]	Loss: 0.3197	Cls_loss: 0.2069	Loc_loss: 0.1128	Learning rate: 0.0010000 s 	Time : 2793.1525	
+Epoch: [8]	Step: [7300/7330]	Loss: 0.3854	Cls_loss: 0.2708	Loc_loss: 0.1145	Learning rate: 0.0010000 s 	Time : 2831.9044	
+Epoch: [8]	Step: [7329/7330]	Loss: 0.2437	Cls_loss: 0.1374	Loc_loss: 0.1062	Learning rate: 0.0010000 s 	Time : 2842.8726	
+Validation of epoch [8]
+COCO dataset evaluation...
+Epoch: [8]	Step: [0/4952]	Loss: 0.2735	Time : 0.3030	
+Epoch: [8]	Step: [100/4952]	Loss: 0.3653	Time : 5.7642	
+Epoch: [8]	Step: [200/4952]	Loss: 0.2012	Time : 11.2474	
+Epoch: [8]	Step: [300/4952]	Loss: 0.3744	Time : 18.2046	
+Epoch: [8]	Step: [400/4952]	Loss: 0.9306	Time : 23.6068	
+Epoch: [8]	Step: [500/4952]	Loss: 0.1763	Time : 28.2731	
+Epoch: [8]	Step: [600/4952]	Loss: 0.1753	Time : 33.3691	
+Epoch: [8]	Step: [700/4952]	Loss: 0.4889	Time : 38.3529	
+Epoch: [8]	Step: [800/4952]	Loss: 0.0492	Time : 42.7558	
+Epoch: [8]	Step: [900/4952]	Loss: 0.3321	Time : 47.5971	
+Epoch: [8]	Step: [1000/4952]	Loss: 0.2816	Time : 52.3644	
+Epoch: [8]	Step: [1100/4952]	Loss: 0.5953	Time : 56.5180	
+Epoch: [8]	Step: [1200/4952]	Loss: 0.3392	Time : 61.5048	
+Epoch: [8]	Step: [1300/4952]	Loss: 0.0397	Time : 66.4313	
+Epoch: [8]	Step: [1400/4952]	Loss: 0.1911	Time : 71.3163	
+Epoch: [8]	Step: [1500/4952]	Loss: 0.2442	Time : 76.1853	
+Epoch: [8]	Step: [1600/4952]	Loss: 0.5622	Time : 80.5711	
+Epoch: [8]	Step: [1700/4952]	Loss: 0.6926	Time : 85.2675	
+Epoch: [8]	Step: [1800/4952]	Loss: 0.2832	Time : 90.1260	
+Epoch: [8]	Step: [1900/4952]	Loss: 0.0555	Time : 94.7352	
+Epoch: [8]	Step: [2000/4952]	Loss: 0.2289	Time : 99.9210	
+Epoch: [8]	Step: [2100/4952]	Loss: 0.4435	Time : 104.9624	
+Epoch: [8]	Step: [2200/4952]	Loss: 0.0609	Time : 110.0872	
+Epoch: [8]	Step: [2300/4952]	Loss: 0.3921	Time : 115.0986	
+Epoch: [8]	Step: [2400/4952]	Loss: 0.2768	Time : 119.2670	
+Epoch: [8]	Step: [2500/4952]	Loss: 0.0211	Time : 124.1791	
+Epoch: [8]	Step: [2600/4952]	Loss: 0.5645	Time : 129.2204	
+Epoch: [8]	Step: [2700/4952]	Loss: 0.2250	Time : 135.3764	
+Epoch: [8]	Step: [2800/4952]	Loss: 0.1611	Time : 139.8145	
+Epoch: [8]	Step: [2900/4952]	Loss: 0.4388	Time : 144.2544	
+Epoch: [8]	Step: [3000/4952]	Loss: 0.6351	Time : 149.5224	
+Epoch: [8]	Step: [3100/4952]	Loss: 0.3310	Time : 155.0794	
+Epoch: [8]	Step: [3200/4952]	Loss: 0.0311	Time : 160.2802	
+Epoch: [8]	Step: [3300/4952]	Loss: 0.5189	Time : 164.9362	
+Epoch: [8]	Step: [3400/4952]	Loss: 0.1308	Time : 169.7570	
+Epoch: [8]	Step: [3500/4952]	Loss: 0.5824	Time : 175.1620	
+Epoch: [8]	Step: [3600/4952]	Loss: 0.2887	Time : 181.0397	
+Epoch: [8]	Step: [3700/4952]	Loss: 0.0592	Time : 186.4769	
+Epoch: [8]	Step: [3800/4952]	Loss: 0.2078	Time : 191.6463	
+Epoch: [8]	Step: [3900/4952]	Loss: 0.3909	Time : 196.6788	
+Epoch: [8]	Step: [4000/4952]	Loss: 0.4933	Time : 201.4004	
+Epoch: [8]	Step: [4100/4952]	Loss: 0.4425	Time : 206.8526	
+Epoch: [8]	Step: [4200/4952]	Loss: 0.4382	Time : 212.3302	
+Epoch: [8]	Step: [4300/4952]	Loss: 0.3486	Time : 217.3681	
+Epoch: [8]	Step: [4400/4952]	Loss: 0.0274	Time : 222.1138	
+Epoch: [8]	Step: [4500/4952]	Loss: 0.5494	Time : 227.3404	
+Epoch: [8]	Step: [4600/4952]	Loss: 0.3244	Time : 233.0753	
+Epoch: [8]	Step: [4700/4952]	Loss: 0.6832	Time : 238.6254	
+Epoch: [8]	Step: [4800/4952]	Loss: 0.4246	Time : 243.5752	
+Epoch: [8]	Step: [4900/4952]	Loss: 0.4648	Time : 249.2334	
+Epoch: [8]	Step: [4951/4952]	Loss: 0.9096	Time : 251.9609	
+Loading and preparing results...
+DONE (t=8.19s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=70.58s).
+Accumulating evaluation results...
+DONE (t=11.25s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.311
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.491
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.334
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.150
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.351
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.450
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.283
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.454
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.492
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.271
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.558
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.677
+0.3113684050542755
+Eval Time : 353.3532
+Training of epoch [9]
+Epoch: [9]	Step: [0/7330]	Loss: 0.3316	Cls_loss: 0.2292	Loc_loss: 0.1025	Learning rate: 0.0010000 s 	Time : 1.5017	
+Epoch: [9]	Step: [100/7330]	Loss: 0.3300	Cls_loss: 0.2140	Loc_loss: 0.1160	Learning rate: 0.0010000 s 	Time : 39.9805	
+Epoch: [9]	Step: [200/7330]	Loss: 0.3483	Cls_loss: 0.2362	Loc_loss: 0.1121	Learning rate: 0.0010000 s 	Time : 78.5974	
+Epoch: [9]	Step: [300/7330]	Loss: 0.3154	Cls_loss: 0.2120	Loc_loss: 0.1034	Learning rate: 0.0010000 s 	Time : 117.2794	
+Epoch: [9]	Step: [400/7330]	Loss: 0.3185	Cls_loss: 0.2006	Loc_loss: 0.1179	Learning rate: 0.0010000 s 	Time : 156.0344	
+Epoch: [9]	Step: [500/7330]	Loss: 0.3114	Cls_loss: 0.1885	Loc_loss: 0.1228	Learning rate: 0.0010000 s 	Time : 194.8309	
+Epoch: [9]	Step: [600/7330]	Loss: 0.3928	Cls_loss: 0.2609	Loc_loss: 0.1318	Learning rate: 0.0010000 s 	Time : 233.5792	
+Epoch: [9]	Step: [700/7330]	Loss: 0.2480	Cls_loss: 0.1554	Loc_loss: 0.0926	Learning rate: 0.0010000 s 	Time : 272.3555	
+Epoch: [9]	Step: [800/7330]	Loss: 0.3335	Cls_loss: 0.2121	Loc_loss: 0.1214	Learning rate: 0.0010000 s 	Time : 311.1187	
+Epoch: [9]	Step: [900/7330]	Loss: 0.2827	Cls_loss: 0.1963	Loc_loss: 0.0865	Learning rate: 0.0010000 s 	Time : 349.8765	
+Epoch: [9]	Step: [1000/7330]	Loss: 0.3511	Cls_loss: 0.2395	Loc_loss: 0.1116	Learning rate: 0.0010000 s 	Time : 388.6731	
+Epoch: [9]	Step: [1100/7330]	Loss: 0.3176	Cls_loss: 0.2072	Loc_loss: 0.1104	Learning rate: 0.0010000 s 	Time : 427.4344	
+Epoch: [9]	Step: [1200/7330]	Loss: 0.3243	Cls_loss: 0.2304	Loc_loss: 0.0940	Learning rate: 0.0010000 s 	Time : 466.2113	
+Epoch: [9]	Step: [1300/7330]	Loss: 0.3534	Cls_loss: 0.2114	Loc_loss: 0.1420	Learning rate: 0.0010000 s 	Time : 504.9895	
+Epoch: [9]	Step: [1400/7330]	Loss: 0.3482	Cls_loss: 0.2125	Loc_loss: 0.1358	Learning rate: 0.0010000 s 	Time : 543.7484	
+Epoch: [9]	Step: [1500/7330]	Loss: 0.2860	Cls_loss: 0.1957	Loc_loss: 0.0903	Learning rate: 0.0010000 s 	Time : 582.5026	
+Epoch: [9]	Step: [1600/7330]	Loss: 0.3522	Cls_loss: 0.2322	Loc_loss: 0.1200	Learning rate: 0.0010000 s 	Time : 621.2772	
+Epoch: [9]	Step: [1700/7330]	Loss: 0.3205	Cls_loss: 0.2101	Loc_loss: 0.1104	Learning rate: 0.0010000 s 	Time : 661.3932	
+Epoch: [9]	Step: [1800/7330]	Loss: 0.3552	Cls_loss: 0.2400	Loc_loss: 0.1153	Learning rate: 0.0010000 s 	Time : 700.1350	
+Epoch: [9]	Step: [1900/7330]	Loss: 0.2807	Cls_loss: 0.1657	Loc_loss: 0.1150	Learning rate: 0.0010000 s 	Time : 738.8937	
+Epoch: [9]	Step: [2000/7330]	Loss: 0.3108	Cls_loss: 0.2014	Loc_loss: 0.1093	Learning rate: 0.0010000 s 	Time : 777.6686	
+Epoch: [9]	Step: [2100/7330]	Loss: 0.3392	Cls_loss: 0.2035	Loc_loss: 0.1357	Learning rate: 0.0010000 s 	Time : 816.4130	
+Epoch: [9]	Step: [2200/7330]	Loss: 0.2515	Cls_loss: 0.1567	Loc_loss: 0.0948	Learning rate: 0.0010000 s 	Time : 855.1635	
+Epoch: [9]	Step: [2300/7330]	Loss: 0.2690	Cls_loss: 0.1792	Loc_loss: 0.0897	Learning rate: 0.0010000 s 	Time : 893.9097	
+Epoch: [9]	Step: [2400/7330]	Loss: 0.2961	Cls_loss: 0.1988	Loc_loss: 0.0973	Learning rate: 0.0010000 s 	Time : 932.6956	
+Epoch: [9]	Step: [2500/7330]	Loss: 0.3605	Cls_loss: 0.2319	Loc_loss: 0.1286	Learning rate: 0.0010000 s 	Time : 971.4418	
+Epoch: [9]	Step: [2600/7330]	Loss: 0.3389	Cls_loss: 0.2130	Loc_loss: 0.1260	Learning rate: 0.0010000 s 	Time : 1010.1854	
+Epoch: [9]	Step: [2700/7330]	Loss: 0.3734	Cls_loss: 0.2384	Loc_loss: 0.1350	Learning rate: 0.0010000 s 	Time : 1048.9234	
+Epoch: [9]	Step: [2800/7330]	Loss: 0.3525	Cls_loss: 0.2227	Loc_loss: 0.1298	Learning rate: 0.0010000 s 	Time : 1087.6758	
+Epoch: [9]	Step: [2900/7330]	Loss: 0.3025	Cls_loss: 0.1847	Loc_loss: 0.1177	Learning rate: 0.0010000 s 	Time : 1126.4422	
+Epoch: [9]	Step: [3000/7330]	Loss: 0.3492	Cls_loss: 0.2311	Loc_loss: 0.1181	Learning rate: 0.0010000 s 	Time : 1165.2114	
+Epoch: [9]	Step: [3100/7330]	Loss: 0.3731	Cls_loss: 0.2309	Loc_loss: 0.1422	Learning rate: 0.0010000 s 	Time : 1205.3166	
+Epoch: [9]	Step: [3200/7330]	Loss: 0.2995	Cls_loss: 0.2071	Loc_loss: 0.0924	Learning rate: 0.0010000 s 	Time : 1244.0809	
+Epoch: [9]	Step: [3300/7330]	Loss: 0.2929	Cls_loss: 0.1936	Loc_loss: 0.0992	Learning rate: 0.0010000 s 	Time : 1282.8736	
+Epoch: [9]	Step: [3400/7330]	Loss: 0.3105	Cls_loss: 0.1921	Loc_loss: 0.1183	Learning rate: 0.0010000 s 	Time : 1321.6579	
+Epoch: [9]	Step: [3500/7330]	Loss: 0.3501	Cls_loss: 0.2252	Loc_loss: 0.1250	Learning rate: 0.0010000 s 	Time : 1360.4128	
+Epoch: [9]	Step: [3600/7330]	Loss: 0.3102	Cls_loss: 0.1977	Loc_loss: 0.1125	Learning rate: 0.0010000 s 	Time : 1399.1721	
+Epoch: [9]	Step: [3700/7330]	Loss: 0.3386	Cls_loss: 0.2109	Loc_loss: 0.1277	Learning rate: 0.0010000 s 	Time : 1437.9039	
+Epoch: [9]	Step: [3800/7330]	Loss: 0.2479	Cls_loss: 0.1616	Loc_loss: 0.0863	Learning rate: 0.0010000 s 	Time : 1476.6509	
+Epoch: [9]	Step: [3900/7330]	Loss: 0.2637	Cls_loss: 0.1789	Loc_loss: 0.0847	Learning rate: 0.0010000 s 	Time : 1515.4500	
+Epoch: [9]	Step: [4000/7330]	Loss: 0.3551	Cls_loss: 0.2224	Loc_loss: 0.1328	Learning rate: 0.0010000 s 	Time : 1554.2437	
+Epoch: [9]	Step: [4100/7330]	Loss: 0.3386	Cls_loss: 0.2402	Loc_loss: 0.0984	Learning rate: 0.0010000 s 	Time : 1593.0409	
+Epoch: [9]	Step: [4200/7330]	Loss: 0.3096	Cls_loss: 0.1953	Loc_loss: 0.1143	Learning rate: 0.0010000 s 	Time : 1631.8501	
+Epoch: [9]	Step: [4300/7330]	Loss: 0.3941	Cls_loss: 0.2449	Loc_loss: 0.1492	Learning rate: 0.0010000 s 	Time : 1670.6277	
+Epoch: [9]	Step: [4400/7330]	Loss: 0.3154	Cls_loss: 0.1994	Loc_loss: 0.1160	Learning rate: 0.0010000 s 	Time : 1709.4407	
+Epoch: [9]	Step: [4500/7330]	Loss: 0.3861	Cls_loss: 0.2430	Loc_loss: 0.1432	Learning rate: 0.0010000 s 	Time : 1748.2018	
+Epoch: [9]	Step: [4600/7330]	Loss: 0.3536	Cls_loss: 0.2290	Loc_loss: 0.1245	Learning rate: 0.0010000 s 	Time : 1788.3073	
+Epoch: [9]	Step: [4700/7330]	Loss: 0.3054	Cls_loss: 0.2123	Loc_loss: 0.0931	Learning rate: 0.0010000 s 	Time : 1827.1077	
+Epoch: [9]	Step: [4800/7330]	Loss: 0.3595	Cls_loss: 0.2382	Loc_loss: 0.1213	Learning rate: 0.0010000 s 	Time : 1865.9330	
+Epoch: [9]	Step: [4900/7330]	Loss: 0.3250	Cls_loss: 0.2051	Loc_loss: 0.1199	Learning rate: 0.0010000 s 	Time : 1904.7554	
+Epoch: [9]	Step: [5000/7330]	Loss: 0.3003	Cls_loss: 0.1963	Loc_loss: 0.1040	Learning rate: 0.0010000 s 	Time : 1943.5425	
+Epoch: [9]	Step: [5100/7330]	Loss: 0.3114	Cls_loss: 0.1887	Loc_loss: 0.1228	Learning rate: 0.0010000 s 	Time : 1982.3551	
+Epoch: [9]	Step: [5200/7330]	Loss: 0.3451	Cls_loss: 0.2118	Loc_loss: 0.1332	Learning rate: 0.0010000 s 	Time : 2021.1640	
+Epoch: [9]	Step: [5300/7330]	Loss: 0.3858	Cls_loss: 0.2450	Loc_loss: 0.1408	Learning rate: 0.0010000 s 	Time : 2059.9000	
+Epoch: [9]	Step: [5400/7330]	Loss: 0.3278	Cls_loss: 0.2113	Loc_loss: 0.1165	Learning rate: 0.0010000 s 	Time : 2098.6784	
+Epoch: [9]	Step: [5500/7330]	Loss: 0.3087	Cls_loss: 0.1880	Loc_loss: 0.1207	Learning rate: 0.0010000 s 	Time : 2137.4854	
+Epoch: [9]	Step: [5600/7330]	Loss: 0.2654	Cls_loss: 0.1609	Loc_loss: 0.1046	Learning rate: 0.0010000 s 	Time : 2176.2941	
+Epoch: [9]	Step: [5700/7330]	Loss: 0.3275	Cls_loss: 0.2070	Loc_loss: 0.1205	Learning rate: 0.0010000 s 	Time : 2215.0942	
+Epoch: [9]	Step: [5800/7330]	Loss: 0.2811	Cls_loss: 0.1851	Loc_loss: 0.0960	Learning rate: 0.0010000 s 	Time : 2253.8404	
+Epoch: [9]	Step: [5900/7330]	Loss: 0.3779	Cls_loss: 0.2351	Loc_loss: 0.1428	Learning rate: 0.0010000 s 	Time : 2292.5955	
+Epoch: [9]	Step: [6000/7330]	Loss: 0.2794	Cls_loss: 0.1717	Loc_loss: 0.1077	Learning rate: 0.0010000 s 	Time : 2331.3763	
+Epoch: [9]	Step: [6100/7330]	Loss: 0.3084	Cls_loss: 0.2081	Loc_loss: 0.1003	Learning rate: 0.0010000 s 	Time : 2371.4651	
+Epoch: [9]	Step: [6200/7330]	Loss: 0.4199	Cls_loss: 0.2691	Loc_loss: 0.1509	Learning rate: 0.0010000 s 	Time : 2410.2576	
+Epoch: [9]	Step: [6300/7330]	Loss: 0.3898	Cls_loss: 0.2496	Loc_loss: 0.1402	Learning rate: 0.0010000 s 	Time : 2448.9732	
+Epoch: [9]	Step: [6400/7330]	Loss: 0.3791	Cls_loss: 0.2438	Loc_loss: 0.1353	Learning rate: 0.0010000 s 	Time : 2487.7038	
+Epoch: [9]	Step: [6500/7330]	Loss: 0.3435	Cls_loss: 0.2356	Loc_loss: 0.1079	Learning rate: 0.0010000 s 	Time : 2526.4700	
+Epoch: [9]	Step: [6600/7330]	Loss: 0.3126	Cls_loss: 0.2082	Loc_loss: 0.1044	Learning rate: 0.0010000 s 	Time : 2565.2248	
+Epoch: [9]	Step: [6700/7330]	Loss: 0.3500	Cls_loss: 0.2415	Loc_loss: 0.1085	Learning rate: 0.0010000 s 	Time : 2603.9979	
+Epoch: [9]	Step: [6800/7330]	Loss: 0.3526	Cls_loss: 0.2210	Loc_loss: 0.1316	Learning rate: 0.0010000 s 	Time : 2642.7370	
+Epoch: [9]	Step: [6900/7330]	Loss: 0.2407	Cls_loss: 0.1670	Loc_loss: 0.0737	Learning rate: 0.0010000 s 	Time : 2681.5336	
+Epoch: [9]	Step: [7000/7330]	Loss: 0.2580	Cls_loss: 0.1594	Loc_loss: 0.0986	Learning rate: 0.0010000 s 	Time : 2720.2908	
+Epoch: [9]	Step: [7100/7330]	Loss: 0.3150	Cls_loss: 0.1981	Loc_loss: 0.1168	Learning rate: 0.0010000 s 	Time : 2759.0715	
+Epoch: [9]	Step: [7200/7330]	Loss: 0.3511	Cls_loss: 0.2239	Loc_loss: 0.1272	Learning rate: 0.0010000 s 	Time : 2797.8592	
+Epoch: [9]	Step: [7300/7330]	Loss: 0.3060	Cls_loss: 0.2078	Loc_loss: 0.0982	Learning rate: 0.0010000 s 	Time : 2836.6149	
+Epoch: [9]	Step: [7329/7330]	Loss: 0.3859	Cls_loss: 0.2415	Loc_loss: 0.1444	Learning rate: 0.0010000 s 	Time : 2847.5895	
+Validation of epoch [9]
+COCO dataset evaluation...
+Epoch: [9]	Step: [0/4952]	Loss: 0.2492	Time : 0.3152	
+Epoch: [9]	Step: [100/4952]	Loss: 0.4015	Time : 5.8269	
+Epoch: [9]	Step: [200/4952]	Loss: 0.2806	Time : 11.3478	
+Epoch: [9]	Step: [300/4952]	Loss: 0.3539	Time : 16.9075	
+Epoch: [9]	Step: [400/4952]	Loss: 0.8710	Time : 23.7506	
+Epoch: [9]	Step: [500/4952]	Loss: 0.1663	Time : 28.4521	
+Epoch: [9]	Step: [600/4952]	Loss: 0.2197	Time : 33.5842	
+Epoch: [9]	Step: [700/4952]	Loss: 0.4191	Time : 38.5705	
+Epoch: [9]	Step: [800/4952]	Loss: 0.0407	Time : 42.9467	
+Epoch: [9]	Step: [900/4952]	Loss: 0.3061	Time : 47.7460	
+Epoch: [9]	Step: [1000/4952]	Loss: 0.2784	Time : 52.4481	
+Epoch: [9]	Step: [1100/4952]	Loss: 0.5768	Time : 56.6041	
+Epoch: [9]	Step: [1200/4952]	Loss: 0.3179	Time : 61.5790	
+Epoch: [9]	Step: [1300/4952]	Loss: 0.0467	Time : 66.5316	
+Epoch: [9]	Step: [1400/4952]	Loss: 0.1928	Time : 71.4399	
+Epoch: [9]	Step: [1500/4952]	Loss: 0.2409	Time : 76.2931	
+Epoch: [9]	Step: [1600/4952]	Loss: 0.5759	Time : 80.6359	
+Epoch: [9]	Step: [1700/4952]	Loss: 0.6953	Time : 85.3003	
+Epoch: [9]	Step: [1800/4952]	Loss: 0.2780	Time : 90.0701	
+Epoch: [9]	Step: [1900/4952]	Loss: 0.0589	Time : 94.6611	
+Epoch: [9]	Step: [2000/4952]	Loss: 0.2412	Time : 99.8336	
+Epoch: [9]	Step: [2100/4952]	Loss: 0.4398	Time : 104.8355	
+Epoch: [9]	Step: [2200/4952]	Loss: 0.0669	Time : 109.9922	
+Epoch: [9]	Step: [2300/4952]	Loss: 0.3744	Time : 114.9729	
+Epoch: [9]	Step: [2400/4952]	Loss: 0.4173	Time : 119.1528	
+Epoch: [9]	Step: [2500/4952]	Loss: 0.0164	Time : 124.0534	
+Epoch: [9]	Step: [2600/4952]	Loss: 0.5594	Time : 129.0981	
+Epoch: [9]	Step: [2700/4952]	Loss: 0.2301	Time : 133.7415	
+Epoch: [9]	Step: [2800/4952]	Loss: 0.1586	Time : 138.1295	
+Epoch: [9]	Step: [2900/4952]	Loss: 0.4611	Time : 144.0823	
+Epoch: [9]	Step: [3000/4952]	Loss: 0.6740	Time : 149.3398	
+Epoch: [9]	Step: [3100/4952]	Loss: 0.3552	Time : 154.9164	
+Epoch: [9]	Step: [3200/4952]	Loss: 0.0308	Time : 160.1208	
+Epoch: [9]	Step: [3300/4952]	Loss: 0.5250	Time : 164.7612	
+Epoch: [9]	Step: [3400/4952]	Loss: 0.1148	Time : 169.5332	
+Epoch: [9]	Step: [3500/4952]	Loss: 0.4969	Time : 174.9528	
+Epoch: [9]	Step: [3600/4952]	Loss: 0.2701	Time : 180.7888	
+Epoch: [9]	Step: [3700/4952]	Loss: 0.0620	Time : 186.2227	
+Epoch: [9]	Step: [3800/4952]	Loss: 0.2050	Time : 191.3161	
+Epoch: [9]	Step: [3900/4952]	Loss: 0.3693	Time : 196.3152	
+Epoch: [9]	Step: [4000/4952]	Loss: 0.4945	Time : 201.0009	
+Epoch: [9]	Step: [4100/4952]	Loss: 0.4455	Time : 206.4335	
+Epoch: [9]	Step: [4200/4952]	Loss: 0.4244	Time : 211.8464	
+Epoch: [9]	Step: [4300/4952]	Loss: 0.3484	Time : 216.7768	
+Epoch: [9]	Step: [4400/4952]	Loss: 0.0217	Time : 221.4331	
+Epoch: [9]	Step: [4500/4952]	Loss: 0.5818	Time : 226.6061	
+Epoch: [9]	Step: [4600/4952]	Loss: 0.3200	Time : 232.3453	
+Epoch: [9]	Step: [4700/4952]	Loss: 0.6746	Time : 237.8868	
+Epoch: [9]	Step: [4800/4952]	Loss: 0.4213	Time : 242.7328	
+Epoch: [9]	Step: [4900/4952]	Loss: 0.4037	Time : 248.3948	
+Epoch: [9]	Step: [4951/4952]	Loss: 0.9962	Time : 251.1013	
+Loading and preparing results...
+DONE (t=8.14s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=70.80s).
+Accumulating evaluation results...
+DONE (t=11.00s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.314
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.492
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.337
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.151
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.354
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.457
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.285
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.456
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.495
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.266
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.562
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.685
+0.3137792012806076
+Eval Time : 352.2444
+Training of epoch [10]
+Epoch: [10]	Step: [0/7330]	Loss: 0.3256	Cls_loss: 0.2099	Loc_loss: 0.1157	Learning rate: 0.0010000 s 	Time : 1.7076	
+Epoch: [10]	Step: [100/7330]	Loss: 0.3762	Cls_loss: 0.2471	Loc_loss: 0.1291	Learning rate: 0.0010000 s 	Time : 40.1412	
+Epoch: [10]	Step: [200/7330]	Loss: 0.3570	Cls_loss: 0.2322	Loc_loss: 0.1248	Learning rate: 0.0010000 s 	Time : 78.7683	
+Epoch: [10]	Step: [300/7330]	Loss: 0.2717	Cls_loss: 0.1778	Loc_loss: 0.0939	Learning rate: 0.0010000 s 	Time : 117.4862	
+Epoch: [10]	Step: [400/7330]	Loss: 0.3468	Cls_loss: 0.2213	Loc_loss: 0.1255	Learning rate: 0.0010000 s 	Time : 156.2222	
+Epoch: [10]	Step: [500/7330]	Loss: 0.2725	Cls_loss: 0.1816	Loc_loss: 0.0909	Learning rate: 0.0010000 s 	Time : 194.9842	
+Epoch: [10]	Step: [600/7330]	Loss: 0.2797	Cls_loss: 0.1918	Loc_loss: 0.0879	Learning rate: 0.0010000 s 	Time : 233.7477	
+Epoch: [10]	Step: [700/7330]	Loss: 0.2966	Cls_loss: 0.2045	Loc_loss: 0.0921	Learning rate: 0.0010000 s 	Time : 272.5461	
+Epoch: [10]	Step: [800/7330]	Loss: 0.4342	Cls_loss: 0.2936	Loc_loss: 0.1406	Learning rate: 0.0010000 s 	Time : 311.2644	
+Epoch: [10]	Step: [900/7330]	Loss: 0.3830	Cls_loss: 0.2468	Loc_loss: 0.1363	Learning rate: 0.0010000 s 	Time : 350.0161	
+Epoch: [10]	Step: [1000/7330]	Loss: 0.3405	Cls_loss: 0.2121	Loc_loss: 0.1284	Learning rate: 0.0010000 s 	Time : 388.7241	
+Epoch: [10]	Step: [1100/7330]	Loss: 0.3282	Cls_loss: 0.1947	Loc_loss: 0.1335	Learning rate: 0.0010000 s 	Time : 427.4859	
+Epoch: [10]	Step: [1200/7330]	Loss: 0.3537	Cls_loss: 0.2176	Loc_loss: 0.1361	Learning rate: 0.0010000 s 	Time : 466.2515	
+Epoch: [10]	Step: [1300/7330]	Loss: 0.3269	Cls_loss: 0.2207	Loc_loss: 0.1062	Learning rate: 0.0010000 s 	Time : 504.9889	
+Epoch: [10]	Step: [1400/7330]	Loss: 0.2991	Cls_loss: 0.2086	Loc_loss: 0.0905	Learning rate: 0.0010000 s 	Time : 543.7252	
+Epoch: [10]	Step: [1500/7330]	Loss: 0.3640	Cls_loss: 0.2437	Loc_loss: 0.1204	Learning rate: 0.0010000 s 	Time : 582.4788	
+Epoch: [10]	Step: [1600/7330]	Loss: 0.4138	Cls_loss: 0.2735	Loc_loss: 0.1402	Learning rate: 0.0010000 s 	Time : 621.2840	
+Epoch: [10]	Step: [1700/7330]	Loss: 0.2880	Cls_loss: 0.2069	Loc_loss: 0.0810	Learning rate: 0.0010000 s 	Time : 660.0742	
+Epoch: [10]	Step: [1800/7330]	Loss: 0.2460	Cls_loss: 0.1624	Loc_loss: 0.0836	Learning rate: 0.0010000 s 	Time : 698.8042	
+Epoch: [10]	Step: [1900/7330]	Loss: 0.2992	Cls_loss: 0.1956	Loc_loss: 0.1036	Learning rate: 0.0010000 s 	Time : 737.5554	
+Epoch: [10]	Step: [2000/7330]	Loss: 0.4138	Cls_loss: 0.2842	Loc_loss: 0.1296	Learning rate: 0.0010000 s 	Time : 776.3126	
+Epoch: [10]	Step: [2100/7330]	Loss: 0.3183	Cls_loss: 0.2075	Loc_loss: 0.1107	Learning rate: 0.0010000 s 	Time : 815.1560	
+Epoch: [10]	Step: [2200/7330]	Loss: 0.3405	Cls_loss: 0.2222	Loc_loss: 0.1183	Learning rate: 0.0010000 s 	Time : 853.9245	
+Epoch: [10]	Step: [2300/7330]	Loss: 0.2601	Cls_loss: 0.1739	Loc_loss: 0.0862	Learning rate: 0.0010000 s 	Time : 894.0316	
+Epoch: [10]	Step: [2400/7330]	Loss: 0.2397	Cls_loss: 0.1603	Loc_loss: 0.0793	Learning rate: 0.0010000 s 	Time : 932.7609	
+Epoch: [10]	Step: [2500/7330]	Loss: 0.3534	Cls_loss: 0.2435	Loc_loss: 0.1099	Learning rate: 0.0010000 s 	Time : 971.5052	
+Epoch: [10]	Step: [2600/7330]	Loss: 0.3670	Cls_loss: 0.2419	Loc_loss: 0.1251	Learning rate: 0.0010000 s 	Time : 1010.2792	
+Epoch: [10]	Step: [2700/7330]	Loss: 0.3697	Cls_loss: 0.2250	Loc_loss: 0.1448	Learning rate: 0.0010000 s 	Time : 1049.0355	
+Epoch: [10]	Step: [2800/7330]	Loss: 0.3112	Cls_loss: 0.1997	Loc_loss: 0.1115	Learning rate: 0.0010000 s 	Time : 1087.8265	
+Epoch: [10]	Step: [2900/7330]	Loss: 0.3447	Cls_loss: 0.1979	Loc_loss: 0.1468	Learning rate: 0.0010000 s 	Time : 1126.6399	
+Epoch: [10]	Step: [3000/7330]	Loss: 0.3654	Cls_loss: 0.2222	Loc_loss: 0.1432	Learning rate: 0.0010000 s 	Time : 1165.4109	
+Epoch: [10]	Step: [3100/7330]	Loss: 0.3378	Cls_loss: 0.2235	Loc_loss: 0.1143	Learning rate: 0.0010000 s 	Time : 1204.1549	
+Epoch: [10]	Step: [3200/7330]	Loss: 0.2428	Cls_loss: 0.1670	Loc_loss: 0.0758	Learning rate: 0.0010000 s 	Time : 1242.9161	
+Epoch: [10]	Step: [3300/7330]	Loss: 0.3256	Cls_loss: 0.2048	Loc_loss: 0.1209	Learning rate: 0.0010000 s 	Time : 1281.7015	
+Epoch: [10]	Step: [3400/7330]	Loss: 0.3437	Cls_loss: 0.2314	Loc_loss: 0.1122	Learning rate: 0.0010000 s 	Time : 1320.4894	
+Epoch: [10]	Step: [3500/7330]	Loss: 0.3426	Cls_loss: 0.2494	Loc_loss: 0.0932	Learning rate: 0.0010000 s 	Time : 1359.2225	
+Epoch: [10]	Step: [3600/7330]	Loss: 0.3291	Cls_loss: 0.2242	Loc_loss: 0.1048	Learning rate: 0.0010000 s 	Time : 1397.9941	
+Epoch: [10]	Step: [3700/7330]	Loss: 0.3529	Cls_loss: 0.2388	Loc_loss: 0.1141	Learning rate: 0.0010000 s 	Time : 1438.0437	
+Epoch: [10]	Step: [3800/7330]	Loss: 0.3586	Cls_loss: 0.2240	Loc_loss: 0.1347	Learning rate: 0.0010000 s 	Time : 1476.8162	
+Epoch: [10]	Step: [3900/7330]	Loss: 0.3423	Cls_loss: 0.2278	Loc_loss: 0.1145	Learning rate: 0.0010000 s 	Time : 1515.5649	
+Epoch: [10]	Step: [4000/7330]	Loss: 0.3381	Cls_loss: 0.2151	Loc_loss: 0.1230	Learning rate: 0.0010000 s 	Time : 1554.3489	
+Epoch: [10]	Step: [4100/7330]	Loss: 0.2156	Cls_loss: 0.1540	Loc_loss: 0.0616	Learning rate: 0.0010000 s 	Time : 1593.1493	
+Epoch: [10]	Step: [4200/7330]	Loss: 0.3342	Cls_loss: 0.2174	Loc_loss: 0.1168	Learning rate: 0.0010000 s 	Time : 1631.9107	
+Epoch: [10]	Step: [4300/7330]	Loss: 0.3144	Cls_loss: 0.2121	Loc_loss: 0.1023	Learning rate: 0.0010000 s 	Time : 1670.7151	
+Epoch: [10]	Step: [4400/7330]	Loss: 0.3207	Cls_loss: 0.2028	Loc_loss: 0.1179	Learning rate: 0.0010000 s 	Time : 1709.4700	
+Epoch: [10]	Step: [4500/7330]	Loss: 0.3295	Cls_loss: 0.1975	Loc_loss: 0.1321	Learning rate: 0.0010000 s 	Time : 1748.1972	
+Epoch: [10]	Step: [4600/7330]	Loss: 0.2937	Cls_loss: 0.2008	Loc_loss: 0.0929	Learning rate: 0.0010000 s 	Time : 1786.9855	
+Epoch: [10]	Step: [4700/7330]	Loss: 0.3631	Cls_loss: 0.2131	Loc_loss: 0.1500	Learning rate: 0.0010000 s 	Time : 1825.7624	
+Epoch: [10]	Step: [4800/7330]	Loss: 0.3934	Cls_loss: 0.2598	Loc_loss: 0.1336	Learning rate: 0.0010000 s 	Time : 1864.5605	
+Epoch: [10]	Step: [4900/7330]	Loss: 0.3782	Cls_loss: 0.2475	Loc_loss: 0.1307	Learning rate: 0.0010000 s 	Time : 1903.3509	
+Epoch: [10]	Step: [5000/7330]	Loss: 0.2660	Cls_loss: 0.1819	Loc_loss: 0.0842	Learning rate: 0.0010000 s 	Time : 1942.1094	
+Epoch: [10]	Step: [5100/7330]	Loss: 0.3169	Cls_loss: 0.2183	Loc_loss: 0.0986	Learning rate: 0.0010000 s 	Time : 1980.8723	
+Epoch: [10]	Step: [5200/7330]	Loss: 0.3160	Cls_loss: 0.2045	Loc_loss: 0.1115	Learning rate: 0.0010000 s 	Time : 2020.9942	
+Epoch: [10]	Step: [5300/7330]	Loss: 0.3633	Cls_loss: 0.2488	Loc_loss: 0.1145	Learning rate: 0.0010000 s 	Time : 2059.7843	
+Epoch: [10]	Step: [5400/7330]	Loss: 0.2775	Cls_loss: 0.1774	Loc_loss: 0.1001	Learning rate: 0.0010000 s 	Time : 2098.5819	
+Epoch: [10]	Step: [5500/7330]	Loss: 0.3232	Cls_loss: 0.2079	Loc_loss: 0.1153	Learning rate: 0.0010000 s 	Time : 2137.3804	
+Epoch: [10]	Step: [5600/7330]	Loss: 0.3015	Cls_loss: 0.1885	Loc_loss: 0.1130	Learning rate: 0.0010000 s 	Time : 2176.1707	
+Epoch: [10]	Step: [5700/7330]	Loss: 0.3053	Cls_loss: 0.1891	Loc_loss: 0.1162	Learning rate: 0.0010000 s 	Time : 2214.9756	
+Epoch: [10]	Step: [5800/7330]	Loss: 0.2794	Cls_loss: 0.1673	Loc_loss: 0.1121	Learning rate: 0.0010000 s 	Time : 2253.7694	
+Epoch: [10]	Step: [5900/7330]	Loss: 0.3913	Cls_loss: 0.2600	Loc_loss: 0.1313	Learning rate: 0.0010000 s 	Time : 2292.5589	
+Epoch: [10]	Step: [6000/7330]	Loss: 0.2325	Cls_loss: 0.1582	Loc_loss: 0.0742	Learning rate: 0.0010000 s 	Time : 2331.3090	
+Epoch: [10]	Step: [6100/7330]	Loss: 0.3607	Cls_loss: 0.2638	Loc_loss: 0.0969	Learning rate: 0.0010000 s 	Time : 2370.0671	
+Epoch: [10]	Step: [6200/7330]	Loss: 0.2563	Cls_loss: 0.1663	Loc_loss: 0.0899	Learning rate: 0.0010000 s 	Time : 2408.8478	
+Epoch: [10]	Step: [6300/7330]	Loss: 0.3653	Cls_loss: 0.2353	Loc_loss: 0.1300	Learning rate: 0.0010000 s 	Time : 2447.6430	
+Epoch: [10]	Step: [6400/7330]	Loss: 0.2275	Cls_loss: 0.1485	Loc_loss: 0.0790	Learning rate: 0.0010000 s 	Time : 2486.3969	
+Epoch: [10]	Step: [6500/7330]	Loss: 0.3848	Cls_loss: 0.2543	Loc_loss: 0.1305	Learning rate: 0.0010000 s 	Time : 2526.5340	
+Epoch: [10]	Step: [6600/7330]	Loss: 0.3162	Cls_loss: 0.2051	Loc_loss: 0.1111	Learning rate: 0.0010000 s 	Time : 2565.3177	
+Epoch: [10]	Step: [6700/7330]	Loss: 0.2649	Cls_loss: 0.1664	Loc_loss: 0.0984	Learning rate: 0.0010000 s 	Time : 2604.1050	
+Epoch: [10]	Step: [6800/7330]	Loss: 0.3295	Cls_loss: 0.2122	Loc_loss: 0.1173	Learning rate: 0.0010000 s 	Time : 2642.8591	
+Epoch: [10]	Step: [6900/7330]	Loss: 0.2559	Cls_loss: 0.1768	Loc_loss: 0.0790	Learning rate: 0.0010000 s 	Time : 2681.5861	
+Epoch: [10]	Step: [7000/7330]	Loss: 0.3237	Cls_loss: 0.2094	Loc_loss: 0.1143	Learning rate: 0.0010000 s 	Time : 2720.3669	
+Epoch: [10]	Step: [7100/7330]	Loss: 0.3667	Cls_loss: 0.2595	Loc_loss: 0.1072	Learning rate: 0.0010000 s 	Time : 2759.1338	
+Epoch: [10]	Step: [7200/7330]	Loss: 0.3425	Cls_loss: 0.2205	Loc_loss: 0.1220	Learning rate: 0.0010000 s 	Time : 2797.9131	
+Epoch: [10]	Step: [7300/7330]	Loss: 0.2843	Cls_loss: 0.1769	Loc_loss: 0.1074	Learning rate: 0.0010000 s 	Time : 2836.6748	
+Epoch: [10]	Step: [7329/7330]	Loss: 0.4911	Cls_loss: 0.2990	Loc_loss: 0.1921	Learning rate: 0.0010000 s 	Time : 2847.6679	
+Validation of epoch [10]
+COCO dataset evaluation...
+Epoch: [10]	Step: [0/4952]	Loss: 0.2700	Time : 0.3009	
+Epoch: [10]	Step: [100/4952]	Loss: 0.3799	Time : 5.6881	
+Epoch: [10]	Step: [200/4952]	Loss: 0.2424	Time : 11.0759	
+Epoch: [10]	Step: [300/4952]	Loss: 0.3255	Time : 16.5376	
+Epoch: [10]	Step: [400/4952]	Loss: 0.8783	Time : 21.9089	
+Epoch: [10]	Step: [500/4952]	Loss: 0.1457	Time : 26.4594	
+Epoch: [10]	Step: [600/4952]	Loss: 0.1812	Time : 31.4768	
+Epoch: [10]	Step: [700/4952]	Loss: 0.4338	Time : 37.8212	
+Epoch: [10]	Step: [800/4952]	Loss: 0.0382	Time : 42.0780	
+Epoch: [10]	Step: [900/4952]	Loss: 0.2973	Time : 46.7734	
+Epoch: [10]	Step: [1000/4952]	Loss: 0.2724	Time : 51.4464	
+Epoch: [10]	Step: [1100/4952]	Loss: 0.6944	Time : 55.5415	
+Epoch: [10]	Step: [1200/4952]	Loss: 0.3306	Time : 60.4420	
+Epoch: [10]	Step: [1300/4952]	Loss: 0.0347	Time : 65.3317	
+Epoch: [10]	Step: [1400/4952]	Loss: 0.1883	Time : 70.1796	
+Epoch: [10]	Step: [1500/4952]	Loss: 0.2918	Time : 74.9200	
+Epoch: [10]	Step: [1600/4952]	Loss: 0.6338	Time : 79.1126	
+Epoch: [10]	Step: [1700/4952]	Loss: 0.7225	Time : 83.7093	
+Epoch: [10]	Step: [1800/4952]	Loss: 0.3085	Time : 88.4104	
+Epoch: [10]	Step: [1900/4952]	Loss: 0.0482	Time : 92.9493	
+Epoch: [10]	Step: [2000/4952]	Loss: 0.2146	Time : 98.0979	
+Epoch: [10]	Step: [2100/4952]	Loss: 0.4551	Time : 103.0133	
+Epoch: [10]	Step: [2200/4952]	Loss: 0.0656	Time : 108.1357	
+Epoch: [10]	Step: [2300/4952]	Loss: 0.3608	Time : 113.0637	
+Epoch: [10]	Step: [2400/4952]	Loss: 0.4117	Time : 117.2190	
+Epoch: [10]	Step: [2500/4952]	Loss: 0.0192	Time : 122.0794	
+Epoch: [10]	Step: [2600/4952]	Loss: 0.5725	Time : 127.0334	
+Epoch: [10]	Step: [2700/4952]	Loss: 0.2289	Time : 131.6139	
+Epoch: [10]	Step: [2800/4952]	Loss: 0.1404	Time : 135.9735	
+Epoch: [10]	Step: [2900/4952]	Loss: 0.4520	Time : 140.3525	
+Epoch: [10]	Step: [3000/4952]	Loss: 0.6417	Time : 145.5877	
+Epoch: [10]	Step: [3100/4952]	Loss: 0.3398	Time : 151.0974	
+Epoch: [10]	Step: [3200/4952]	Loss: 0.0291	Time : 156.2416	
+Epoch: [10]	Step: [3300/4952]	Loss: 0.5226	Time : 162.3755	
+Epoch: [10]	Step: [3400/4952]	Loss: 0.1281	Time : 167.1106	
+Epoch: [10]	Step: [3500/4952]	Loss: 0.5593	Time : 172.4583	
+Epoch: [10]	Step: [3600/4952]	Loss: 0.2917	Time : 178.2076	
+Epoch: [10]	Step: [3700/4952]	Loss: 0.0677	Time : 183.6121	
+Epoch: [10]	Step: [3800/4952]	Loss: 0.2026	Time : 188.7181	
+Epoch: [10]	Step: [3900/4952]	Loss: 0.3758	Time : 193.6948	
+Epoch: [10]	Step: [4000/4952]	Loss: 0.4851	Time : 198.3661	
+Epoch: [10]	Step: [4100/4952]	Loss: 0.4296	Time : 203.7535	
+Epoch: [10]	Step: [4200/4952]	Loss: 0.4152	Time : 209.0750	
+Epoch: [10]	Step: [4300/4952]	Loss: 0.3464	Time : 213.9564	
+Epoch: [10]	Step: [4400/4952]	Loss: 0.0216	Time : 218.5741	
+Epoch: [10]	Step: [4500/4952]	Loss: 0.5697	Time : 223.6744	
+Epoch: [10]	Step: [4600/4952]	Loss: 0.3701	Time : 229.3458	
+Epoch: [10]	Step: [4700/4952]	Loss: 0.6595	Time : 234.8598	
+Epoch: [10]	Step: [4800/4952]	Loss: 0.4216	Time : 239.6385	
+Epoch: [10]	Step: [4900/4952]	Loss: 0.4219	Time : 245.2213	
+Epoch: [10]	Step: [4951/4952]	Loss: 1.1570	Time : 247.9113	
+Loading and preparing results...
+DONE (t=6.00s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=72.49s).
+Accumulating evaluation results...
+DONE (t=10.91s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.316
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.495
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.337
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.152
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.356
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.460
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.285
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.456
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.495
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.267
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.560
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.684
+0.31551342212796774
+Eval Time : 348.2729
+Training of epoch [11]
+Epoch: [11]	Step: [0/7330]	Loss: 0.2434	Cls_loss: 0.1555	Loc_loss: 0.0878	Learning rate: 0.0001000 s 	Time : 1.6590	
+Epoch: [11]	Step: [100/7330]	Loss: 0.3581	Cls_loss: 0.2347	Loc_loss: 0.1234	Learning rate: 0.0001000 s 	Time : 40.1027	
+Epoch: [11]	Step: [200/7330]	Loss: 0.3490	Cls_loss: 0.2180	Loc_loss: 0.1310	Learning rate: 0.0001000 s 	Time : 78.7450	
+Epoch: [11]	Step: [300/7330]	Loss: 0.3062	Cls_loss: 0.2057	Loc_loss: 0.1005	Learning rate: 0.0001000 s 	Time : 117.4136	
+Epoch: [11]	Step: [400/7330]	Loss: 0.3156	Cls_loss: 0.2014	Loc_loss: 0.1142	Learning rate: 0.0001000 s 	Time : 156.1371	
+Epoch: [11]	Step: [500/7330]	Loss: 0.3024	Cls_loss: 0.2066	Loc_loss: 0.0958	Learning rate: 0.0001000 s 	Time : 194.8381	
+Epoch: [11]	Step: [600/7330]	Loss: 0.2916	Cls_loss: 0.2104	Loc_loss: 0.0811	Learning rate: 0.0001000 s 	Time : 233.5899	
+Epoch: [11]	Step: [700/7330]	Loss: 0.2989	Cls_loss: 0.1993	Loc_loss: 0.0996	Learning rate: 0.0001000 s 	Time : 272.3740	
+Epoch: [11]	Step: [800/7330]	Loss: 0.3161	Cls_loss: 0.2059	Loc_loss: 0.1102	Learning rate: 0.0001000 s 	Time : 311.1420	
+Epoch: [11]	Step: [900/7330]	Loss: 0.3695	Cls_loss: 0.2320	Loc_loss: 0.1375	Learning rate: 0.0001000 s 	Time : 349.8784	
+Epoch: [11]	Step: [1000/7330]	Loss: 0.2753	Cls_loss: 0.1934	Loc_loss: 0.0819	Learning rate: 0.0001000 s 	Time : 388.6332	
+Epoch: [11]	Step: [1100/7330]	Loss: 0.3630	Cls_loss: 0.2413	Loc_loss: 0.1217	Learning rate: 0.0001000 s 	Time : 427.3825	
+Epoch: [11]	Step: [1200/7330]	Loss: 0.3090	Cls_loss: 0.2040	Loc_loss: 0.1050	Learning rate: 0.0001000 s 	Time : 466.0956	
+Epoch: [11]	Step: [1300/7330]	Loss: 0.3206	Cls_loss: 0.1936	Loc_loss: 0.1269	Learning rate: 0.0001000 s 	Time : 504.8118	
+Epoch: [11]	Step: [1400/7330]	Loss: 0.2407	Cls_loss: 0.1581	Loc_loss: 0.0826	Learning rate: 0.0001000 s 	Time : 543.5506	
+Epoch: [11]	Step: [1500/7330]	Loss: 0.3501	Cls_loss: 0.2341	Loc_loss: 0.1160	Learning rate: 0.0001000 s 	Time : 582.2490	
+Epoch: [11]	Step: [1600/7330]	Loss: 0.2740	Cls_loss: 0.1625	Loc_loss: 0.1115	Learning rate: 0.0001000 s 	Time : 621.0000	
+Epoch: [11]	Step: [1700/7330]	Loss: 0.3470	Cls_loss: 0.2391	Loc_loss: 0.1080	Learning rate: 0.0001000 s 	Time : 659.7132	
+Epoch: [11]	Step: [1800/7330]	Loss: 0.2881	Cls_loss: 0.1801	Loc_loss: 0.1080	Learning rate: 0.0001000 s 	Time : 698.4427	
+Epoch: [11]	Step: [1900/7330]	Loss: 0.2978	Cls_loss: 0.1833	Loc_loss: 0.1145	Learning rate: 0.0001000 s 	Time : 737.1985	
+Epoch: [11]	Step: [2000/7330]	Loss: 0.3750	Cls_loss: 0.2523	Loc_loss: 0.1227	Learning rate: 0.0001000 s 	Time : 775.9287	
+Epoch: [11]	Step: [2100/7330]	Loss: 0.2909	Cls_loss: 0.2059	Loc_loss: 0.0849	Learning rate: 0.0001000 s 	Time : 814.7089	
+Epoch: [11]	Step: [2200/7330]	Loss: 0.3797	Cls_loss: 0.2577	Loc_loss: 0.1220	Learning rate: 0.0001000 s 	Time : 853.4582	
+Epoch: [11]	Step: [2300/7330]	Loss: 0.3590	Cls_loss: 0.2322	Loc_loss: 0.1268	Learning rate: 0.0001000 s 	Time : 892.2042	
+Epoch: [11]	Step: [2400/7330]	Loss: 0.3777	Cls_loss: 0.2544	Loc_loss: 0.1234	Learning rate: 0.0001000 s 	Time : 930.9624	
+Epoch: [11]	Step: [2500/7330]	Loss: 0.3817	Cls_loss: 0.2568	Loc_loss: 0.1249	Learning rate: 0.0001000 s 	Time : 969.6909	
+Epoch: [11]	Step: [2600/7330]	Loss: 0.3230	Cls_loss: 0.2164	Loc_loss: 0.1066	Learning rate: 0.0001000 s 	Time : 1008.4417	
+Epoch: [11]	Step: [2700/7330]	Loss: 0.3912	Cls_loss: 0.2465	Loc_loss: 0.1447	Learning rate: 0.0001000 s 	Time : 1047.1798	
+Epoch: [11]	Step: [2800/7330]	Loss: 0.2873	Cls_loss: 0.1918	Loc_loss: 0.0955	Learning rate: 0.0001000 s 	Time : 1085.8924	
+Epoch: [11]	Step: [2900/7330]	Loss: 0.3253	Cls_loss: 0.2195	Loc_loss: 0.1058	Learning rate: 0.0001000 s 	Time : 1124.6185	
+Epoch: [11]	Step: [3000/7330]	Loss: 0.2948	Cls_loss: 0.1725	Loc_loss: 0.1223	Learning rate: 0.0001000 s 	Time : 1163.3430	
+Epoch: [11]	Step: [3100/7330]	Loss: 0.3843	Cls_loss: 0.2477	Loc_loss: 0.1366	Learning rate: 0.0001000 s 	Time : 1202.0581	
+Epoch: [11]	Step: [3200/7330]	Loss: 0.2571	Cls_loss: 0.1632	Loc_loss: 0.0939	Learning rate: 0.0001000 s 	Time : 1240.7772	
+Epoch: [11]	Step: [3300/7330]	Loss: 0.3435	Cls_loss: 0.2180	Loc_loss: 0.1255	Learning rate: 0.0001000 s 	Time : 1279.4891	
+Epoch: [11]	Step: [3400/7330]	Loss: 0.3483	Cls_loss: 0.2048	Loc_loss: 0.1435	Learning rate: 0.0001000 s 	Time : 1318.2136	
+Epoch: [11]	Step: [3500/7330]	Loss: 0.3418	Cls_loss: 0.2329	Loc_loss: 0.1090	Learning rate: 0.0001000 s 	Time : 1356.9558	
+Epoch: [11]	Step: [3600/7330]	Loss: 0.2172	Cls_loss: 0.1414	Loc_loss: 0.0758	Learning rate: 0.0001000 s 	Time : 1395.6771	
+Epoch: [11]	Step: [3700/7330]	Loss: 0.2368	Cls_loss: 0.1486	Loc_loss: 0.0882	Learning rate: 0.0001000 s 	Time : 1435.7696	
+Epoch: [11]	Step: [3800/7330]	Loss: 0.2614	Cls_loss: 0.1671	Loc_loss: 0.0943	Learning rate: 0.0001000 s 	Time : 1474.5231	
+Epoch: [11]	Step: [3900/7330]	Loss: 0.2710	Cls_loss: 0.1923	Loc_loss: 0.0786	Learning rate: 0.0001000 s 	Time : 1513.2408	
+Epoch: [11]	Step: [4000/7330]	Loss: 0.2656	Cls_loss: 0.1769	Loc_loss: 0.0886	Learning rate: 0.0001000 s 	Time : 1551.9563	
+Epoch: [11]	Step: [4100/7330]	Loss: 0.3348	Cls_loss: 0.2144	Loc_loss: 0.1203	Learning rate: 0.0001000 s 	Time : 1590.6705	
+Epoch: [11]	Step: [4200/7330]	Loss: 0.3181	Cls_loss: 0.2018	Loc_loss: 0.1163	Learning rate: 0.0001000 s 	Time : 1629.4520	
+Epoch: [11]	Step: [4300/7330]	Loss: 0.3353	Cls_loss: 0.2160	Loc_loss: 0.1193	Learning rate: 0.0001000 s 	Time : 1668.1727	
+Epoch: [11]	Step: [4400/7330]	Loss: 0.3790	Cls_loss: 0.2193	Loc_loss: 0.1598	Learning rate: 0.0001000 s 	Time : 1706.9150	
+Epoch: [11]	Step: [4500/7330]	Loss: 0.2674	Cls_loss: 0.1717	Loc_loss: 0.0957	Learning rate: 0.0001000 s 	Time : 1745.6400	
+Epoch: [11]	Step: [4600/7330]	Loss: 0.2872	Cls_loss: 0.1871	Loc_loss: 0.1001	Learning rate: 0.0001000 s 	Time : 1784.4032	
+Epoch: [11]	Step: [4700/7330]	Loss: 0.2654	Cls_loss: 0.1658	Loc_loss: 0.0996	Learning rate: 0.0001000 s 	Time : 1823.1603	
+Epoch: [11]	Step: [4800/7330]	Loss: 0.3523	Cls_loss: 0.2223	Loc_loss: 0.1299	Learning rate: 0.0001000 s 	Time : 1861.9133	
+Epoch: [11]	Step: [4900/7330]	Loss: 0.3082	Cls_loss: 0.2036	Loc_loss: 0.1046	Learning rate: 0.0001000 s 	Time : 1900.6102	
+Epoch: [11]	Step: [5000/7330]	Loss: 0.3002	Cls_loss: 0.1973	Loc_loss: 0.1028	Learning rate: 0.0001000 s 	Time : 1939.3085	
+Epoch: [11]	Step: [5100/7330]	Loss: 0.3246	Cls_loss: 0.2154	Loc_loss: 0.1092	Learning rate: 0.0001000 s 	Time : 1978.0356	
+Epoch: [11]	Step: [5200/7330]	Loss: 0.3088	Cls_loss: 0.1899	Loc_loss: 0.1189	Learning rate: 0.0001000 s 	Time : 2016.7881	
+Epoch: [11]	Step: [5300/7330]	Loss: 0.2720	Cls_loss: 0.1900	Loc_loss: 0.0820	Learning rate: 0.0001000 s 	Time : 2056.8527	
+Epoch: [11]	Step: [5400/7330]	Loss: 0.2553	Cls_loss: 0.1766	Loc_loss: 0.0787	Learning rate: 0.0001000 s 	Time : 2095.5693	
+Epoch: [11]	Step: [5500/7330]	Loss: 0.3076	Cls_loss: 0.1971	Loc_loss: 0.1105	Learning rate: 0.0001000 s 	Time : 2134.2739	
+Epoch: [11]	Step: [5600/7330]	Loss: 0.4001	Cls_loss: 0.2780	Loc_loss: 0.1221	Learning rate: 0.0001000 s 	Time : 2173.0126	
+Epoch: [11]	Step: [5700/7330]	Loss: 0.3148	Cls_loss: 0.2014	Loc_loss: 0.1134	Learning rate: 0.0001000 s 	Time : 2211.7119	
+Epoch: [11]	Step: [5800/7330]	Loss: 0.3889	Cls_loss: 0.2527	Loc_loss: 0.1363	Learning rate: 0.0001000 s 	Time : 2250.4474	
+Epoch: [11]	Step: [5900/7330]	Loss: 0.3501	Cls_loss: 0.2182	Loc_loss: 0.1318	Learning rate: 0.0001000 s 	Time : 2289.2330	
+Epoch: [11]	Step: [6000/7330]	Loss: 0.3406	Cls_loss: 0.2125	Loc_loss: 0.1281	Learning rate: 0.0001000 s 	Time : 2328.0094	
+Epoch: [11]	Step: [6100/7330]	Loss: 0.2695	Cls_loss: 0.1808	Loc_loss: 0.0887	Learning rate: 0.0001000 s 	Time : 2366.7911	
+Epoch: [11]	Step: [6200/7330]	Loss: 0.3182	Cls_loss: 0.2158	Loc_loss: 0.1024	Learning rate: 0.0001000 s 	Time : 2405.6006	
+Epoch: [11]	Step: [6300/7330]	Loss: 0.3811	Cls_loss: 0.2531	Loc_loss: 0.1280	Learning rate: 0.0001000 s 	Time : 2444.3313	
+Epoch: [11]	Step: [6400/7330]	Loss: 0.3083	Cls_loss: 0.2084	Loc_loss: 0.0998	Learning rate: 0.0001000 s 	Time : 2483.0809	
+Epoch: [11]	Step: [6500/7330]	Loss: 0.3079	Cls_loss: 0.2047	Loc_loss: 0.1033	Learning rate: 0.0001000 s 	Time : 2521.8770	
+Epoch: [11]	Step: [6600/7330]	Loss: 0.2406	Cls_loss: 0.1669	Loc_loss: 0.0736	Learning rate: 0.0001000 s 	Time : 2560.6604	
+Epoch: [11]	Step: [6700/7330]	Loss: 0.3148	Cls_loss: 0.2073	Loc_loss: 0.1075	Learning rate: 0.0001000 s 	Time : 2599.4147	
+Epoch: [11]	Step: [6800/7330]	Loss: 0.2187	Cls_loss: 0.1492	Loc_loss: 0.0696	Learning rate: 0.0001000 s 	Time : 2639.4851	
+Epoch: [11]	Step: [6900/7330]	Loss: 0.2827	Cls_loss: 0.2011	Loc_loss: 0.0816	Learning rate: 0.0001000 s 	Time : 2678.2434	
+Epoch: [11]	Step: [7000/7330]	Loss: 0.3108	Cls_loss: 0.2174	Loc_loss: 0.0934	Learning rate: 0.0001000 s 	Time : 2716.9547	
+Epoch: [11]	Step: [7100/7330]	Loss: 0.3337	Cls_loss: 0.2327	Loc_loss: 0.1010	Learning rate: 0.0001000 s 	Time : 2755.6766	
+Epoch: [11]	Step: [7200/7330]	Loss: 0.3296	Cls_loss: 0.2090	Loc_loss: 0.1206	Learning rate: 0.0001000 s 	Time : 2794.3880	
+Epoch: [11]	Step: [7300/7330]	Loss: 0.3456	Cls_loss: 0.2236	Loc_loss: 0.1220	Learning rate: 0.0001000 s 	Time : 2833.1036	
+Epoch: [11]	Step: [7329/7330]	Loss: 0.6696	Cls_loss: 0.5078	Loc_loss: 0.1618	Learning rate: 0.0001000 s 	Time : 2844.0691	
+Validation of epoch [11]
+COCO dataset evaluation...
+Epoch: [11]	Step: [0/4952]	Loss: 0.2652	Time : 0.3084	
+Epoch: [11]	Step: [100/4952]	Loss: 0.3723	Time : 5.6473	
+Epoch: [11]	Step: [200/4952]	Loss: 0.2597	Time : 10.9628	
+Epoch: [11]	Step: [300/4952]	Loss: 0.3387	Time : 16.3273	
+Epoch: [11]	Step: [400/4952]	Loss: 0.9083	Time : 21.5498	
+Epoch: [11]	Step: [500/4952]	Loss: 0.1480	Time : 26.0179	
+Epoch: [11]	Step: [600/4952]	Loss: 0.2119	Time : 30.9319	
+Epoch: [11]	Step: [700/4952]	Loss: 0.4280	Time : 35.7980	
+Epoch: [11]	Step: [800/4952]	Loss: 0.0373	Time : 40.0708	
+Epoch: [11]	Step: [900/4952]	Loss: 0.2858	Time : 44.7112	
+Epoch: [11]	Step: [1000/4952]	Loss: 0.2770	Time : 49.2865	
+Epoch: [11]	Step: [1100/4952]	Loss: 0.6464	Time : 53.2985	
+Epoch: [11]	Step: [1200/4952]	Loss: 0.3380	Time : 58.0815	
+Epoch: [11]	Step: [1300/4952]	Loss: 0.0353	Time : 62.8292	
+Epoch: [11]	Step: [1400/4952]	Loss: 0.1852	Time : 67.5394	
+Epoch: [11]	Step: [1500/4952]	Loss: 0.2928	Time : 73.7124	
+Epoch: [11]	Step: [1600/4952]	Loss: 0.5904	Time : 77.8865	
+Epoch: [11]	Step: [1700/4952]	Loss: 0.7133	Time : 82.4050	
+Epoch: [11]	Step: [1800/4952]	Loss: 0.3163	Time : 87.0342	
+Epoch: [11]	Step: [1900/4952]	Loss: 0.0466	Time : 91.4775	
+Epoch: [11]	Step: [2000/4952]	Loss: 0.2190	Time : 96.5039	
+Epoch: [11]	Step: [2100/4952]	Loss: 0.4486	Time : 101.3208	
+Epoch: [11]	Step: [2200/4952]	Loss: 0.0590	Time : 106.2901	
+Epoch: [11]	Step: [2300/4952]	Loss: 0.3850	Time : 111.0905	
+Epoch: [11]	Step: [2400/4952]	Loss: 0.4260	Time : 115.2061	
+Epoch: [11]	Step: [2500/4952]	Loss: 0.0166	Time : 119.9765	
+Epoch: [11]	Step: [2600/4952]	Loss: 0.5599	Time : 124.8391	
+Epoch: [11]	Step: [2700/4952]	Loss: 0.2154	Time : 129.3168	
+Epoch: [11]	Step: [2800/4952]	Loss: 0.1459	Time : 133.5928	
+Epoch: [11]	Step: [2900/4952]	Loss: 0.4396	Time : 137.8927	
+Epoch: [11]	Step: [3000/4952]	Loss: 0.6392	Time : 142.9376	
+Epoch: [11]	Step: [3100/4952]	Loss: 0.3481	Time : 148.2940	
+Epoch: [11]	Step: [3200/4952]	Loss: 0.0292	Time : 153.2941	
+Epoch: [11]	Step: [3300/4952]	Loss: 0.5308	Time : 157.8419	
+Epoch: [11]	Step: [3400/4952]	Loss: 0.1162	Time : 162.5169	
+Epoch: [11]	Step: [3500/4952]	Loss: 0.5036	Time : 167.7018	
+Epoch: [11]	Step: [3600/4952]	Loss: 0.2854	Time : 173.3844	
+Epoch: [11]	Step: [3700/4952]	Loss: 0.0625	Time : 178.7152	
+Epoch: [11]	Step: [3800/4952]	Loss: 0.2166	Time : 183.7196	
+Epoch: [11]	Step: [3900/4952]	Loss: 0.3708	Time : 188.5504	
+Epoch: [11]	Step: [4000/4952]	Loss: 0.4958	Time : 193.0805	
+Epoch: [11]	Step: [4100/4952]	Loss: 0.4390	Time : 199.8746	
+Epoch: [11]	Step: [4200/4952]	Loss: 0.4114	Time : 205.1292	
+Epoch: [11]	Step: [4300/4952]	Loss: 0.3355	Time : 209.9670	
+Epoch: [11]	Step: [4400/4952]	Loss: 0.0224	Time : 214.5314	
+Epoch: [11]	Step: [4500/4952]	Loss: 0.5749	Time : 219.5104	
+Epoch: [11]	Step: [4600/4952]	Loss: 0.3388	Time : 225.0363	
+Epoch: [11]	Step: [4700/4952]	Loss: 0.6700	Time : 230.3745	
+Epoch: [11]	Step: [4800/4952]	Loss: 0.4136	Time : 235.0447	
+Epoch: [11]	Step: [4900/4952]	Loss: 0.4278	Time : 240.4803	
+Epoch: [11]	Step: [4951/4952]	Loss: 1.0130	Time : 243.1184	
+Loading and preparing results...
+DONE (t=6.09s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=68.78s).
+Accumulating evaluation results...
+DONE (t=10.55s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.318
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.499
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.340
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.153
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.356
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.462
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.285
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.458
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.497
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.270
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.564
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.683
+0.31839854309516474
+Eval Time : 339.2581
+Training of epoch [12]
+Epoch: [12]	Step: [0/7330]	Loss: 0.2720	Cls_loss: 0.1915	Loc_loss: 0.0805	Learning rate: 0.0001000 s 	Time : 1.5777	
+Epoch: [12]	Step: [100/7330]	Loss: 0.3596	Cls_loss: 0.2333	Loc_loss: 0.1263	Learning rate: 0.0001000 s 	Time : 40.0207	
+Epoch: [12]	Step: [200/7330]	Loss: 0.3310	Cls_loss: 0.2136	Loc_loss: 0.1174	Learning rate: 0.0001000 s 	Time : 78.6432	
+Epoch: [12]	Step: [300/7330]	Loss: 0.3159	Cls_loss: 0.1957	Loc_loss: 0.1202	Learning rate: 0.0001000 s 	Time : 117.2922	
+Epoch: [12]	Step: [400/7330]	Loss: 0.3522	Cls_loss: 0.2193	Loc_loss: 0.1328	Learning rate: 0.0001000 s 	Time : 155.9876	
+Epoch: [12]	Step: [500/7330]	Loss: 0.3380	Cls_loss: 0.2170	Loc_loss: 0.1210	Learning rate: 0.0001000 s 	Time : 194.6801	
+Epoch: [12]	Step: [600/7330]	Loss: 0.2882	Cls_loss: 0.1880	Loc_loss: 0.1002	Learning rate: 0.0001000 s 	Time : 234.7631	
+Epoch: [12]	Step: [700/7330]	Loss: 0.2958	Cls_loss: 0.1936	Loc_loss: 0.1023	Learning rate: 0.0001000 s 	Time : 273.4891	
+Epoch: [12]	Step: [800/7330]	Loss: 0.3094	Cls_loss: 0.2025	Loc_loss: 0.1069	Learning rate: 0.0001000 s 	Time : 312.2029	
+Epoch: [12]	Step: [900/7330]	Loss: 0.4059	Cls_loss: 0.2737	Loc_loss: 0.1322	Learning rate: 0.0001000 s 	Time : 350.9482	
+Epoch: [12]	Step: [1000/7330]	Loss: 0.2925	Cls_loss: 0.1946	Loc_loss: 0.0980	Learning rate: 0.0001000 s 	Time : 389.7050	
+Epoch: [12]	Step: [1100/7330]	Loss: 0.2740	Cls_loss: 0.1721	Loc_loss: 0.1019	Learning rate: 0.0001000 s 	Time : 428.4192	
+Epoch: [12]	Step: [1200/7330]	Loss: 0.2656	Cls_loss: 0.1783	Loc_loss: 0.0873	Learning rate: 0.0001000 s 	Time : 467.1312	
+Epoch: [12]	Step: [1300/7330]	Loss: 0.2627	Cls_loss: 0.1909	Loc_loss: 0.0718	Learning rate: 0.0001000 s 	Time : 505.8366	
+Epoch: [12]	Step: [1400/7330]	Loss: 0.3524	Cls_loss: 0.2229	Loc_loss: 0.1295	Learning rate: 0.0001000 s 	Time : 544.5638	
+Epoch: [12]	Step: [1500/7330]	Loss: 0.3830	Cls_loss: 0.2522	Loc_loss: 0.1308	Learning rate: 0.0001000 s 	Time : 583.3051	
+Epoch: [12]	Step: [1600/7330]	Loss: 0.3078	Cls_loss: 0.1971	Loc_loss: 0.1108	Learning rate: 0.0001000 s 	Time : 622.0331	
+Epoch: [12]	Step: [1700/7330]	Loss: 0.2081	Cls_loss: 0.1433	Loc_loss: 0.0648	Learning rate: 0.0001000 s 	Time : 660.7488	
+Epoch: [12]	Step: [1800/7330]	Loss: 0.2239	Cls_loss: 0.1523	Loc_loss: 0.0716	Learning rate: 0.0001000 s 	Time : 699.4911	
+Epoch: [12]	Step: [1900/7330]	Loss: 0.3361	Cls_loss: 0.2288	Loc_loss: 0.1072	Learning rate: 0.0001000 s 	Time : 738.2589	
+Epoch: [12]	Step: [2000/7330]	Loss: 0.2780	Cls_loss: 0.1822	Loc_loss: 0.0958	Learning rate: 0.0001000 s 	Time : 777.0123	
+Epoch: [12]	Step: [2100/7330]	Loss: 0.3100	Cls_loss: 0.2016	Loc_loss: 0.1084	Learning rate: 0.0001000 s 	Time : 817.0663	
+Epoch: [12]	Step: [2200/7330]	Loss: 0.3096	Cls_loss: 0.1969	Loc_loss: 0.1127	Learning rate: 0.0001000 s 	Time : 855.7946	
+Epoch: [12]	Step: [2300/7330]	Loss: 0.3820	Cls_loss: 0.2418	Loc_loss: 0.1402	Learning rate: 0.0001000 s 	Time : 894.5412	
+Epoch: [12]	Step: [2400/7330]	Loss: 0.2359	Cls_loss: 0.1499	Loc_loss: 0.0860	Learning rate: 0.0001000 s 	Time : 933.2843	
+Epoch: [12]	Step: [2500/7330]	Loss: 0.3367	Cls_loss: 0.2061	Loc_loss: 0.1306	Learning rate: 0.0001000 s 	Time : 971.9862	
+Epoch: [12]	Step: [2600/7330]	Loss: 0.3943	Cls_loss: 0.2405	Loc_loss: 0.1538	Learning rate: 0.0001000 s 	Time : 1010.7030	
+Epoch: [12]	Step: [2700/7330]	Loss: 0.3285	Cls_loss: 0.2306	Loc_loss: 0.0979	Learning rate: 0.0001000 s 	Time : 1049.4334	
+Epoch: [12]	Step: [2800/7330]	Loss: 0.3772	Cls_loss: 0.2673	Loc_loss: 0.1099	Learning rate: 0.0001000 s 	Time : 1088.1390	
+Epoch: [12]	Step: [2900/7330]	Loss: 0.3054	Cls_loss: 0.1879	Loc_loss: 0.1175	Learning rate: 0.0001000 s 	Time : 1126.8812	
+Epoch: [12]	Step: [3000/7330]	Loss: 0.3015	Cls_loss: 0.1959	Loc_loss: 0.1055	Learning rate: 0.0001000 s 	Time : 1165.6310	
+Epoch: [12]	Step: [3100/7330]	Loss: 0.3120	Cls_loss: 0.2133	Loc_loss: 0.0987	Learning rate: 0.0001000 s 	Time : 1204.4227	
+Epoch: [12]	Step: [3200/7330]	Loss: 0.3319	Cls_loss: 0.2165	Loc_loss: 0.1155	Learning rate: 0.0001000 s 	Time : 1243.1772	
+Epoch: [12]	Step: [3300/7330]	Loss: 0.3265	Cls_loss: 0.1989	Loc_loss: 0.1276	Learning rate: 0.0001000 s 	Time : 1281.9281	
+Epoch: [12]	Step: [3400/7330]	Loss: 0.2929	Cls_loss: 0.1823	Loc_loss: 0.1106	Learning rate: 0.0001000 s 	Time : 1320.6787	
+Epoch: [12]	Step: [3500/7330]	Loss: 0.3109	Cls_loss: 0.1945	Loc_loss: 0.1164	Learning rate: 0.0001000 s 	Time : 1359.4242	
+Epoch: [12]	Step: [3600/7330]	Loss: 0.3389	Cls_loss: 0.2167	Loc_loss: 0.1222	Learning rate: 0.0001000 s 	Time : 1398.1687	
+Epoch: [12]	Step: [3700/7330]	Loss: 0.3727	Cls_loss: 0.2234	Loc_loss: 0.1494	Learning rate: 0.0001000 s 	Time : 1436.9113	
+Epoch: [12]	Step: [3800/7330]	Loss: 0.2976	Cls_loss: 0.1947	Loc_loss: 0.1029	Learning rate: 0.0001000 s 	Time : 1477.0645	
+Epoch: [12]	Step: [3900/7330]	Loss: 0.3159	Cls_loss: 0.2028	Loc_loss: 0.1131	Learning rate: 0.0001000 s 	Time : 1515.8211	
+Epoch: [12]	Step: [4000/7330]	Loss: 0.3633	Cls_loss: 0.2448	Loc_loss: 0.1184	Learning rate: 0.0001000 s 	Time : 1554.5865	
+Epoch: [12]	Step: [4100/7330]	Loss: 0.3265	Cls_loss: 0.2261	Loc_loss: 0.1003	Learning rate: 0.0001000 s 	Time : 1593.3555	
+Epoch: [12]	Step: [4200/7330]	Loss: 0.3187	Cls_loss: 0.2093	Loc_loss: 0.1093	Learning rate: 0.0001000 s 	Time : 1632.0816	
+Epoch: [12]	Step: [4300/7330]	Loss: 0.2893	Cls_loss: 0.1952	Loc_loss: 0.0942	Learning rate: 0.0001000 s 	Time : 1670.8319	
+Epoch: [12]	Step: [4400/7330]	Loss: 0.2465	Cls_loss: 0.1598	Loc_loss: 0.0866	Learning rate: 0.0001000 s 	Time : 1709.5525	
+Epoch: [12]	Step: [4500/7330]	Loss: 0.3114	Cls_loss: 0.2001	Loc_loss: 0.1113	Learning rate: 0.0001000 s 	Time : 1748.3411	
+Epoch: [12]	Step: [4600/7330]	Loss: 0.2170	Cls_loss: 0.1308	Loc_loss: 0.0862	Learning rate: 0.0001000 s 	Time : 1787.0862	
+Epoch: [12]	Step: [4700/7330]	Loss: 0.2556	Cls_loss: 0.1679	Loc_loss: 0.0877	Learning rate: 0.0001000 s 	Time : 1825.8661	
+Epoch: [12]	Step: [4800/7330]	Loss: 0.2874	Cls_loss: 0.1867	Loc_loss: 0.1007	Learning rate: 0.0001000 s 	Time : 1864.5925	
+Epoch: [12]	Step: [4900/7330]	Loss: 0.4392	Cls_loss: 0.2721	Loc_loss: 0.1671	Learning rate: 0.0001000 s 	Time : 1903.3571	
+Epoch: [12]	Step: [5000/7330]	Loss: 0.4018	Cls_loss: 0.2514	Loc_loss: 0.1504	Learning rate: 0.0001000 s 	Time : 1942.1089	
+Epoch: [12]	Step: [5100/7330]	Loss: 0.3225	Cls_loss: 0.2129	Loc_loss: 0.1096	Learning rate: 0.0001000 s 	Time : 1982.2006	
+Epoch: [12]	Step: [5200/7330]	Loss: 0.3634	Cls_loss: 0.2350	Loc_loss: 0.1283	Learning rate: 0.0001000 s 	Time : 2020.9447	
+Epoch: [12]	Step: [5300/7330]	Loss: 0.3922	Cls_loss: 0.2511	Loc_loss: 0.1411	Learning rate: 0.0001000 s 	Time : 2059.7189	
+Epoch: [12]	Step: [5400/7330]	Loss: 0.3266	Cls_loss: 0.2064	Loc_loss: 0.1203	Learning rate: 0.0001000 s 	Time : 2098.4674	
+Epoch: [12]	Step: [5500/7330]	Loss: 0.2566	Cls_loss: 0.1631	Loc_loss: 0.0935	Learning rate: 0.0001000 s 	Time : 2137.2326	
+Epoch: [12]	Step: [5600/7330]	Loss: 0.3473	Cls_loss: 0.2420	Loc_loss: 0.1053	Learning rate: 0.0001000 s 	Time : 2175.9790	
+Epoch: [12]	Step: [5700/7330]	Loss: 0.2874	Cls_loss: 0.1874	Loc_loss: 0.0999	Learning rate: 0.0001000 s 	Time : 2214.7109	
+Epoch: [12]	Step: [5800/7330]	Loss: 0.2760	Cls_loss: 0.1814	Loc_loss: 0.0945	Learning rate: 0.0001000 s 	Time : 2253.4883	
+Epoch: [12]	Step: [5900/7330]	Loss: 0.2174	Cls_loss: 0.1488	Loc_loss: 0.0686	Learning rate: 0.0001000 s 	Time : 2292.2603	
+Epoch: [12]	Step: [6000/7330]	Loss: 0.3240	Cls_loss: 0.2087	Loc_loss: 0.1153	Learning rate: 0.0001000 s 	Time : 2331.0077	
+Epoch: [12]	Step: [6100/7330]	Loss: 0.3088	Cls_loss: 0.2003	Loc_loss: 0.1085	Learning rate: 0.0001000 s 	Time : 2369.7768	
+Epoch: [12]	Step: [6200/7330]	Loss: 0.3636	Cls_loss: 0.2309	Loc_loss: 0.1327	Learning rate: 0.0001000 s 	Time : 2408.5224	
+Epoch: [12]	Step: [6300/7330]	Loss: 0.3299	Cls_loss: 0.2168	Loc_loss: 0.1131	Learning rate: 0.0001000 s 	Time : 2447.2657	
+Epoch: [12]	Step: [6400/7330]	Loss: 0.2501	Cls_loss: 0.1675	Loc_loss: 0.0826	Learning rate: 0.0001000 s 	Time : 2485.9964	
+Epoch: [12]	Step: [6500/7330]	Loss: 0.4081	Cls_loss: 0.2584	Loc_loss: 0.1498	Learning rate: 0.0001000 s 	Time : 2524.7215	
+Epoch: [12]	Step: [6600/7330]	Loss: 0.2934	Cls_loss: 0.1819	Loc_loss: 0.1115	Learning rate: 0.0001000 s 	Time : 2563.4875	
+Epoch: [12]	Step: [6700/7330]	Loss: 0.2906	Cls_loss: 0.1961	Loc_loss: 0.0945	Learning rate: 0.0001000 s 	Time : 2603.5685	
+Epoch: [12]	Step: [6800/7330]	Loss: 0.3159	Cls_loss: 0.1964	Loc_loss: 0.1194	Learning rate: 0.0001000 s 	Time : 2642.3357	
+Epoch: [12]	Step: [6900/7330]	Loss: 0.2257	Cls_loss: 0.1482	Loc_loss: 0.0776	Learning rate: 0.0001000 s 	Time : 2681.0674	
+Epoch: [12]	Step: [7000/7330]	Loss: 0.2315	Cls_loss: 0.1651	Loc_loss: 0.0664	Learning rate: 0.0001000 s 	Time : 2719.8115	
+Epoch: [12]	Step: [7100/7330]	Loss: 0.3354	Cls_loss: 0.2024	Loc_loss: 0.1330	Learning rate: 0.0001000 s 	Time : 2758.5713	
+Epoch: [12]	Step: [7200/7330]	Loss: 0.3728	Cls_loss: 0.2495	Loc_loss: 0.1232	Learning rate: 0.0001000 s 	Time : 2797.3454	
+Epoch: [12]	Step: [7300/7330]	Loss: 0.2913	Cls_loss: 0.2062	Loc_loss: 0.0851	Learning rate: 0.0001000 s 	Time : 2836.0906	
+Epoch: [12]	Step: [7329/7330]	Loss: 0.5082	Cls_loss: 0.3328	Loc_loss: 0.1754	Learning rate: 0.0001000 s 	Time : 2847.0690	
+Validation of epoch [12]
+COCO dataset evaluation...
+Epoch: [12]	Step: [0/4952]	Loss: 0.2614	Time : 0.3068	
+Epoch: [12]	Step: [100/4952]	Loss: 0.3798	Time : 5.6535	
+Epoch: [12]	Step: [200/4952]	Loss: 0.2565	Time : 11.0383	
+Epoch: [12]	Step: [300/4952]	Loss: 0.3469	Time : 16.4532	
+Epoch: [12]	Step: [400/4952]	Loss: 0.9112	Time : 21.7209	
+Epoch: [12]	Step: [500/4952]	Loss: 0.1440	Time : 26.2335	
+Epoch: [12]	Step: [600/4952]	Loss: 0.2167	Time : 31.1900	
+Epoch: [12]	Step: [700/4952]	Loss: 0.4158	Time : 36.0267	
+Epoch: [12]	Step: [800/4952]	Loss: 0.0386	Time : 40.2726	
+Epoch: [12]	Step: [900/4952]	Loss: 0.2811	Time : 44.9240	
+Epoch: [12]	Step: [1000/4952]	Loss: 0.2747	Time : 49.5271	
+Epoch: [12]	Step: [1100/4952]	Loss: 0.6237	Time : 55.0238	
+Epoch: [12]	Step: [1200/4952]	Loss: 0.3376	Time : 59.8765	
+Epoch: [12]	Step: [1300/4952]	Loss: 0.0361	Time : 64.6812	
+Epoch: [12]	Step: [1400/4952]	Loss: 0.1814	Time : 69.4423	
+Epoch: [12]	Step: [1500/4952]	Loss: 0.3004	Time : 74.1329	
+Epoch: [12]	Step: [1600/4952]	Loss: 0.6007	Time : 78.3159	
+Epoch: [12]	Step: [1700/4952]	Loss: 0.7137	Time : 82.8618	
+Epoch: [12]	Step: [1800/4952]	Loss: 0.2975	Time : 87.5143	
+Epoch: [12]	Step: [1900/4952]	Loss: 0.0494	Time : 92.0005	
+Epoch: [12]	Step: [2000/4952]	Loss: 0.2143	Time : 97.0435	
+Epoch: [12]	Step: [2100/4952]	Loss: 0.4491	Time : 101.8969	
+Epoch: [12]	Step: [2200/4952]	Loss: 0.0578	Time : 106.9028	
+Epoch: [12]	Step: [2300/4952]	Loss: 0.3854	Time : 111.7451	
+Epoch: [12]	Step: [2400/4952]	Loss: 0.3755	Time : 115.8293	
+Epoch: [12]	Step: [2500/4952]	Loss: 0.0163	Time : 120.6364	
+Epoch: [12]	Step: [2600/4952]	Loss: 0.5613	Time : 125.5464	
+Epoch: [12]	Step: [2700/4952]	Loss: 0.2208	Time : 130.0719	
+Epoch: [12]	Step: [2800/4952]	Loss: 0.1466	Time : 134.3835	
+Epoch: [12]	Step: [2900/4952]	Loss: 0.4386	Time : 138.7355	
+Epoch: [12]	Step: [3000/4952]	Loss: 0.6417	Time : 143.8745	
+Epoch: [12]	Step: [3100/4952]	Loss: 0.3472	Time : 149.3235	
+Epoch: [12]	Step: [3200/4952]	Loss: 0.0277	Time : 154.4006	
+Epoch: [12]	Step: [3300/4952]	Loss: 0.5213	Time : 158.9445	
+Epoch: [12]	Step: [3400/4952]	Loss: 0.1150	Time : 163.6278	
+Epoch: [12]	Step: [3500/4952]	Loss: 0.5066	Time : 168.8802	
+Epoch: [12]	Step: [3600/4952]	Loss: 0.2870	Time : 176.1588	
+Epoch: [12]	Step: [3700/4952]	Loss: 0.0630	Time : 181.5012	
+Epoch: [12]	Step: [3800/4952]	Loss: 0.2066	Time : 186.5106	
+Epoch: [12]	Step: [3900/4952]	Loss: 0.3702	Time : 191.4347	
+Epoch: [12]	Step: [4000/4952]	Loss: 0.4898	Time : 196.0386	
+Epoch: [12]	Step: [4100/4952]	Loss: 0.4411	Time : 201.3523	
+Epoch: [12]	Step: [4200/4952]	Loss: 0.4163	Time : 206.6681	
+Epoch: [12]	Step: [4300/4952]	Loss: 0.3375	Time : 211.5320	
+Epoch: [12]	Step: [4400/4952]	Loss: 0.0228	Time : 216.1269	
+Epoch: [12]	Step: [4500/4952]	Loss: 0.5586	Time : 221.1935	
+Epoch: [12]	Step: [4600/4952]	Loss: 0.3348	Time : 226.8129	
+Epoch: [12]	Step: [4700/4952]	Loss: 0.6743	Time : 232.2515	
+Epoch: [12]	Step: [4800/4952]	Loss: 0.4143	Time : 237.0207	
+Epoch: [12]	Step: [4900/4952]	Loss: 0.4351	Time : 242.5344	
+Epoch: [12]	Step: [4951/4952]	Loss: 0.9950	Time : 245.2056	
+Loading and preparing results...
+DONE (t=5.93s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=67.32s).
+Accumulating evaluation results...
+DONE (t=13.30s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.319
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.500
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.340
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.153
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.357
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.462
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.285
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.458
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.497
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.273
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.564
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.682
+0.3185735964212328
+Eval Time : 342.2677
+
+Process finished with exit code 0
