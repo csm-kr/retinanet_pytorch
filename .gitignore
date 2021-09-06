@@ -3,6 +3,7 @@ data/
 
 # analysis
 analysis/
+figure/others
 
 # vscode setting
 .vscode
