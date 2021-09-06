@@ -106,6 +106,9 @@ class RETINA_Anchor(Anchor):
 if __name__ == '__main__':
     retina_anchor = RETINA_Anchor(model_name='retina')
     anchor = retina_anchor.create_anchors(img_size=600)
+
+    center_anchor = anchor
+    print(center_anchor)
     # corner_anchor = cxcy_to_xy(anchor) * 600
     # print(corner_anchor[:100, :])
     # print(anchor.size())

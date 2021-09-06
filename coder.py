@@ -4,7 +4,7 @@ from math import sqrt
 from abc import ABCMeta, abstractmethod
 from config import device
 # from util.utils import cxcy_to_xy, xy_to_cxcy, find_jaccard_overlap
-from utils import find_jaccard_overlap, xy_to_cxcy
+from utils import find_jaccard_overlap, xy_to_cxcy, xy_to_cxcy2
 from collections import OrderedDict
 from anchor import RETINA_Anchor
 import torch.nn.functional as F
@@ -26,8 +26,15 @@ class RETINA_Coder(Coder):
     def __init__(self, opts):
         super().__init__()
         self.data_type = opts.data_type
-        self.center_anchor = RETINA_Anchor('retina').create_anchors(img_size=opts.resize).to(device)
+        self.center_anchor = RETINA_Anchor('retina').create_anchors(img_size=opts.resize)
         self.num_classes = opts.num_classes
+
+        # standard variance for encoding and decoding.It is small since the boxes are more accurate.
+        # They are for some sort of numerical conditioning, for 'scaling the localization gradient'
+        # See https://github.com/weiliu89/caffe/issues/155
+
+        # self.variance = torch.tensor(data=[0.1, 0.1, 0.2, 0.2], requires_grad=False)
+        # degrade performance from 0.317 to 0.288
 
     def assign_anchors_to_device(self):
         self.center_anchor = self.center_anchor.to(device)
@@ -39,16 +46,16 @@ class RETINA_Coder(Coder):
         """
         for loss, gt(cxcy) to gcxcy
         """
-
         gcxcy = (cxcy[:, :2] - self.center_anchor[:, :2]) / self.center_anchor[:, 2:]       # (box cxy-anc cxy)/anc wh
         gwh = torch.log(cxcy[:, 2:] / self.center_anchor[:, 2:])                            # log(box wh / anc wh)
+        # return torch.cat([gcxcy, gwh], dim=1) / self.variance.to(cxcy.get_device())
         return torch.cat([gcxcy, gwh], dim=1)
 
     def decode(self, gcxgcy):
         """
         for test and demo, gcxcy to gt
         """
-
+        # gcxgcy *= self.variance.to(gcxgcy.get_device())
         cxcy = gcxgcy[:, :2] * self.center_anchor[:, 2:] + self.center_anchor[:, :2]
         wh = torch.exp(gcxgcy[:, 2:]) * self.center_anchor[:, 2:]
         return torch.cat([cxcy, wh], dim=1)
@@ -61,17 +68,19 @@ class RETINA_Coder(Coder):
         """
         batch_size = len(gt_labels)
         n_priors = self.center_anchor.size(0)
+        device_ = gt_labels[0].get_device()
 
         # ----- 1. make container
-        gt_locations = torch.zeros((batch_size, n_priors, 4), dtype=torch.float, device=device)
-        gt_classes = -1 * torch.ones((batch_size, n_priors, self.num_classes), dtype=torch.float, device=device)
+        gt_locations = torch.zeros((batch_size, n_priors, 4), dtype=torch.float, device=device_)
+        gt_classes = -1 * torch.ones((batch_size, n_priors, self.num_classes), dtype=torch.float, device=device_)
 
-        anchor_identifier = -1 * torch.ones((batch_size, n_priors), dtype=torch.float32, device=device)
+        anchor_identifier = -1 * torch.ones((batch_size, n_priors), dtype=torch.float32, device=device_)
         # if anchor is positive -> 1,
         #              negative -> 0,
         #              ignore   -> -1
 
         # ----- 2. make corner anchors
+        self.center_anchor = self.center_anchor.to(device_)
         corner_anchor = cxcy_to_xy(self.center_anchor)
 
         for i in range(batch_size):
