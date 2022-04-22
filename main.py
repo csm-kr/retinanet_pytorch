@@ -164,10 +164,10 @@ def main():
                 args=(world_size, opts=opts),
                 nprocs=world_size,
                 join=True,
-                args=opts)
+                opts=opts)
     else:
         # for DP
-        main_worker(0, 2, DDP_=False, opts)
+        main_worker(0, 2, DDP_=False, opts=opts)
 
 
 if __name__ == "__main__":
