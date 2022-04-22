@@ -8,8 +8,11 @@ device = torch.device('cuda:{}'.format(min(device_ids)) if torch.cuda.is_availab
 def parse(args):
     # 1. arg parser
     parser = argparse.ArgumentParser()
-    parser.add_argument('--epoch', type=int, default=13)                  # 13
+    parser.add_argument('--ddp', type=bool, default=False)
+    parser.add_argument('--vis', type=bool, default=True)
     parser.add_argument('--port', type=str, default='2015')
+
+    parser.add_argument('--epoch', type=int, default=13)                  # 13
     parser.add_argument('--lr', type=float, default=1e-2)                 # 1e-2
     parser.add_argument('--momentum', type=float, default=0.9)
     parser.add_argument('--weight_decay', type=float, default=1e-4)       # 0.0001
@@ -27,7 +30,7 @@ def parse(args):
 
     # FIXME choose your dataset root
     # parser.add_argument('--data_root', type=str, default='D:\data\\voc')
-    
+
     parser.add_argument('--data_root', type=str, default='D:/data/coco')
     parser.add_argument('--img_path', type=str, default='D:/data/coco/images/val2017')
 
@@ -38,10 +41,10 @@ def parse(args):
     parser.add_argument('--num_classes', type=int, default=80)
     parser.add_argument('--resize', type=int, default=600)                                               # FIXME
 
-    parser.set_defaults(visualization=False)
-    parser.add_argument('--vis', dest='visualization', action='store_true')
+    # parser.set_defaults(visualization=False)
+    # parser.add_argument('--vis', dest='visualization', action='store_true')
 
-    parser.add_argument('--ddp', type=bool, default=False)
+
 
     opts = parser.parse_args(args)
     return opts
