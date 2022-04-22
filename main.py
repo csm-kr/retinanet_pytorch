@@ -167,7 +167,7 @@ def main():
                 opts=opts)
     else:
         # for DP
-        main_worker(0, 2, DDP_=False, opts=opts)
+        main_worker(min(device_ids), len(device_ids), DDP_=False, opts=opts)
 
 
 if __name__ == "__main__":
