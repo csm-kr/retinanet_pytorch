@@ -18,7 +18,8 @@ def parse(args):
     parser.add_argument('--num_workers', type=int, default=8)
     parser.add_argument('--rank', type=int, default=0)
 
-    parser.add_argument('--save_path', type=str, default='./saves')
+    # parser.add_argument('--save_path', type=str, default='./saves')
+    parser.add_argument('--save_path', type=str, default='D:/saves/retinanet_paeng')
     parser.add_argument('--save_file_name', type=str, default='retina_res_50_coco')                         # FIXME
 
     parser.add_argument('--conf_thres', type=float, default=0.05)
@@ -26,9 +27,12 @@ def parse(args):
 
     # FIXME choose your dataset root
     # parser.add_argument('--data_root', type=str, default='D:\data\\voc')
-    # parser.add_argument('--data_root', type=str, default='D:\data\coco')
-    parser.add_argument('--data_root', type=str, default='/home/cvmlserver5/Sungmin/data/coco')
-    parser.add_argument('--img_path', type=str, default='/home/cvmlserver5/Sungmin/data/coco/images/val2017')
+    
+    parser.add_argument('--data_root', type=str, default='D:/data/coco')
+    parser.add_argument('--img_path', type=str, default='D:/data/coco/images/val2017')
+
+    # parser.add_argument('--data_root', type=str, default='/home/cvmlserver5/Sungmin/data/coco')
+    # parser.add_argument('--img_path', type=str, default='/home/cvmlserver5/Sungmin/data/coco/images/val2017')
 
     parser.add_argument('--data_type', type=str, default='coco', help='choose voc or coco')              # FIXME
     parser.add_argument('--num_classes', type=int, default=80)
@@ -36,6 +40,8 @@ def parse(args):
 
     parser.set_defaults(visualization=False)
     parser.add_argument('--vis', dest='visualization', action='store_true')
+
+    parser.add_argument('--ddp', type=bool, default=False)
 
     opts = parser.parse_args(args)
     return opts

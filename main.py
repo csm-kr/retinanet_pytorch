@@ -29,10 +29,6 @@ def main_worker(rank, world_size, DDP_=True):
     rank : gpu 번호
     world_size : gpu 총 갯수
     """
-    # 1. argparser
-    opts = parse(sys.argv[1:])
-    print(opts)
-
     if DDP_:
         # 2. rank setting
         opts.rank = rank
@@ -158,15 +154,20 @@ def main_worker(rank, world_size, DDP_=True):
 
 
 def main():
-    # for DP
-    main_worker(0, 2, DDP_=False)
+    # 1. argparser
+    opts = parse(sys.argv[1:])
+    print(opts)
 
-    # for DDP
-    # world_size = torch.cuda.device_count()   # 2
-    # mp.spawn(main_worker,
-    #          args=(world_size, ),
-    #          nprocs=world_size,
-    #          join=True)
+    if opts.ddp:
+        world_size = torch.cuda.device_count()   # 2
+        mp.spawn(main_worker,
+                args=(world_size, ),
+                nprocs=world_size,
+                join=True,
+                args=opts)
+    else:
+        # for DP
+        main_worker(0, 2, DDP_=False, opts)
 
 
 if __name__ == "__main__":
