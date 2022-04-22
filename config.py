@@ -10,13 +10,13 @@ def parse(args):
     parser = argparse.ArgumentParser()
     parser.add_argument('--ddp', type=bool, default=False)
     parser.add_argument('--vis', type=bool, default=True)
-    parser.add_argument('--port', type=str, default='2015')
+    parser.add_argument('--port', type=str, default='2018')
 
     parser.add_argument('--epoch', type=int, default=13)                  # 13
     parser.add_argument('--lr', type=float, default=1e-2)                 # 1e-2
     parser.add_argument('--momentum', type=float, default=0.9)
     parser.add_argument('--weight_decay', type=float, default=1e-4)       # 0.0001
-    parser.add_argument('--batch_size', type=int, default=32)
+    parser.add_argument('--batch_size', type=int, default=16)
     parser.add_argument('--vis_step', type=int, default=100)
     parser.add_argument('--num_workers', type=int, default=8)
     parser.add_argument('--rank', type=int, default=0)
