@@ -24,7 +24,7 @@ import torch.backends.cudnn as cudnn
 cudnn.benchmark = True
 
 
-def main_worker(rank, world_size, DDP_=True, opts):
+def main_worker(rank, world_size, DDP_, opts):
     """
     rank : gpu 번호
     world_size : gpu 총 갯수
@@ -160,11 +160,7 @@ def main():
 
     if opts.ddp:
         world_size = torch.cuda.device_count()   # 2
-        mp.spawn(main_worker,
-                args=(world_size, opts=opts),
-                nprocs=world_size,
-                join=True,
-                opts=opts)
+        mp.spawn(main_worker, args=(world_size, True, opts), nprocs=world_size, join=True)
     else:
         # for DP
         main_worker(0, 2, DDP_=False, opts=opts)
