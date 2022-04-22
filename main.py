@@ -159,7 +159,7 @@ def main():
     print(opts)
 
     if opts.ddp:
-        world_size = torch.cuda.device_count()   # 2
+        world_size = torch.cuda.device_count()
         mp.spawn(main_worker,
                 args=(world_size, opts=opts),
                 nprocs=world_size,
