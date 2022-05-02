@@ -32,17 +32,19 @@ def main_worker(rank, world_size, DDP_=True):
     # 1. argparser
     opts = parse(sys.argv[1:])
     print(opts)
-
+    # start_gpu_num = 2
+    gpu_id = int(opts.gpu_ids[rank])
+    opts.gpu_id = gpu_id
     if DDP_:
         # 2. rank setting
         opts.rank = rank
-        torch.cuda.set_device(opts.rank)
+        torch.cuda.set_device(gpu_id)
         if opts.rank is not None:
-            print("Use GPU: {} for training".format(opts.rank))
+            print("Use GPU: {} for training".format(gpu_id))
         dist.init_process_group(backend='nccl',
                                 init_method='tcp://127.0.0.1:3456',
                                 world_size=world_size,
-                                rank=opts.rank)
+                                rank=rank)
 
     # 3. visdom
     vis = visdom.Visdom(port=opts.port)
@@ -93,9 +95,9 @@ def main_worker(rank, world_size, DDP_=True):
     # IF DDP
     if DDP_:
         model = RetinaNet(num_classes=opts.num_classes)
-        model = model.cuda(opts.rank)
+        model = model.cuda(gpu_id)
         model = DDP(module=model,
-                    device_ids=[opts.rank],
+                    device_ids=[gpu_id],
                     find_unused_parameters=True)
 
     else:
@@ -121,7 +123,7 @@ def main_worker(rank, world_size, DDP_=True):
     if opts.start_epoch != 0:
 
         checkpoint = torch.load(os.path.join(opts.save_path, opts.save_file_name) + '.{}.pth.tar'
-                                .format(opts.start_epoch - 1), map_location=torch.device('cuda:{}'.format(opts.rank)))
+                                .format(opts.start_epoch - 1), map_location=torch.device('cuda:{}'.format(gpu_id)))
         # 하나 적은걸 가져와서 train
         model.load_state_dict(checkpoint['model_state_dict'])                              # load model state dict
         optimizer.load_state_dict(checkpoint['optimizer_state_dict'])                      # load optim state dict
@@ -159,14 +161,15 @@ def main_worker(rank, world_size, DDP_=True):
 
 def main():
     # for DP
-    main_worker(0, 2, DDP_=False)
+    # main_worker(0, 2, DDP_=False)
 
     # for DDP
-    # world_size = torch.cuda.device_count()   # 2
-    # mp.spawn(main_worker,
-    #          args=(world_size, ),
-    #          nprocs=world_size,
-    #          join=True)
+    world_size = torch.cuda.device_count()   # 4
+    # world_size = 3
+    mp.spawn(main_worker,
+             args=(world_size, ),
+             nprocs=world_size,
+             join=True)
 
 
 if __name__ == "__main__":

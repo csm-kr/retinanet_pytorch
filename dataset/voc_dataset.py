@@ -243,7 +243,7 @@ if __name__ == "__main__":
     ubuntu_root = "/home/cvmlserver3/Sungmin/data/voc"
     window_root = 'D:\data\\voc'
     root = window_root
-    train_set = VOC_Dataset(root, split='test', download=True, resize=600)
+    train_set = VOC_Dataset(root, split='train', download=True, resize=600)
     train_loader = torch.utils.data.DataLoader(train_set,
                                                batch_size=1,
                                                collate_fn=train_set.collate_fn,

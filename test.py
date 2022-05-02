@@ -39,9 +39,9 @@ def test(epoch, vis, test_loader, model, criterion, coder, opts):
                 labels = datas[2]
 
                 # ---------- cuda ----------
-                images = images.to(opts.rank)
-                boxes = [b.to(opts.rank) for b in boxes]
-                labels = [l.to(opts.rank) for l in labels]
+                images = images.to(opts.gpu_id)
+                boxes = [b.to(opts.gpu_id) for b in boxes]
+                labels = [l.to(opts.gpu_id) for l in labels]
 
                 # ---------- loss ----------
                 pred = model(images)
