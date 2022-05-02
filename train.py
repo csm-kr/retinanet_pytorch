@@ -13,6 +13,17 @@ def average_gradients(model):
             param.grad.data /= size
 
 
+def reduce_tensor(tensor, average=True):
+    rt = tensor.clone()
+    dist.all_reduce(rt, op=dist.reduce_op.SUM)
+
+    if average:
+        # gpu 갯수로 나눠줌.
+        world_size = float(dist.get_world_size())
+        rt /= world_size
+    return rt
+
+
 def train(epoch, vis, train_loader, model, criterion, optimizer, scheduler, opts):
     if opts.rank == 0:
         print('Training of epoch [{}]'.format(epoch))
@@ -26,19 +37,22 @@ def train(epoch, vis, train_loader, model, criterion, optimizer, scheduler, opts
         boxes = datas[1]
         labels = datas[2]
 
-        images = images.to(opts.rank)
-        boxes = [b.to(opts.rank) for b in boxes]
-        labels = [l.to(opts.rank) for l in labels]
+        images = images.to(opts.gpu_id)
+        boxes = [b.to(opts.gpu_id) for b in boxes]
+        labels = [l.to(opts.gpu_id) for l in labels]
 
         pred = model(images)
         loss, (cls_loss, loc_loss) = criterion(pred, boxes, labels)
+        # if model.__class__.__name__ == 'DistributedDataParallel':
+        #     # https://tutorials.pytorch.kr/intermediate/dist_tuto.html
+        #     loss = reduce_tensor(loss)
+        # if model.__class__.__name__ == 'DistributedDataParallel':
+        #     # https://tutorials.pytorch.kr/intermediate/dist_tuto.html
+        #     average_gradients(model)
 
         # sgd
         optimizer.zero_grad()
         loss.backward()
-        if model.__class__.__name__ == 'DistributedDataParallel':
-            # https://tutorials.pytorch.kr/intermediate/dist_tuto.html
-            average_gradients(model)
         optimizer.step()
 
         toc = time.time()
