@@ -45,6 +45,7 @@ def main_worker(rank, world_size, DDP_=True):
                                 init_method='tcp://127.0.0.1:3456',
                                 world_size=world_size,
                                 rank=rank)
+        torch.distributed.barrier()
 
     # 3. visdom
     vis = visdom.Visdom(port=opts.port)
@@ -128,11 +129,12 @@ def main_worker(rank, world_size, DDP_=True):
         model.load_state_dict(checkpoint['model_state_dict'])                              # load model state dict
         optimizer.load_state_dict(checkpoint['optimizer_state_dict'])                      # load optim state dict
         scheduler.load_state_dict(checkpoint['scheduler_state_dict'])                      # load sched state dict
-        print('\nLoaded checkpoint from epoch %d.\n' % (int(opts.start_epoch) - 1))
+        if opts.rank == 0:
+            print('\nLoaded checkpoint from epoch %d.\n' % (int(opts.start_epoch) - 1))
 
     else:
-
-        print('\nNo check point to resume.. train from scratch.\n')
+        if opts.rank == 0:
+            print('\nNo check point to resume.. train from scratch.\n')
 
     # for statement
     for epoch in range(opts.start_epoch, opts.epoch):

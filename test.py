@@ -11,11 +11,9 @@ def test(epoch, vis, test_loader, model, criterion, coder, opts):
     # ---------- load ----------
     if opts.rank == 0:
         print('Validation of epoch [{}]'.format(epoch))
-    model.eval()
-    if opts.rank == 0:
-
+        model.eval()
         check_point = torch.load(os.path.join(opts.save_path, opts.save_file_name) + '.{}.pth.tar'.format(epoch),
-                                 map_location=torch.device('cuda:{}'.format(opts.rank)))
+                                 map_location=torch.device('cuda:{}'.format(opts.gpu_id)))
         state_dict = check_point['model_state_dict']
         model.load_state_dict(state_dict)
 
