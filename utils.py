@@ -1,7 +1,7 @@
+import os
 import torch
 import torch.nn.functional as F
 from torchvision.ops.boxes import nms as torchvision_nms
-from config import device
 import numpy as np
 import math
 
@@ -106,90 +106,34 @@ def find_intersection(set_1, set_2):
     return intersection_dims[:, :, 0] * intersection_dims[:, :, 1]  # (n1, n2)  # 둘다 양수인 부분만 존재하게됨!
 
 
-def nms(boxes, scores, iou_threshold=0.5, top_k=200):
-
-    # 1. num obj
-    num_boxes = len(boxes)
-
-    # 2. get sorted scores, boxes
-    sorted_scores, idx_scores = scores.sort(descending=True)
-    sorted_boxes = boxes[idx_scores]
-
-    # 3. iou
-    iou = find_jaccard_overlap(sorted_boxes, sorted_boxes)
-    keep = torch.ones(num_boxes, dtype=torch.bool)
-
-    # 4. suppress boxes except max boxes
-    for each_box_idx, iou_for_each_box in enumerate(iou):
-        if keep[each_box_idx] == 0:  # 이미 없는것
-            continue
-
-        # 압축조건
-        suppress = iou_for_each_box > iou_threshold  # 없앨 아이들
-        keep[suppress] = 0
-        keep[each_box_idx] = 1  # 자기자신은 살린당.
-
-    return keep, sorted_scores, sorted_boxes
+def encode(gt_cxywh, anc_cxywh):
+    tg_cxy = (gt_cxywh[:, :2] - anc_cxywh[:, :2]) / anc_cxywh[:, 2:]
+    tg_wh = torch.log(gt_cxywh[:, 2:] / anc_cxywh[:, 2:])
+    tg_cxywh = torch.cat([tg_cxy, tg_wh], dim=1)
+    return tg_cxywh
 
 
-def detect(pred, coder, opts, max_overlap=0.5, top_k=300, is_demo=False):
-    """
-    post processing of out of models
-    batch 1 에 대한 prediction ([N, 8732, 4] ,[N, 8732, n])을  pred boxes pred labels 와 pred scores 로 변환하는 함수
-    :param pred (loc, cls) prediction tuple
-    :param coder
-    """
-    pred_bboxes, pred_scores = coder.post_processing(pred, is_demo)
+def decode(tcxcy, center_anchor):
+    cxcy = tcxcy[:, :2] * center_anchor[:, 2:] + center_anchor[:, :2]
+    wh = torch.exp(tcxcy[:, 2:]) * center_anchor[:, 2:]
+    cxywh = torch.cat([cxcy, wh], dim=1)
+    return cxywh
 
-    # Lists to store boxes and scores for this image
-    image_boxes = list()
-    image_labels = list()
-    image_scores = list()
 
-    # Check for each class
-    for c in range(0, opts.num_classes):
-        # Keep only predicted boxes and scores where scores for this class are above the minimum score
-        class_scores = pred_scores[:, c]  # (8732)
-        idx = class_scores > opts.conf_thres  # torch.uint8 (byte) tensor, for indexing
+def resume(opts, model, optimizer, scheduler):
+    if opts.start_epoch != 0:
+        # take pth at epoch - 1
 
-        if idx.sum() == 0:
-            continue
-
-        class_scores = class_scores[idx]  # (n_qualified), n_min_score <= 8732
-        class_bboxes = pred_bboxes[idx]
-
-        sorted_scores, idx_scores = class_scores.sort(descending=True)
-        sorted_boxes = class_bboxes[idx_scores]
-
-        # NMS
-        num_boxes = len(sorted_boxes)
-        keep_idx = torchvision_nms(boxes=sorted_boxes, scores=sorted_scores, iou_threshold=max_overlap)
-        keep_ = torch.zeros(num_boxes, dtype=torch.bool)
-        keep_[keep_idx] = 1  # int64 to bool
-        keep = keep_
-
-        # Store only unsuppressed boxes for this class
-        image_boxes.append(sorted_boxes[keep])
-        image_labels.append(torch.LongTensor((keep).sum().item() * [c]).to(device))
-        image_scores.append(sorted_scores[keep])
-
-    # If no object in any class is found, store a placeholder for 'background'
-    if len(image_boxes) == 0:
-        image_boxes.append(torch.FloatTensor([[0., 0., 1., 1.]]).to(device))
-        image_labels.append(torch.LongTensor([opts.num_classes]).to(device))  # background
-        image_scores.append(torch.FloatTensor([0.]).to(device))
-
-    # Concatenate into single tensors
-    image_boxes = torch.cat(image_boxes, dim=0)  # (n_objects, 4)
-    image_labels = torch.cat(image_labels, dim=0)  # (n_objects)
-    image_scores = torch.cat(image_scores, dim=0)  # (n_objects)
-    n_objects = image_scores.size(0)
-
-    # Keep only the top k objects --> 다구하고 200 개를 자르는 것은 느리지 않은가?
-    if n_objects > top_k:
-        image_scores, sort_ind = image_scores.sort(dim=0, descending=True)
-        image_scores = image_scores[:top_k]  # (top_k)
-        image_boxes = image_boxes[sort_ind][:top_k]  # (top_k, 4)
-        image_labels = image_labels[sort_ind][:top_k]  # (top_k)
-
-    return image_boxes, image_labels, image_scores  # lists of length batch_size
+        f = os.path.join(opts.log_dir, opts.name, 'saves', opts.name + '.{}.pth.tar'.format(opts.start_epoch - 1))
+        device = torch.device('cuda:{}'.format(opts.gpu_ids[opts.rank]))
+        checkpoint = torch.load(f=f,
+                                map_location=device)
+        model.load_state_dict(checkpoint['model_state_dict'])                              # load model state dict
+        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])                      # load optim state dict
+        scheduler.load_state_dict(checkpoint['scheduler_state_dict'])                      # load sched state dict
+        if opts.rank == 0:
+            print('\nLoaded checkpoint from epoch %d.\n' % (int(opts.start_epoch) - 1))
+    else:
+        if opts.rank == 0:
+            print('\nNo check point to resume.. train from scratch.\n')
+    return model, optimizer, scheduler
