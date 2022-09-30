@@ -1,167 +1,147 @@
 import os
 import time
 import torch
-from utils import detect
+import numpy as np
 from evaluation.evaluator import Evaluator
-from config import device, device_ids
 
 
-def test(epoch, vis, test_loader, model, criterion, coder, opts):
+@torch.no_grad()
+def test_and_eval(epoch, device, vis, test_loader, model, criterion, opts, xl_log_saver=None, result_best=None):
 
-    # ---------- load ----------
     if opts.rank == 0:
+
+        # 0. evaluator
+        evaluator = Evaluator(data_type=opts.data_type)
         print('Validation of epoch [{}]'.format(epoch))
         model.eval()
-        check_point = torch.load(os.path.join(opts.save_path, opts.save_file_name) + '.{}.pth.tar'.format(epoch),
-                                 map_location=torch.device('cuda:{}'.format(opts.gpu_id)))
-        state_dict = check_point['model_state_dict']
-        model.load_state_dict(state_dict)
+        local_gpu_id = int(opts.gpu_ids[opts.rank])
+
+        # 1. load .pth
+        checkpoint = torch.load(f=os.path.join(opts.log_dir, opts.name, 'saves', opts.name + '.{}.pth.tar'.format(epoch)),
+                                map_location=device)
+        model.load_state_dict(checkpoint['model_state_dict'])
+        model.eval()
 
         tic = time.time()
-        sum_loss = 0
+        sum_loss = []
 
-        is_coco = hasattr(test_loader.dataset, 'coco')  # if True the set is COCO else VOC
-        if is_coco:
+        # 2.
+        if opts.data_type == 'coco':
             print('COCO dataset evaluation...')
         else:
             print('VOC dataset evaluation...')
 
-        evaluator = Evaluator(data_type=opts.data_type)
+        for idx, data in enumerate(test_loader):
 
-        with torch.no_grad():
+            if idx == 517:
+                print(data)
+            images = data[0]
+            boxes = data[1]
+            labels = data[2]
 
-            for idx, datas in enumerate(test_loader):
+            # ---------- cuda ----------
+            images = images.to(local_gpu_id)
+            boxes = [b.to(local_gpu_id) for b in boxes]
+            labels = [l.to(local_gpu_id) for l in labels]
+            anchors = model.module.anchors.to(local_gpu_id)
 
-                images = datas[0]
-                boxes = datas[1]
-                labels = datas[2]
+            # ---------- loss ----------
+            pred = model(images)
+            loss, (cls_loss, loc_loss) = criterion(pred, boxes, labels, anchors)
+            sum_loss.append(loss.item())
 
-                # ---------- cuda ----------
-                images = images.to(opts.gpu_id)
-                boxes = [b.to(opts.gpu_id) for b in boxes]
-                labels = [l.to(opts.gpu_id) for l in labels]
+            # ---------- predict ----------
+            pred_boxes, pred_labels, pred_scores = model.module.predict(pred[0], pred[1], anchors, opts)
 
-                # ---------- loss ----------
-                pred = model(images)
-                loss, (cls_loss, loc_loss) = criterion(pred, boxes, labels)
+            if opts.data_type == 'voc':
 
-                sum_loss += loss.item()
+                info = data[3][0]  # [{}]
+                info = (pred_boxes, pred_labels, pred_scores, info['name'], info['original_wh'])
 
-                # ---------- eval ----------
-                pred_boxes, pred_labels, pred_scores = detect(pred=pred,
-                                                              coder=coder,
-                                                              opts=opts)
+            elif opts.data_type == 'coco':
 
-                if opts.data_type == 'voc':
-                    img_name = datas[3][0]
-                    img_info = datas[4][0]
-                    info = (pred_boxes, pred_labels, pred_scores, img_name, img_info)
+                img_id = test_loader.dataset.img_id[idx]
+                img_info = test_loader.dataset.coco.loadImgs(ids=img_id)[0]
+                coco_ids = test_loader.dataset.coco_ids
+                info = (pred_boxes, pred_labels, pred_scores, img_id, img_info, coco_ids)
 
-                elif opts.data_type == 'coco':
-                    img_id = test_loader.dataset.img_id[idx]
-                    img_info = test_loader.dataset.coco.loadImgs(ids=img_id)[0]
-                    coco_ids = test_loader.dataset.coco_ids
-                    info = (pred_boxes, pred_labels, pred_scores, img_id, img_info, coco_ids)
+            evaluator.get_info(info)
+            toc = time.time()
 
-                evaluator.get_info(info)
+            # ---------- print ----------
+            if idx % opts.vis_step == 0 or idx == len(test_loader) - 1:
+                print('Epoch: [{0}]\t'
+                      'Step: [{1}/{2}]\t'
+                      'Loss: {loss:.4f}\t'
+                      'Time : {time:.4f}\t'
+                      .format(epoch,
+                              idx, len(test_loader),
+                              loss=loss,
+                              time=toc - tic))
 
-                toc = time.time()
+        mAP = evaluator.evaluate(test_loader.dataset)
+        mean_loss = np.array(sum_loss).mean()
+        print("mAP : ", mAP)
+        print("mean Loss : ", mean_loss)
+        print("Eval Time : {:.4f}".format(time.time() - tic))
+        if vis is not None:
+            # loss plot
+            vis.line(X=torch.ones((1, 2)).cpu() * epoch,  # step
+                     Y=torch.Tensor([mean_loss, mAP]).unsqueeze(0).cpu(),
+                     win='test_loss',
+                     update='append',
+                     opts=dict(xlabel='step',
+                               ylabel='test',
+                               title='test loss',
+                               legend=['test Loss', 'mAP']))
 
-                # ---------- print ----------
-                if idx % opts.vis_step == 0 or idx == len(test_loader) - 1:
-                    print('Epoch: [{0}]\t'
-                          'Step: [{1}/{2}]\t'
-                          'Loss: {loss:.4f}\t'
-                          'Time : {time:.4f}\t'
-                          .format(epoch,
-                                  idx, len(test_loader),
-                                  loss=loss,
-                                  time=toc - tic))
+        if xl_log_saver is not None:
+            xl_log_saver.insert_each_epoch(contents=(epoch, mAP, mean_loss))
 
-            mAP = evaluator.evaluate(test_loader.dataset)
-            mean_loss = sum_loss / len(test_loader)
+        # save best.pth.tar
+        if result_best is not None:
+            if result_best['mAP'] < mAP:
+                print("update best model")
+                result_best['epoch'] = epoch
+                result_best['mAP'] = mAP
+                torch.save(checkpoint, os.path.join(opts.log_dir, opts.name, 'saves', opts.name + '.best.pth.tar'))
 
-            print(mAP)
-            print("Eval Time : {:.4f}".format(time.time() - tic))
-
-            if vis is not None:
-                # loss plot
-                vis.line(X=torch.ones((1, 2)).cpu() * epoch,  # step
-                         Y=torch.Tensor([mean_loss, mAP]).unsqueeze(0).cpu(),
-                         win='test_loss',
-                         update='append',
-                         opts=dict(xlabel='step',
-                                   ylabel='test',
-                                   title='test loss',
-                                   legend=['test Loss', 'mAP']))
+            return result_best
 
 
 if __name__ == "__main__":
-
-    from dataset.voc_dataset import VOC_Dataset
-    from dataset.coco_dataset import COCO_Dataset
+    from dataset.build import build_dataloader
+    from models.build import build_model
     from loss import RetinaLoss
-    from model import RetinaNet
-    from coder import RETINA_Coder
-    import argparse
+    import configargparse
+    from config import get_args_parser
 
-    parser = argparse.ArgumentParser()
-
-    parser.add_argument('--epoch', type=int, default=12)
-    parser.add_argument('--save_path', type=str, default='./saves')
-    parser.add_argument('--save_file_name', type=str, default='retina_res_50_coco')
-    parser.add_argument('--conf_thres', type=float, default=0.05)
-    parser.add_argument('--rank', type=int, default=0)
-
-    # parser.add_argument('--data_root', type=str, default='D:\data\\voc')
-    # parser.add_argument('--data_root', type=str, default='D:\data\coco')
-    # parser.add_argument('--data_root', type=str, default='/home/cvmlserver5/Sungmin/data/voc')
-    parser.add_argument('--data_root', type=str, default='/home/cvmlserver5/Sungmin/data/coco')
-    parser.add_argument('--vis_step', type=int, default=100)
-
-    parser.add_argument('--data_type', type=str, default='coco', help='choose voc or coco')
-    parser.add_argument('--resize', type=int, default=600, help='image_size')
-    parser.add_argument('--num_classes', type=int, default=80)
-
-    test_opts = parser.parse_args()
-    print(test_opts)
+    parser = configargparse.ArgumentParser('Retinanet testing', parents=[get_args_parser()])
+    opts = parser.parse_args()
 
     # 2. device
-    # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # 3. visdom
     vis = None
 
-    # 4. data set
-    if test_opts.data_type == 'voc':
-        test_set = VOC_Dataset(root=test_opts.data_root, split='test', resize=600)
-        test_opts.num_classes = 20
+    # 4. dataloader
+    _, test_loader = build_dataloader(opts)
 
-    if test_opts.data_type == 'coco':
-        test_set = COCO_Dataset(root=test_opts.data_root, set_name='val2017', split='test', resize=600)
-        test_opts.num_classes = 80
+    # 5. network
+    model = build_model(opts).to(device)
 
-    # 5. data loader
-    test_loader = torch.utils.data.DataLoader(test_set,
-                                              batch_size=1,
-                                              collate_fn=test_set.collate_fn,
-                                              shuffle=False,
-                                              num_workers=0)
-    # 6. network
-    model = RetinaNet(num_classes=test_opts.num_classes).to(device)
-    model = torch.nn.DataParallel(module=model, device_ids=device_ids)
-    coder = RETINA_Coder(opts=test_opts)
+    # 6. loss
+    criterion = RetinaLoss(opts)
 
     # 7. loss
-    criterion = RetinaLoss(coder)
-
-    test(epoch=test_opts.epoch,
-         vis=vis,
-         test_loader=test_loader,
-         model=model,
-         criterion=criterion,
-         coder=coder,
-         opts=test_opts)
+    test_and_eval(epoch=opts.test_epoch,
+                  device=device,
+                  vis=vis,
+                  test_loader=test_loader,
+                  model=model,
+                  criterion=criterion,
+                  opts=opts)
 
 
 

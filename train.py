@@ -1,32 +1,14 @@
-import time
 import os
+import time
 import torch
-import torch.distributed as dist
-from config import device
 
 
-def average_gradients(model):
-    size = float(dist.get_world_size())
-    for param in model.parameters():
-        if hasattr(param.grad, 'data'):
-            dist.all_reduce(param.grad.data, op=dist.ReduceOp.SUM)
-            param.grad.data /= size
+def train_one_epoch(epoch, vis, train_loader, model, criterion, optimizer, scheduler, opts):
 
-
-def reduce_tensor(tensor, average=True):
-    rt = tensor.clone()
-    dist.all_reduce(rt, op=dist.reduce_op.SUM)
-
-    if average:
-        # gpu 갯수로 나눠줌.
-        world_size = float(dist.get_world_size())
-        rt /= world_size
-    return rt
-
-
-def train(epoch, vis, train_loader, model, criterion, optimizer, scheduler, opts):
     if opts.rank == 0:
         print('Training of epoch [{}]'.format(epoch))
+
+    local_gpu_id = int(opts.gpu_ids[opts.rank])
     tic = time.time()
     model.train()
     model.module.freeze_bn()  # as attach module, we use data parallel
@@ -37,18 +19,14 @@ def train(epoch, vis, train_loader, model, criterion, optimizer, scheduler, opts
         boxes = datas[1]
         labels = datas[2]
 
-        images = images.to(opts.gpu_id)
-        boxes = [b.to(opts.gpu_id) for b in boxes]
-        labels = [l.to(opts.gpu_id) for l in labels]
+        images = images.to(local_gpu_id)
+        boxes = [b.to(local_gpu_id) for b in boxes]
+        labels = [l.to(local_gpu_id) for l in labels]
+        anchors = model.module.anchors.to(local_gpu_id)
 
         pred = model(images)
-        loss, (cls_loss, loc_loss) = criterion(pred, boxes, labels)
-        # if model.__class__.__name__ == 'DistributedDataParallel':
-        #     # https://tutorials.pytorch.kr/intermediate/dist_tuto.html
-        #     loss = reduce_tensor(loss)
-        # if model.__class__.__name__ == 'DistributedDataParallel':
-        #     # https://tutorials.pytorch.kr/intermediate/dist_tuto.html
-        #     average_gradients(model)
+        # pred = [pred[0].tolist(), pred[1].tolist()]
+        loss, (cls_loss, loc_loss) = criterion(pred, boxes, labels, anchors)
 
         # sgd
         optimizer.zero_grad()
@@ -89,15 +67,15 @@ def train(epoch, vis, train_loader, model, criterion, optimizer, scheduler, opts
 
     # # 각 epoch 마다 저장
     if opts.rank == 0:
-        if not os.path.exists(opts.save_path):
-            os.mkdir(opts.save_path)
+        save_path = os.path.join(opts.log_dir, opts.name, 'saves')
+        os.makedirs(save_path, exist_ok=True)
 
         checkpoint = {'epoch': epoch,
                       'model_state_dict': model.state_dict(),
                       'optimizer_state_dict': optimizer.state_dict(),
                       'scheduler_state_dict': scheduler.state_dict()}
 
-        torch.save(checkpoint, os.path.join(opts.save_path, opts.save_file_name + '.{}.pth.tar'.format(epoch)))
+        torch.save(checkpoint, os.path.join(save_path, opts.name + '.{}.pth.tar'.format(epoch)))
 
 
 
