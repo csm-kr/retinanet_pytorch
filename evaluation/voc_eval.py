@@ -64,7 +64,7 @@ def save_gt(xml_file, cache_dir, classes, gt_counter_per_class):
     return classes, gt_counter_per_class
 
 
-def save_pred(img_names, additional, bboxes, scores, classes, class_name, gt_classes, cache_dir):
+def save_pred(img_names, additional, bboxes, scores, classes, class_name, gt_classes, cache_dir, is_norm=True):
     """
 
     :param img_names: list of 2nd dimensional tensor [[1, num_name_strings]]
@@ -81,19 +81,16 @@ def save_pred(img_names, additional, bboxes, scores, classes, class_name, gt_cla
     preds_dicts = []
     for (img_name_ascii, add, obj_boxes, obj_scores, obj_class) in zip(img_names, additional, bboxes, scores, classes):
 
-        img_name_ascii = img_name_ascii[0]
-        img_name_ascii = img_name_ascii.numpy()
-        img_name_from_ascii = [chr(c) for c in img_name_ascii]
-
         img_width = add[0]
         img_height = add[1]
 
-        # 1. convert from ascii int name to string
-        img_name = ''.join(img_name_from_ascii)
-
+        img_name = ''.join(img_name_ascii)
         # 2. width, height 로 bbox 를 변형하라
-        origin_wh = torch.FloatTensor([img_width, img_height, img_width, img_height]).unsqueeze(0)  # [1  , 4]
-        obj_boxes = obj_boxes * origin_wh                                                           # [obj, 4]
+        if is_norm:
+            origin_wh = np.array([img_width, img_height, img_width, img_height])                        # [1  , 4]
+            obj_boxes = obj_boxes * origin_wh                                                           # [obj, 4]
+        else:
+            obj_boxes = obj_boxes
 
         for (box, score, class_) in zip(obj_boxes, obj_scores, obj_class):
             # obj 개
@@ -261,7 +258,7 @@ def voc_eval(test_xml_path='D:\data\\voc\VOCtest_06-Nov-2007\VOCdevkit\VOC2007\A
 
     # 3. save_pred
     for class_index, class_name in enumerate(gt_classes):
-        save_pred(img_names, additional, bboxes, scores, classes, class_name, gt_classes, cache_dir)
+        save_pred(img_names, additional, bboxes, scores, classes, class_name, gt_classes, cache_dir, is_norm=True)
 
     # 4. calculate mAP
     map = cal_mAP(cache_dir, gt_classes, gt_counter_per_class, 0.5)

@@ -1,7 +1,78 @@
 import torch
 import torch.nn as nn
-from config import device
-from model import RetinaNet
+from utils import cxcy_to_xy, xy_to_cxcy, find_jaccard_overlap, encode
+
+
+class TargetMaker(nn.Module):
+    def __init__(self, opts):
+        super().__init__()
+        self.num_classes = opts.num_classes
+
+    def forward(self, gt_boxes, gt_labels, center_anchor, IT=0.5):
+        """
+        gt_boxes : [B, ]
+        gt_labels : [B, ]
+        """
+        batch_size = len(gt_labels)
+        n_priors = center_anchor.size(0)
+        device_ = gt_labels[0].get_device()
+
+        # ----- 1. make container
+        gt_locations = torch.zeros((batch_size, n_priors, 4), dtype=torch.float, device=device_)
+        gt_classes = -1 * torch.ones((batch_size, n_priors, self.num_classes), dtype=torch.float, device=device_)
+
+        anchor_identifier = -1 * torch.ones((batch_size, n_priors), dtype=torch.float32, device=device_)
+        # if anchor is positive -> 1,
+        #              negative -> 0,
+        #              ignore   -> -1
+
+        # ----- 2. make corner anchors
+        center_anchor = center_anchor.to(device_)
+        corner_anchor = cxcy_to_xy(center_anchor)
+
+        for i in range(batch_size):
+            boxes = gt_boxes[i]  # xy coord
+            labels = gt_labels[i]
+
+            # ----- 3. find iou between anchors and boxes
+            iou = find_jaccard_overlap(corner_anchor, boxes)
+            IoU_max, IoU_argmax = iou.max(dim=1)
+
+            # ----- 4. build gt_classes
+            # if iou < 0.4 -> negative class and set 0, anchor_identifier is zero
+            negative_indices = IoU_max < 0.4
+            gt_classes[i][negative_indices, :] = 0
+            anchor_identifier[i][negative_indices] = 0
+
+            if IT is not None:
+                # if iou > 0.5 -> positive class and set label, anchor_identifier is 1
+                positive_indices = IoU_max >= 0.5  # [120087] - binary values
+                if positive_indices.sum() == 0:
+                    _, IoU_argmax_per_object = iou.max(dim=0)  # [num_object] - 어떤 anchor 가 obj 의 max 인지 알려줌
+                    positive_indices = torch.zeros_like(IoU_max)
+                    positive_indices[IoU_argmax_per_object] = 1
+                    positive_indices = positive_indices.type(torch.bool)
+            else:
+                _, IoU_argmax_per_object = iou.max(dim=0)  # [num_object] - 어떤 anchor 가 obj 의 max 인지 알려줌
+                positive_indices = torch.zeros_like(IoU_max)
+                positive_indices[IoU_argmax_per_object] = 1
+                positive_indices = positive_indices.type(torch.bool)
+
+            # set background 0
+            argmax_labels = labels[IoU_argmax] + 1
+
+            gt_classes[i][positive_indices, :] = 0
+            gt_classes[i][positive_indices, argmax_labels[positive_indices].long()] = 1.  # objects
+            anchor_identifier[i][positive_indices] = 1  # original masking \in {0, 1}
+            # anchor_identifier[i][positive_indices] = IoU_max[positive_indices]           # iou masking \in [0, 1]
+
+            # ----- 4. build gt_locations
+            argmax_locations = boxes[IoU_argmax]
+            center_locations = xy_to_cxcy(argmax_locations)  # [67995, 4] 0 ~ 1 사이이다. boxes 가
+            gt_gcxcywh = encode(center_locations, center_anchor)
+            gt_locations[i] = gt_gcxcywh
+
+        return gt_classes, gt_locations, anchor_identifier
 
 
 class SmoothL1Loss(nn.Module):
@@ -34,21 +105,22 @@ class FocalLoss(nn.Module):
 
 
 class RetinaLoss(nn.Module):
-    def __init__(self, coder):
+    def __init__(self, opts):
         super().__init__()
-        self.coder = coder
         self.focal_loss = FocalLoss()
         self.smooth_l1_loss = SmoothL1Loss()
+        self.target_maker = TargetMaker(opts)
 
-    def forward(self, pred, gt_boxes, gt_labels):
+    def forward(self, pred, gt_boxes, gt_labels, center_anchor):
         pred_cls = pred[0]
         pred_loc = pred[1]
 
-        n_priors = self.coder.center_anchor.size(0)
+        # print(self.coder.center_anchor.size(0))
+        n_priors = int(center_anchor.size(0))
         assert n_priors == pred_loc.size(1) == pred_cls.size(1)  # 67995 --> 120087
 
         # build targets
-        gt_cls, gt_locs, depth = self.coder.build_target(gt_boxes, gt_labels, IT=0.5)
+        gt_cls, gt_locs, depth = self.target_maker(gt_boxes, gt_labels, center_anchor, IT=0.5)
 
         # make mask & num_of_pos
         num_of_pos = (depth > 0).sum().float()  # only foreground
@@ -68,29 +140,28 @@ class RetinaLoss(nn.Module):
         return total_loss, (cls_loss, loc_loss)
 
 
-if __name__ == '__main__':
-    from anchor import RETINA_Anchor
-    from coder import RETINA_Coder
-    import argparse
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--data_type', type=str, default='coco', help='choose voc or coco')
-    parser.add_argument('--resize', type=int, default=600, help='image_size')
-    parser.add_argument('--num_classes', type=int, default=20)
-    loss_opts = parser.parse_args()
-
-    test_image = torch.randn([2, 3, 600, 600]).to(device)
-    model = RetinaNet().to(device)
-    cls, reg = model(test_image)
-    print("cls' size() :", cls.size())
-    print("reg's size() :", reg.size())
-
-    gt = [torch.Tensor([[0.426, 0.158, 0.788, 0.997], [0.0585, 0.1597, 0.8947, 0.8213]]).to(device),
-          torch.Tensor([[0.002, 0.090, 0.998, 0.867], [0.3094, 0.4396, 0.4260, 0.5440]]).to(device)]
-
-    label = [torch.Tensor([14, 15]).to(device),
-             torch.Tensor([12, 14]).to(device)]
-
-    coder = RETINA_Coder(loss_opts)
-    loss = RetinaLoss(coder=coder)
-    print(loss((cls, reg), gt, label))
+# if __name__ == '__main__':
+#     from anchor import RETINA_Anchor
+#     import argparse
+#
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument('--data_type', type=str, default='coco', help='choose voc or coco')
+#     parser.add_argument('--resize', type=int, default=600, help='image_size')
+#     parser.add_argument('--num_classes', type=int, default=20)
+#     loss_opts = parser.parse_args()
+#
+#     test_image = torch.randn([2, 3, 600, 600]).to(device)
+#     model = RetinaNet().to(device)
+#     cls, reg = model(test_image)
+#     print("cls' size() :", cls.size())
+#     print("reg's size() :", reg.size())
+#
+#     gt = [torch.Tensor([[0.426, 0.158, 0.788, 0.997], [0.0585, 0.1597, 0.8947, 0.8213]]).to(device),
+#           torch.Tensor([[0.002, 0.090, 0.998, 0.867], [0.3094, 0.4396, 0.4260, 0.5440]]).to(device)]
+#
+#     label = [torch.Tensor([14, 15]).to(device),
+#              torch.Tensor([12, 14]).to(device)]
+#
+#     coder = RETINA_Coder(loss_opts)
+#     loss = RetinaLoss(coder=coder)
+#     print(loss((cls, reg), gt, label))

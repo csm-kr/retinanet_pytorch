@@ -27,9 +27,9 @@ class Evaluator(object):
 
             self.det_img_name.append(img_names)  # 4952 len list # [1] - img_name_length [B, k]
             self.det_additional.append(additional_info)  # 4952 len list # [2] -  w, h   [B, 2]
-            self.det_boxes.append(pred_boxes.cpu())  # 4952 len list # [obj, 4]
-            self.det_labels.append(pred_labels.cpu())  # 4952 len list # [obj]
-            self.det_scores.append(pred_scores.cpu())  # 4952 len list # [obj]
+            self.det_boxes.append(pred_boxes)  # 4952 len list # [obj, 4]
+            self.det_labels.append(pred_labels)  # 4952 len list # [obj]
+            self.det_scores.append(pred_scores)  # 4952 len list # [obj]
 
         elif self.data_type == 'coco':
 

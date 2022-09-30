@@ -1,164 +1,168 @@
-import torch
 import os
+import cv2
 import glob
 import time
-from config import device, device_ids
-import argparse
-from torchvision import transforms as tfs
+import torch
 from PIL import Image
-import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
-from utils import coco_label_map, voc_label_map, detect, coco_color_array, voc_color_array
+import numpy as np
+from torchvision import transforms as tfs
 
 
-def image_transforms(img, resize):
+def demo_image_transforms(demo_image, opts):
 
-    transform = tfs.Compose([tfs.Resize((resize, resize)),
-                             tfs.ToTensor(),
-                             tfs.Normalize(mean=[0.485, 0.456, 0.406],
-                                           std=[0.229, 0.224, 0.225])])
+    transform_demo = tfs.Compose([tfs.Resize((opts.resize, opts.resize)),
+                                  tfs.ToTensor(),
+                                  tfs.Normalize(mean=[0.485, 0.456, 0.406],
+                                                std=[0.229, 0.224, 0.225])])
 
-    tf_img = transform(img)
-    tf_img = tf_img.unsqueeze(0)  # make batch
-    return tf_img
-
-
-def visualize_results(images, bbox, cls, scores, label_map, color_array, resize):
-    label_array = list(label_map.keys())  # dict
-    color_array = color_array
-
-    # 0. permute
-    images = images.cpu()
-    images = images.squeeze(0).permute(1, 2, 0)  # B, C, H, W --> H, W, C
-
-    # 1. un normalization
-    images *= torch.Tensor([0.229, 0.224, 0.225])
-    images += torch.Tensor([0.485, 0.456, 0.406])
-
-    # 2. RGB to BGR
-    image_np = images.numpy()
-
-    # 3. box scaling
-    bbox *= resize
-
-    plt.figure('result')
-    plt.imshow(image_np)
-
-    for i in range(len(bbox)):
-
-        x1 = bbox[i][0]
-        y1 = bbox[i][1]
-        x2 = bbox[i][2]
-        y2 = bbox[i][3]
-
-        # class and score
-        plt.text(x=x1 - 5,
-                 y=y1 - 5,
-                 s=label_array[int(cls[i])] + ' {:.2f}'.format(scores[i]),
-                 fontsize=10,
-                 bbox=dict(facecolor=color_array[int(cls[i])],
-                           alpha=0.5))
-
-        # bounding box
-        plt.gca().add_patch(Rectangle(xy=(x1, y1),
-                                      width=x2 - x1,
-                                      height=y2 - y1,
-                                      linewidth=1,
-                                      edgecolor=color_array[int(cls[i])],
-                                      facecolor='none'))
-    plt.show()
+    demo_image = transform_demo(demo_image)
+    demo_image = demo_image.unsqueeze(0)  # make batch
+    return demo_image
 
 
-def demo(opts, coder, model, img_type='jpg'):
+@torch.no_grad()
+def demo(epoch, device, model, opts):
 
-    img_path_list = glob.glob(os.path.join(opts.img_path, '*' + '.' + img_type))
+    # 1. make tensors
+    demo_image_list = glob.glob(os.path.join(opts.demo_root, '*' + '.' + opts.demo_image_type))
     total_time = 0
-    with torch.no_grad():
-        for idx, img_path in enumerate(img_path_list):
 
-            # --------------------- img load ---------------------
-            img = Image.open(img_path).convert('RGB')
-            img = image_transforms(img, opts.resize).to(device)
-
-            # --------------------- inference time ---------------------
-            tic = time.time()
-            pred = model(img)
-            pred_boxes, pred_labels, pred_scores = detect(pred,
-                                                          coder,
-                                                          opts,
-                                                          is_demo=True)
-            toc = time.time()
-            inference_time = toc - tic
-            total_time += inference_time
-
-            if idx % 100 == 0 or idx == len(img_path_list) - 1:
-                # ------------------- check fps -------------------
-                print('Step: [{}/{}]'.format(idx, len(img_path_list)))
-                print("fps : {:.4f}".format((idx + 1) / total_time))
-
-            if opts.data_type == 'voc':
-                label_map = voc_label_map
-                color_array = voc_color_array
-
-            elif opts.data_type == 'coco':
-                label_map = coco_label_map
-                color_array = coco_color_array
-
-            if opts.visualization:
-                visualize_results(img, pred_boxes, pred_labels, pred_scores, label_map, color_array, opts.resize)
-
-
-if __name__ == '__main__':
-
-    from model import RetinaNet
-    from coder import RETINA_Coder
-    import argparse
-
-    import torch.nn.modules.conv
-
-    parser = argparse.ArgumentParser()
-
-    parser.add_argument('--epoch', type=int, default=12)
-    parser.add_argument('--save_path', type=str, default='./saves')
-    parser.add_argument('--save_file_name', type=str, default='retina_res_50_coco')
-    parser.add_argument('--conf_thres', type=float, default=0.35)
-
-    # FIXME choose your image path
-    # parser.add_argument('--img_path', type=str, default='D:\data\\voc\VOCtest_06-Nov-2007\VOCdevkit\VOC2007\JPEGImages')
-    parser.add_argument('--img_path', type=str, default='D:\data\coco\images\\val2017')
-    # parser.add_argument('--img_path', type=str, default='/home/cvmlserver5/Sungmin/data/voc/VOCtest_06-Nov-2007/VOCdevkit/VOC2007/JPEGImages')
-    # parser.add_argument('--img_path', type=str, default='/home/cvmlserver5/Sungmin/data/coco/images/val2017')
-
-    parser.add_argument('--resize', type=int, default=600)
-    parser.set_defaults(visualization=False)
-    parser.add_argument('--vis', dest='visualization', action='store_true')
-
-    parser.add_argument('--data_type', type=str, default='coco', help='choose voc or coco')
-    parser.add_argument('--num_classes', type=int, default=80)
-    demo_opts = parser.parse_args()
-    print(demo_opts)
-
-    if demo_opts.data_type == 'voc':
-        demo_opts.n_classes = 20
-
-    elif demo_opts.data_type == 'coco':
-        demo_opts.n_classes = 80
-
-    model = RetinaNet(num_classes=demo_opts.num_classes).to(device)
-    model = torch.nn.DataParallel(module=model, device_ids=[0])
-
-    # use custom training pth file
-    checkpoint = torch.load(os.path.join(demo_opts.save_path, demo_opts.save_file_name) + '.{}.pth.tar'.
-                            format(demo_opts.epoch),
+    # 2. load .pth
+    checkpoint = torch.load(f=os.path.join(opts.log_dir, opts.name, 'saves', opts.name + '.{}.pth.tar'.
+                                           format(epoch)),
                             map_location=device)
-    model.load_state_dict(checkpoint['model_state_dict'], strict=True)
-
-    model = model.to(device)
+    model.load_state_dict(checkpoint['model_state_dict'])
     model.eval()
 
-    coder = RETINA_Coder(opts=demo_opts)
-    demo(demo_opts, coder, model, 'jpg')
+    for idx, img_path in enumerate(demo_image_list):
+
+        # --------------------- img load ---------------------
+        demo_image_pil = Image.open(img_path).convert('RGB')
+        demo_image = demo_image_transforms(demo_image_pil, opts).to(device)
+        anchors = model.module.anchors.to(device)
+
+        tic = time.time()
+
+        pred = model(demo_image)
+        pred_boxes, pred_labels, pred_scores = model.module.predict(pred[0], pred[1], anchors, opts)
+
+        # re-resize to original image resolution
+        im_show = visualize_detection_result(demo_image_pil, pred_boxes, pred_labels, pred_scores)
+
+        # save_files
+        demo_result_path = os.path.join(opts.demo_root, 'detection_results')
+        os.makedirs(demo_result_path, exist_ok=True)
+
+        if opts.demo_vis:
+            # 0 ~ 1 image -> 0~255 image
+            im_show = cv2.convertScaleAbs(im_show, alpha=(255.0))
+            cv2.imwrite(os.path.join(demo_result_path, os.path.basename(img_path)), im_show)
+            cv2.imshow('i', im_show)
+            cv2.waitKey(0)
+
+        toc = time.time()
+        inference_time = toc - tic
+        total_time += inference_time
+
+        if idx % 100 == 0 or idx == len(demo_image_list) - 1:
+            # ------------------- check fps -------------------
+            print('Step: [{}/{}]'.format(idx, len(demo_image_list)))
+            print("fps : {:.4f}".format((idx + 1) / total_time))
 
 
+def visualize_detection_result(x, bbox, label, score):
 
+    '''
+    x : pil image range - [0 255], uint8
+    bbox : np.array, [num_obj, 4], float32
+    label : np.array, [num_obj] int32
+    score : np.array, [num_obj] float32
+    '''
+
+    img_width, img_height = x.size
+    multiplier = np.array([img_width, img_height, img_width, img_height])
+    bbox *= multiplier
+
+    # 2. uint8 -> float32
+    image_np = np.array(x).astype(np.float32) / 255.
+    x_img = image_np
+    im_show = cv2.cvtColor(x_img, cv2.COLOR_RGB2BGR)
+
+    for j in range(len(bbox)):
+
+        if opts.data_type == 'voc':
+            from utils import voc_color_array, voc_label_map
+            label_list = list(voc_label_map.keys())
+            color_array = voc_color_array
+
+        elif opts.data_type == 'coco':
+            from utils import coco_color_array, coco_label_map
+            label_list = list(coco_label_map.keys())
+            color_array = coco_color_array
+
+        x_min = int(bbox[j][0])
+        y_min = int(bbox[j][1])
+        x_max = int(bbox[j][2])
+        y_max = int(bbox[j][3])
+
+        cv2.rectangle(im_show,
+                      pt1=(x_min, y_min),
+                      pt2=(x_max, y_max),
+                      color=color_array[label[j]],
+                      thickness=2)
+
+        # text_size
+        text_size = cv2.getTextSize(text=label_list[label[j]] + ' {:.2f}'.format(score[j].item()),
+                                    fontFace=cv2.FONT_HERSHEY_PLAIN,
+                                    fontScale=1,
+                                    thickness=1)[0]
+
+        # text_rec
+        cv2.rectangle(im_show,
+                      pt1=(x_min, y_min),
+                      pt2=(x_min + text_size[0] + 3, y_min + text_size[1] + 4),
+                      color=color_array[label[j]],
+                      thickness=-1)
+
+        # put text
+        cv2.putText(im_show,
+                    text=label_list[label[j]] + ' {:.2f}'.format(score[j].item()),
+                    org=(x_min + 10, y_min + 10),  # must be int
+                    fontFace=0,
+                    fontScale=0.4,
+                    color=(0, 0, 0))
+
+    return im_show
+
+
+if __name__ == "__main__":
+    from dataset.build import build_dataloader
+    from models.build import build_model
+    from loss import RetinaLoss
+    import configargparse
+    from config import get_args_parser
+
+    parser = configargparse.ArgumentParser('Retinanet demo', parents=[get_args_parser()])
+    opts = parser.parse_args()
+
+    # 2. device
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+    # 3. visdom
+    vis = None
+
+    # 4. dataloader
+    _, test_loader = build_dataloader(opts)
+
+    # 5. network
+    model = build_model(opts).to(device)
+
+    # 6. loss
+    criterion = RetinaLoss(opts)
+
+    # 7. loss
+    demo(epoch=opts.demo_epoch,
+         device=device,
+         model=model,
+         opts=opts)
 
