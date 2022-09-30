@@ -12,7 +12,6 @@ figure/others
 *.tmp
 
 # train
-voc/
 save/
 saves/
 logs/
