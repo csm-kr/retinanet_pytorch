@@ -1,0 +1,17 @@
+# config
+name = retinanet_coco
+
+# data
+batch_size = 16
+data_root = /home/cvmlserver7/Sungmin/data/coco
+data_type = coco
+
+# model
+resize = 600
+
+# train
+epoch = 13
+
+# distributed
+rank = 0
+gpu_ids = [0, 1, 2, 3]

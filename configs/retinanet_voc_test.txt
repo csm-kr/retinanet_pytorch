@@ -1,0 +1,22 @@
+# train
+name = retinanet_voc
+
+# data
+# data_root = ./home/cvmlserver9/Sungmin/data/coco
+data_root = D:/data/voc
+data_type = voc
+resize = 600
+
+# train
+batch_size = 4
+epoch = 13
+lr = 0.01
+
+# test
+thres = 0.05
+
+# distributed
+# distributed_true
+# gpu_ids = [0, 1, 2, 3]
+gpu_ids = [0]
+rank = 0

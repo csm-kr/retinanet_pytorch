@@ -9,9 +9,7 @@ from PIL import Image
 import torch.utils.data as data
 from xml.etree.ElementTree import parse
 from matplotlib.patches import Rectangle
-from dataset.trasform import transform
 from utils import bar_custom, voc_color_array
-from config import device
 
 
 def download_voc(root_dir='D:\data\\voc', remove_compressed_file=True):
@@ -73,16 +71,29 @@ class VOC_Dataset(data.Dataset):
     """
     voc dataset
     """
-    def __init__(self, root='D:\data\\voc', split='train', download=True, resize=300):
+    def __init__(self,
+                 root='D:\data\\voc',
+                 split='train',
+                 download=True,
+                 transform=None,
+                 visualization=True):
         super(VOC_Dataset, self).__init__()
 
         self.root = root
-        self.resize = resize
-        self.split = split.lower()
-        self.download = download
+        # -------------------------- set split --------------------------
+        assert split in ['train', 'test']
+        self.split = split
+
         # -------------------------- download --------------------------
+        self.download = download
         if self.download:
-            download_voc(root_dir=self.root)
+            download_voc(root_dir=root)
+
+        # -------------------------- transform --------------------------
+        self.transform = transform
+
+        # -------------------------- visualization --------------------------
+        self.visualization = visualization
 
         # -------------------------- data setting --------------------------
         self.data_list = []
@@ -97,7 +108,11 @@ class VOC_Dataset(data.Dataset):
 
             self.img_list.extend(glob.glob(os.path.join(os.path.join(self.root, data_), '*/*/JPEGImages/*.jpg')))
             self.anno_list.extend(glob.glob(os.path.join(os.path.join(self.root, data_), '*/*/Annotations/*.xml')))
+            # only voc 2007
+            # self.img_list.extend(glob.glob(os.path.join(os.path.join(self.root, data_), '*/VOC2007/JPEGImages/*.jpg')))
+            # self.anno_list.extend(glob.glob(os.path.join(os.path.join(self.root, data_), '*/VOC2007/Annotations/*.xml')))
 
+        # for debug
         self.img_list = sorted(self.img_list)
         self.anno_list = sorted(self.anno_list)
 
@@ -106,12 +121,14 @@ class VOC_Dataset(data.Dataset):
 
     def __getitem__(self, idx):
 
-        visualize = False
-
         # load img
         image = Image.open(self.img_list[idx]).convert('RGB')
+        # print(self.img_list[idx])
         # load labels
         boxes, labels = self.parse_voc(self.anno_list[idx])
+        # print(boxes)
+        # print(self.img_list[idx])
+        # issue : diff 1인 친구들
 
         # load img name for string
         img_name = os.path.basename(self.anno_list[idx]).split('.')[0]
@@ -122,19 +139,14 @@ class VOC_Dataset(data.Dataset):
 
         boxes = torch.FloatTensor(boxes)
         labels = torch.LongTensor(labels)  # 0 ~ 19
-        img_name = torch.FloatTensor([img_name_to_ascii])
-        additional_info = torch.FloatTensor([img_width, img_height])
+        info = {}
+        info['name'] = img_name
+        info['original_wh'] = [int(img_width), int(img_height)]
+        # --------------------------- for transform ---------------------------
+        if self.transform is not None:
+            image, boxes, labels = self.transform(image, boxes, labels)
 
-        transform_list = ['photo', 'expand', 'crop', 'flip', 'resize']
-
-        zero_to_one_coord = False
-        if 'resize' in transform_list:
-            zero_to_one_coord = True
-
-        image, boxes, labels = transform(image, boxes, labels, self.split, transform_list, self.resize, zero_to_one_coord)
-        # boxes = torch.clamp(boxes, 1e-3, 1 - 1e-3)
-
-        if visualize:
+        if self.visualization:
             mean = np.array([0.485, 0.456, 0.406])
             std = np.array([0.229, 0.224, 0.225])
 
@@ -147,12 +159,18 @@ class VOC_Dataset(data.Dataset):
             plt.figure('input')
             plt.imshow(img_vis)
             print('num objects : {}'.format(len(boxes)))
+
             for i in range(len(boxes)):
 
-                x1 = boxes[i][0] * self.resize
-                y1 = boxes[i][1] * self.resize
-                x2 = boxes[i][2] * self.resize
-                y2 = boxes[i][3] * self.resize
+                new_h_scale = new_w_scale = 1
+                # box_normalization of DetResize
+                if self.transform.transforms[-2].box_normalization:
+                    new_h_scale, new_w_scale = image.size()[1:]
+
+                x1 = boxes[i][0] * new_w_scale
+                y1 = boxes[i][1] * new_h_scale
+                x2 = boxes[i][2] * new_w_scale
+                y2 = boxes[i][3] * new_h_scale
 
                 # class
                 plt.text(x=x1 - 5,
@@ -172,7 +190,7 @@ class VOC_Dataset(data.Dataset):
 
             plt.show()
         if self.split == "test":
-            return image, boxes, labels, img_name, additional_info
+            return image, boxes, labels, info
 
         return image, boxes, labels
 
@@ -188,6 +206,10 @@ class VOC_Dataset(data.Dataset):
         labels = []
 
         for obj in root.iter("object"):
+
+            # if int(obj.find('difficult').text) == 1:
+            #     # difficult.append(int(obj.find('difficult').text))
+            #     continue
 
             # 'name' tag 에서 멈추기
             name = obj.find('./name')
@@ -220,30 +242,59 @@ class VOC_Dataset(data.Dataset):
         images = list()
         boxes = list()
         labels = list()
-        img_name = list()
-        additional_info = list()
+        info = list()
 
         for b in batch:
             images.append(b[0])
             boxes.append(b[1])
             labels.append(b[2])
             if self.split == "test":
-                img_name.append(b[3])
-                additional_info.append(b[4])
+                info.append(b[3])
 
         images = torch.stack(images, dim=0)
         if self.split == "test":
-            return images, boxes, labels, img_name, additional_info
+            return images, boxes, labels, info
         return images, boxes, labels
 
 
 if __name__ == "__main__":
+    import torchvision.transforms as transforms
+    device = torch.device('cuda:0')
+    import dataset.detection_transforms as det_transforms
 
     # train_transform
-    ubuntu_root = "/home/cvmlserver3/Sungmin/data/voc"
+    # ubuntu_root = "/home/cvmlserver3/Sungmin/data/voc"
     window_root = 'D:\data\\voc'
+    # for test
+    # window_root = r'C:\Users\csm81\Desktop\\voc_temp'
     root = window_root
-    train_set = VOC_Dataset(root, split='train', download=True, resize=600)
+
+    transform_train = det_transforms.DetCompose([
+        # ------------- for Tensor augmentation -------------
+        # det_transforms.DetRandomPhotoDistortion(),
+        det_transforms.DetRandomHorizontalFlip(),
+        det_transforms.DetToTensor(),
+        # ------------- for Tensor augmentation -------------
+        # det_transforms.DetRandomZoomOut(max_scale=3),
+        # det_transforms.DetRandomZoomIn(),
+        det_transforms.DetResize(size=600, max_size=1333, box_normalization=True),
+        det_transforms.DetNormalize(mean=[0.485, 0.456, 0.406],
+                                    std=[0.229, 0.224, 0.225])
+    ])
+
+    transform_test = det_transforms.DetCompose([
+        det_transforms.DetToTensor(),
+        det_transforms.DetResize(size=800, max_size=1333, box_normalization=True),
+        det_transforms.DetNormalize(mean=[0.485, 0.456, 0.406],
+                                    std=[0.229, 0.224, 0.225])
+    ])
+
+    train_set = VOC_Dataset(root,
+                            split='test',
+                            download=False,
+                            transform=transform_train,
+                            visualization=True)
+
     train_loader = torch.utils.data.DataLoader(train_set,
                                                batch_size=1,
                                                collate_fn=train_set.collate_fn,
@@ -251,14 +302,19 @@ if __name__ == "__main__":
                                                num_workers=0,
                                                pin_memory=True)
 
+    print(len(train_loader))
+
     for i, data in enumerate(train_loader):
 
         images = data[0]
         boxes = data[1]
         labels = data[2]
 
-        images = images.to(device)
-        boxes = [b.to(device) for b in boxes]
-        labels = [l.to(device) for l in labels]
+        # images = images.to(device)
+        # boxes = [b.to(device) for b in boxes]
+        # labels = [l.to(device) for l in labels]
+        print(i)
         print(labels)
+        print(boxes)
+
 

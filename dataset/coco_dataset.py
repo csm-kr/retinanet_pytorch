@@ -7,8 +7,6 @@ from pycocotools.coco import COCO
 from torch.utils.data import DataLoader, Dataset
 import numpy as np
 import torch
-from dataset.trasform import transform_retina
-from config import device
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
@@ -92,25 +90,36 @@ def download_coco(root_dir='D:\data\\coco', remove_compressed_file=True):
 
 # COCO_Dataset
 class COCO_Dataset(Dataset):
-    def __init__(self, root='D:\Data\coco', set_name='train2017', split='train', download=True, resize=300):
+    def __init__(self,
+                 root='D:\Data\coco',
+                 split='train',
+                 download=True,
+                 transform=None,
+                 visualization=False):
         super().__init__()
 
         if platform.system() == 'Windows':
             matplotlib.use('TkAgg')  # for window
+
+        # -------------------------- set root --------------------------
+        self.root = root
+
+        # -------------------------- set split --------------------------
+        assert split in ['train', 'val', 'test']
+        self.split = split
+        self.set_name = split + '2017'
 
         # -------------------------- download --------------------------
         self.download = download
         if self.download:
             download_coco(root_dir=root)
 
-        # -------------------------- data setting --------------------------
-        self.resize = resize
-        self.root = root
-        self.set_name = set_name
+        # -------------------------- transform --------------------------
+        self.transform = transform
 
-        assert set_name in ['train2017', 'val2017', 'test2017']
+        # -------------------------- visualization --------------------------
+        self.visualization = visualization
 
-        self.split = split.lower()
         self.img_path = glob.glob(os.path.join(self.root, 'images', self.set_name, '*.jpg'))
         self.coco = COCO(os.path.join(self.root, 'annotations', 'instances_' + self.set_name + '.json'))
 
@@ -131,8 +140,6 @@ class COCO_Dataset(Dataset):
         '''
 
     def __getitem__(self, index):
-
-        visualize = False
 
         # --------------------------- load data ---------------------------
         # 1. image_id
@@ -156,17 +163,11 @@ class COCO_Dataset(Dataset):
         labels = torch.LongTensor(det_anno[:, 4])
 
         # --------------------------- for transform ---------------------------
-        transform_list = ['flip', 'resize']
+        if self.transform is not None:
+            image, boxes, labels = self.transform(image, boxes, labels)
+        # print("boxes:", boxes)
 
-        zero_to_one_coord = False
-        if 'resize' in transform_list:
-            zero_to_one_coord = True
-
-        # image, boxes, labels = transform(image, boxes, labels, self.split, transform_list, self.resize, zero_to_one_coord)
-        image, boxes, labels = transform_retina(image, boxes, labels, self.split, transform_list, self.resize, zero_to_one_coord)
-
-        if visualize:
-
+        if self.visualization:
             # ----------------- visualization -----------------
             mean = np.array([0.485, 0.456, 0.406])
             std = np.array([0.229, 0.224, 0.225])
@@ -179,15 +180,19 @@ class COCO_Dataset(Dataset):
 
             plt.figure('input')
             plt.imshow(img_vis)
+            print('num objects : {}'.format(len(boxes)))
 
             for i in range(len(boxes)):
 
-                if not zero_to_one_coord:
-                    self.resize = 1
-                x1 = boxes[i][0] * self.resize
-                y1 = boxes[i][1] * self.resize
-                x2 = boxes[i][2] * self.resize
-                y2 = boxes[i][3] * self.resize
+                new_h_scale = new_w_scale = 1
+                # box_normalization of DetResize
+                if self.transform.transforms[-2].box_normalization:
+                    new_h_scale, new_w_scale = image.size()[1:]
+
+                x1 = boxes[i][0] * new_w_scale
+                y1 = boxes[i][1] * new_h_scale
+                x2 = boxes[i][2] * new_w_scale
+                y2 = boxes[i][3] * new_h_scale
 
                 # print(boxes[i], ':', self.coco_ids_to_class_names[self.coco_ids[labels[i]]])
 
@@ -222,9 +227,8 @@ class COCO_Dataset(Dataset):
             annotation = np.zeros((1, 5))
             annotation[0, :4] = anno_dict['bbox']
 
-            annotation[0, 4] = self.coco_ids_to_continuous_ids[
-                anno_dict['category_id']]  # 원래 category_id가 18이면 들어가는 값은 16
-            annotations = np.append(annotations, annotation, axis=0)  # np.shape()
+            annotation[0, 4] = self.coco_ids_to_continuous_ids[anno_dict['category_id']]  # 원래 category_id가 18이면 들어가는 값은 16
+            annotations = np.append(annotations, annotation, axis=0)
 
         # transform from [x, y, w, h] to [x1, y1, x2, y2]
         annotations[:, 2] = annotations[:, 0] + annotations[:, 2]
@@ -255,7 +259,37 @@ class COCO_Dataset(Dataset):
 
 
 if __name__ == '__main__':
-    coco_dataset = COCO_Dataset(root="D:/data/coco", set_name='val2017', split='train', download=True, resize=600)
+
+    device = torch.device('cuda:0')
+    import torchvision.transforms as transforms
+    import dataset.detection_transforms as det_transforms
+
+    transform_train = det_transforms.DetCompose([
+        # ------------- for Tensor augmentation -------------
+        det_transforms.DetRandomPhotoDistortion(),
+        det_transforms.DetRandomHorizontalFlip(),
+        det_transforms.DetToTensor(),
+        # ------------- for Tensor augmentation -------------
+        det_transforms.DetRandomZoomOut(max_scale=3),
+        det_transforms.DetRandomZoomIn(),
+        det_transforms.DetResize(size=(600, 600), box_normalization=True),
+        det_transforms.DetNormalize(mean=[0.485, 0.456, 0.406],
+                                    std=[0.229, 0.224, 0.225])
+    ])
+
+    transform_test = det_transforms.DetCompose([
+        det_transforms.DetToTensor(),
+        det_transforms.DetResize(size=800, max_size=1333, box_normalization=True),
+        det_transforms.DetNormalize(mean=[0.485, 0.456, 0.406],
+                                    std=[0.229, 0.224, 0.225])
+    ])
+
+    coco_dataset = COCO_Dataset(root="D:/data/coco",
+                                split='train',
+                                download=True,
+                                transform=transform_test,
+                                visualization=True)
+
     train_loader = torch.utils.data.DataLoader(coco_dataset,
                                                batch_size=1,
                                                collate_fn=coco_dataset.collate_fn,
@@ -271,4 +305,4 @@ if __name__ == '__main__':
         images = images.to(device)
         boxes = [b.to(device) for b in boxes]
         labels = [l.to(device) for l in labels]
-        print(labels)
+        # print(labels)
