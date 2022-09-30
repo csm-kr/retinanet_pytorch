@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from abc import ABCMeta, abstractmethod
-from config import device
+# from config import device
 from utils import cxcy_to_xy, xy_to_cxcy
 
 
@@ -16,7 +16,7 @@ class Anchor(metaclass=ABCMeta):
 
 
 class RETINA_Anchor(Anchor):
-    def create_anchors(self, img_size):
+    def create_anchors(self, img_size, gpu_id):
 
         print('make retina anchors')
         pyramid_levels = np.array([3, 4, 5, 6, 7])
@@ -62,7 +62,7 @@ class RETINA_Anchor(Anchor):
                             center_anchors.append(anchor)
 
         center_anchors = np.array(center_anchors).astype(np.float32)
-        center_anchors = torch.FloatTensor(center_anchors).to(device)
+        center_anchors = torch.FloatTensor(center_anchors).to(gpu_id)
 
         visualization = False
         if visualization:

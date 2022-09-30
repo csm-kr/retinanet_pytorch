@@ -2,7 +2,7 @@ import numpy as np
 import torch
 from math import sqrt
 from abc import ABCMeta, abstractmethod
-from config import device
+# from config import device
 # from util.utils import cxcy_to_xy, xy_to_cxcy, find_jaccard_overlap
 from utils import find_jaccard_overlap, xy_to_cxcy, xy_to_cxcy2
 from collections import OrderedDict
@@ -26,7 +26,7 @@ class RETINA_Coder(Coder):
     def __init__(self, opts):
         super().__init__()
         self.data_type = opts.data_type
-        self.center_anchor = RETINA_Anchor('retina').create_anchors(img_size=opts.resize)
+        self.center_anchor = RETINA_Anchor('retina').create_anchors(img_size=opts.resize, gpu_id=opts.gpu_id)
         self.num_classes = opts.num_classes
 
         # standard variance for encoding and decoding.It is small since the boxes are more accurate.
