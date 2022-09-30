@@ -62,7 +62,7 @@ def train_one_epoch(epoch, vis, train_loader, model, criterion, optimizer, sched
                          update='append',
                          opts=dict(xlabel='step',
                                    ylabel='Loss',
-                                   title='training loss',
+                                   title='training loss for {}'.format(opts.name),
                                    legend=['Total Loss', 'Cls Loss', 'Loc Loss']))
 
     # # 각 epoch 마다 저장

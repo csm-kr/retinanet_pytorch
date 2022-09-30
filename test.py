@@ -33,8 +33,6 @@ def test_and_eval(epoch, device, vis, test_loader, model, criterion, opts, xl_lo
 
         for idx, data in enumerate(test_loader):
 
-            if idx == 517:
-                print(data)
             images = data[0]
             boxes = data[1]
             labels = data[2]
@@ -92,7 +90,7 @@ def test_and_eval(epoch, device, vis, test_loader, model, criterion, opts, xl_lo
                      update='append',
                      opts=dict(xlabel='step',
                                ylabel='test',
-                               title='test loss',
+                               title='test loss and map for {}'.format(opts.name),
                                legend=['test Loss', 'mAP']))
 
         if xl_log_saver is not None:

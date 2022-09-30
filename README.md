@@ -13,7 +13,7 @@ re-implementation of Retinanet detection : https://arxiv.org/abs/1708.02002
 ```
 - batch size : 16
 - optimizer : SGD
-- epoch : 13 
+- epoch : 30 
 - initial learning rate 0.01
 - weight decay : 5e-4
 - momentum : 0.9

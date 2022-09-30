@@ -10,7 +10,7 @@ data_type = coco
 resize = 600
 
 # train
-epoch = 13
+epoch = 30
 
 # distributed
 rank = 0
