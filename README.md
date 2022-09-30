@@ -2,124 +2,102 @@
 
 re-implementation of Retinanet detection : https://arxiv.org/abs/1708.02002
 
-### Setting
+### Requirements
 
 - Python 3.7
 - Numpy
 - pytorch >= 1.5.0 
 
+### Training Setting
+
+```
+- batch size : 16
+- optimizer : SGD
+- epoch : 13 
+- initial learning rate 0.01
+- weight decay : 5e-4
+- momentum : 0.9
+- scheduler : cosineannealing LR (min : 5e-5)
+```
+
 ### TODO List
 
 - [x] Dataset
+- [x] COCO 
+- [x] VOC 
 - [x] Model
 - [x] Loss (Focal loss and smooth l1 loss)
 - [x] Coder
 - [x] Distributed training (distributed data parallel)
 
-### Experiment
-- [x] COCO 
-- [ ] VOC 
+### Results
 
-COCO
 
-- quantitative results
+- VOC
+
+```
+start..evaluation
+85.76% = aeroplane AP 
+80.25% = bicycle AP 
+81.58% = bird AP 
+68.81% = boat AP 
+54.17% = bottle AP 
+86.81% = bus AP 
+89.26% = car AP 
+91.04% = cat AP 
+57.68% = chair AP 
+70.44% = cow AP 
+75.21% = diningtable AP 
+83.24% = dog AP 
+75.26% = horse AP 
+82.89% = motorbike AP 
+81.87% = person AP 
+50.89% = pottedplant AP 
+80.59% = sheep AP 
+77.87% = sofa AP 
+85.40% = train AP 
+76.09% = tvmonitor AP 
+mAP = 76.76%
+it takes 117.71sec.
+0.7675624038181124
+Eval Time : 379.8731
+```
+
+- COCO
+
+
+```
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.347
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.533
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.373
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.173
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.388
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.501
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.307
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.467
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.489
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.294
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.550
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.670
+0.346526727016717
+
+```
+
 
 |methods     | Traning Dataset   |    Testing Dataset     | Resolution | AP        |AP50     |AP75    |Time | Fps  |
 |------------|-------------------| ---------------------- | ---------- | --------- |---------|--------| ----| ---- |
 |papers      | COCOtrain2017     |  COCO test-dev         | 600 x 600  |  34.0     |52.5     |36.5    |98   |10.20 |
 |papers      | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  34.3     |53.2     |36.9    |98   |10.20 |
-|ours        | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  31.9     |50.0     |34.0    |67   |14.85 |
+|ours        | COCOtrain2017     |  COCO test-dev         | 600 x 600  |  -     |-     |-    |-   |- |
+|ours        | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  -     |-     |-    |-   |- |
 
-<!-- |ours*       | COCOtrain2017     |  COCO test-dev         | 600 x 600  |**34.7**   |**53.6** |**37.3**|67   |14.85 | -->
-<!-- |ours*       | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |**34.7**   |**53.5** |**37.1**|67   |14.85 | -->
+- VOC
 
-- qualitative results
-
-![](./figure/qualitative_results/1.JPG)
-![](./figure/qualitative_results/2.JPG)
-![](./figure/qualitative_results/3.JPG)
-![](./figure/qualitative_results/4.JPG)
-
-### scheduler
-
-- we use step LR scheduler scheme.
-
-- whole training epoch is 13 and learning rate decay is at 9, 11
-
-```
-papers trained for 90k iterations with 16 batch.
-when it comes to 1 epoch, number of training image(117266) / batch(16) = 7329.125 iterations (7.3k)
-so 90k is about 13 epoch due to 7.3K * 13 = 94.9k 
-and at 60k, 80k learning rate is divided by 10 to 1e-3, 1e-4
-
-In this repo, for convinience of calculation to epochs, 
-whole training epoch 13 (about 94.9k iterations)
-learning rate decay at after 8 (65k), 11 (87k) epoch each
-
- paper     | this repo  | Learning Rate  
-0k ~ 60K   | 0K ~ 65k   | 1e-2
-60K ~ 80K  | 65k ~ 87k  | 1e-3
-80K ~ 90K  | 87k ~ 95k  | 1e-4
-``` 
-
-<!-- - whole training epoch is 60 and learning rate decay is at 30, 45 -->
-
-### training options
-
-- batch : 16
-- scheduler : step LR
-- loss : focal loss and smooth l1 loss
-- dataset : coco
-- epoch : 13
-- gpu : nvidia geforce rtx 3090 * 2EA
-- lr : 1e-2
-
-### training
-
-- dataset
-
-    train : trainval35k == train2017
-
-    test : minval2014 == val2017
-
-- data augmentation
-
-    only use horizontal flipping same as papers.
 
 - trained weight can get at [here](https://livecauac-my.sharepoint.com/:u:/g/personal/csm8167_cau_ac_kr/EUDJTzLdWyxNjoGfYapaGCUBwsrjK6R5yr77Uk4YnHubBw?e=nQRtMH)
 
 
-<!-- 2. this repo uses data augmentation (random crop, expand, flip, photometric distortion, resize) refers to https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Object-Detection/blob/master/utils.py -->
-
-- results
-
-    minival eval
-    
-```
-Loading and preparing results...
-DONE (t=5.93s)
-creating index...
-index created!
-Running per image evaluation...
-Evaluate annotation type *bbox*
-DONE (t=67.32s).
-Accumulating evaluation results...
-DONE (t=13.30s).
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.319
- Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.500
- Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.340
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.153
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.357
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.462
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.285
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.458
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.497
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.273
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.564
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.682
-0.3185735964212328
-Eval Time : 342.2677
-```
+### Distributed learning
 
 - Distributed Data Parallel for fully using the gpu memory and decreasing training time
 ```
@@ -163,20 +141,42 @@ Eval Time : 342.2677
  240x s/epoch
 training time : 285x s/epoch -> 240x s/epoch (improvement about 15 %)
 
+### Quick Start
+
+- training
+```
+main.py --config ./configs/retinanet_coco_train.txt
+main.py --config ./configs/retinanet_voc_train.txt
+```
+
+- testing
+```
+test.py --config ./configs/retinanet_coco_test.txt
+test.py --config ./configs/retinanet_voc_test.txt
+```
+
+- demo
+```
+demo.py --config ./configs/retinanet_coco_demo.txt
+demo.py --config ./configs/retinanet_voc_demo.txt
+```
+
 ### Reference
-
-ssd tutorial : data augmentation and detection structure
-
+```
 https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Object-Detection
-
-retina net pytorch
-
 https://github.com/NVIDIA/retinanet-examples
-
 https://github.com/yhenon/pytorch-retinanet
-
 https://github.com/liangheming/retinanetv1
+```
 
-<!-- ### Start Guide --> 
-<!--1. --> 
-
+### Citation
+If you found this implementation and pretrained model helpful, please consider citation
+```
+@misc{csm-kr_retinanet_pytorch,
+  author={Sungmin, Cho},
+  publisher = {GitHub},
+  title={retinanet_pytorch},
+  url={https://github.com/csm-kr/retinanet_pytorch},
+  year={2022},
+}
+```
