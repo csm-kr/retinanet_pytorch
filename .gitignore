@@ -1,12 +1,11 @@
 # data
 data/
-coco/
-voc/
-demo_figures/
 
 # analysis
 analysis/
 figure/others
+
+detection_results/
 
 # vscode setting
 .vscode

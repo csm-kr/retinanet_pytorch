@@ -2,7 +2,7 @@
 name = retinanet_coco
 
 # data
-batch_size = 16
+batch_size = 1
 data_root = /home/cvmlserver7/Sungmin/data/coco
 data_type = coco
 
@@ -11,7 +11,6 @@ resize = 600
 
 # test
 test_epoch = 'best'
-thres = 0.05
 
 # distributed
 rank = 0

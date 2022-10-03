@@ -12,8 +12,7 @@ num_classes = 81
 thres = 0.5
 
 # demo
-demo_root = ./demo_figures/friends
-data_type = coco
+demo_root = ./demo_figures/coco
 demo_image_type = jpg
 # demo_vis_true
 

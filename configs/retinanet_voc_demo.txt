@@ -1,22 +1,18 @@
-# train
+# config
 name = retinanet_voc
 
 # data
-data_root = D:/data/voc
 data_type = voc
-resize = 600
 
-# train
-batch_size = 4
-epoch = 13
-lr = 0.01
+# model
+resize = 600
+num_classes = 21
 
 # test
 thres = 0.5
 
-# demo_root
+# demo
 demo_root = ./demo_figures/voc
-data_type = voc
 demo_image_type = jpg
 # demo_vis_true
 
