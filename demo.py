@@ -53,10 +53,11 @@ def demo(epoch, device, model, opts):
         demo_result_path = os.path.join(opts.demo_root, 'detection_results')
         os.makedirs(demo_result_path, exist_ok=True)
 
+        im_show = cv2.convertScaleAbs(im_show, alpha=(255.0))
+        cv2.imwrite(os.path.join(demo_result_path, os.path.basename(img_path)), im_show)
+
         if opts.demo_vis:
             # 0 ~ 1 image -> 0~255 image
-            im_show = cv2.convertScaleAbs(im_show, alpha=(255.0))
-            cv2.imwrite(os.path.join(demo_result_path, os.path.basename(img_path)), im_show)
             cv2.imshow('i', im_show)
             cv2.waitKey(0)
 
@@ -151,8 +152,8 @@ if __name__ == "__main__":
     # 3. visdom
     vis = None
 
-    # 4. dataloader
-    _, test_loader = build_dataloader(opts)
+    # # 4. dataloader
+    # _, test_loader = build_dataloader(opts)
 
     # 5. network
     model = build_model(opts).to(device)

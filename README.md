@@ -65,22 +65,22 @@ Eval Time : 379.8731
 
 - COCO
 
-
 ```
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.347
- Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.533
- Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.373
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.173
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.388
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.501
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.307
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.467
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.489
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.294
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.550
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.670
-0.346526727016717
-
+Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.345
+Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.533
+Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.369
+Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.181
+Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.383
+Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.493
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.307
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.464
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.488
+Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.291
+Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.545
+Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.669
+mAP :  0.3446613792728923
+mean Loss :  0.3393706703444406
+Eval Time : 253.8811
 ```
 
 
@@ -89,7 +89,7 @@ Eval Time : 379.8731
 |papers      | COCOtrain2017     |  COCO test-dev         | 600 x 600  |  34.0     |52.5     |36.5    |98   |10.20 |
 |papers      | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  34.3     |53.2     |36.9    |98   |10.20 |
 |ours        | COCOtrain2017     |  COCO test-dev         | 600 x 600  |  -     |-     |-    |-   |- |
-|ours        | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  -     |-     |-    |-   |- |
+|ours        | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  34.5     |53.3     |36.9    |-   |- |
 
 - VOC
 

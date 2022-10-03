@@ -2,21 +2,18 @@
 name = retinanet_coco
 
 # data
-data_root = D:/data/voc
-data_type = voc
-resize = 600
+data_type = coco
 
-# train
-batch_size = 4
-epoch = 13
-lr = 0.01
+# model
+resize = 600
+num_classes = 81
 
 # test
 thres = 0.5
 
-# demo_root
-demo_root = ./demo_figures/voc
-data_type = voc
+# demo
+demo_root = ./demo_figures/friends
+data_type = coco
 demo_image_type = jpg
 # demo_vis_true
 

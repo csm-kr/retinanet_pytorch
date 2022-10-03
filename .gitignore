@@ -1,5 +1,8 @@
 # data
 data/
+coco/
+voc/
+demo_figures/
 
 # analysis
 analysis/
