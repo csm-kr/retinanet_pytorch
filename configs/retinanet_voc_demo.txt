@@ -9,10 +9,11 @@ resize = 600
 num_classes = 21
 
 # test
-thres = 0.5
+thres = 0.05
 
 # demo
 demo_root = ./demo_figures/voc
+# demo_root = /home/cvmlserver7/Sungmin/data/voc/VOCtest_06-Nov-2007/VOCdevkit/VOC2007/JPEGImages
 demo_image_type = jpg
 # demo_vis_true
 
