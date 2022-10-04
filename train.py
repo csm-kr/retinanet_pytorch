@@ -1,6 +1,7 @@
 import os
 import time
 import torch
+from tqdm import tqdm
 
 
 def train_one_epoch(epoch, vis, train_loader, model, criterion, optimizer, scheduler, opts):
@@ -13,11 +14,11 @@ def train_one_epoch(epoch, vis, train_loader, model, criterion, optimizer, sched
     model.train()
     model.module.freeze_bn()  # as attach module, we use data parallel
 
-    for idx, datas in enumerate(train_loader):
+    for idx, data in enumerate(tqdm(train_loader)):
 
-        images = datas[0]
-        boxes = datas[1]
-        labels = datas[2]
+        images = data[0]
+        boxes = data[1]
+        labels = data[2]
 
         images = images.to(local_gpu_id)
         boxes = [b.to(local_gpu_id) for b in boxes]

@@ -32,39 +32,33 @@ re-implementation of Retinanet detection : https://arxiv.org/abs/1708.02002
 
 ### Results
 
-
 - VOC
-
 ```
 start..evaluation
-85.76% = aeroplane AP 
-80.25% = bicycle AP 
-81.58% = bird AP 
-68.81% = boat AP 
-54.17% = bottle AP 
-86.81% = bus AP 
-89.26% = car AP 
-91.04% = cat AP 
-57.68% = chair AP 
-70.44% = cow AP 
-75.21% = diningtable AP 
-83.24% = dog AP 
-75.26% = horse AP 
-82.89% = motorbike AP 
-81.87% = person AP 
-50.89% = pottedplant AP 
-80.59% = sheep AP 
-77.87% = sofa AP 
-85.40% = train AP 
-76.09% = tvmonitor AP 
-mAP = 76.76%
-it takes 117.71sec.
-0.7675624038181124
-Eval Time : 379.8731
+90.25% = aeroplane AP 
+84.79% = bicycle AP 
+87.98% = bird AP 
+76.75% = boat AP 
+63.18% = bottle AP 
+90.86% = bus AP 
+92.45% = car AP 
+95.38% = cat AP 
+66.37% = chair AP 
+91.59% = cow AP 
+78.50% = diningtable AP 
+92.67% = dog AP 
+90.68% = horse AP 
+86.94% = motorbike AP 
+84.95% = person AP 
+59.69% = pottedplant AP 
+89.97% = sheep AP 
+81.69% = sofa AP 
+89.28% = train AP 
+83.85% = tvmonitor AP 
+mAP = 83.89%
 ```
 
 - COCO
-
 ```
 Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.345
 Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.533
@@ -82,20 +76,12 @@ mAP :  0.3446613792728923
 mean Loss :  0.3393706703444406
 Eval Time : 253.8811
 ```
-
-
 |methods     | Traning Dataset   |    Testing Dataset     | Resolution | AP        |AP50     |AP75    |Time | Fps  |
 |------------|-------------------| ---------------------- | ---------- | --------- |---------|--------| ----| ---- |
 |papers      | COCOtrain2017     |  COCO test-dev         | 600 x 600  |  34.0     |52.5     |36.5    |98   |10.20 |
 |papers      | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  34.3     |53.2     |36.9    |98   |10.20 |
 |ours        | COCOtrain2017     |  COCO test-dev         | 600 x 600  |  -     |-     |-    |-   |- |
 |ours        | COCOtrain2017     |  COCOval2017(minival)  | 600 x 600  |  34.5     |53.3     |36.9    |-   |- |
-
-- VOC
-
-
-- trained weight can get at [here](https://livecauac-my.sharepoint.com/:u:/g/personal/csm8167_cau_ac_kr/EUDJTzLdWyxNjoGfYapaGCUBwsrjK6R5yr77Uk4YnHubBw?e=nQRtMH)
-
 
 ### Distributed learning
 
@@ -149,13 +135,32 @@ main.py --config ./configs/retinanet_coco_train.txt
 main.py --config ./configs/retinanet_voc_train.txt
 ```
 
-- testing
+- testing & demo
+
+1- download "VOC, COCO" best weights from [here](https://livecauac-my.sharepoint.com/:u:/g/personal/csm8167_cau_ac_kr/ETi9zFxZ1E9Hnr63z4Azu3EBMJJsLzeNHR5IEHFDJScVbg?e=6mSW8T) and [here](https://livecauac-my.sharepoint.com/:u:/g/personal/csm8167_cau_ac_kr/Ee2ebGMjDCNAmMFWJvEFZoABWiDiSHSruCErn1Jg4NOHsA?e=ZGodv2)
+
+2- and set saves file like bellows:
+```
+logs
+    |-- retinanet_coco
+          |-- saves
+                |-- retinanet_coco.best.pth.tar
+    |-- retinanet_voc
+          |-- saves
+                |-- retinanet_voc.best.pth.tar
+```
+
+3- and run script like bellows:
+
+(test)
+
 ```
 test.py --config ./configs/retinanet_coco_test.txt
 test.py --config ./configs/retinanet_voc_test.txt
 ```
 
-- demo
+(demo)
+
 ```
 demo.py --config ./configs/retinanet_coco_demo.txt
 demo.py --config ./configs/retinanet_voc_demo.txt

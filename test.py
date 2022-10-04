@@ -2,6 +2,7 @@ import os
 import time
 import torch
 import numpy as np
+from tqdm import tqdm
 from evaluation.evaluator import Evaluator
 
 
@@ -31,7 +32,7 @@ def test_and_eval(epoch, device, vis, test_loader, model, criterion, opts, xl_lo
         else:
             print('VOC dataset evaluation...')
 
-        for idx, data in enumerate(test_loader):
+        for idx, data in enumerate(tqdm(test_loader)):
 
             images = data[0]
             boxes = data[1]
