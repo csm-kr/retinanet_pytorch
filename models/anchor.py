@@ -1,6 +1,5 @@
 import torch
 import numpy as np
-from utils import cxcy_to_xy, xy_to_cxcy
 
 
 def create_anchors(img_size):
@@ -50,8 +49,11 @@ def create_anchors(img_size):
     center_anchors = np.array(center_anchors).astype(np.float32)
     center_anchors = torch.FloatTensor(center_anchors)
 
-    visualization = False
+    visualization = True
     if visualization:
+        from utils import cxcy_to_xy, xy_to_cxcy
+        from matplotlib.patches import Rectangle
+        import matplotlib.pyplot as plt
 
         # original
         corner_anchors = cxcy_to_xy(center_anchors)
@@ -60,18 +62,14 @@ def create_anchors(img_size):
         corner_anchors = cxcy_to_xy(center_anchors).clamp(0, 1)
         center_anchors = xy_to_cxcy(corner_anchors)
 
-        from matplotlib.patches import Rectangle
-        import matplotlib.pyplot as plt
-
         size = 300
         img = torch.ones([size, size, 3], dtype=torch.float32)
-
-        plt.imshow(img)
         axes = plt.axes()
-        axes.set_xlim([- 1 / 3 * size, size])
-        axes.set_ylim([- 1 / 3 * size, size])
+        axes.set_xlim([- 1 / 3 * size, size + 1 / 3 * size])
+        axes.set_ylim([- 1 / 3 * size, size + 1 / 3 * size])
+        plt.imshow(img)
 
-        for anchor in corner_anchors[:10]:
+        for anchor in corner_anchors[:100]:
             x1 = anchor[0] * size
             y1 = anchor[1] * size
             x2 = anchor[2] * size
@@ -85,5 +83,8 @@ def create_anchors(img_size):
                                           facecolor='none'
                                           ))
         plt.show()
-
     return center_anchors
+
+
+if __name__ == "__main__":
+    anchors = create_anchors(img_size=600)  # torch [8732, 4] 0 ~ 1
