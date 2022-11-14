@@ -87,25 +87,25 @@ def main_worker(rank, opts):
             train_loader.sampler.set_epoch(epoch)
 
         # 11. train
-        train_one_epoch(epoch=epoch,
+        train_one_epoch(opts=opts,
+                        epoch=epoch,
                         vis=vis,
                         train_loader=train_loader,
                         model=model,
                         criterion=criterion,
                         optimizer=optimizer,
-                        scheduler=scheduler,
-                        opts=opts)
+                        scheduler=scheduler)
 
-        # # 12. test
-        result_best = test_and_eval(epoch=epoch,
-                                    device=device,
-                                    vis=vis,
-                                    test_loader=test_loader,
-                                    model=model,
-                                    criterion=criterion,
-                                    opts=opts,
-                                    xl_log_saver=xl_log_saver,
-                                    result_best=result_best)
+        # 12. test
+        test_and_eval(opts=opts,
+                      epoch=epoch,
+                      vis=vis,
+                      test_loader=test_loader,
+                      model=model,
+                      criterion=criterion,
+                      xl_log_saver=xl_log_saver,
+                      result_best=result_best)
+
         scheduler.step()
 
 

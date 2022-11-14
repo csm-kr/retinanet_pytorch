@@ -7,7 +7,7 @@ from evaluation.evaluator import Evaluator
 
 
 @torch.no_grad()
-def test_and_eval(epoch, device, vis, test_loader, model, criterion, opts, xl_log_saver=None, result_best=None):
+def test_and_eval(opts, epoch, vis, test_loader, model, criterion, xl_log_saver=None, result_best=None, is_load=False):
 
     if opts.rank == 0:
 
@@ -15,12 +15,13 @@ def test_and_eval(epoch, device, vis, test_loader, model, criterion, opts, xl_lo
         evaluator = Evaluator(data_type=opts.data_type)
         print('Validation of epoch [{}]'.format(epoch))
         model.eval()
-        local_gpu_id = int(opts.gpu_ids[opts.rank])
+        device = torch.device(f'cuda:{int(opts.gpu_ids[opts.rank])}')
 
         # 1. load .pth
-        checkpoint = torch.load(f=os.path.join(opts.log_dir, opts.name, 'saves', opts.name + '.{}.pth.tar'.format(epoch)),
-                                map_location=device)
-        model.load_state_dict(checkpoint['model_state_dict'])
+        if is_load:
+            checkpoint = torch.load(f=os.path.join(opts.log_dir, opts.name, 'saves', opts.name + '.{}.pth.tar'.format(epoch)),
+                                    map_location=device)
+            model.load_state_dict(checkpoint['model_state_dict'])
         model.eval()
 
         tic = time.time()
@@ -39,10 +40,10 @@ def test_and_eval(epoch, device, vis, test_loader, model, criterion, opts, xl_lo
             labels = data[2]
 
             # ---------- cuda ----------
-            images = images.to(local_gpu_id)
-            boxes = [b.to(local_gpu_id) for b in boxes]
-            labels = [l.to(local_gpu_id) for l in labels]
-            anchors = model.module.anchors.to(local_gpu_id)
+            images = images.to(device)
+            boxes = [b.to(device) for b in boxes]
+            labels = [l.to(device) for l in labels]
+            anchors = model.module.anchors.to(device)
 
             # ---------- loss ----------
             pred = model(images)
@@ -87,11 +88,11 @@ def test_and_eval(epoch, device, vis, test_loader, model, criterion, opts, xl_lo
             # loss plot
             vis.line(X=torch.ones((1, 2)).cpu() * epoch,  # step
                      Y=torch.Tensor([mean_loss, mAP]).unsqueeze(0).cpu(),
-                     win='test_loss',
+                     win='test_loss_' + opts.name,
                      update='append',
                      opts=dict(xlabel='step',
                                ylabel='test',
-                               title='test loss and map for {}'.format(opts.name),
+                               title='test_loss_' + opts.name,
                                legend=['test Loss', 'mAP']))
 
         if xl_log_saver is not None:
@@ -103,9 +104,11 @@ def test_and_eval(epoch, device, vis, test_loader, model, criterion, opts, xl_lo
                 print("update best model")
                 result_best['epoch'] = epoch
                 result_best['mAP'] = mAP
+                if checkpoint is None:
+                    checkpoint = {'epoch': epoch,
+                                  'model_state_dict': model.state_dict()}
                 torch.save(checkpoint, os.path.join(opts.log_dir, opts.name, 'saves', opts.name + '.best.pth.tar'))
-
-            return result_best
+        return
 
 
 if __name__ == "__main__":

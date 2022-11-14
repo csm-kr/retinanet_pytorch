@@ -4,12 +4,10 @@ import torch
 from tqdm import tqdm
 
 
-def train_one_epoch(epoch, vis, train_loader, model, criterion, optimizer, scheduler, opts):
+def train_one_epoch(opts, epoch, vis, train_loader, model, criterion, optimizer, scheduler):
 
-    if opts.rank == 0:
-        print('Training of epoch [{}]'.format(epoch))
-
-    local_gpu_id = int(opts.gpu_ids[opts.rank])
+    print('Training of epoch [{}]'.format(epoch))
+    device = torch.device(f'cuda:{int(opts.gpu_ids[opts.rank])}')
     tic = time.time()
     model.train()
     model.module.freeze_bn()  # as attach module, we use data parallel
@@ -20,10 +18,10 @@ def train_one_epoch(epoch, vis, train_loader, model, criterion, optimizer, sched
         boxes = data[1]
         labels = data[2]
 
-        images = images.to(local_gpu_id)
-        boxes = [b.to(local_gpu_id) for b in boxes]
-        labels = [l.to(local_gpu_id) for l in labels]
-        anchors = model.module.anchors.to(local_gpu_id)
+        images = images.to(device)
+        boxes = [b.to(device) for b in boxes]
+        labels = [l.to(device) for l in labels]
+        anchors = model.module.anchors.to(device)
 
         pred = model(images)
         # pred = [pred[0].tolist(), pred[1].tolist()]
@@ -59,11 +57,11 @@ def train_one_epoch(epoch, vis, train_loader, model, criterion, optimizer, sched
                 # loss plot
                 vis.line(X=torch.ones((1, 3)).cpu() * idx + epoch * train_loader.__len__(),  # step
                          Y=torch.Tensor([loss, cls_loss, loc_loss]).unsqueeze(0).cpu(),
-                         win='train_loss',
+                         win='train_loss_' + opts.name,
                          update='append',
                          opts=dict(xlabel='step',
                                    ylabel='Loss',
-                                   title='training loss for {}'.format(opts.name),
+                                   title='train_loss_{}'.format(opts.name),
                                    legend=['Total Loss', 'Cls Loss', 'Loc Loss']))
 
     # # 각 epoch 마다 저장
@@ -71,12 +69,12 @@ def train_one_epoch(epoch, vis, train_loader, model, criterion, optimizer, sched
         save_path = os.path.join(opts.log_dir, opts.name, 'saves')
         os.makedirs(save_path, exist_ok=True)
 
-        checkpoint = {'epoch': epoch,
-                      'model_state_dict': model.state_dict(),
-                      'optimizer_state_dict': optimizer.state_dict(),
-                      'scheduler_state_dict': scheduler.state_dict()}
-
-        torch.save(checkpoint, os.path.join(save_path, opts.name + '.{}.pth.tar'.format(epoch)))
+        # checkpoint = {'epoch': epoch,
+        #               'model_state_dict': model.state_dict(),
+        #               'optimizer_state_dict': optimizer.state_dict(),
+        #               'scheduler_state_dict': scheduler.state_dict()}
+        #
+        # torch.save(checkpoint, os.path.join(save_path, opts.name + '.{}.pth.tar'.format(epoch)))
 
 
 
