@@ -49,7 +49,7 @@ def create_anchors(img_size):
     center_anchors = np.array(center_anchors).astype(np.float32)
     center_anchors = torch.FloatTensor(center_anchors)
 
-    visualization = True
+    visualization = False
     if visualization:
         from utils import cxcy_to_xy, xy_to_cxcy
         from matplotlib.patches import Rectangle

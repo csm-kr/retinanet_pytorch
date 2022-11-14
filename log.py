@@ -17,7 +17,7 @@ class XLLogSaver(object):
     def init_xl_saver(self):
 
         os.makedirs(self.xl_folder_name, exist_ok=True)
-        self.check_duplication()
+        # self.check_duplication()
 
         self.wb = openpyxl.Workbook()
         self.wb.save(os.path.join(self.xl_folder_name, self.xl_file_name + '.xlsx'))

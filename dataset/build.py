@@ -11,12 +11,12 @@ def build_dataloader(opts):
 
     transform_train = det_transforms.DetCompose([
         # ------------- for Tensor augmentation -------------
-        det_transforms.DetRandomPhotoDistortion(),
+        # det_transforms.DetRandomPhotoDistortion(),
         det_transforms.DetRandomHorizontalFlip(),
         det_transforms.DetToTensor(),
         # ------------- for Tensor augmentation -------------
-        det_transforms.DetRandomZoomOut(max_scale=3),
-        det_transforms.DetRandomZoomIn(),
+        # det_transforms.DetRandomZoomOut(max_scale=4),
+        # det_transforms.DetRandomZoomIn(),
         det_transforms.DetResize(size=size, box_normalization=True),
         det_transforms.DetNormalize(mean=[0.485, 0.456, 0.406],
                                     std=[0.229, 0.224, 0.225])

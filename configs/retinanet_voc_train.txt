@@ -1,17 +1,22 @@
-# config
+## name
 name = retinanet_voc
 
-# data
-batch_size = 16
+## visdom
+visdom_port = 7777
+
+## data
 data_root = /home/cvmlserver7/Sungmin/data/voc
 data_type = voc
 
-# model
-resize = 600
+## training
+# epoch = 13
+# batch_size = 4
+# lr = 0.01
 
-# train
-epoch = 30
+## testing
+# thres = 0.05
 
-# distributed
-rank = 0
-gpu_ids = [0, 1, 2, 3]
+## demo
+
+## distributed
+gpu_ids = 3
